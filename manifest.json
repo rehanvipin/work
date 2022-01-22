@@ -1,14 +1,14 @@
 {
   "name": "Field Manual",
   "short_name": "Field Manual",
-  "start_url": "/work/",
-  "scope": "/work/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/work/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]
