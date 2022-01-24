@@ -2,68 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://work.rehanvipin.me/docs/example/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/table-of-contents/with-toc/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/table-of-contents/without-toc/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/posts/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/table-of-contents/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/collapsed/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/posts/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/posts/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/categories/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/categories/Development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/posts/hugoisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/go/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/collapsed/3rd-level/4th-level/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/collapsed/3rd-level/</loc>
-  </url><url>
-    <loc>https://work.rehanvipin.me/docs/example/hidden/</loc>
+    <loc>https://work.rehanvipin.me/docs/angular/</loc>
   </url><url>
     <loc>https://work.rehanvipin.me/docs/shortcodes/</loc>
+  </url><url>
+    <loc>https://work.rehanvipin.me/posts/</loc>
+    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
+  </url><url>
+    <loc>https://work.rehanvipin.me/</loc>
+    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
+  </url><url>
+    <loc>https://work.rehanvipin.me/tags/meta/</loc>
+    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
+  </url><url>
+    <loc>https://work.rehanvipin.me/posts/rtfm/</loc>
+    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
+  </url><url>
+    <loc>https://work.rehanvipin.me/tags/</loc>
+    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
   </url><url>
     <loc>https://work.rehanvipin.me/docs/shortcodes/buttons/</loc>
   </url><url>
@@ -81,6 +37,12 @@
   </url><url>
     <loc>https://work.rehanvipin.me/docs/shortcodes/tabs/</loc>
   </url><url>
+    <loc>https://work.rehanvipin.me/categories/</loc>
+  </url><url>
+    <loc>https://work.rehanvipin.me/credits/</loc>
+  </url><url>
     <loc>https://work.rehanvipin.me/docs/</loc>
+  </url><url>
+    <loc>https://work.rehanvipin.me/docs/angular/overview/</loc>
   </url>
 </urlset>

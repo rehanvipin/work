@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angular on Field Manual</title>
+    <link>https://work.rehanvipin.me/docs/angular/</link>
+    <description>Recent content in Angular on Field Manual</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/docs/angular/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overview</title>
+      <link>https://work.rehanvipin.me/docs/angular/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/overview/</guid>
+      <description>An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that.</description>
+    </item>
+    
+  </channel>
+</rss>
