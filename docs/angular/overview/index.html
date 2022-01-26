@@ -19,7 +19,7 @@ Typescript #  Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.058b6ef9098cde9bb214b547bb9cef9c3f8eeb86db317acb0054bc6040c6e513.js" integrity="sha256-BYtu&#43;QmM3puyFLVHu5zvnD&#43;O64bbMXrLAFS8YEDG5RM="></script>
+<script defer src="/en.search.min.05fbbad4bd62cef6379d00cee6ef557c23a5a8f786513adce65bc7b90079be1e.js" integrity="sha256-Bfu61L1izvY3nQDO5u9VfCOlqPeGUTrc5lvHuQB5vh4="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -311,6 +311,9 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#public--private-access">Public / Private access</a></li>
           </ul>
         </li>
+        <li><a href="#the-cli">The CLI</a></li>
+        <li><a href="#hierarchy">Hierarchy</a></li>
+        <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
       </ul>
     </li>
   </ul>
@@ -382,7 +385,27 @@ https://github.com/alex-shpak/hugo-book
 }
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Hip</span>(<span style="color:#e6db74">&#34;sic&#34;</span>, <span style="color:#ae81ff">10</span>);
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">f</span>); <span style="color:#75715e">// { wutdis: &#34;sic&#34;, num: 10 }
-</span></code></pre></div></article>
+</span></code></pre></div><h2 id="the-cli">
+  The CLI
+  <a class="anchor" href="#the-cli">#</a>
+</h2>
+<p>You can create a new project with <code>ng new projectname</code>. The <code>src/app</code> directory is where you&rsquo;d do most of your work. The <code>src/assests</code> directory holds static content like images and site-wide CSS.</p>
+<h2 id="hierarchy">
+  Hierarchy
+  <a class="anchor" href="#hierarchy">#</a>
+</h2>
+<p>When a user visits the site, they are sent to the root component. From where they are routed to the next component and so on till they reach their destination URL. These component trees are &hellip;</p>
+<h2 id="the-bootstrap-process">
+  The bootstrap process
+  <a class="anchor" href="#the-bootstrap-process">#</a>
+</h2>
+<ul>
+<li>The first file that is run is <code>main.ts</code> (as defined in <code>angular.json</code>).</li>
+<li>It bootstraps a module, <code>app/module.ts</code> by default.</li>
+<li>It bootstraps the root component, <code>app/app.component.ts</code> by default.</li>
+<li>The root component is placed in <code>app/index.html</code> which is what is rendered.</li>
+</ul>
+</article>
  
       
 
@@ -424,6 +447,9 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#public--private-access">Public / Private access</a></li>
           </ul>
         </li>
+        <li><a href="#the-cli">The CLI</a></li>
+        <li><a href="#hierarchy">Hierarchy</a></li>
+        <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
       </ul>
     </li>
   </ul>
