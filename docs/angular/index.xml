@@ -11,8 +11,18 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/docs/angular/overview/</guid>
-      <description>An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that.
-Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out online. Its main features are:</description>
+      <description>An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&amp;rsquo;s called a front-end web development framework.
+Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same.</description>
+    </item>
+    
+    <item>
+      <title>Components</title>
+      <link>https://work.rehanvipin.me/docs/angular/components/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/components/</guid>
+      <description>Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
+ Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (the HTML selector) and template. Import this class in app.module.ts and add it to declarations in the NgModule decorator of AppModule.</description>
     </item>
     
   </channel>
