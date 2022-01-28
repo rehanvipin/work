@@ -1,9 +1,10 @@
 ---
 title: 'Overview'
+weight: 1
 ---
 
 # An overview (and miscellaneous stuff)
-Angular is a platform, [apparently](https://angular.io/guide/what-is-angular), that includes a framework, some libraries, and developer tools to work with all of that.
+Angular is a platform, [apparently](https://angular.io/guide/what-is-angular), that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it's called a front-end web development framework.
 
 ## Typescript
 Angular uses TS. It's a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out [online](https://www.typescriptlang.org/play). Its main features are:
@@ -47,14 +48,9 @@ let f = new Hip("sic", 10);
 console.log(f); // { wutdis: "sic", num: 10 }
 ```
 
-## The CLI
-You can create a new project with `ng new projectname`. The `src/app` directory is where you'd do most of your work. The `src/assests` directory holds static content like images and site-wide CSS.
-
-## Hierarchy
-When a user visits the site, they are sent to the root component. From where they are routed to the next component and so on till they reach their destination URL. These component trees are ...
 
 ## The bootstrap process
-* The first file that is run is `main.ts` (as defined in `angular.json`). 
+* The first file that is run is `main.ts` (as defined in `angular.json`  **That's a very useful file**). 
 * It bootstraps a module, `app/module.ts` by default.
 * It bootstraps the root component, `app/app.component.ts` by default.
 * The root component is placed in `app/index.html` which is what is rendered.

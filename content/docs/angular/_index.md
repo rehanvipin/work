@@ -13,3 +13,7 @@ Where am I starting from? Why is that important? It defines what kind of content
 
 ## Course stuff
 I'm following along [The Angular Fundamentals course on Pluralsight](https://www.pluralsight.com/courses/angular-fundamentals). The authors have nice practice exercises [available on their website](https://jcoop.io/angular-practice-exercises/).
+
+This [Crash Course by Traversy Media](https://www.youtube.com/watch?v=3dHNOWTI7H8) is also very good.
+
+Finally, [The Angular docs](https://angular.io/docs) are very good.
