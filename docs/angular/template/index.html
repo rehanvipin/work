@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.92.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The template syntax #  The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
+Binding specs JS in HTML? There are multiple ways you can use JS objects in HTML. Two of them are:
+Interpolation In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &lt;div&gt;{{ some JS expression }}&lt;/div&gt;.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Template Syntax" />
+<meta property="og:description" content="The template syntax #  The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
+Binding specs JS in HTML? There are multiple ways you can use JS objects in HTML. Two of them are:
+Interpolation In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &lt;div&gt;{{ some JS expression }}&lt;/div&gt;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/docs/angular/template/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Template Syntax | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.b1890f5f9e1ba500b395d19750820c24ad927718eda405ab58d7630080b7346b.js" integrity="sha256-sYkPX54bpQCzldGXUIIMJK2SdxjtpAWrWNdjAIC3NGs="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/" class="">Angular</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/template/" class=" active">Template Syntax</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9370f1a5d0248572ac505e0c6d4ad190" class="toggle"  />
+    <label for="section-9370f1a5d0248572ac505e0c6d4ad190" class="flex justify-between">
+      <a  class="">Shortcodes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3fc1bf6d66cd84b896a0af9f40cb1d5" class="toggle"  />
+    <label for="section-d3fc1bf6d66cd84b896a0af9f40cb1d5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/docs/shortcodes/section/" class="">Section</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/section/page1/" class="">Page1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/section/page2/" class="">Page2</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/" >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="/credits" target="_blank" rel="noopener">
+        Credits
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Template Syntax</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-template-syntax">The template syntax</a>
+      <ul>
+        <li><a href="#ngfor"><code>*ngFor</code></a></li>
+        <li><a href="#undefined-values"><code>undefined</code> values</a></li>
+        <li><a href="#ngif"><code>*ngIf</code></a></li>
+        <li><a href="#ngswitch--co"><code>ngSwitch</code> &amp; co</a></li>
+        <li><a href="#adding-classes">Adding classes</a></li>
+        <li><a href="#ngstyle"><code>ngStyle</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="the-template-syntax">
+  The template syntax
+  <a class="anchor" href="#the-template-syntax">#</a>
+</h1>
+<p>The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.</p>
+<details >
+  <summary>Binding specs</summary>
+  <div class="markdown-inner">
+    <h2 id="js-in-html">JS in HTML?</h2>
+<p>There are multiple ways you can use JS objects in HTML. Two of them are:</p>
+<h3 id="interpolation">Interpolation</h3>
+<p>In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: <code>&lt;div&gt;{{ some JS expression }}&lt;/div&gt;</code>. All the public properties of the component class are available. The result is always a string. This is because the <code>toString()</code> method is called on the result of the expression. The binding between the class properties and the text is one way. <strong>Updates to the property will be reflected in the HTML but not the other way around.</strong></p>
+<h3 id="property-binding">Property binding</h3>
+<p>HTML elements have properties e.g. &ldquo;class, style, action, id, nonce, etc&rdquo;. You can set the values of these properties, like so: <code>&lt;div [nonce]=&quot; some JS expression &quot;&gt;&lt;/div&gt;</code>. The result is <strong>not</strong> converted to a string.</p>
+<h3 id="rules-for-expressions">Rules for expressions</h3>
+<p>You can&rsquo;t use a few things, like these:</p>
+<ul>
+<li>Assignment operators</li>
+<li>The <code>new</code> keyword to create objects</li>
+<li><code>;</code> to use multiple expressions</li>
+<li>Global namespace objects like <code>console</code>, <code>window</code>, etc.</li>
+</ul>
+<p>In general, here are a few guidelines you should follow:</p>
+<ul>
+<li>The expression shouldn&rsquo;t have side effects</li>
+<li>Try to keep them simple and fast</li>
+</ul>
+<h3 id="event-binding">Event binding</h3>
+<p>HTML elements also have events that they can emit e.g. &ldquo;click, focus, hover, etc&rdquo;. You can bind these events (which means running code when it emitted) to statements, like so: <code>&lt;div (hover)=&quot; some JS statement &quot;&gt;&lt;/div&gt;</code>.</p>
+<h3 id="rules-for-statements">Rules for statements</h3>
+<p>Statements can have assignments but only with <code>=</code>, not <code>+=</code> or other stuff. They can have multiple expressions separated by <code>;</code> but the other restrictions that held for expressions still hold. They mostly do have side effects.</p>
+
+  </div>
+</details>
+
+<h2 id="ngfor">
+  <code>*ngFor</code>
+  <a class="anchor" href="#ngfor">#</a>
+</h2>
+<p>ngFor is a structural directive. That means that it is capable of changing the DOM structure. It works like a for loop, where for each iteration it creates another instance of the element (and its children) on which it is called. It also provides a template reference variable for the element / its children to use. An example below:</p>
+<pre tabindex="0"><code>&lt;!-- x is the templ ref var and y is a property of the comp class --&gt;
+&lt;figure *ngFor=&quot;let x of y&quot;&gt; 
+    &lt;img [src]=&quot;x.imzSrc&quot;&gt;
+    &lt;figcaption&gt;{{x.imzCap10}}&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre><h2 id="undefined-values">
+  <code>undefined</code> values
+  <a class="anchor" href="#undefined-values">#</a>
+</h2>
+<p>When you try to access an undefined value within a template, Angular will not display that element and it will throw an error in the console :(. If you are expecting something to be undefined you can use the <strong>JavaScript safe navigation operator</strong> <code>?.</code> which returns <code>undefined</code> if its LHS is undefined else goes ahead. 
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining">Check out the syntax on MDN</a>.</p>
+<h2 id="ngif">
+  <code>*ngIf</code>
+  <a class="anchor" href="#ngif">#</a>
+</h2>
+<p>ngIf lets you conditionally render the element it is put on. It decides this based on the expression provided to it, like so: <code>&lt;img *ngIf=&quot;some JS expression&quot;&gt;</code>.<br>
+<blockquote class="book-hint warning">
+  <p>It is important to note that in case the condition is falsy, the entire element is commented out. It&rsquo;s not just hidden by some CSS / HTML property. In case some operations are done when the element is rendered and it is added / removed multiple times, it can <strong>slow down performance</strong>.</p>
+<p>If you want to hide and un-hide the element multiple times you can do so with the HTML attribute &ldquo;hidden&rdquo; which you set like so: <code>&lt;img [hidden]=&quot;some JS expression&quot;&gt;</code>.</p>
+
+</blockquote>
+</p>
+<h2 id="ngswitch--co">
+  <code>ngSwitch</code> &amp; co
+  <a class="anchor" href="#ngswitch--co">#</a>
+</h2>
+<p>This is to ngIf like a switch case is to an if condition. You define the switch condition like so: <code>&lt;div [ngSwitch]=&quot;&quot;&gt;&lt;/div&gt;</code>. On the children you can use either:</p>
+<ul>
+<li><code>&lt;img *ngSwitchCase=&quot;&quot;&gt;</code> to compare particular JS objects (objects, not just strings) OR</li>
+<li><code>&lt;img *ngSwitchDefault&gt;</code> which will come to life if none of the other cases matched</li>
+</ul>
+<h2 id="adding-classes">
+  Adding classes
+  <a class="anchor" href="#adding-classes">#</a>
+</h2>
+<p>There are multiple ways to do this. The simple way is for a single property like so: <code>&lt;img [class.klassname]=&quot;bool JS expression&quot;&gt;</code> which will add the class &ldquo;klassname&rdquo; to the element if the expression is truthy.</p>
+<p>When you want to add multiple classes you can do so with <code>ngClass</code> like so <code>&lt;img [ngClass]=&quot;fancy stuff&quot;&gt;</code> where &ldquo;fancy stuff&rdquo; can be any JS expression that returns one of these:</p>
+<ul>
+<li>An object, where the keys are class names and values are booleans which decide if that class will be added</li>
+<li>A string of space separated class names</li>
+<li>An array of strings, each of which are class names</li>
+</ul>
+<h2 id="ngstyle">
+  <code>ngStyle</code>
+  <a class="anchor" href="#ngstyle">#</a>
+</h2>
+<p>You can add CSS styles too similar to classes. <code>ngStyle</code> has a similar syntax to <code>ngClass</code> except that the return value of the expression should be an object where the <strong>keys are CSS style keys</strong> and <strong>values are CSS style values</strong>. A small example: HTML element with <code>&lt;img [ngStyle]=&quot;komPute()&quot;&gt;</code>. The function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">komPute() {</span>
+    <span style="color:#66d9ef">if</span>(<span style="color:#75715e">/* condition */</span>)
+        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;background-color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;inline&#39;</span>};
+    <span style="color:#66d9ef">return</span> {<span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;block&#39;</span>};
+}
+</code></pre></div></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-template-syntax">The template syntax</a>
+      <ul>
+        <li><a href="#ngfor"><code>*ngFor</code></a></li>
+        <li><a href="#undefined-values"><code>undefined</code> values</a></li>
+        <li><a href="#ngif"><code>*ngIf</code></a></li>
+        <li><a href="#ngswitch--co"><code>ngSwitch</code> &amp; co</a></li>
+        <li><a href="#adding-classes">Adding classes</a></li>
+        <li><a href="#ngstyle"><code>ngStyle</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
