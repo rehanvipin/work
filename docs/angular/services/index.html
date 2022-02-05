@@ -5,21 +5,23 @@
   <meta name="generator" content="Hugo 0.92.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Angular, the fancy web framework #  I gotta use this for work lol. I heard that some people hate it. Not my problem. If it works, it works.
-Base #  Where am I starting from? Why is that important? It defines what kind of content will be in this manual. I know nothing about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let&rsquo;s see how this goes.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Angular" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://work.rehanvipin.me/docs/angular/" />
+<meta name="description" content="Services #  They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
+Creating them #  You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Services" />
+<meta property="og:description" content="Services #  They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
+Creating them #  You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/docs/angular/services/" /><meta property="article:section" content="docs" />
 
-<title>Angular | Field Manual</title>
+
+
+<title>Services | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.94246c1c7210afdb1284cedaa9e4de67c58e23d23780e84ee09d0b908ae9e22c.js" integrity="sha256-lCRsHHIQr9sShM7aqeTeZ8WOI9I3gOhO4J0LkIrp4iw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/docs/angular/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -72,7 +74,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/docs/angular/" class=" active">Angular</a>
+    <a href="https://work.rehanvipin.me/docs/angular/" class="">Angular</a>
   
 
           
@@ -124,7 +126,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/docs/angular/services/" class="">Services</a>
+    <a href="https://work.rehanvipin.me/docs/angular/services/" class=" active">Services</a>
   
 
         </li>
@@ -322,7 +324,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Angular</strong>
+  <strong>Services</strong>
 
   <label for="toc-control">
     
@@ -338,10 +340,14 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#angular-the-fancy-web-framework">Angular, the fancy web framework</a>
+    <li><a href="#services">Services</a>
       <ul>
-        <li><a href="#base">Base</a></li>
-        <li><a href="#course-stuff">Course stuff</a></li>
+        <li><a href="#creating-them">Creating them</a></li>
+        <li><a href="#dependency-injection">Dependency injection</a>
+          <ul>
+            <li><a href="#register-a-provider">Register a provider</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -356,29 +362,60 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="angular-the-fancy-web-framework">
-  Angular, the fancy web framework
-  <a class="anchor" href="#angular-the-fancy-web-framework">#</a>
+  <article class="markdown"><h1 id="services">
+  Services
+  <a class="anchor" href="#services">#</a>
 </h1>
-<p>I gotta use this for work lol. I heard that some people hate it. Not my problem. If it works, it works.</p>
-<h2 id="base">
-  Base
-  <a class="anchor" href="#base">#</a>
+<p>They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: 
+  <a href="https://angular.io/guide/architecture-services">Services and DI</a>.</p>
+<h2 id="creating-them">
+  Creating them
+  <a class="anchor" href="#creating-them">#</a>
 </h2>
-<p>Where am I starting from? Why is that important? It defines what kind of content will be in this manual. I know <em>nothing</em> about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let&rsquo;s see how this goes. YOLO 🙂.</p>
-<h2 id="course-stuff">
-  Course stuff
-  <a class="anchor" href="#course-stuff">#</a>
+<p>You usually create one in a <code>.service.ts</code> file. It is an exported class with functions which perform the required business actions. It can then be <strong>injected</strong> into the required classes. It might depend on other services too.</p>
+<h2 id="dependency-injection">
+  Dependency injection
+  <a class="anchor" href="#dependency-injection">#</a>
 </h2>
-<p>I&rsquo;m following along 
-  <a href="https://www.pluralsight.com/courses/angular-fundamentals">The Angular Fundamentals course on Pluralsight</a>. The authors have nice practice exercises 
-  <a href="https://jcoop.io/angular-practice-exercises/">available on their website</a>. 
-  <a href="https://github.com/jmcooper/angular-fundamentals-files">Code for the course is available on GitHub</a>.</p>
-<p>This 
-  <a href="https://www.youtube.com/watch?v=3dHNOWTI7H8">Crash Course by Traversy Media</a> is also very good.</p>
-<p>Finally, 
-  <a href="https://angular.io/docs">The Angular docs</a> are very good.</p>
-<p>Just to note, the content I put up here is whatever I understood out of the courses and many other sources off the internet. I haven&rsquo;t and I won&rsquo;t, purposefully, rip content off sources I haven&rsquo;t listed here. I try to write this stuff on my own but sometimes, when it comes to things like specs and such, they do need to be put in word for word.</p>
+<p>This is how you provide new components with extra resources they need to function. To indicate that a class (<strong>any class</strong>, not just a component / service) has a dependency or is a dependency you decorate it with <code>@Injectable()</code>. From the docs</p>
+<blockquote>
+<p>The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed. You don&rsquo;t have to create injectors.</p>
+<p>An injector creates dependencies, and maintains a container of dependency instances that it reuses if possible.</p>
+</blockquote>
+<p>Some important points:</p>
+<ul>
+<li>You declare dependencies of a class in its constructor</li>
+<li>For each dependency, you must have registered a <strong>provider</strong> with the injector. A provider creates the dependency object when required. (For a service, it can be the service class itself)</li>
+</ul>
+<p>Again, from the docs listed at the top of the page:</p>
+<blockquote>
+<p>When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. If a requested service instance doesn&rsquo;t yet exist, the injector makes one using the registered provider, and adds it to the injector before returning the service to Angular.</p>
+<p>When all requested services have been resolved and returned, Angular can call the component&rsquo;s constructor with those services as arguments.</p>
+</blockquote>
+<h3 id="register-a-provider">
+  Register a provider
+  <a class="anchor" href="#register-a-provider">#</a>
+</h3>
+<p>You can do it in three ways:
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <h4 id="in-injectable">In <code>@Injectable()</code></h4>
+<p>You can specify the provider as the value to the <code>provider</code> key in the metadata object. If you specify <code>'root'</code> one instance will be available to all components.
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h4 id="with-an-ngmodule">With an <code>NgModule</code></h4>
+<p>You specify the provider (e.g. the service class) in the <code>providers</code> array and one instance will be available to all components in the module.
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h4 id="with-a-component">With a component</h4>
+<p>You can place it in the <code>providers</code> array in the metadata of a component and it will get its own instance of that service.
+  </div>
+  
+</div>
+</p>
 </article>
  
       
@@ -411,10 +448,14 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#angular-the-fancy-web-framework">Angular, the fancy web framework</a>
+    <li><a href="#services">Services</a>
       <ul>
-        <li><a href="#base">Base</a></li>
-        <li><a href="#course-stuff">Course stuff</a></li>
+        <li><a href="#creating-them">Creating them</a></li>
+        <li><a href="#dependency-injection">Dependency injection</a>
+          <ul>
+            <li><a href="#register-a-provider">Register a provider</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

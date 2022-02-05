@@ -36,5 +36,15 @@ Binding specs JS in HTML? There are multiple ways you can use JS objects in HTML
 Interpolation In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &amp;lt;div&amp;gt;{{ some JS expression }}&amp;lt;/div&amp;gt;.</description>
     </item>
     
+    <item>
+      <title>Services</title>
+      <link>https://work.rehanvipin.me/docs/angular/services/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/services/</guid>
+      <description>Services #  They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
+Creating them #  You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.</description>
+    </item>
+    
   </channel>
 </rss>
