@@ -5,7 +5,7 @@ weight: 3
 # The template syntax
 The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
 
-{{< details "Binding specs" >}}
+{{< details "Binding in HTML" >}}
 ## JS in HTML?
 There are multiple ways you can use JS objects in HTML. Two of them are:
 ### Interpolation
@@ -27,6 +27,8 @@ HTML elements also have events that they can emit e.g. "click, focus, hover, etc
 ### Rules for statements
 Statements can have assignments but only with `=`, not `+=` or other stuff. They can have multiple expressions separated by `;` but the other restrictions that held for expressions still hold. They mostly do have side effects.
 {{< /details >}}
+### Two way binding
+TODO
 
 ## `*ngFor`
 ngFor is a structural directive. That means that it is capable of changing the DOM structure. It works like a for loop, where for each iteration it creates another instance of the element (and its children) on which it is called. It also provides a template reference variable for the element / its children to use. An example below:
@@ -71,3 +73,9 @@ komPute() {
     return {display: 'block'};
 }
 ```
+
+## Template reference variable
+They help you use one part of a template in another. You can declare a variable on a tag, a component, or a bunch of other things as seen in the [docs](https://angular.io/guide/template-reference-variables). For a tag, it is a reference to the TS object of that tag and for a component it a reference to an object of that child component class. If you define one in an `ngIf` or an `ngFor` you can't access it outside those boundaries. This is how you use them:
+* Declare the variable like this `<comp-or-tag #refVar></comp-or-tag>`
+* You can then use this in other parts of the template, if it's a component you can access its **public properties**. Like so, `<other-tag [lul]="refVar.val1" (snap)="refVar.func1()"> {{ refVar.val2 }} </other-tag>`
+* It is not accessible in the TS of the parent component.
