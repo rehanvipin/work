@@ -32,7 +32,7 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       
       <guid>https://work.rehanvipin.me/docs/angular/template/</guid>
       <description>The template syntax #  The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
-Binding specs JS in HTML? There are multiple ways you can use JS objects in HTML. Two of them are:
+Binding in HTML JS in HTML? There are multiple ways you can use JS objects in HTML. Two of them are:
 Interpolation In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &amp;lt;div&amp;gt;{{ some JS expression }}&amp;lt;/div&amp;gt;.</description>
     </item>
     
@@ -54,6 +54,16 @@ Creating them #  You usually create one in a .service.ts file. It is an exported
       <guid>https://work.rehanvipin.me/docs/angular/routing/</guid>
       <description>Routing &amp;amp; Co. #  Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!
 Creating routes #  Routes are defined as an array of objects.</description>
+    </item>
+    
+    <item>
+      <title>Forms</title>
+      <link>https://work.rehanvipin.me/docs/angular/forms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/forms/</guid>
+      <description>Forms and validation #  There are two kinds of forms in Angular:
+ Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &amp;ldquo;@angular/forms&amp;rdquo; to be imported in the module where you will be using forms. In the component with the form, on the form element, set a template reference variable like so: &amp;lt;form #someNiceNameForForm=&amp;quot;ngForm&amp;quot;&amp;gt;&amp;lt;/form&amp;gt;.</description>
     </item>
     
   </channel>

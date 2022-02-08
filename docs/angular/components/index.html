@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.b4c1e8bb6c725d033e9779a00cfa02d97a168d1a0907790307a8f2f2204fc830.js" integrity="sha256-tMHou2xyXQM&#43;l3mgDPoC2XoWjRoJB3kDB6jy8iBPyDA="></script>
+<script defer src="/en.search.min.1f9baff6578809d2bcc63b633f383f3ef0a356b7fe562542334f68c730c5337f.js" integrity="sha256-H5uv9leICdK8xjtjPzg/PvCjVrf&#43;ViVCM09oxzDFM38="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -140,6 +140,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://work.rehanvipin.me/docs/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/forms/" class="">Forms</a>
   
 
         </li>
@@ -371,7 +384,6 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#creating-them">Creating them</a></li>
         <li><a href="#communicating-with-a-child-component">Communicating with a child component</a></li>
         <li><a href="#communicating-with-the-parent-component">Communicating with the parent component</a></li>
-        <li><a href="#template-reference-variable">Template reference variable</a></li>
         <li><a href="#styling-em">Styling em</a></li>
         <li><a href="#css-encapsulation">CSS Encapsulation</a></li>
       </ul>
@@ -421,17 +433,6 @@ https://github.com/alex-shpak/hugo-book
 <li>Create an event <strong>emitter</strong> property that is decorated by <code>Output</code>. Like so, <code>@Output() handledByParent = new EventEmitter()</code></li>
 <li>In the even handler you can call <code>handledByParent.emit(anyVal)</code> which will emit an event by the child component</li>
 <li>In the parent, you can create a handler for the event, like so: <code>&lt;child-comp (handledByParent)=&quot;parentHandler($event)&gt;&lt;/child-comp&gt;</code>. <code>$event</code> is a special keyword that contains the value passed to <code>emit</code>. You can only pass <strong>one value</strong>. <code>parentHandler</code> is a function property of the parent component.</li>
-</ul>
-<h2 id="template-reference-variable">
-  Template reference variable
-  <a class="anchor" href="#template-reference-variable">#</a>
-</h2>
-<p>They help you use one part of a template in another. You can declare a variable on a tag, a component, or a bunch of other things as seen in the 
-  <a href="https://angular.io/guide/template-reference-variables">docs</a>. For a tag, it is a reference to the TS object of that tag and for a component it a reference to an object of that child component class. If you define one in an <code>ngIf</code> or an <code>ngFor</code> you can&rsquo;t access it outside those boundaries. This is how you use them:</p>
-<ul>
-<li>Declare the variable like this <code>&lt;comp-or-tag #refVar&gt;&lt;/comp-or-tag&gt;</code></li>
-<li>You can then use this in other parts of the template, if it&rsquo;s a component you can access its <strong>public properties</strong>. Like so, <code>&lt;other-tag [lul]=&quot;refVar.val1&quot; (snap)=&quot;refVar.func1()&quot;&gt; {{ refVar.val2 }} &lt;/other-tag&gt;</code></li>
-<li>It is not accessible in the TS of the parent component.</li>
 </ul>
 <h2 id="styling-em">
   Styling em
@@ -487,7 +488,6 @@ There is a way to <strong>pass down styles to children</strong> by using a &ldqu
         <li><a href="#creating-them">Creating them</a></li>
         <li><a href="#communicating-with-a-child-component">Communicating with a child component</a></li>
         <li><a href="#communicating-with-the-parent-component">Communicating with the parent component</a></li>
-        <li><a href="#template-reference-variable">Template reference variable</a></li>
         <li><a href="#styling-em">Styling em</a></li>
         <li><a href="#css-encapsulation">CSS Encapsulation</a></li>
       </ul>
