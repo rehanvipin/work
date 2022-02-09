@@ -30,7 +30,7 @@ You must then add it to the `declarations` of the NgModule where you want to use
 ## Filter and Sort
 AngularJS had the ability to do this with pipes. This meant that every time the data changed (i.e. a change detection cycle), the pipe would have to be called. This was **slow**.
 
-{{< hint "warn" >}}
+{{< hint "warning" >}}
 Angular doesn't recommend that you sort or filter with pipes (you usually can't but there's the option to do it with **impure pipes**). It is recommended to sort / filter in the component itself.
 
 Angular only runs a pipe when the identity of the data has changed. It's value. **It does not check if the reference has changed.** Therefore, if you change the properties of an object, Angular will not run the pipe for it.

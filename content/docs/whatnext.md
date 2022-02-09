@@ -12,5 +12,6 @@ I think I should learn these things because they might be useful at work:
 
 * Common design patterns (with examples?)
 * Should add a lifecycle section to angular? Maybe just link to the [docs?](https://angular.io/guide/lifecycle-hooks)
+* Add more content about Angular services (really needed?)
 
 No rush, gonna add things whenever I feel the need to (I believe that is the best way for me to learn) 🍃.
