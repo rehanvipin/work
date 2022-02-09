@@ -19,7 +19,7 @@ Creating them #  You usually create one in a .service.ts file. It is an exported
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c251d7be864a0fc56f15b69786c65ed9bbd1f769712dbf33e789ae6079d52765.js" integrity="sha256-wlHXvoZKD8VvFbaXhsZe2bvR92lxLb8z54muYHnVJ2U="></script>
+<script defer src="/en.search.min.1e90df533e09b8ed219aeb247e0b99be1a550d89f4d9af3a3c0a2ef7f3fbbe3c.js" integrity="sha256-HpDfUz4JuO0hmuskfguZvhpVDYn02a86PAou9/P7vjw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -166,6 +166,19 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://work.rehanvipin.me/docs/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/di/" class="">Dependency Injection</a>
   
 
         </li>
@@ -395,11 +408,6 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#services-do-stuff">Services (do STUFF)</a>
       <ul>
         <li><a href="#creating-them">Creating them</a></li>
-        <li><a href="#dependency-injection">Dependency injection</a>
-          <ul>
-            <li><a href="#register-a-provider">Register a provider</a></li>
-          </ul>
-        </li>
       </ul>
     </li>
   </ul>
@@ -425,49 +433,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#creating-them">#</a>
 </h2>
 <p>You usually create one in a <code>.service.ts</code> file. It is an exported class with functions which perform the required business actions. It can then be <strong>injected</strong> into the required classes. It might depend on other services too.</p>
-<h2 id="dependency-injection">
-  Dependency injection
-  <a class="anchor" href="#dependency-injection">#</a>
-</h2>
-<p>This is how you provide new components with extra resources they need to function. To indicate that a class (<strong>any class</strong>, not just a component / service) has a dependency or is a dependency you decorate it with <code>@Injectable()</code>. From the docs</p>
-<blockquote>
-<p>The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed. You don&rsquo;t have to create injectors.</p>
-<p>An injector creates dependencies, and maintains a container of dependency instances that it reuses if possible.</p>
-</blockquote>
-<p>Some important points:</p>
-<ul>
-<li>You declare dependencies of a class in its constructor</li>
-<li>For each dependency, you must have registered a <strong>provider</strong> with the injector. A provider creates the dependency object when required. (For a service, it can be the service class itself)</li>
-</ul>
-<p>Again, from the docs listed at the top of the page:</p>
-<blockquote>
-<p>When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. If a requested service instance doesn&rsquo;t yet exist, the injector makes one using the registered provider, and adds it to the injector before returning the service to Angular.</p>
-<p>When all requested services have been resolved and returned, Angular can call the component&rsquo;s constructor with those services as arguments.</p>
-</blockquote>
-<h3 id="register-a-provider">
-  Register a provider
-  <a class="anchor" href="#register-a-provider">#</a>
-</h3>
-<p>You can do it in three ways:
-<div class="book-columns flex flex-wrap">
-  
-  <div class="flex-even markdown-inner">
-    <h4 id="in-injectable">In <code>@Injectable()</code></h4>
-<p>You can specify the provider as the value to the <code>provider</code> key in the metadata object. If you specify <code>'root'</code> one instance will be available to all components.
-  </div>
-  
-  <div class="flex-even markdown-inner">
-    <h4 id="with-an-ngmodule">With an <code>NgModule</code></h4>
-<p>You specify the provider (e.g. the service class) in the <code>providers</code> array and one instance will be available to all components in the module.
-  </div>
-  
-  <div class="flex-even markdown-inner">
-    <h4 id="with-a-component">With a component</h4>
-<p>You can place it in the <code>providers</code> array in the metadata of a component and it will get its own instance of that service.
-  </div>
-  
-</div>
-</p>
+<p>Read more about 
+  <a href="/docs/angular/di/">dependency injection here</a>.</p>
 </article>
  
       
@@ -503,11 +470,6 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#services-do-stuff">Services (do STUFF)</a>
       <ul>
         <li><a href="#creating-them">Creating them</a></li>
-        <li><a href="#dependency-injection">Dependency injection</a>
-          <ul>
-            <li><a href="#register-a-provider">Register a provider</a></li>
-          </ul>
-        </li>
       </ul>
     </li>
   </ul>

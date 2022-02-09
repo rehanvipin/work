@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.92.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Adding features! 🙌 #  Dependency injection #  This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
+ The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Dependency Injection" />
+<meta property="og:description" content="Adding features! 🙌 #  Dependency injection #  This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
+ The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/docs/angular/di/" /><meta property="article:section" content="docs" />
+
+
+
+<title>Dependency Injection | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.1e90df533e09b8ed219aeb247e0b99be1a550d89f4d9af3a3c0a2ef7f3fbbe3c.js" integrity="sha256-HpDfUz4JuO0hmuskfguZvhpVDYn02a86PAou9/P7vjw="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/" class="">Angular</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/di/" class=" active">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/whatnext/" class="">Whatnext</a>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-9370f1a5d0248572ac505e0c6d4ad190" class="toggle"  />
+    <label for="section-9370f1a5d0248572ac505e0c6d4ad190" class="flex justify-between">
+      <a  class="">Shortcodes</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d3fc1bf6d66cd84b896a0af9f40cb1d5" class="toggle"  />
+    <label for="section-d3fc1bf6d66cd84b896a0af9f40cb1d5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/docs/shortcodes/section/" class="">Section</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/section/page1/" class="">Page1</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/section/page2/" class="">Page2</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/" >
+        Blog
+      </a>
+  </li>
+  
+  <li>
+    <a href="/credits" target="_blank" rel="noopener">
+        Credits
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Dependency Injection</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#adding-features-">Adding features! 🙌</a>
+      <ul>
+        <li><a href="#dependency-injection">Dependency injection</a>
+          <ul>
+            <li><a href="#register-a-provider">Register a provider</a></li>
+          </ul>
+        </li>
+        <li><a href="#using-injecttoken">Using <code>InjectToken</code></a></li>
+        <li><a href="#usewhat"><code>useWhat</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="adding-features-">
+  Adding features! 🙌
+  <a class="anchor" href="#adding-features-">#</a>
+</h1>
+<h2 id="dependency-injection">
+  Dependency injection
+  <a class="anchor" href="#dependency-injection">#</a>
+</h2>
+<p>This is how you provide new components with extra resources they need to function. To indicate that a class (<strong>any class</strong>, not just a component / service) has a dependency or is a dependency you decorate it with <code>@Injectable()</code>. From the docs</p>
+<blockquote>
+<p>The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed. You don&rsquo;t have to create injectors.</p>
+<p>An injector creates dependencies, and maintains a container of dependency instances that it reuses if possible.</p>
+</blockquote>
+<p>Some important points:</p>
+<ul>
+<li>You declare dependencies of a class in its constructor</li>
+<li>For each dependency, you must have registered a <strong>provider</strong> with the injector. A provider creates the dependency object when required. (For a service, it can be the service class itself)</li>
+</ul>
+<p>Again, from the docs listed at the top of the page:</p>
+<blockquote>
+<p>When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. If a requested service instance doesn&rsquo;t yet exist, the injector makes one using the registered provider, and adds it to the injector before returning the service to Angular.</p>
+<p>When all requested services have been resolved and returned, Angular can call the component&rsquo;s constructor with those services as arguments.</p>
+</blockquote>
+<h3 id="register-a-provider">
+  Register a provider
+  <a class="anchor" href="#register-a-provider">#</a>
+</h3>
+<p>You can do it in three ways:
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <h4 id="in-injectable">In <code>@Injectable()</code></h4>
+<p>You can specify the provider as the value to the <code>provider</code> key in the metadata object. If you specify <code>'root'</code> one instance will be available to all components.
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h4 id="with-an-ngmodule">With an <code>NgModule</code></h4>
+<p>You specify the provider (e.g. the service class) in the <code>providers</code> array and one instance will be available to all components in the module.
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h4 id="with-a-component">With a component</h4>
+<p>You can place it in the <code>providers</code> array in the metadata of a component and it will get its own instance of that service.
+  </div>
+  
+</div>
+</p>
+<p>To use a function as a provider 
+  <a href="/docs/angular/routing/#deactivation">check out this example</a>.</p>
+<h2 id="using-injecttoken">
+  Using <code>InjectToken</code>
+  <a class="anchor" href="#using-injecttoken">#</a>
+</h2>
+<p>This is a way for the injector to find the required provider from the list of available providers. Its an alternative to using a string. Its better since the token is a variable and the compiler will complain if there is another variable with the same name.</p>
+<p>Create a new token like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">InjectionToken</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">SOME_TOKEN</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">InjectionToken</span>&lt;<span style="color:#f92672">retType</span>&gt;(<span style="color:#e6db74">&#39;whatever description you want&#39;</span>);
+<span style="color:#75715e">// Its a convention to capitalize the token name
+</span><span style="color:#75715e">// retType is the type of the object that this provider will create
+</span><span style="color:#75715e">// &#34;any&#34; is a good option in case of a third-party object like jQuery
+</span></code></pre></div><p>Use it to register a new provider. The <code>provide</code> property will be set to <code>SOME_TOKEN</code>. The other prop. e.g. <code>useValue</code> contains the object that you want to provide e.g. jQuery&rsquo;s <code>$</code>.</p>
+<p>The object can now be used via DI like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Inject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">SOME_TOKEN</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./something.service&#39;</span>
+<span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">@Inject</span>(<span style="color:#a6e22e">SOME_TOKEN</span>) <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">jqSelector</span>) {}
+<span style="color:#a6e22e">ngOnInit() {</span>
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">jqSelector</span>.<span style="color:#a6e22e">doSomething</span>()
+}
+</code></pre></div><h2 id="usewhat">
+  <code>useWhat</code>
+  <a class="anchor" href="#usewhat">#</a>
+</h2>
+<p>Alternatives to <code>useValue</code></p>
+<ul>
+<li>The usual way where you put the service class within the <code>providers</code> array of the ngModule is a shorthand for <code>{provider: someGoodClass, useClass: someGoodClass}</code></li>
+<li><code>useExisting</code> lets you use a different, <strong>already registered (i.e. existing)</strong>, provider when the user requests one provider. Something like this: <code>{provider: someGoodClass, useExisting: someShadyClass}</code></li>
+<li><code>useFactory</code> lets you use a function to create an object. This is complex. 
+  <a href="https://angular.io/guide/dependency-injection-providers#using-factory-providers">Check out the docs</a>.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#adding-features-">Adding features! 🙌</a>
+      <ul>
+        <li><a href="#dependency-injection">Dependency injection</a>
+          <ul>
+            <li><a href="#register-a-provider">Register a provider</a></li>
+          </ul>
+        </li>
+        <li><a href="#using-injecttoken">Using <code>InjectToken</code></a></li>
+        <li><a href="#usewhat"><code>useWhat</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

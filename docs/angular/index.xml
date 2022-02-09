@@ -77,5 +77,15 @@ Custom pipe #  An example pipe:
 // in the file goodie.pipe.ts import {Pipe, PipeTransform} from &amp;#39;@angular/core&amp;#39; @Pipe({ name: &amp;#39;goodiepipe&amp;#39; // the name used to call the pipe in the template }) export class GoodiePipe implements PipeTransform { // this is the function that is called with the args  transform(input: string, arg1: number) { if(arg1 &amp;lt; 5) return input+&amp;#34; is low&amp;#34;; return input+&amp;#34; is high&amp;#34;; } } You must then add it to the declarations of the NgModule where you want to use it.</description>
     </item>
     
+    <item>
+      <title>Dependency Injection</title>
+      <link>https://work.rehanvipin.me/docs/angular/di/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/di/</guid>
+      <description>Adding features! 🙌 #  Dependency injection #  This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
+ The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.</description>
+    </item>
+    
   </channel>
 </rss>
