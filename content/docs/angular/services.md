@@ -2,7 +2,7 @@
 title: "Services"
 weight: 4
 ---
-# Services
+# Services (do STUFF)
 They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: [Services and DI](https://angular.io/guide/architecture-services).
 
 ## Creating them
