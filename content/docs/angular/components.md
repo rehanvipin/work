@@ -36,3 +36,39 @@ When you add CSS styles to your component, it only matches the elements directly
 Angular automatically adds attributes to every element within a component. Within a component, they all have the same attribute which is unique to elements in that component. It also modifies the CSS of that component to apply only when that attribute is present.  
 There is a way to **pass down styles to children** by using a "deep" selector (google when needed).  
 **Global styles are not mangled like this**.
+
+## Content Projection
+AKA **"How to reuse components"**. Components have "content slots" within them. You can reuse a component by putting different content within these slots.
+
+If the parent template looks like:
+```html
+<h2>Hip hop</h2>
+<somechildcomp>
+    <button>woop</button>
+    <h3>sneak</h3>
+</somechildcomp>
+```  
+The button and the h3 (basically all content within those tags) will be available to the child component via `<ng-content></ng-content>`
+
+Multiple content slots can be used with multiple ng-contents. This is how you would do it:
+In the parent template:
+```html
+<div someattr1>
+    <!-- stuff for first content slot -->
+</div>
+<div id="whodisboi">
+    <!-- stuff for second content slot -->
+</div>
+```
+
+The HTML content within those slots can be used like so:
+```html
+<header>
+    <ng-content select="[someattr1]"></ng-content>
+</header>
+<section>
+    <ng-content select="#whodisboi"></ng-content>
+</section>
+```
+
+The select attribute of ng-content takes in CSS selectors to match the HTML content from the parent.
