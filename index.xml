@@ -23,7 +23,7 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       
       <guid>https://work.rehanvipin.me/docs/whatnext/</guid>
       <description>So much to learn 😮 #  I think I should learn these things because they might be useful at work:
- Common design patterns (with examples?)  No rush, gonna add things whenever I feel the need to (I believe that is the best way for me to learn) 🍃.</description>
+ Common design patterns (with examples?) Should add a lifecycle section to angular? Maybe just link to the docs?  No rush, gonna add things whenever I feel the need to (I believe that is the best way for me to learn) 🍃.</description>
     </item>
     
     <item>
@@ -32,7 +32,7 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/docs/angular/components/</guid>
-      <description>Components #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
+      <description>The real CONTENT #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
  Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (the HTML selector) and template (or templateUrl). Import this class in app.module.ts and add it to declarations in the NgModule decorator of AppModule.</description>
     </item>
     
@@ -53,7 +53,7 @@ Interpolation In places within the HTML where you can put custom values (within 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/docs/angular/services/</guid>
-      <description>Services #  They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
+      <description>Services (do STUFF) #  They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
 Creating them #  You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.</description>
     </item>
     
@@ -75,6 +75,17 @@ Creating routes #  Routes are defined as an array of objects.</description>
       <guid>https://work.rehanvipin.me/docs/angular/forms/</guid>
       <description>Forms and validation #  There are two kinds of forms in Angular:
  Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &amp;ldquo;@angular/forms&amp;rdquo; to be imported in the module where you will be using forms. In the component with the form, on the form element, set a template reference variable like so: &amp;lt;form #someNiceNameForForm=&amp;quot;ngForm&amp;quot;&amp;gt;&amp;lt;/form&amp;gt;.</description>
+    </item>
+    
+    <item>
+      <title>Pipes</title>
+      <link>https://work.rehanvipin.me/docs/angular/pipes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/pipes/</guid>
+      <description>Transforming data #  Built-in pipes #  You can transform data before it is rendered in a template. There are many inbuilt pipes. The format is {{ yourContent | pipeName:pipeArg1 }} where the arguments are JS objects / literals and are optional. Example: &amp;lt;p&amp;gt;A: {{a | currency:&#39;CAD&#39;:&#39;code&#39;}}&amp;lt;/p&amp;gt;.
+Custom pipe #  An example pipe:
+// in the file goodie.pipe.ts import {Pipe, PipeTransform} from &amp;#39;@angular/core&amp;#39; @Pipe({ name: &amp;#39;goodiepipe&amp;#39; // the name used to call the pipe in the template }) export class GoodiePipe implements PipeTransform { // this is the function that is called with the args  transform(input: string, arg1: number) { if(arg1 &amp;lt; 5) return input+&amp;#34; is low&amp;#34;; return input+&amp;#34; is high&amp;#34;; } } You must then add it to the declarations of the NgModule where you want to use it.</description>
     </item>
     
     <item>
