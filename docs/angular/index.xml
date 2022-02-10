@@ -87,5 +87,14 @@ Custom pipe #  An example pipe:
  The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.</description>
     </item>
     
+    <item>
+      <title>Rxjs</title>
+      <link>https://work.rehanvipin.me/docs/angular/rxjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/rxjs/</guid>
+      <description>Async &amp;amp; network stuff #  Not everything happens right at once in a webapp. It shouldn&amp;rsquo;t wait for certain events when it can execute other things. This is where asynchronous processing is useful. Promises were the preferred way to do it but now there are observables (from rxjs). Promises represent one event that happens in the future while observables represent zero or more events that could happen synchronously or in the future.</description>
+    </item>
+    
   </channel>
 </rss>
