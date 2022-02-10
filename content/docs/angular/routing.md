@@ -15,6 +15,12 @@ Routes are defined as an array of objects. The array is of the type `Routes` fro
 You can pass parameters in a route path, like so: `path: 'warehouse/:id'` where "id" is the parameter. To access it within your component code you should:
 * Add `ActivatedRoute` as a dependency to your component
 * Access the parameter via the dependency object, like so: `route.snapshot.params["id"]`
+* It is also recommended to setup a callback function with each param so that when navigating from that component to itself, the content is updated properly. This can be done like so:
+```ts
+route.params.forEach((param: Param) => {
+    // logic for updating content
+})
+```
 
 ## Links to routes
 You want Angular to generate the links to routes, not hardcode them. This is how you do it:
