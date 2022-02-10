@@ -19,6 +19,7 @@ When you have a child component within your component you can pass data to it vi
 * Create a property on the child component class that is prefixed by the `@Input()` decorator. E.g. `@Input() title: string`
 * In the child component's tag in the parent component's template, pass the value like this: `<child-comp [title]="any JS expression"></child-comp>`
 * You can react to changes in any of the input properties via `ngOnChanges(){}`
+* You can also set an input propert setter like so: `@Input() set propname(val) {}` where the function is called every time propname changes. Just like a JS setter.
 
 ## Communicating with the parent component
 The common patern here is passing along an event to the parent component. It works like this, overall:

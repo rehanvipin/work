@@ -64,3 +64,31 @@ this.userLoginForm = new FormGroup({
 
 ## Custom validator
 A validator is a function. It returns an error object if the validation failed else it returns `null`. The error object looks like this: `{'errorName': errorValue}`. The error value can then be accessed like `elementName.errors.errorName`. The only argument that the function takes is a `FormControl` object (which will be the element on which the validator is set).
+
+## Super custom validator
+You can also use a directive as a validator. Since it is a class it needs to implement `Validator` from '@angular/forms' which means it needs to have a function `validate` that takes in a `FormGroup` (or `FormControl` depending on where the directive is used) and return `null` if there are no errors else an error object like before.
+
+Since it is a directive it needs to be imported in the ngModule. To add it to Angular's list of validators (and therefore make it available for use) you can do this:
+```ts
+import { NG_VALIDATORS } from '@angular/forms'
+
+@Directive({
+    selector: 'wow-nice'
+    providers: [{
+        provides: NG_VALIDATORS,
+        useExisting: NiceValidator,
+        multi: true // this means add this validator as a provider to NG_VALIDATORS
+    }]
+})
+export class NiceValidator {
+    validate(fg: FormGroup) { /* validation logic */}
+}
+```
+
+## Multi-field validation
+You need to do a few weird things to validate multiple fields:
+* To access sibling fields, use the root group like so `fg.root.controls.siblingElement`
+* To actually validate elements with the directive validator you need a temp-ref-var like so: `<div ngModelGroup="niceGrp" validatorDirec #whyNeedIDK="ngModelGroup"></div>`
+* The sibling needs to re-run the validator whenever it updates. Can do that with an event binding: `<div (change)="whyNeedIDK.control.controls.someField.upDateValueAndValidity()></div>`
+
+This whole thing is just super complex and weird.
