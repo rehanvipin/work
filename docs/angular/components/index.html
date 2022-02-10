@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.8270ad89dd6b78c384c48aec3641e278dbc4f489133b54e8a27661e03e5e9345.js" integrity="sha256-gnCtid1reMOExIrsNkHieNvE9IkTO1ToonZh4D5ek0U="></script>
+<script defer src="/en.search.min.94cbda6fde4a73e534da4383c419d03987d2cc66e50c57979e3a15e012fe0225.js" integrity="sha256-lMvab95Kc&#43;U02kODxBnQOYfSzGblDFeXnjoV4BL&#43;AiU="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -457,6 +457,7 @@ https://github.com/alex-shpak/hugo-book
 <li>Create a property on the child component class that is prefixed by the <code>@Input()</code> decorator. E.g. <code>@Input() title: string</code></li>
 <li>In the child component&rsquo;s tag in the parent component&rsquo;s template, pass the value like this: <code>&lt;child-comp [title]=&quot;any JS expression&quot;&gt;&lt;/child-comp&gt;</code></li>
 <li>You can react to changes in any of the input properties via <code>ngOnChanges(){}</code></li>
+<li>You can also set an input propert setter like so: <code>@Input() set propname(val) {}</code> where the function is called every time propname changes. Just like a JS setter.</li>
 </ul>
 <h2 id="communicating-with-the-parent-component">
   Communicating with the parent component
