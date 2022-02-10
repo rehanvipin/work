@@ -1,4 +1,7 @@
 ---
+menu:
+  after:
+    weight: 3
 title: "Credits"
 bookTOC: false
 ---
