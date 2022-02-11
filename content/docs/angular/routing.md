@@ -61,5 +61,9 @@ Then to load this particular module on a route you can define it in the main rou
 }
 ```
 
-## Preloading
-Uses RxJs :(
+## Prefetching with resolve
+When a user visits a route a resolver loads the data required for the page before the component is loaded. It helps fix issues caused when the component is ready but the data required for its content is not.
+
+A resolver is usually a service that has a `resolve` method that takes in an `ActivatedRoute` object and returns an `Observable`. **The observable is automatically subscribed to.**
+
+In the list of routes, for a `Route` object, specify a `resolve` property that is equal to an object where the keys can be used to access the data on the route later on. Like so: `resolve: { users: getUsersService }`. This can then be accessed via the `ActivatedRoute` like so: `this.route.snapshot.data['users']`

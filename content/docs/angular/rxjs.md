@@ -1,5 +1,5 @@
 ---
-title: "Rxjs"
+title: "RxJS"
 weight: 9
 ---
 # Async & network stuff
@@ -14,3 +14,9 @@ Good resources for RxJS:
 
 ## HTTP
 To communicate via HTTP in JS first import `HttpClientModule` from "@angular/common/http" into the ngModule of your choice. Wherever required, a dependency of type `HttpClient` from "@angular/common/http" can be injected so that HTTP calls can be made with it.
+
+Once you have an object of `HttpClient`, say `http`, you can perform calls such as: `http.get<T>(url)` where `T` is the type of the response you expect. The result is an `Observable<T>` which can be subscribed to.
+
+To add query parameters just do **string concatenation :)**. E.g. `http.get<T>(url+"?userid="+searchUserId)` 🌴
+
+There's also the `delete` method and `post` method. The `post` method needs a few more args like so: `http.post<T>(url, body, options)`. Where `body` is an object containing the data you want to give and options is also an object which has properties like HTTP headers.
