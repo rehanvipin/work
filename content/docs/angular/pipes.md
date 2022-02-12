@@ -35,3 +35,6 @@ Angular doesn't recommend that you sort or filter with pipes (you usually can't 
 
 Angular only runs a pipe when the identity of the data has changed. It's value. **It does not check if the reference has changed.** Therefore, if you change the properties of an object, Angular will not run the pipe for it.
 {{< /hint >}}
+
+## Async
+You can subscribe and process values from RxJS observables within the template itself. This is possible via the async pipe. It's often used with ngFor like this: `<div *ngFor="let book of books | async">We have {{ book.name }}</div>` where `books` is an observable which has multiple `next` calls and a `complete` call.
