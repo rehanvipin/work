@@ -23,7 +23,7 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       
       <guid>https://work.rehanvipin.me/docs/whatnext/</guid>
       <description>So much to learn 😮 #  I think I should learn these things because they might be useful at work:
- Common design patterns (with examples?) Should add a lifecycle section to Angular? Maybe just link to the docs? Add more content about Angular services (really needed?) TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps?  No rush, gonna add things whenever I feel the need to (I believe that is the best way for me to learn) 🍃.</description>
+ Common design patterns (with examples?) Should add a lifecycle section to Angular? Maybe just link to the docs? Add more content about Angular services (really needed?) TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts  No rush, gonna add things whenever I feel the need to (I believe that is the best way for me to learn) 🍃.</description>
     </item>
     
     <item>
@@ -116,6 +116,16 @@ Custom pipe #  An example pipe:
       
       <guid>https://work.rehanvipin.me/docs/angular/rxjs/</guid>
       <description>Async &amp;amp; network stuff #  Not everything happens right at once in a webapp. It shouldn&amp;rsquo;t wait for certain events when it can execute other things. This is where asynchronous processing is useful. Promises were the preferred way to do it but now there are observables (from rxjs). Promises represent one event that happens in the future while observables represent zero or more events that could happen synchronously or in the future.</description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://work.rehanvipin.me/docs/angular/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/test/</guid>
+      <description>Unit &amp;amp; Integrated tests #  Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:
+Isolated  Only tests the JS class not the component Mostly used for services and pipes Need to create instances of classes on your own   Integrated  Tests the class and template together Mostly used for components and directives The objects are created by the framework    Unit tests #  They test a single unit (like a class, function, or a bunch of classes) in isolation.</description>
     </item>
     
     <item>
