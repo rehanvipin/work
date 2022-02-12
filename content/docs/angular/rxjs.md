@@ -20,3 +20,148 @@ Once you have an object of `HttpClient`, say `http`, you can perform calls such 
 To add query parameters just do **string concatenation :)**. E.g. `http.get<T>(url+"?userid="+searchUserId)` 🌴
 
 There's also the `delete` method and `post` method. The `post` method needs a few more args like so: `http.post<T>(url, body, options)`. Where `body` is an object containing the data you want to give and options is also an object which has properties like HTTP headers.
+
+## RxJS 💧
+Helps in managing events in a functional programming and asynchronous manner. Its main concepts are:
+
+### Observables
+An observable is a stream of lazy push-based computations. They can deliver values (zero to infinite) synchronously or asynchronously. Create one like this:
+```ts
+import { Observable } from 'rxjs';
+const obsv = new Observable(subscriber => {
+    // a stream of nexts optionally followed by either an error or a complete
+    // e.g. :
+    subscriber.next(anyValue1);
+    subscriber.next(anyValue2);
+    subscriber.next(anyValue3);
+    subscriber.next(anyValue4);
+    // only one of the following two should be there
+    subscriber.error(anyError);
+    subscriber.complete();
+});
+```
+
+The observable can then be subscribed to like so:
+```ts
+const subc = obsv.subscribe(value => {
+    console.log(value);
+})
+```
+
+The observable can also be stopped like so:
+```ts
+subc.unsubscribe();
+// the behaviour of the function can be customized
+// by setting the return value of the subscription function
+const custom = new Observable(subscriber => {
+    // do some computation
+    return function unsubscribe() {
+        // do clean up perhaps?
+    }
+});
+```
+
+{{< hint "info" >}}
+There can be multiple subscribers. Each one will get the same stream of data.
+An observable may `complete` before some async operations within it have run. All subscribers will receive same series of `next`, `error` and `complete` events as each other.
+When one of them unsubscribes, it stops the flow of data to only that one.
+{{< /hint >}}
+
+### Observer
+A consumer of an observable. Its just an object like this:
+```ts
+const observer = {
+    next: value => console.log('Got a value: ' + value),
+    error: err => console.log('Finished with an error: ' + err),
+    complete: () => console.log('Finished peacefully');
+};
+const subc = obsv.subscribe(observer);
+```
+Some or all properties can be ignored
+
+### Subscriptions
+They are the objects returned on subscribing to an observable. They essentially have only 3 methods:
+* `unsubscribe()`: stop receiving data from the observable
+* `add(otherSubscription)`: so that unsubscribing this subscription will unsubscribe the other one too
+* `remove(otherSubscription)`: to undo the add method described above
+
+### Operators
+[Easy to use resource to figure out what kind of operator you need.](https://rxjs.dev/operator-decision-tree)
+
+They transform the data produced by observables. They are functions. There are two kinds:
+{{< columns >}}
+
+#### Creation
+They generate observables from some kind of data / instruction. These functions return observables. An example is `of` from 'rxjs'. It takes in one or more arguments and then creates an observable that pushes these objects one after the other.
+
+<--->
+
+#### Pipeable
+They generate observables from other observables. **These functions return functions that take in an observable and return an observable.** An example is `map` from 'rxjs/operators'. You use it like `let funk = map(x => x+x)` and then `outputObsv = funk(inputObsv)`.
+
+{{< /columns >}}
+
+The official docs has [a useful list of commonly used observables, grouped by category](https://rxjs.dev/guide/operators#categories-of-operators).
+
+Many times multiple pipeable operators are used in sequence. It becomes messy, thus we have the `pipe` function which can be used like this:
+```ts
+const obsv = of(1, 2, 3);
+const obsv1 = map(x => x * x)(obsv);
+const obsv2 = filter(y => y > 3)(obsv1);
+obsv2.subscribe(v => console.log(v));
+
+// is equivalent to
+
+const subscrip = of(1, 2, 3).pipe(
+    map(x => x * x),
+    filter(y => y > 3)
+).subscribe(
+    v => console.log(v)
+);
+```
+
+### Subjects
+An observerable that can also be used as an observer. They can be used to make an observable multicast (They are unicast by default).
+Using it as an observable:
+```ts
+import { Subject } from 'rxjs';
+const obsv = new Subject<any>(); // the default type is void
+obsv.subscribe(/* an observer */);
+
+obsv.next(someVal1);
+obsv.next(someVal2);
+obsv.complete();
+```
+
+It can also be used as an observer. Just pass the Subject object to an observer's subscribe method. This works since the Subject already has `next`, `error`, and `complete` methods.
+
+{{< hint "info" >}}
+The important difference between a subject and a normal observable is that a subject does not maintain separate execution contexts.
+A normal observer creates an independent execution context for each observer it has.
+Whenever an observer subscribes to a subject it can receive values from there on only. Not the old values.
+There are specialized subscribers that can buffer some old values to give new observers.
+{{< /hint >}}
+
+**A cool trick is to make an observable multicast with a subject.** Like so:
+```ts
+import { of, Subject } from 'rxjs'
+const obsv = of([1, 2, 3, 4, 5]);
+const sub = new Subject<number>();
+const scp1 = sub.subscribe(e => console.log(e));
+const scp2 = sub.subscribe(e => console.log(e));
+obsv.subscribe(sub);
+```
+
+Some useful specialized subjects:
+#### BehaviourSubject
+Holds the current value that was pushed. When new observers subscribe, they immediately get that value. Afterwards they continue to get pushed values like other old observers.
+
+#### ReplaySubject
+A generalized form of `BehaviourSubject`. It can hold a buffer of n previously pushed values and pass them at once to new observers.
+They are used like this: `const sub = new ReplaySubject<number>(bufferSize, expirationTimeForEachValue [optional])`
+
+#### Void Subject
+This is the default type of subject created when no type is specified. The subscriber for this doesn't receive any values for its `next` function. It's useful when you just want to know that some event occured.
+
+### Scheduler
+Controls when subscriptions start. Can modify this so that subscriptions start immediately, on the next event loop, next micro loop, or after some timeout. This is kinda complex so [here's a link to the docs](https://rxjs.dev/guide/scheduler).
