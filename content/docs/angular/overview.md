@@ -54,3 +54,17 @@ console.log(f); // { wutdis: "sic", num: 10 }
 * It bootstraps a module, `app/module.ts` by default.
 * It bootstraps the root component, `app/app.component.ts` by default.
 * The root component is placed in `app/index.html` which is what is rendered.
+
+## Deployment 🎈
+This is done with the `ng build` command which:
+* Minifies code (removes whitespaces and renames variables)
+* Bundling (merges many JS file into a single JS file) so fewer requests are made
+* Tree shaking (the production app doesn't have code that is never used). It's a *little* different from dead code elimination.
+
+Angular has an Ahead Of Time (AOT) compiler that converts the HTML of templates into JS code that manupilates the DOM. 
+It can help catch template errors, reduce the output size, and make rendering on the browser faster.
+
+By default, running `ng build` will generate a "development" build which can still be deployed but isn't as optimized as it could be.
+To run it in "production" mode use `ng build --prod` which reduces the number of requests and file sizes.
+
+Deployment just involves copying the directory within "dist" to the web server!

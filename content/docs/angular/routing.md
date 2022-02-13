@@ -61,6 +61,17 @@ Then to load this particular module on a route you can define it in the main rou
 }
 ```
 
+To improve perceived performance, this module can be prefetched whenever the browser is free.
+This can be done by adding another argument to the root router module like so:
+```ts
+@NgModule({
+    imports: [
+        // other modules
+        RouterModule.forRoot(mainRoutes, {preLoadingStrategy: PreLoadAllModules})
+    ]
+})
+```
+
 ## Prefetching with resolve
 When a user visits a route a resolver loads the data required for the page before the component is loaded. It helps fix issues caused when the component is ready but the data required for its content is not.
 
