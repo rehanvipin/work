@@ -19,7 +19,7 @@ Typescript #  Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.28038dfb784d7e53ad5b2bac25814e590d8bc2b452d9e9de62ae0f504194b02d.js" integrity="sha256-KAON&#43;3hNflOtWyusJYFOWQ2LwrRS2eneYq4PUEGUsC0="></script>
+<script defer src="/en.search.min.52b8638123fa167d84d243cf01c228ec455a7c56654f171eac5878a25d734e62.js" integrity="sha256-UrhjgSP6Fn2E0kPPAcIo7EVafFZlTxcerFh4ol1zTmI="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -322,6 +322,7 @@ https://github.com/alex-shpak/hugo-book
           </ul>
         </li>
         <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
+        <li><a href="#deployment-">Deployment 🎈</a></li>
       </ul>
     </li>
   </ul>
@@ -403,6 +404,21 @@ https://github.com/alex-shpak/hugo-book
 <li>It bootstraps the root component, <code>app/app.component.ts</code> by default.</li>
 <li>The root component is placed in <code>app/index.html</code> which is what is rendered.</li>
 </ul>
+<h2 id="deployment-">
+  Deployment 🎈
+  <a class="anchor" href="#deployment-">#</a>
+</h2>
+<p>This is done with the <code>ng build</code> command which:</p>
+<ul>
+<li>Minifies code (removes whitespaces and renames variables)</li>
+<li>Bundling (merges many JS file into a single JS file) so fewer requests are made</li>
+<li>Tree shaking (the production app doesn&rsquo;t have code that is never used). It&rsquo;s a <em>little</em> different from dead code elimination.</li>
+</ul>
+<p>Angular has an Ahead Of Time (AOT) compiler that converts the HTML of templates into JS code that manupilates the DOM.
+It can help catch template errors, reduce the output size, and make rendering on the browser faster.</p>
+<p>By default, running <code>ng build</code> will generate a &ldquo;development&rdquo; build which can still be deployed but isn&rsquo;t as optimized as it could be.
+To run it in &ldquo;production&rdquo; mode use <code>ng build --prod</code> which reduces the number of requests and file sizes.</p>
+<p>Deployment just involves copying the directory within &ldquo;dist&rdquo; to the web server!</p>
 </article>
  
       
@@ -446,6 +462,7 @@ https://github.com/alex-shpak/hugo-book
           </ul>
         </li>
         <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
+        <li><a href="#deployment-">Deployment 🎈</a></li>
       </ul>
     </li>
   </ul>
