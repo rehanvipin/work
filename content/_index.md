@@ -11,6 +11,8 @@ Helps you masquerade as a software developer. Use at your own risk. 🍊
 Idk what else to put on this page so here are some random nice things:
 * You can hit `.` when you're on a GitHub repo to bring it an online VSCode instance (on [github.dev](https://github.dev)) to edit the files. You can't run anything tho cuz that's a paid feature.
 * [Stackblitz](https://stackblitz.com) is building a really cool developer experience where you can do local web development without installing node and stuff on your local system. You can even share these instances!
+* [Prettier](https://prettier.io/) is an auto code-formatter for web-dev
+* [ESLint](https://eslint.org/) is a linter that you can run (via the terminal or editor) on your code to catch possible bugs
 
 {{< hint "info" >}}
 ## Note
