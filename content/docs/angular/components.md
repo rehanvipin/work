@@ -9,10 +9,13 @@ weight: 2
 
 ## Creating them
 A bare component is a class, defined in a .ts file. You can create new one like this:
-* Create a `.ts` file and export a class that is decorated by `Component` from `@angular/core`. The decorator takes in an object as argument. The object has properties like `selector` (the HTML selector) and `template` (or `templateUrl`).
+* Create a `.ts` file and export a class that is decorated by `Component` from `@angular/core`. The decorator takes in an object as argument.
+The object has properties like `selector` (which is a CSS selector to find out which HTML elements this component should apply to) and `template` (or `templateUrl`).
 * Import this class in `app.module.ts` and add it to declarations in the `NgModule` decorator of AppModule.
 
 Data binding: Accessing the component's properties within its template via the `{{ any JS expression }}` syntax.
+
+The constructor of a component should ideally be empty, put intialization code in `ngOnInit`.
 
 ## Communicating with a child component
 When you have a child component within your component you can pass data to it via HTML attributes. The process is:

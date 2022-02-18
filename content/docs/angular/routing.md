@@ -11,6 +11,8 @@ Routes are defined as an array of objects. The array is of the type `Routes` fro
 * You then pass the array as an argument to `RouterModule.forRoot(routes)` in an `NgModule` of your app (e.g. `AppModule` in `app.module.ts`)
 * If you want a route to redirect, you can set it like so: `{path:'blue', redirectTo: '/red', pathMatch: 'full'}`
 
+A good practice is to create a separate module for routing and then import the module in `AppModule`. This way, routes and the `RouterModule` import will be in a separate file e.g. `app-routing.module.ts`. The main `AppModule` may also choose to export the new router module you created so it will be available throughout the app.
+
 ## Route parameters
 You can pass parameters in a route path, like so: `path: 'warehouse/:id'` where "id" is the parameter. To access it within your component code you should:
 * Add `ActivatedRoute` as a dependency to your component
@@ -29,6 +31,9 @@ You want Angular to generate the links to routes, not hardcode them. This is how
 
 ## Navigate with JS
 You can also navigate the site, not just by clicking links, but also with JS if required. You just put `Router` from "@angular/router" as a dependency and then call `routerName.navigate([/* path as an array of strings */])`
+
+There's also an Angular service called `Location` from "@angular/core" with which you can go back to the previous page.
+To use it, inject it as a dependency and then do `locationObj.back()`.
 
 ## Guards
 When you don't want a user to visit or leave ceratin routes.

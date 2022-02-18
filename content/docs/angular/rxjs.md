@@ -21,6 +21,8 @@ To add query parameters just do **string concatenation :)**. E.g. `http.get<T>(u
 
 There's also the `delete` method and `post` method. The `post` method needs a few more args like so: `http.post<T>(url, body, options)`. Where `body` is an object containing the data you want to give and options is also an object which has properties like HTTP headers.
 
+The observables that the HTTP methods return just pass one value and then complete.
+
 ## RxJS 💧
 Helps in managing events in a functional programming and asynchronous manner. Its main concepts are:
 
@@ -60,6 +62,9 @@ const custom = new Observable(subscriber => {
     }
 });
 ```
+
+Observables can be used in HTML templates. As a convention append a "$" while naming an observable
+so that it is distinguishable in the template.
 
 {{< hint "info" >}}
 There can be multiple subscribers. Each one will get the same stream of data.

@@ -13,8 +13,12 @@ Idk what else to put on this page so here are some random nice things:
 * [Stackblitz](https://stackblitz.com) is building a really cool developer experience where you can do local web development without installing node and stuff on your local system. You can even share these instances!
 * [Prettier](https://prettier.io/) is an auto code-formatter for web-dev
 * [ESLint](https://eslint.org/) is a linter that you can run (via the terminal or editor) on your code to catch possible bugs
+* [npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner/) is really cool! You can run the angular cli without installing it like so: `npx @angular/cli new facebook --skip-git`.
+* An easy way to locally deploy the built application is to run: `python -m http.server --bind localhost 8080` which serves the current directory at `http://localhost:8080`
+* You can add [graphs and diagrams to markdown files in GitHub](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) with [Mermaid!](https://mermaid-js.github.io/mermaid/#/)
 
 {{< hint "info" >}}
 ## Note
-This site isn't complete yet. It will never really be, but it isn't even ready for use. The extra section about shortcodes and the slightly weird arrangement is because I'm still learning how to use this theme.
+This site isn't complete yet. The slightly weird arrangement is because I'm still learning how to use this theme.
+Also npm is not an acronym and must be written down in all lowercase :P
 {{< /hint >}}
