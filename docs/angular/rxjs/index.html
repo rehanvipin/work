@@ -17,7 +17,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.29e6e5b9fb32d866ff084b4ea64c90d639ff220cc3e51833d5e2bfce69155798.js" integrity="sha256-Keblufsy2Gb/CEtOpkyQ1jn/IgzD5Rgz1eK/zmkVV5g="></script>
+<script defer src="/en.search.min.e756ac152c082d740ece05a7463a14c81a0bb28fc1ce68ab73f8b0968a405095.js" integrity="sha256-51asFSwILXQOzgWnRjoUyBoLso/Bzmirc/iwlopAUJU="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -362,6 +362,7 @@ https://github.com/alex-shpak/hugo-book
 <p>Once you have an object of <code>HttpClient</code>, say <code>http</code>, you can perform calls such as: <code>http.get&lt;T&gt;(url)</code> where <code>T</code> is the type of the response you expect. The result is an <code>Observable&lt;T&gt;</code> which can be subscribed to.</p>
 <p>To add query parameters just do <strong>string concatenation :)</strong>. E.g. <code>http.get&lt;T&gt;(url+&quot;?userid=&quot;+searchUserId)</code> 🌴</p>
 <p>There&rsquo;s also the <code>delete</code> method and <code>post</code> method. The <code>post</code> method needs a few more args like so: <code>http.post&lt;T&gt;(url, body, options)</code>. Where <code>body</code> is an object containing the data you want to give and options is also an object which has properties like HTTP headers.</p>
+<p>The observables that the HTTP methods return just pass one value and then complete.</p>
 <h2 id="rxjs-">
   RxJS 💧
   <a class="anchor" href="#rxjs-">#</a>
@@ -398,7 +399,9 @@ https://github.com/alex-shpak/hugo-book
         <span style="color:#75715e">// do clean up perhaps?
 </span><span style="color:#75715e"></span>    }
 });
-</code></pre></div><blockquote class="book-hint info">
+</code></pre></div><p>Observables can be used in HTML templates. As a convention append a &ldquo;$&rdquo; while naming an observable
+so that it is distinguishable in the template.</p>
+<blockquote class="book-hint info">
   There can be multiple subscribers. Each one will get the same stream of data.
 An observable may <code>complete</code> before some async operations within it have run. All subscribers will receive same series of <code>next</code>, <code>error</code> and <code>complete</code> events as each other.
 When one of them unsubscribes, it stops the flow of data to only that one.

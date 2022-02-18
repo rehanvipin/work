@@ -6,10 +6,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The real CONTENT #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
- Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (the HTML selector) and template (or templateUrl). Import this class in app.module.ts and add it to declarations in the NgModule decorator of AppModule.">
+ Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Components" />
 <meta property="og:description" content="The real CONTENT #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
- Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (the HTML selector) and template (or templateUrl). Import this class in app.module.ts and add it to declarations in the NgModule decorator of AppModule." />
+ Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/docs/angular/components/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.29e6e5b9fb32d866ff084b4ea64c90d639ff220cc3e51833d5e2bfce69155798.js" integrity="sha256-Keblufsy2Gb/CEtOpkyQ1jn/IgzD5Rgz1eK/zmkVV5g="></script>
+<script defer src="/en.search.min.e756ac152c082d740ece05a7463a14c81a0bb28fc1ce68ab73f8b0968a405095.js" integrity="sha256-51asFSwILXQOzgWnRjoUyBoLso/Bzmirc/iwlopAUJU="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -350,10 +350,12 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>A bare component is a class, defined in a .ts file. You can create new one like this:</p>
 <ul>
-<li>Create a <code>.ts</code> file and export a class that is decorated by <code>Component</code> from <code>@angular/core</code>. The decorator takes in an object as argument. The object has properties like <code>selector</code> (the HTML selector) and <code>template</code> (or <code>templateUrl</code>).</li>
+<li>Create a <code>.ts</code> file and export a class that is decorated by <code>Component</code> from <code>@angular/core</code>. The decorator takes in an object as argument.
+The object has properties like <code>selector</code> (which is a CSS selector to find out which HTML elements this component should apply to) and <code>template</code> (or <code>templateUrl</code>).</li>
 <li>Import this class in <code>app.module.ts</code> and add it to declarations in the <code>NgModule</code> decorator of AppModule.</li>
 </ul>
 <p>Data binding: Accessing the component&rsquo;s properties within its template via the <code>{{ any JS expression }}</code> syntax.</p>
+<p>The constructor of a component should ideally be empty, put intialization code in <code>ngOnInit</code>.</p>
 <h2 id="communicating-with-a-child-component">
   Communicating with a child component
   <a class="anchor" href="#communicating-with-a-child-component">#</a>

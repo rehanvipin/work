@@ -19,7 +19,7 @@ Creating routes #  Routes are defined as an array of objects." />
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.29e6e5b9fb32d866ff084b4ea64c90d639ff220cc3e51833d5e2bfce69155798.js" integrity="sha256-Keblufsy2Gb/CEtOpkyQ1jn/IgzD5Rgz1eK/zmkVV5g="></script>
+<script defer src="/en.search.min.e756ac152c082d740ece05a7463a14c81a0bb28fc1ce68ab73f8b0968a405095.js" integrity="sha256-51asFSwILXQOzgWnRjoUyBoLso/Bzmirc/iwlopAUJU="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -355,6 +355,7 @@ https://github.com/alex-shpak/hugo-book
 <li>You then pass the array as an argument to <code>RouterModule.forRoot(routes)</code> in an <code>NgModule</code> of your app (e.g. <code>AppModule</code> in <code>app.module.ts</code>)</li>
 <li>If you want a route to redirect, you can set it like so: <code>{path:'blue', redirectTo: '/red', pathMatch: 'full'}</code></li>
 </ul>
+<p>A good practice is to create a separate module for routing and then import the module in <code>AppModule</code>. This way, routes and the <code>RouterModule</code> import will be in a separate file e.g. <code>app-routing.module.ts</code>. The main <code>AppModule</code> may also choose to export the new router module you created so it will be available throughout the app.</p>
 <h2 id="route-parameters">
   Route parameters
   <a class="anchor" href="#route-parameters">#</a>
@@ -382,6 +383,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#navigate-with-js">#</a>
 </h2>
 <p>You can also navigate the site, not just by clicking links, but also with JS if required. You just put <code>Router</code> from &ldquo;@angular/router&rdquo; as a dependency and then call <code>routerName.navigate([/* path as an array of strings */])</code></p>
+<p>There&rsquo;s also an Angular service called <code>Location</code> from &ldquo;@angular/core&rdquo; with which you can go back to the previous page.
+To use it, inject it as a dependency and then do <code>locationObj.back()</code>.</p>
 <h2 id="guards">
   Guards
   <a class="anchor" href="#guards">#</a>
