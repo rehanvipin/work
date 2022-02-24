@@ -63,7 +63,7 @@ Creating routes #  Routes are defined as an array of objects.</description>
       
       <guid>https://work.rehanvipin.me/docs/angular/forms/</guid>
       <description>Forms and validation #  There are two kinds of forms in Angular:
- Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &amp;ldquo;@angular/forms&amp;rdquo; to be imported in the module where you will be using forms. In the component with the form, on the form element, set a template reference variable like so: &amp;lt;form #someNiceNameForForm=&amp;quot;ngForm&amp;quot;&amp;gt;&amp;lt;/form&amp;gt;.</description>
+ Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &amp;ldquo;@angular/forms&amp;rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags.</description>
     </item>
     
     <item>
@@ -104,6 +104,17 @@ Custom pipe #  An example pipe:
       <guid>https://work.rehanvipin.me/docs/angular/test/</guid>
       <description>Unit &amp;amp; Integrated tests #  Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:
 Isolated  Only tests the JS class not the component Mostly used for services and pipes Need to create instances of classes on your own   Integrated  Tests the class and template together Mostly used for components and directives The objects are created by the framework    Unit tests #  They test a single unit (like a class, function, or a bunch of classes) in isolation.</description>
+    </item>
+    
+    <item>
+      <title>Libraries</title>
+      <link>https://work.rehanvipin.me/docs/angular/libraries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/angular/libraries/</guid>
+      <description>Ultra level reusability #  They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
+Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.
+Installing them #  Install via npm like so: npm i jquery.</description>
     </item>
     
   </channel>

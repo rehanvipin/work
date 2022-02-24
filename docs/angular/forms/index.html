@@ -6,10 +6,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Forms and validation #  There are two kinds of forms in Angular:
- Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms. In the component with the form, on the form element, set a template reference variable like so: &lt;form #someNiceNameForForm=&quot;ngForm&quot;&gt;&lt;/form&gt;.">
+ Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Forms" />
 <meta property="og:description" content="Forms and validation #  There are two kinds of forms in Angular:
- Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms. In the component with the form, on the form element, set a template reference variable like so: &lt;form #someNiceNameForForm=&quot;ngForm&quot;&gt;&lt;/form&gt;." />
+ Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/docs/angular/forms/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.e756ac152c082d740ece05a7463a14c81a0bb28fc1ce68ab73f8b0968a405095.js" integrity="sha256-51asFSwILXQOzgWnRjoUyBoLso/Bzmirc/iwlopAUJU="></script>
+<script defer src="/en.search.min.22a005b07372fcbd75bf63f74eaf6bac0efe3329df8b53fd56603de0449eddaa.js" integrity="sha256-IqAFsHNy/L11v2P3Tq9rrA7&#43;Mynfi1P9VmA94ESe3ao="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -210,6 +210,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -349,12 +362,17 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <ul>
 <li>You need the <code>FormModule</code> from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms.</li>
-<li>In the component with the form, on the form element, set a template reference variable like so: <code>&lt;form #someNiceNameForForm=&quot;ngForm&quot;&gt;&lt;/form&gt;</code>. This provides additional functionality as 
+<li>When you import that module, it adds an NgForm directive to all form tags.
+The directive instance can be accessed as described below.</li>
+<li>In the component with the form, on the form element, set a template reference variable like so: <code>&lt;form #someNiceNameForForm=&quot;ngForm&quot;&gt;&lt;/form&gt;</code>.
+This provides additional functionality as 
   <a href="https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables">described in the docs</a>.</li>
 <li>For each input element whose value you want, set the <code>name</code> attribute. This will be the key to access its value later on.</li>
 <li>For the submit action, prefer to bind to ngSubmit instead of using the submit button, like so: <code>&lt;form #formTempVar=&quot;ngForm&quot; (ngSubmit)=&quot;handlerFunc(formTempVar.value)&quot;&gt;&lt;/form&gt;</code></li>
 <li>The <code>value</code> prop. on the temp-ref-var is an object where the value for each input field with a name attr. is available.</li>
-<li>You can also bind <code>ngModel</code> on each input element to bind it to values on the component, like so: <code>&lt;input (ngModel)=&quot;compoProp&quot; id=&quot;foo&quot; type=&quot;text&quot;&gt;</code>. To achieve <strong>two way data binding</strong> you can do this: <code>[(ngModel)]=&quot;compoProp</code>.</li>
+<li>You can also bind <code>ngModel</code> (which is a directive) on each input element to bind it to values
+on the component, like so: <code>&lt;input (ngModel)=&quot;compoProp&quot; id=&quot;foo&quot; type=&quot;text&quot;&gt;</code>.
+To achieve <strong>two way data binding</strong> you can do this: <code>[(ngModel)]=&quot;compoProp</code>.</li>
 </ul>
 <h2 id="validation">
   Validation
@@ -362,12 +380,19 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>Angular turns off the default behaviour of adding the &ldquo;required&rdquo; attribute on input elements. It does provide its own validation features:</p>
 <ul>
-<li><code>formTempRefVar</code> has properties like <code>valid</code>, <code>invalid</code>, <code>touched</code>, <code>dirty</code> etc. So does each input element, under <code>formTempRefVar.controls.inputElementName</code>.
+<li><code>formTempRefVar</code> has properties like <code>valid</code>, <code>invalid</code>, <code>touched</code>, <code>dirty</code> etc.
+So does each input element, under <code>formTempRefVar.controls.inputElementName</code>.</li>
+<li>Those properties for individual elements can also be accessed via temp-ref-vars like so:
+<code>&lt;input type=&quot;text&quot; name=&quot;woah&quot; #niceHandle=&quot;ngModel&quot;&gt;{{niceHandle.valid}}&lt;/input&gt;</code></li>
+<li>Angular also adds classes like <code>ng-valid</code>, <code>ng-touched</code>, and <code>ng-pristine</code> to elements.
+It also sets <code>ng-submitted</code> on the <code>form</code> element when the form has been submitted.
+These can be used for styling</li>
+<li>The form can be reset by calling <code>formTempRefVar.reset()</code></li>
+</ul>
 <blockquote class="book-hint danger">
   The element&rsquo;s property under <code>formTempRefVar.controls</code> may not be defined initially, therefore, if you want to check if the element is in an invalid state you should do it like this: <code>formTempRefVar.controls.inputElementName?.invalid</code>
 </blockquote>
-</li>
-</ul>
+
 <h2 id="reactive-forms">
   Reactive forms
   <a class="anchor" href="#reactive-forms">#</a>
@@ -396,7 +421,9 @@ https://github.com/alex-shpak/hugo-book
 <li>The properties of the <code>FormGroup</code> are supposed to be the values you want from the form, or a group of values which are encased in a <code>FormGroup</code>s of their own.</li>
 <li>You must bind the HTML form and input elements like so: <code>&lt;form [formGroup]=&quot;userLoginForm&quot;&gt;&lt;/form&gt;</code> and <code>&lt;input formControlName=&quot;username&quot;&gt;&lt;/input&gt;</code>.</li>
 <li>In case of grouped values, the group must be bound <code>&lt;div formGroupName=&quot;dob&quot;&gt;&lt;/div&gt;</code> and then the constituent elements like so: <code>&lt;input formControlName=&quot;month&quot;&gt;&lt;/input&gt;</code></li>
-<li>You can also add a <code>ngModelGroup</code> attribute so that the form value will be structured so that the input elements within the group will be nested inside an object. A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input name=&quot;hi&quot;&gt;&lt;/div&gt;</code> will give a value object like this:</li>
+<li>You can also add a <code>ngModelGroup</code> attribute so that the form value will be structured so that
+the input elements within the group will be nested inside an object.
+A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input name=&quot;hi&quot;&gt;&lt;/div&gt;</code> will give a value object like this:</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{   <span style="color:#75715e">// other fields
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lol</span><span style="color:#f92672">:</span> {
@@ -445,7 +472,8 @@ https://github.com/alex-shpak/hugo-book
 <p>You need to do a few weird things to validate multiple fields:</p>
 <ul>
 <li>To access sibling fields, use the root group like so <code>fg.root.controls.siblingElement</code></li>
-<li>To actually validate elements with the directive validator you need a temp-ref-var like so: <code>&lt;div ngModelGroup=&quot;niceGrp&quot; validatorDirec #whyNeedIDK=&quot;ngModelGroup&quot;&gt;&lt;/div&gt;</code></li>
+<li>To actually validate elements with the directive validator you need a temp-ref-var like so:
+<code>&lt;div ngModelGroup=&quot;niceGrp&quot; validatorDirec #whyNeedIDK=&quot;ngModelGroup&quot;&gt;&lt;/div&gt;</code></li>
 <li>The sibling needs to re-run the validator whenever it updates. Can do that with an event binding: <code>&lt;div (change)=&quot;whyNeedIDK.control.controls.someField.upDateValueAndValidity()&gt;&lt;/div&gt;</code></li>
 </ul>
 <p>This whole thing is just super complex and weird.</p>

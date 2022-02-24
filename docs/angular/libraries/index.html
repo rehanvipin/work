@@ -5,20 +5,25 @@
   <meta name="generator" content="Hugo 0.92.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Tags" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://work.rehanvipin.me/tags/" />
+<meta name="description" content="Ultra level reusability #  They provide extra functionality to Angular. They don&rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &ldquo;@angular/forms&rdquo;.
+Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &ldquo;npm&rdquo; or wherever.
+Installing them #  Install via npm like so: npm i jquery.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Libraries" />
+<meta property="og:description" content="Ultra level reusability #  They provide extra functionality to Angular. They don&rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &ldquo;@angular/forms&rdquo;.
+Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &ldquo;npm&rdquo; or wherever.
+Installing them #  Install via npm like so: npm i jquery." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/docs/angular/libraries/" /><meta property="article:section" content="docs" />
 
-<title>Tags | Field Manual</title>
+
+
+<title>Libraries | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.22a005b07372fcbd75bf63f74eaf6bac0efe3329df8b53fd56603de0449eddaa.js" integrity="sha256-IqAFsHNy/L11v2P3Tq9rrA7&#43;Mynfi1P9VmA94ESe3ao="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/tags/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -214,7 +219,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/docs/angular/libraries/" class="">Libraries</a>
+    <a href="https://work.rehanvipin.me/docs/angular/libraries/" class=" active">Libraries</a>
   
 
         </li>
@@ -305,7 +310,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Tags</strong>
+  <strong>Libraries</strong>
 
   <label for="toc-control">
     
@@ -318,34 +323,18 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li><a href="#ultra-level-reusability">Ultra level reusability</a>
       <ul>
-      
+        <li><a href="#installing-them">Installing them</a></li>
+        <li><a href="#creating-one">Creating one</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-        <li class="flex justify-between">
-          <a href="/tags/meta/">meta</a>
-          <span>1</span>
-        </li>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
 
   </aside>
@@ -355,29 +344,35 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-  <article class="markdown book-post">
-    <h2>
-      <a href="/tags/meta/">meta</a>
-    </h2>
-    
-  <h5>January 24, 2022</h5>
-
-
-
-  
-
-  
-
-
-
-
-    <p>
-    </p>
-  </article>
-  
-
-  
+  <article class="markdown"><h1 id="ultra-level-reusability">
+  Ultra level reusability
+  <a class="anchor" href="#ultra-level-reusability">#</a>
+</h1>
+<p>They provide extra functionality to Angular.
+They don&rsquo;t run on their own. They need to be used in an application.
+There are many first party libraries that are regularly used, like &ldquo;@angular/forms&rdquo;.</p>
+<p>Some functionality of an app can be packaged into a library so it can be reused with other apps.
+They can then be published in &ldquo;npm&rdquo; or wherever.</p>
+<h2 id="installing-them">
+  Installing them
+  <a class="anchor" href="#installing-them">#</a>
+</h2>
+<p>Install via npm like so: <code>npm i jquery</code>.
+If the library does not contain typings for typescript within in a <code>.d.ts</code> file
+you can try to get them via <code>npm i @types/jquery</code>.
+It can then be use like so: <code>import * as $ from jquery</code></p>
+<p>You can also define types on your own via a <code>.d.ts</code> file e.g. <code>cooltypes.d.ts</code> in <code>src/</code>
+where you delcare interfaces and functions.</p>
+<p>An alternate way to use them is to put them in the global scope as if they were put in a script tag.
+That&rsquo;s done by adding the source to the <code>scripts</code> array in <code>angular.json</code></p>
+<h2 id="creating-one">
+  Creating one
+  <a class="anchor" href="#creating-one">#</a>
+</h2>
+<p>It&rsquo;s a convention to prefix library names with <code>ngx-</code> to denote they are Angular libs.</p>
+<p>TODO:
+I don&rsquo;t understand this. Gotta do it later.</p>
+</article>
  
       
 
@@ -406,34 +401,18 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li><a href="#ultra-level-reusability">Ultra level reusability</a>
       <ul>
-      
+        <li><a href="#installing-them">Installing them</a></li>
+        <li><a href="#creating-one">Creating one</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-        <li class="flex justify-between">
-          <a href="/tags/meta/">meta</a>
-          <span>1</span>
-        </li>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
  
       </div>
