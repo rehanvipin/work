@@ -25,10 +25,16 @@ In general, here are a few guidelines you should follow:
 ### Event binding
 HTML elements also have events that they can emit e.g. "click, focus, hover, etc". You can bind these events (which means running code when it emitted) to statements, like so: `<div (hover)=" some JS statement "></div>`.
 ### Rules for statements
-Statements can have assignments but only with `=`, not `+=` or other stuff. They can have multiple expressions separated by `;` but the other restrictions that held for expressions still hold. They mostly do have side effects.
+Statements can have assignments but only with `=`, not `+=` or other stuff. 
+They can have multiple expressions separated by `;` but the other restrictions 
+that held for expressions still hold. They mostly do have side effects.
 {{< /details >}}
 ### Two way binding
-TODO
+This can be done like so : `<child-elem [(lol)]="someVal"></child-elem>` which does a bunch of things:
+* The child element should have a property "lol" and an `EventEmitter` "lolChange"
+* The parent should have a property "someVal"
+* Whenever `someVal` is updated, `lol` will get the new value, just like normal property binding
+* Whenever `lolChange` emits a value, `someVal` will be set to that value.
 
 ## `*ngFor`
 ngFor is a structural directive. That means that it is capable of changing the DOM structure. It works like a for loop, where for each iteration it creates another instance of the element (and its children) on which it is called. It also provides a template reference variable for the element / its children to use. An example below:

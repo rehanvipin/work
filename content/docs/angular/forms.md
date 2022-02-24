@@ -9,15 +9,28 @@ There are two kinds of forms in Angular:
 
 ## Creating a form
 * You need the `FormModule` from "@angular/forms" to be imported in the module where you will be using forms.
-* In the component with the form, on the form element, set a template reference variable like so: `<form #someNiceNameForForm="ngForm"></form>`. This provides additional functionality as [described in the docs](https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables).
+* When you import that module, it adds an NgForm directive to all form tags.
+The directive instance can be accessed as described below.
+* In the component with the form, on the form element, set a template reference variable like so: `<form #someNiceNameForForm="ngForm"></form>`. 
+This provides additional functionality as [described in the docs](https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables).
 * For each input element whose value you want, set the `name` attribute. This will be the key to access its value later on.
 * For the submit action, prefer to bind to ngSubmit instead of using the submit button, like so: `<form #formTempVar="ngForm" (ngSubmit)="handlerFunc(formTempVar.value)"></form>`
 * The `value` prop. on the temp-ref-var is an object where the value for each input field with a name attr. is available.
-* You can also bind `ngModel` on each input element to bind it to values on the component, like so: `<input (ngModel)="compoProp" id="foo" type="text">`. To achieve **two way data binding** you can do this: `[(ngModel)]="compoProp`.
+* You can also bind `ngModel` (which is a directive) on each input element to bind it to values 
+on the component, like so: `<input (ngModel)="compoProp" id="foo" type="text">`. 
+To achieve **two way data binding** you can do this: `[(ngModel)]="compoProp`.
 
 ## Validation
 Angular turns off the default behaviour of adding the "required" attribute on input elements. It does provide its own validation features:
-* `formTempRefVar` has properties like `valid`, `invalid`, `touched`, `dirty` etc. So does each input element, under `formTempRefVar.controls.inputElementName`.
+* `formTempRefVar` has properties like `valid`, `invalid`, `touched`, `dirty` etc.
+So does each input element, under `formTempRefVar.controls.inputElementName`.
+* Those properties for individual elements can also be accessed via temp-ref-vars like so:
+`<input type="text" name="woah" #niceHandle="ngModel">{{niceHandle.valid}}</input>`
+* Angular also adds classes like `ng-valid`, `ng-touched`, and `ng-pristine` to elements.
+It also sets `ng-submitted` on the `form` element when the form has been submitted.
+These can be used for styling
+* The form can be reset by calling `formTempRefVar.reset()`
+
 {{< hint danger >}}
 The element's property under `formTempRefVar.controls` may not be defined initially, therefore, if you want to check if the element is in an invalid state you should do it like this: `formTempRefVar.controls.inputElementName?.invalid`
 {{< /hint >}}
@@ -46,7 +59,9 @@ this.userLoginForm = new FormGroup({
 * The properties of the `FormGroup` are supposed to be the values you want from the form, or a group of values which are encased in a `FormGroup`s of their own.
 * You must bind the HTML form and input elements like so: `<form [formGroup]="userLoginForm"></form>` and `<input formControlName="username"></input>`.
 * In case of grouped values, the group must be bound `<div formGroupName="dob"></div>` and then the constituent elements like so: `<input formControlName="month"></input>`
-* You can also add a `ngModelGroup` attribute so that the form value will be structured so that the input elements within the group will be nested inside an object. A structure like this `<div ngModelGroup="lol"><input name="hi"></div>` will give a value object like this:
+* You can also add a `ngModelGroup` attribute so that the form value will be structured so that 
+the input elements within the group will be nested inside an object. 
+A structure like this `<div ngModelGroup="lol"><input name="hi"></div>` will give a value object like this:
 ```js
 {   // other fields
     lol: {
@@ -88,7 +103,8 @@ export class NiceValidator {
 ## Multi-field validation
 You need to do a few weird things to validate multiple fields:
 * To access sibling fields, use the root group like so `fg.root.controls.siblingElement`
-* To actually validate elements with the directive validator you need a temp-ref-var like so: `<div ngModelGroup="niceGrp" validatorDirec #whyNeedIDK="ngModelGroup"></div>`
+* To actually validate elements with the directive validator you need a temp-ref-var like so: 
+`<div ngModelGroup="niceGrp" validatorDirec #whyNeedIDK="ngModelGroup"></div>`
 * The sibling needs to re-run the validator whenever it updates. Can do that with an event binding: `<div (change)="whyNeedIDK.control.controls.someField.upDateValueAndValidity()></div>`
 
 This whole thing is just super complex and weird.
