@@ -1,7 +1,7 @@
 ---
 menu:
   after:
-    weight: 3
+    weight: 30
 title: "Credits"
 bookTOC: false
 ---

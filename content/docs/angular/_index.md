@@ -2,7 +2,7 @@
 weight: 1
 bookFlatSection: true
 title: "Angular"
-bookCollapseSection: false
+bookCollapseSection: true
 ---
 
 # Angular, the fancy web framework
