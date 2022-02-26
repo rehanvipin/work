@@ -7,6 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 24 Jan 2022 20:07:08 +0530</lastBuildDate><atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>D3</title>
+      <link>https://work.rehanvipin.me/docs/front-end-stuff/d3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/front-end-stuff/d3/</guid>
+      <description>Data Driven Docs? #  While it&amp;rsquo;s a good library overall, I&amp;rsquo;m learning how to make network graphs with it. Here goes nothing 😛
+Oooh, this is one crazy library with a heck lot of things it can do. Nice confusion. These might be some good resources:
+  Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&amp;rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!</description>
+    </item>
+    
+    <item>
       <title>Overview</title>
       <link>https://work.rehanvipin.me/docs/angular/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -17,16 +28,6 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
     </item>
     
     <item>
-      <title>Whatnext</title>
-      <link>https://work.rehanvipin.me/docs/whatnext/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/docs/whatnext/</guid>
-      <description>So much to learn 😮 #  I think I should learn these things because they might be useful at work:
- Common design patterns (with examples?) Should add a lifecycle section to Angular? Maybe just link to the docs? Add more content about Angular services (really needed?) TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts For the Angular docs do it in this order: &amp;ldquo;Getting Started&amp;rdquo; -&amp;gt; &amp;ldquo;Tutorials&amp;rdquo; -&amp;gt; &amp;ldquo;Understanding Angular&amp;rdquo; -&amp;gt; &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; ngModel is one fancy thing.</description>
-    </item>
-    
-    <item>
       <title>Components</title>
       <link>https://work.rehanvipin.me/docs/angular/components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -34,17 +35,6 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       <guid>https://work.rehanvipin.me/docs/angular/components/</guid>
       <description>The real CONTENT #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
  Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).</description>
-    </item>
-    
-    <item>
-      <title>Shortcodes</title>
-      <link>https://work.rehanvipin.me/docs/shortcodes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/docs/shortcodes/</guid>
-      <description>Buttons #  Buttons are styled links that can lead to local page or external link.
-Example #  {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  Columns #  Columns help organize shorter pieces of content horizontally for readability.
-{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne.</description>
     </item>
     
     <item>
@@ -129,6 +119,16 @@ Isolated  Only tests the JS class not the component Mostly used for services and
     </item>
     
     <item>
+      <title>Whatnext</title>
+      <link>https://work.rehanvipin.me/docs/whatnext/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/whatnext/</guid>
+      <description>So much to learn 😮 #  I think I should learn these things because they might be useful at work:
+ Common design patterns (with examples?) Should add a lifecycle section to Angular? Maybe just link to the docs? Add more content about Angular services (really needed?) TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts For the Angular docs do it in this order: &amp;ldquo;Getting Started&amp;rdquo; -&amp;gt; &amp;ldquo;Tutorials&amp;rdquo; -&amp;gt; &amp;ldquo;Understanding Angular&amp;rdquo; -&amp;gt; &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; ngModel is one fancy thing.</description>
+    </item>
+    
+    <item>
       <title>Libraries</title>
       <link>https://work.rehanvipin.me/docs/angular/libraries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -137,6 +137,17 @@ Isolated  Only tests the JS class not the component Mostly used for services and
       <description>Ultra level reusability #  They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
 Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.
 Installing them #  Install via npm like so: npm i jquery.</description>
+    </item>
+    
+    <item>
+      <title>Shortcodes</title>
+      <link>https://work.rehanvipin.me/docs/shortcodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/shortcodes/</guid>
+      <description>Buttons #  Buttons are styled links that can lead to local page or external link.
+Example #  {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  Columns #  Columns help organize shorter pieces of content horizontally for readability.
+{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne.</description>
     </item>
     
     <item>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Front-End on Field Manual</title>
+    <link>https://work.rehanvipin.me/docs/front-end-stuff/</link>
+    <description>Recent content in Front-End on Field Manual</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/docs/front-end-stuff/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D3</title>
+      <link>https://work.rehanvipin.me/docs/front-end-stuff/d3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/docs/front-end-stuff/d3/</guid>
+      <description>Data Driven Docs? #  While it&amp;rsquo;s a good library overall, I&amp;rsquo;m learning how to make network graphs with it. Here goes nothing 😛
+Oooh, this is one crazy library with a heck lot of things it can do. Nice confusion. These might be some good resources:
+  Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&amp;rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!</description>
+    </item>
+    
+  </channel>
+</rss>
