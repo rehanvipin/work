@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.93.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Adding features! 🙌 #  Dependency injection #  This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.352117f7e93936c0aa47185ad6c9be633797a676c59ecb1c397d6ece62603389.js" integrity="sha256-NSEX9&#43;k5NsCqRxha1sm&#43;YzeXpnbFnsscOX1uzmJgM4k="></script>
+<script defer src="/en.search.min.eed63421195164e8d2c86e01ef9d376f4dea40ab6222bdfc9c87e9d6c23078de.js" integrity="sha256-7tY0IRlRZOjSyG4B7503b03qQKtiIr38nIfp1sIweN4="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -327,7 +327,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -412,17 +412,26 @@ https://github.com/alex-shpak/hugo-book
 <div class="book-columns flex flex-wrap">
   
   <div class="flex-even markdown-inner">
-    <h4 id="in-injectable">In <code>@Injectable()</code></h4>
+    <h4 id="in-injectable">
+  In <code>@Injectable()</code>
+  <a class="anchor" href="#in-injectable">#</a>
+</h4>
 <p>You can specify the provider as the value to the <code>provider</code> key in the metadata object. If you specify <code>'root'</code> one instance will be available to all components.
   </div>
   
   <div class="flex-even markdown-inner">
-    <h4 id="with-an-ngmodule">With an <code>NgModule</code></h4>
+    <h4 id="with-an-ngmodule">
+  With an <code>NgModule</code>
+  <a class="anchor" href="#with-an-ngmodule">#</a>
+</h4>
 <p>You specify the provider (e.g. the service class) in the <code>providers</code> array and one instance will be available to all components in the module.
   </div>
   
   <div class="flex-even markdown-inner">
-    <h4 id="with-a-component">With a component</h4>
+    <h4 id="with-a-component">
+  With a component
+  <a class="anchor" href="#with-a-component">#</a>
+</h4>
 <p>You can place it in the <code>providers</code> array in the metadata of a component and it will get its own instance of that service.
   </div>
   
@@ -436,20 +445,20 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>This is a way for the injector to find the required provider from the list of available providers. Its an alternative to using a string. Its better since the token is a variable and the compiler will complain if there is another variable with the same name.</p>
 <p>Create a new token like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">InjectionToken</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">SOME_TOKEN</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">InjectionToken</span>&lt;<span style="color:#f92672">retType</span>&gt;(<span style="color:#e6db74">&#39;whatever description you want&#39;</span>);
-<span style="color:#75715e">// Its a convention to capitalize the token name
-</span><span style="color:#75715e">// retType is the type of the object that this provider will create
-</span><span style="color:#75715e">// &#34;any&#34; is a good option in case of a third-party object like jQuery
-</span></code></pre></div><p>Use it to register a new provider. The <code>provide</code> property will be set to <code>SOME_TOKEN</code>. The other prop. e.g. <code>useValue</code> contains the object that you want to provide e.g. jQuery&rsquo;s <code>$</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">InjectionToken</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">SOME_TOKEN</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">InjectionToken</span>&lt;<span style="color:#f92672">retType</span>&gt;(<span style="color:#e6db74">&#39;whatever description you want&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Its a convention to capitalize the token name
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// retType is the type of the object that this provider will create
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// &#34;any&#34; is a good option in case of a third-party object like jQuery
+</span></span></span></code></pre></div><p>Use it to register a new provider. The <code>provide</code> property will be set to <code>SOME_TOKEN</code>. The other prop. e.g. <code>useValue</code> contains the object that you want to provide e.g. jQuery&rsquo;s <code>$</code>.</p>
 <p>The object can now be used via DI like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Inject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">SOME_TOKEN</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./something.service&#39;</span>
-<span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">@Inject</span>(<span style="color:#a6e22e">SOME_TOKEN</span>) <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">jqSelector</span>) {}
-<span style="color:#a6e22e">ngOnInit() {</span>
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">jqSelector</span>.<span style="color:#a6e22e">doSomething</span>()
-}
-</code></pre></div><h2 id="usewhat">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Inject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">SOME_TOKEN</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./something.service&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">@Inject</span>(<span style="color:#a6e22e">SOME_TOKEN</span>) <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">jqSelector</span>) {}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ngOnInit() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">jqSelector</span>.<span style="color:#a6e22e">doSomething</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="usewhat">
   <code>useWhat</code>
   <a class="anchor" href="#usewhat">#</a>
 </h2>

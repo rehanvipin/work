@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.93.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Forms and validation #  There are two kinds of forms in Angular:
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.352117f7e93936c0aa47185ad6c9be633797a676c59ecb1c397d6ece62603389.js" integrity="sha256-NSEX9&#43;k5NsCqRxha1sm&#43;YzeXpnbFnsscOX1uzmJgM4k="></script>
+<script defer src="/en.search.min.eed63421195164e8d2c86e01ef9d376f4dea40ab6222bdfc9c87e9d6c23078de.js" integrity="sha256-7tY0IRlRZOjSyG4B7503b03qQKtiIr38nIfp1sIweN4="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -327,7 +327,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -436,22 +436,22 @@ These can be used for styling</li>
 <li>You need the <code>ReactiveFormModule</code> like how template forms need <code>FormModule</code></li>
 <li>The form is a property of the component. It is of the type <code>FormGroup</code>. You initialize it in <code>ngOnInit</code>, like so:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">birthday</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormGroup</span>({
-    <span style="color:#a6e22e">day</span>: <span style="color:#66d9ef">day</span>,
-    <span style="color:#a6e22e">month</span>: <span style="color:#66d9ef">month</span>,
-    <span style="color:#a6e22e">year</span>: <span style="color:#66d9ef">year</span>
-});
-<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userLoginForm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormGroup</span>({
-    <span style="color:#a6e22e">uname</span>: <span style="color:#66d9ef">username</span>,
-    <span style="color:#a6e22e">paswd</span>: <span style="color:#66d9ef">password</span>,
-    <span style="color:#a6e22e">dob</span>: <span style="color:#66d9ef">birthday</span>
-})
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">birthday</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormGroup</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">day</span>: <span style="color:#66d9ef">day</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">month</span>: <span style="color:#66d9ef">month</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">year</span>: <span style="color:#66d9ef">year</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userLoginForm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormGroup</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">uname</span>: <span style="color:#66d9ef">username</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">paswd</span>: <span style="color:#66d9ef">password</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dob</span>: <span style="color:#66d9ef">birthday</span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><ul>
 <li>The properties of the <code>FormGroup</code> are supposed to be the values you want from the form, or a group of values which are encased in a <code>FormGroup</code>s of their own.</li>
 <li>You must bind the HTML form and input elements like so: <code>&lt;form [formGroup]=&quot;userLoginForm&quot;&gt;&lt;/form&gt;</code> and <code>&lt;input formControlName=&quot;username&quot;&gt;&lt;/input&gt;</code>.</li>
 <li>In case of grouped values, the group must be bound <code>&lt;div formGroupName=&quot;dob&quot;&gt;&lt;/div&gt;</code> and then the constituent elements like so: <code>&lt;input formControlName=&quot;month&quot;&gt;&lt;/input&gt;</code></li>
@@ -459,12 +459,12 @@ These can be used for styling</li>
 the input elements within the group will be nested inside an object.
 A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input name=&quot;hi&quot;&gt;&lt;/div&gt;</code> will give a value object like this:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{   <span style="color:#75715e">// other fields
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lol</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">hi</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;someval&#34;</span>
-    }
-}
-</code></pre></div><h2 id="validation-reactive-form">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{   <span style="color:#75715e">// other fields
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lol</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hi</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;someval&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="validation-reactive-form">
   Validation (reactive form)
   <a class="anchor" href="#validation-reactive-form">#</a>
 </h2>
@@ -486,20 +486,20 @@ A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input na
 </h2>
 <p>You can also use a directive as a validator. Since it is a class it needs to implement <code>Validator</code> from &lsquo;@angular/forms&rsquo; which means it needs to have a function <code>validate</code> that takes in a <code>FormGroup</code> (or <code>FormControl</code> depending on where the directive is used) and return <code>null</code> if there are no errors else an error object like before.</p>
 <p>Since it is a directive it needs to be imported in the ngModule. To add it to Angular&rsquo;s list of validators (and therefore make it available for use) you can do this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NG_VALIDATORS</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/forms&#39;</span>
-
-<span style="color:#66d9ef">@Directive</span>({
-    <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;wow-nice&#39;</span>
-    <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [{
-        <span style="color:#a6e22e">provides</span>: <span style="color:#66d9ef">NG_VALIDATORS</span>,
-        <span style="color:#a6e22e">useExisting</span>: <span style="color:#66d9ef">NiceValidator</span>,
-        <span style="color:#a6e22e">multi</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e">// this means add this validator as a provider to NG_VALIDATORS
-</span><span style="color:#75715e"></span>    }]
-})
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NiceValidator</span> {
-    <span style="color:#a6e22e">validate</span>(<span style="color:#a6e22e">fg</span>: <span style="color:#66d9ef">FormGroup</span>) { <span style="color:#75715e">/* validation logic */</span>}
-}
-</code></pre></div><h2 id="multi-field-validation">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NG_VALIDATORS</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/forms&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Directive</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;wow-nice&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">provides</span>: <span style="color:#66d9ef">NG_VALIDATORS</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">useExisting</span>: <span style="color:#66d9ef">NiceValidator</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">multi</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e">// this means add this validator as a provider to NG_VALIDATORS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NiceValidator</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">validate</span>(<span style="color:#a6e22e">fg</span>: <span style="color:#66d9ef">FormGroup</span>) { <span style="color:#75715e">/* validation logic */</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="multi-field-validation">
   Multi-field validation
   <a class="anchor" href="#multi-field-validation">#</a>
 </h2>

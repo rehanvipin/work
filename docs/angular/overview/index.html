@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.93.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&rsquo;s called a front-end web development framework.
@@ -19,7 +19,7 @@ Typescript #  Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.352117f7e93936c0aa47185ad6c9be633797a676c59ecb1c397d6ece62603389.js" integrity="sha256-NSEX9&#43;k5NsCqRxha1sm&#43;YzeXpnbFnsscOX1uzmJgM4k="></script>
+<script defer src="/en.search.min.eed63421195164e8d2c86e01ef9d376f4dea40ab6222bdfc9c87e9d6c23078de.js" integrity="sha256-7tY0IRlRZOjSyG4B7503b03qQKtiIr38nIfp1sIweN4="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -327,7 +327,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -406,42 +406,42 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#interfaces">#</a>
 </h3>
 <p>They let you define a structure that objects must follow. An interface is a type. When you assign an object to a variable of that type, the object must have the properties in that interface (each of the same type). Like so</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">nice</span> {
-    <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
-    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>
-}
-
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sic</span>: <span style="color:#66d9ef">nice</span>;
-<span style="color:#a6e22e">sic</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hai&#34;</span>, <span style="color:#75715e">// adding, removing, or changing the types of these properties causes an error
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">10</span>
-};
-</code></pre></div><h3 id="class-properties">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">nice</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sic</span>: <span style="color:#66d9ef">nice</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sic</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hai&#34;</span>, <span style="color:#75715e">// adding, removing, or changing the types of these properties causes an error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">10</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="class-properties">
   Class properties
   <a class="anchor" href="#class-properties">#</a>
 </h3>
 <p>ES6 classes mainly define their properties via their constructors. TS lets you to define these properties in the class itself. You can optionally specify types for them. This is only for readability. E.g.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
-    <span style="color:#a6e22e">num</span>: <span style="color:#66d9ef">number</span>
-    <span style="color:#a6e22e">wutdis</span>
-    <span style="color:#66d9ef">constructor</span>() {
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wutdis</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hmm&#34;</span>;
-    }
-}
-</code></pre></div><h3 id="public--private-access">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">num</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">wutdis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wutdis</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hmm&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="public--private-access">
   Public / Private access
   <a class="anchor" href="#public--private-access">#</a>
 </h3>
 <p>All class properties in ES6 are public. You can make them private in TS by adding the <code>private</code> before them during declaration. It also provides this nifty shorthand for the constructor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
-    <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">wutdis</span>: <span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">num</span>) {
-        <span style="color:#75715e">// it implicitly does this.wutdis = wutdis
-</span><span style="color:#75715e"></span>    }
-}
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Hip</span>(<span style="color:#e6db74">&#34;sic&#34;</span>, <span style="color:#ae81ff">10</span>);
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">f</span>); <span style="color:#75715e">// { wutdis: &#34;sic&#34;, num: 10 }
-</span></code></pre></div><h2 id="the-bootstrap-process">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">wutdis</span>: <span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// it implicitly does this.wutdis = wutdis
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Hip</span>(<span style="color:#e6db74">&#34;sic&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">f</span>); <span style="color:#75715e">// { wutdis: &#34;sic&#34;, num: 10 }
+</span></span></span></code></pre></div><h2 id="the-bootstrap-process">
   The bootstrap process
   <a class="anchor" href="#the-bootstrap-process">#</a>
 </h2>

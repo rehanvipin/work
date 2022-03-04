@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.92.2" />
+  <meta name="generator" content="Hugo 0.93.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Routing &amp; Co. #  Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!
@@ -19,7 +19,7 @@ Creating routes #  Routes are defined as an array of objects." />
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.352117f7e93936c0aa47185ad6c9be633797a676c59ecb1c397d6ece62603389.js" integrity="sha256-NSEX9&#43;k5NsCqRxha1sm&#43;YzeXpnbFnsscOX1uzmJgM4k="></script>
+<script defer src="/en.search.min.eed63421195164e8d2c86e01ef9d376f4dea40ab6222bdfc9c87e9d6c23078de.js" integrity="sha256-7tY0IRlRZOjSyG4B7503b03qQKtiIr38nIfp1sIweN4="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -327,7 +327,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -413,10 +413,10 @@ https://github.com/alex-shpak/hugo-book
 <li>Access the parameter via the dependency object, like so: <code>route.snapshot.params[&quot;id&quot;]</code></li>
 <li>It is also recommended to setup a callback function with each param so that when navigating from that component to itself, the content is updated properly. This can be done like so:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">param</span>: <span style="color:#66d9ef">Param</span>) <span style="color:#f92672">=&gt;</span> {
-    <span style="color:#75715e">// logic for updating content
-</span><span style="color:#75715e"></span>})
-</code></pre></div><h2 id="links-to-routes">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">param</span>: <span style="color:#66d9ef">Param</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// logic for updating content
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span></code></pre></div><h2 id="links-to-routes">
   Links to routes
   <a class="anchor" href="#links-to-routes">#</a>
 </h2>
@@ -472,21 +472,21 @@ To use it, inject it as a dependency and then do <code>locationObj.back()</code>
 <li>You use <code>RouterModule.forChild</code> instead of <code>RouterModule.forRoot</code>.</li>
 </ul>
 <p>Then to load this particular module on a route you can define it in the main route, like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts">{ <span style="color:#75715e">// this is a Route object
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;extraa&#39;</span>,
-    <span style="color:#a6e22e">loadChildren</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;extraStuff.module&#39;</span> <span style="color:#75715e">/*the file where the module is defined*/</span>).<span style="color:#a6e22e">then</span>(
-        <span style="color:#a6e22e">mod</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">mod</span>.<span style="color:#a6e22e">FancyModule</span> <span style="color:#75715e">// the NgModule&#39;d class
-</span><span style="color:#75715e"></span>    )
-}
-</code></pre></div><p>To improve perceived performance, this module can be prefetched whenever the browser is free.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>{ <span style="color:#75715e">// this is a Route object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;extraa&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">loadChildren</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;extraStuff.module&#39;</span> <span style="color:#75715e">/*the file where the module is defined*/</span>).<span style="color:#a6e22e">then</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">mod</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">mod</span>.<span style="color:#a6e22e">FancyModule</span> <span style="color:#75715e">// the NgModule&#39;d class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To improve perceived performance, this module can be prefetched whenever the browser is free.
 This can be done by adding another argument to the root router module like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">@NgModule</span>({
-    <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [
-        <span style="color:#75715e">// other modules
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">RouterModule</span>.<span style="color:#a6e22e">forRoot</span>(<span style="color:#a6e22e">mainRoutes</span>, {<span style="color:#a6e22e">preLoadingStrategy</span>: <span style="color:#66d9ef">PreLoadAllModules</span>})
-    ]
-})
-</code></pre></div><h2 id="prefetching-with-resolve">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">@NgModule</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// other modules
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">RouterModule</span>.<span style="color:#a6e22e">forRoot</span>(<span style="color:#a6e22e">mainRoutes</span>, {<span style="color:#a6e22e">preLoadingStrategy</span>: <span style="color:#66d9ef">PreLoadAllModules</span>})
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="prefetching-with-resolve">
   Prefetching with resolve
   <a class="anchor" href="#prefetching-with-resolve">#</a>
 </h2>

@@ -23,7 +23,7 @@
       <guid>https://work.rehanvipin.me/docs/shortcodes/</guid>
       <description>Buttons #  Buttons are styled links that can lead to local page or external link.
 Example #  {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  Columns #  Columns help organize shorter pieces of content horizontally for readability.
-{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne.</description>
+{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne...  &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt;  # Mid Content Lorem markdownum insigne.</description>
     </item>
     
   </channel>
