@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.93.1" />
+  <meta name="generator" content="Hugo 0.93.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Data Driven Docs? #  While it&rsquo;s a good library overall, I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
@@ -21,7 +21,7 @@ Oooh, this is one crazy library with a heck lot of things it can do. Nice confus
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.eed63421195164e8d2c86e01ef9d376f4dea40ab6222bdfc9c87e9d6c23078de.js" integrity="sha256-7tY0IRlRZOjSyG4B7503b03qQKtiIr38nIfp1sIweN4="></script>
+<script defer src="/en.search.min.5fb7c514ae0f9bfbd6bddf271d54a03d1cca8dd045a6649a32003b9341c16f1f.js" integrity="sha256-X7fFFK4Pm/vWvd8nHVSgPRzKjdBFpmSaMgA7k0HBbx8="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -259,6 +259,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/docs/front-end-stuff/svg/" class="">Svg</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -362,8 +375,13 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#data-driven-docs">Data Driven Docs?</a>
       <ul>
-        <li><a href="#selection">Selection</a></li>
-        <li><a href="#random-code-iykyk">Random code (iykyk)</a></li>
+        <li><a href="#selection">Selection</a>
+          <ul>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#insertion--deletion">Insertion / Deletion</a></li>
+            <li><a href="#processing">Processing</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -401,281 +419,103 @@ These might be some good resources:</p>
   Selection
   <a class="anchor" href="#selection">#</a>
 </h2>
-<h2 id="random-code-iykyk">
-  Random code (iykyk)
-  <a class="anchor" href="#random-code-iykyk">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;./styles.css&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">d3Base</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;d3&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">d3Dag</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;d3-dag&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">edgeRadius</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">d3</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">assign</span>({}, <span style="color:#a6e22e">d3Base</span>, <span style="color:#a6e22e">d3Dag</span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sources</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Zherebko</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;zherebko&#39;</span>, <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">dagConnect</span>()],
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Grafo</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;grafo&#39;</span>, <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">dagStratify</span>()],
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;X-Shape&#39;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;ex&#39;</span>, <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">dagStratify</span>()]
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gridTweak</span>(<span style="color:#a6e22e">layout</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">dag</span>) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Tweak allows a basis interpolation to curve the lines
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// We essentially take the three point lines and make them five, with two points on either side of the bend
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">height</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">layout</span>(<span style="color:#a6e22e">dag</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">points</span> } <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">ilinks</span>()) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">first</span>, <span style="color:#a6e22e">middle</span>, <span style="color:#a6e22e">last</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">points</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">last</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">points</span>.<span style="color:#a6e22e">splice</span>(
-</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">0</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#ae81ff">3</span>,
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">first</span>,
-</span></span><span style="display:flex;"><span>          {
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">middle</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> Math.<span style="color:#a6e22e">sign</span>(<span style="color:#a6e22e">first</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">middle</span>.<span style="color:#a6e22e">x</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">nodeRadius</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">middle</span>.<span style="color:#a6e22e">y</span>
-</span></span><span style="display:flex;"><span>          },
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">middle</span>,
-</span></span><span style="display:flex;"><span>          { <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">middle</span>.<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">middle</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">nodeRadius</span> },
-</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">last</span>
-</span></span><span style="display:flex;"><span>        );
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">height</span> };
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gridCompact</span>(<span style="color:#a6e22e">layout</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">dag</span>) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Tweak to render compact grid, first shrink x width by edge radius, then expand the width to account for the loss
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// This could alos be accomplished by just changing the coordinates of the svg viewbox.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">baseLayout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">layout</span>.<span style="color:#a6e22e">nodeSize</span>([
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">edgeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>,
-</span></span><span style="display:flex;"><span>      (<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">edgeRadius</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
-</span></span><span style="display:flex;"><span>    ]);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">height</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">baseLayout</span>(<span style="color:#a6e22e">dag</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">dag</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">nodeRadius</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">points</span> } <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">ilinks</span>()) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">point</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">points</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">point</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">nodeRadius</span>;
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">width</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">nodeRadius</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">height</span> };
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">arrayEq</span>(<span style="color:#a6e22e">left</span>, <span style="color:#a6e22e">right</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">right</span>.<span style="color:#a6e22e">length</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">?</span> <span style="color:#a6e22e">left</span>.<span style="color:#a6e22e">every</span>((<span style="color:#a6e22e">v</span>, <span style="color:#a6e22e">i</span>) =&gt; <span style="color:#a6e22e">v</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">right</span>[<span style="color:#a6e22e">i</span>])
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">leftLane</span>(<span style="color:#a6e22e">nodes</span>) {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">nodes</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lane</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">undefined</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parents</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Map</span>(<span style="color:#a6e22e">nodes</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">n</span>) =&gt; [<span style="color:#a6e22e">n</span>, []]));
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">nodes</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prev</span> <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">arrayEq</span>(<span style="color:#a6e22e">parents</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">node</span>), [<span style="color:#a6e22e">prev</span>])) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">lane</span><span style="color:#f92672">++</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lane</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">child</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">ichildren</span>()) {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">parents</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">node</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prev</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">node</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">nodes</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lane</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span>;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">algorithms</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Grid</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Top Down&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gridTweak</span>(<span style="color:#a6e22e">gridCompact</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">grid</span>())),
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Bottom Up&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gridTweak</span>(
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">gridCompact</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">grid</span>().<span style="color:#a6e22e">lane</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">laneGreedy</span>().<span style="color:#a6e22e">topDown</span>(<span style="color:#66d9ef">false</span>)))
-</span></span><span style="display:flex;"><span>    ),
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Open</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gridTweak</span>(<span style="color:#a6e22e">gridCompact</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">grid</span>().<span style="color:#a6e22e">lane</span>(<span style="color:#a6e22e">leftLane</span>))),
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;Optimal (slow)&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">gridTweak</span>(<span style="color:#a6e22e">gridCompact</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">grid</span>().<span style="color:#a6e22e">lane</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">laneOpt</span>())))
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Zherebko</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Greedy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d3</span>
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">zherebko</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">nodeSize</span>([<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, (<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">edgeRadius</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">edgeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>])
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Sugiyama</span><span style="color:#f92672">:</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Fast</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d3</span>
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">sugiyama</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">layering</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">layeringTopological</span>())
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">coord</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">coordTopological</span>())
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">nodeSize</span>((<span style="color:#a6e22e">d</span>) =&gt;
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">d</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">?</span> [<span style="color:#a6e22e">edgeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">:</span> [<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, (<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">edgeRadius</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>]
-</span></span><span style="display:flex;"><span>      ),
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Slow</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">d3</span>
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">sugiyama</span>()
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">layering</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">layeringTopological</span>())
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">decross</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">decrossOpt</span>())
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">coord</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">coordTopological</span>())
-</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">nodeSize</span>((<span style="color:#a6e22e">d</span>) =&gt;
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">d</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">?</span> [<span style="color:#a6e22e">edgeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>          <span style="color:#f92672">:</span> [<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>, (<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">edgeRadius</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>]
-</span></span><span style="display:flex;"><span>      )
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">reader</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">sources</span>[<span style="color:#e6db74">&#39;Zherebko&#39;</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">renderit</span>() {
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dag_data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">json</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">`https://raw.githubusercontent.com/erikbrinkman/d3-dag/master/examples/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">key</span><span style="color:#e6db74">}</span><span style="color:#e6db74">.json`</span>
-</span></span><span style="display:flex;"><span>  );
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// const dag_data = [
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//   [&#39;1&#39;, &#39;3&#39;],
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//   [&#39;2&#39;, &#39;3&#39;],
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">//   [&#39;3&#39;, &#39;4&#39;]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// ];
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">dag_data</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dag</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">reader</span>(<span style="color:#a6e22e">dag_data</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">baseLayout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">algorithms</span>[<span style="color:#e6db74">&#39;Zherebko&#39;</span>][<span style="color:#e6db74">&#39;Greedy&#39;</span>];
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">layout</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">dag</span>) =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">height</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">baseLayout</span>(<span style="color:#a6e22e">dag</span>);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">node</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">dag</span>) {
-</span></span><span style="display:flex;"><span>      [<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">y</span>] <span style="color:#f92672">=</span> [<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">x</span>];
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">points</span> } <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">ilinks</span>()) {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">point</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">points</span>) {
-</span></span><span style="display:flex;"><span>        [<span style="color:#a6e22e">point</span>.<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">point</span>.<span style="color:#a6e22e">y</span>] <span style="color:#f92672">=</span> [<span style="color:#a6e22e">point</span>.<span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">point</span>.<span style="color:#a6e22e">x</span>];
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">height</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">width</span> };
-</span></span><span style="display:flex;"><span>  };
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">performance</span>.<span style="color:#a6e22e">now</span>();
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">width</span>, <span style="color:#a6e22e">height</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">layout</span>(<span style="color:#a6e22e">dag</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">time</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">performance</span>.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">start</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">time</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">svgSelection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;svg&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;width&#39;</span>, <span style="color:#a6e22e">width</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;height&#39;</span>, <span style="color:#a6e22e">height</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">defs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">svgSelection</span>.<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;defs&#39;</span>); <span style="color:#75715e">// For gradients
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">steps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">size</span>();
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">interp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">interpolateRainbow</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">colorMap</span> <span style="color:#f92672">=</span> {};
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">node</span>] <span style="color:#66d9ef">of</span> [...<span style="color:#a6e22e">dag</span>].<span style="color:#a6e22e">entries</span>()) {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">colorMap</span>[<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">interp</span>(<span style="color:#a6e22e">i</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">steps</span>);
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// How to draw edges
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">curveStyle</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Grid</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">curveBasis</span>, <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">curveBasis</span>],
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Zherebko</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">curveMonotoneY</span>, <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">curveMonotoneX</span>],
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Sugiyama</span><span style="color:#f92672">:</span> [<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">curveNatural</span>, <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">curveNatural</span>]
-</span></span><span style="display:flex;"><span>  }[<span style="color:#e6db74">&#39;Zherebko&#39;</span>][<span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">line</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">curve</span>(<span style="color:#a6e22e">curveStyle</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">x</span>((<span style="color:#a6e22e">d</span>) =&gt; <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">x</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">y</span>((<span style="color:#a6e22e">d</span>) =&gt; <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">y</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Plot edges
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">svgSelection</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;path&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">links</span>())
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">enter</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;path&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;d&#39;</span>, ({ <span style="color:#a6e22e">points</span> }) =&gt; <span style="color:#a6e22e">line</span>(<span style="color:#a6e22e">points</span>))
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;none&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stroke-width&#39;</span>, <span style="color:#ae81ff">3</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stroke&#39;</span>, ({ <span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">target</span> }) =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// encode URI component to handle special characters
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">gradId</span> <span style="color:#f92672">=</span> encodeURIComponent(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">grad</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">defs</span>
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;linearGradient&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;id&#39;</span>, <span style="color:#a6e22e">gradId</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;gradientUnits&#39;</span>, <span style="color:#e6db74">&#39;userSpaceOnUse&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;x1&#39;</span>, <span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">x</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;x2&#39;</span>, <span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">x</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;y1&#39;</span>, <span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">y</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;y2&#39;</span>, <span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">y</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">grad</span>
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;stop&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;offset&#39;</span>, <span style="color:#e6db74">&#39;0%&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stop-color&#39;</span>, <span style="color:#a6e22e">colorMap</span>[<span style="color:#a6e22e">source</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span>]);
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">grad</span>
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;stop&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;offset&#39;</span>, <span style="color:#e6db74">&#39;100%&#39;</span>)
-</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stop-color&#39;</span>, <span style="color:#a6e22e">colorMap</span>[<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span>]);
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`url(#</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">gradId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>;
-</span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arrowSize</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">nodeRadius</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">5.0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arrowLen</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">sqrt</span>((<span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">arrowSize</span>) <span style="color:#f92672">/</span> Math.<span style="color:#a6e22e">sqrt</span>(<span style="color:#ae81ff">3</span>));
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arrow</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">symbol</span>().<span style="color:#a6e22e">type</span>(<span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">symbolTriangle</span>).<span style="color:#a6e22e">size</span>(<span style="color:#a6e22e">arrowSize</span>);
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">svgSelection</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;path&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">links</span>())
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">enter</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;path&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#a6e22e">arrow</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;transform&#39;</span>, ({ <span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">points</span> }) =&gt; {
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">end</span>, <span style="color:#a6e22e">start</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">points</span>.<span style="color:#a6e22e">slice</span>().<span style="color:#a6e22e">reverse</span>();
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// This sets the arrows the node radius (20) + a little bit (3) away from the node center, on the last line segment of the edge. This means that edges that only span ine level will work perfectly, but if the edge bends, this will be a little off.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dx</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">x</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">start</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">y</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">nodeRadius</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.15</span>) <span style="color:#f92672">/</span> Math.<span style="color:#a6e22e">sqrt</span>(<span style="color:#a6e22e">dx</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">dx</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dy</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">dy</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// This is the angle of the last line segment
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">angle</span> <span style="color:#f92672">=</span> (Math.<span style="color:#a6e22e">atan2</span>(<span style="color:#f92672">-</span><span style="color:#a6e22e">dy</span>, <span style="color:#f92672">-</span><span style="color:#a6e22e">dx</span>) <span style="color:#f92672">*</span> <span style="color:#ae81ff">180</span>) <span style="color:#f92672">/</span> Math.<span style="color:#a6e22e">PI</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">90</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">angle</span>, <span style="color:#a6e22e">dx</span>, <span style="color:#a6e22e">dy</span>);
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`translate(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dx</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">scale</span><span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">end</span>.<span style="color:#a6e22e">y</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">dy</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">scale</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">}</span><span style="color:#e6db74">) rotate(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">angle</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>;
-</span></span><span style="display:flex;"><span>    })
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, ({ <span style="color:#a6e22e">target</span> }) =&gt; <span style="color:#a6e22e">colorMap</span>[<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span>])
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stroke&#39;</span>, <span style="color:#e6db74">&#39;white&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stroke-width&#39;</span>, <span style="color:#ae81ff">1.5</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;stroke-dasharray&#39;</span>, <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">arrowLen</span><span style="color:#e6db74">}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">arrowLen</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Select nodes
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nodes</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">svgSelection</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">dag</span>.<span style="color:#a6e22e">descendants</span>())
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">enter</span>()
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;transform&#39;</span>, ({ <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> }) =&gt; <span style="color:#e6db74">`translate(</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">x</span><span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">y</span><span style="color:#e6db74">}</span><span style="color:#e6db74">)`</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Plot node circles
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">nodes</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">nodeRadius</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, (<span style="color:#a6e22e">n</span>) =&gt; <span style="color:#a6e22e">colorMap</span>[<span style="color:#a6e22e">n</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span>]);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Add text to nodes
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">nodes</span>
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;text&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">text</span>((<span style="color:#a6e22e">d</span>) =&gt; <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">id</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;font-weight&#39;</span>, <span style="color:#e6db74">&#39;bold&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;font-family&#39;</span>, <span style="color:#e6db74">&#39;sans-serif&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;text-anchor&#39;</span>, <span style="color:#e6db74">&#39;middle&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;alignment-baseline&#39;</span>, <span style="color:#e6db74">&#39;middle&#39;</span>)
-</span></span><span style="display:flex;"><span>    .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;white&#39;</span>);
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">renderit</span>();
-</span></span></code></pre></div><p>HTML Stuff: Just put an svg tag in some div somewhere.</p>
+<p>One feature of d3 is the ability to select and modify the DOM.</p>
+<p>Core to this are <code>select</code> and <code>selectAll</code> which take in an HTML Element or a CSS selector.
+Both return a <code>Selection</code> object.</p>
+<p>
+  <a href="https://github.com/d3/d3/blob/main/API.md#selections-d3-selection">API</a> for selecting and selections.</p>
+<h3 id="properties">
+  Properties
+  <a class="anchor" href="#properties">#</a>
+</h3>
+<p>The object has a few functions, each of which return a <code>Selection</code> object
+(that means chaining is possible)</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Params</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>style</td>
+<td>&lsquo;css-prop&rsquo;, value</td>
+<td>Sets a css property</td>
+</tr>
+<tr>
+<td>attr</td>
+<td>&lsquo;html-attr&rsquo;, value</td>
+<td>Sets an attribute on the HTML element</td>
+</tr>
+<tr>
+<td>classed</td>
+<td>&lsquo;classname&rsquo;, value</td>
+<td>Removes or adds class depending on value</td>
+</tr>
+<tr>
+<td>property</td>
+<td>&lsquo;html-prop&rsquo;, value</td>
+<td>Sets HTML attributes which can&rsquo;t be set by &lsquo;attr&rsquo;. E.g. <code>checked</code> on a checkbox</td>
+</tr>
+<tr>
+<td>text</td>
+<td>value</td>
+<td>Sets the text within a HTML element</td>
+</tr>
+<tr>
+<td>html</td>
+<td>value</td>
+<td>Sets HTML within the selected element</td>
+</tr>
+<tr>
+<td>select</td>
+<td>CSS selector</td>
+<td>Can be used to select child elements</td>
+</tr>
+</tbody>
+</table>
+<p><code>value</code> can be an actual value or a function. The function takes in two params:</p>
+<ul>
+<li><code>d</code> the datum, which is the data value corresponding to the index</li>
+<li><code>i</code> the index of the element among other elements in the Selection.</li>
+</ul>
+<p>Its possible to add an event to the Selection with the <code>on</code> property like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;rect&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;hover&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">datum</span>) { <span style="color:#75715e">// can be any DOM event
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// `this` inside this function refers to the HTMLElement
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// to get a d3 Selction from it you must do d3.select(this)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }); 
+</span></span></code></pre></div><blockquote class="book-hint danger">
+  Because of the way <code>this</code> works inside arrow functions,
+don&rsquo;t use arrow functions for the callback of <code>on</code>.
+</blockquote>
+
+<h3 id="insertion--deletion">
+  Insertion / Deletion
+  <a class="anchor" href="#insertion--deletion">#</a>
+</h3>
+<p>Its possible to insert / remove DOM elements with D3. The functions are:</p>
+<ul>
+<li><code>.append('element-tag')</code> creates the specified element as the last child of the selection</li>
+<li><code>.insert('element-tag', 'css-selector')</code> same as append
+but it places this element before the CSS selector specified</li>
+<li><code>.remove</code> removes the element(s) in the Selection from the DOM</li>
+</ul>
+<h3 id="processing">
+  Processing
+  <a class="anchor" href="#processing">#</a>
+</h3>
+<p>A Selection can be processed in these ways:</p>
+<ul>
+<li><code>.each(function(d, i){}</code> calls the function for each element.</li>
+<li><code>.call(function(theSelection){})</code> calls the function once for the selection.
+It passes the selection object as an argument.</li>
+<li><code>.filter(function(d, i){})</code> calls the function for each element.
+It returns a new selection that only contains elements that returned true in the filter function.</li>
+<li><code>.sort(function(datumA, datumB){})</code> sorts the elements in the DOM with the comparator function.</li>
+</ul>
 </article>
  
       
@@ -710,8 +550,13 @@ These might be some good resources:</p>
   <ul>
     <li><a href="#data-driven-docs">Data Driven Docs?</a>
       <ul>
-        <li><a href="#selection">Selection</a></li>
-        <li><a href="#random-code-iykyk">Random code (iykyk)</a></li>
+        <li><a href="#selection">Selection</a>
+          <ul>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#insertion--deletion">Insertion / Deletion</a></li>
+            <li><a href="#processing">Processing</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
