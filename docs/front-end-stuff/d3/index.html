@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.93.2" />
+  <meta name="generator" content="Hugo 0.93.3" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Data Driven Docs? #  While it&rsquo;s a good library overall, I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
@@ -21,7 +21,7 @@ Oooh, this is one crazy library with a heck lot of things it can do. Nice confus
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.5fb7c514ae0f9bfbd6bddf271d54a03d1cca8dd045a6649a32003b9341c16f1f.js" integrity="sha256-X7fFFK4Pm/vWvd8nHVSgPRzKjdBFpmSaMgA7k0HBbx8="></script>
+<script defer src="/en.search.min.0d365aaf8659cc11ac46a0d9da3cd7a17b6b21a7eb4ea0c715457d998d42de66.js" integrity="sha256-DTZar4ZZzBGsRqDZ2jzXoXtrIafrTqDHFUV9mY1C3mY="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -266,7 +266,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/docs/front-end-stuff/svg/" class="">Svg</a>
+    <a href="https://work.rehanvipin.me/docs/front-end-stuff/svg/" class="">SVG</a>
   
 
         </li>
@@ -380,6 +380,12 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#properties">Properties</a></li>
             <li><a href="#insertion--deletion">Insertion / Deletion</a></li>
             <li><a href="#processing">Processing</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-joins">Data Joins</a>
+          <ul>
+            <li><a href="#selection-join">Selection Join</a></li>
+            <li><a href="#keys">Keys</a></li>
           </ul>
         </li>
       </ul>
@@ -516,7 +522,71 @@ It passes the selection object as an argument.</li>
 It returns a new selection that only contains elements that returned true in the filter function.</li>
 <li><code>.sort(function(datumA, datumB){})</code> sorts the elements in the DOM with the comparator function.</li>
 </ul>
-</article>
+<h2 id="data-joins">
+  Data Joins
+  <a class="anchor" href="#data-joins">#</a>
+</h2>
+<p>Modifying visual elements according to data. It usually works like this:</p>
+<ul>
+<li>Create a Selection of the parent element which will hold the visual elements.</li>
+<li>Create an empty Selection with <code>.selectAll('element-to-join')</code>.</li>
+<li>Create a Selection with data by calling the <code>data</code> method on it with an array as the argument.</li>
+<li>On the latest selection call <code>.join('element-to-insert')</code></li>
+</ul>
+<p>
+  <a href="https://bost.ocks.org/mike/join/">Article to help with understanding joins</a>.
+
+  <a href="https://observablehq.com/@d3/selection-join">Another article. This one&rsquo;s about modern joins</a></p>
+<p>Data joins in D3 follow declarative programming.
+Given some elements and an array of data there are three kinds of selections possible:</p>
+<ul>
+<li>Enter : For array elements that don&rsquo;t have a corresponding DOM element</li>
+<li>Update : For existing DOM elements. They&rsquo;re mapped to the array elements</li>
+<li>Exit : For existing DOM elements that don&rsquo;t have an array element to map to</li>
+</ul>
+<p>An example. Given a DOM like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">g</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">g</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">svg</span>&gt;
+</span></span></code></pre></div><p>Circles can be selected like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">circs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>).<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>);
+</span></span></code></pre></div><p>Existing elements can be joined with data like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>);
+</span></span></code></pre></div><p>New elements can be created for extra datum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span></code></pre></div><p>Elements which don&rsquo;t have a datum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">exit</span>()
+</span></span></code></pre></div><p>That can be tedious. A more concise way is using the new selection join (D3 v5+).</p>
+<h3 id="selection-join">
+  Selection Join
+  <a class="anchor" href="#selection-join">#</a>
+</h3>
+<p>This join automatically appends and removes elements but also provides the ability for fine control.
+A sample:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span>);
+</span></span></code></pre></div><p>To control what happens to enter, update and exit elements, pass functions as args to it like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">selexon</span>.<span style="color:#a6e22e">join</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">enterSelection</span>){},
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">updateSelection</span>){},
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">exitSelection</span>){}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="keys">
+  Keys
+  <a class="anchor" href="#keys">#</a>
+</h3>
+<p>It&rsquo;s possible to make sure that DOM elements are exactly matched with the same data
+even if the elements are moved around.
+This is possible via a key function which assigns keys to DOM elements based on the data they get like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">xyz</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>){ <span style="color:#75715e">/* return unique id */</span> })
+</span></span></code></pre></div></article>
  
       
 
@@ -555,6 +625,12 @@ It returns a new selection that only contains elements that returned true in the
             <li><a href="#properties">Properties</a></li>
             <li><a href="#insertion--deletion">Insertion / Deletion</a></li>
             <li><a href="#processing">Processing</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-joins">Data Joins</a>
+          <ul>
+            <li><a href="#selection-join">Selection Join</a></li>
+            <li><a href="#keys">Keys</a></li>
           </ul>
         </li>
       </ul>
