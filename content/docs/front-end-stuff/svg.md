@@ -1,5 +1,5 @@
 ---
-title: "Svg"
+title: "SVG"
 weight: 1
 # bookFlatSection: false
 # bookToc: true
