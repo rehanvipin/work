@@ -21,7 +21,7 @@ Oooh, this is one crazy library with a heck lot of things it can do. Nice confus
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.0d365aaf8659cc11ac46a0d9da3cd7a17b6b21a7eb4ea0c715457d998d42de66.js" integrity="sha256-DTZar4ZZzBGsRqDZ2jzXoXtrIafrTqDHFUV9mY1C3mY="></script>
+<script defer src="/en.search.min.9dc721ed641307125f141c42a6e339614435b434dba1252f3d5f54acc162bfdb.js" integrity="sha256-ncch7WQTBxJfFBxCpuM5YUQ1tDTboSUvPV9UrMFiv9s="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -388,6 +388,14 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#keys">Keys</a></li>
           </ul>
         </li>
+        <li><a href="#enter-exit--update">Enter, Exit &amp; Update</a></li>
+        <li><a href="#scales">Scales</a>
+          <ul>
+            <li><a href="#c-to-c">C to C</a></li>
+            <li><a href="#c-to-d">C to D</a></li>
+            <li><a href="#d-to-d">D to D</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -526,7 +534,7 @@ It returns a new selection that only contains elements that returned true in the
   Data Joins
   <a class="anchor" href="#data-joins">#</a>
 </h2>
-<p>Modifying visual elements according to data. It usually works like this:</p>
+<p>Modifying visual elements according to data in a declarative manner. It usually works like this:</p>
 <ul>
 <li>Create a Selection of the parent element which will hold the visual elements.</li>
 <li>Create an empty Selection with <code>.selectAll('element-to-join')</code>.</li>
@@ -537,30 +545,6 @@ It returns a new selection that only contains elements that returned true in the
   <a href="https://bost.ocks.org/mike/join/">Article to help with understanding joins</a>.
 
   <a href="https://observablehq.com/@d3/selection-join">Another article. This one&rsquo;s about modern joins</a></p>
-<p>Data joins in D3 follow declarative programming.
-Given some elements and an array of data there are three kinds of selections possible:</p>
-<ul>
-<li>Enter : For array elements that don&rsquo;t have a corresponding DOM element</li>
-<li>Update : For existing DOM elements. They&rsquo;re mapped to the array elements</li>
-<li>Exit : For existing DOM elements that don&rsquo;t have an array element to map to</li>
-</ul>
-<p>An example. Given a DOM like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">g</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">g</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">svg</span>&gt;
-</span></span></code></pre></div><p>Circles can be selected like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>];
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">circs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>).<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>);
-</span></span></code></pre></div><p>Existing elements can be joined with data like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>);
-</span></span></code></pre></div><p>New elements can be created for extra datum:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
-</span></span></code></pre></div><p>Elements which don&rsquo;t have a datum:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">exit</span>()
-</span></span></code></pre></div><p>That can be tedious. A more concise way is using the new selection join (D3 v5+).</p>
 <h3 id="selection-join">
   Selection Join
   <a class="anchor" href="#selection-join">#</a>
@@ -586,7 +570,72 @@ A sample:</p>
 even if the elements are moved around.
 This is possible via a key function which assigns keys to DOM elements based on the data they get like so:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">xyz</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>){ <span style="color:#75715e">/* return unique id */</span> })
-</span></span></code></pre></div></article>
+</span></span></code></pre></div><h2 id="enter-exit--update">
+  Enter, Exit &amp; Update
+  <a class="anchor" href="#enter-exit--update">#</a>
+</h2>
+<p>This picture from 
+  <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a> is a good explanation:
+
+  <img src="/images/d3joinchart.png" alt="Data join chart" />
+This way of joining is fine-grained but it can be tedious. It&rsquo;s mainly used for transitions.
+A more concise way is using the new selection join (D3 v5+).</p>
+<p>An example. Given a DOM like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">g</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">g</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">svg</span>&gt;
+</span></span></code></pre></div><p>Circles can be selected like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">circs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>).<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>);
+</span></span></code></pre></div><p>Existing elements can be joined with data like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>);
+</span></span></code></pre></div><p>New elements can be created for extra datum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span></code></pre></div><p>Elements which don&rsquo;t have a datum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">exit</span>()
+</span></span></code></pre></div><h2 id="scales">
+  Scales
+  <a class="anchor" href="#scales">#</a>
+</h2>
+<p>Scales provide a way to map values from a domain to a range. They can be continuous or discrete.
+(There&rsquo;s no scale for D to C though).</p>
+<p>Usually the domain consits of data values and the range consists of visual properties
+(height, position, color, etc.)</p>
+<h3 id="c-to-c">
+  C to C
+  <a class="anchor" href="#c-to-c">#</a>
+</h3>
+<p>There are many scales here: Linear, Quadratic, Log, Exponential, etc. An example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">scaleLog</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scale</span>.<span style="color:#a6e22e">domain</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scale</span>.<span style="color:#a6e22e">range</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scaledVal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">50</span>);
+</span></span></code></pre></div><p>For fancy colors there&rsquo;s also <code>d3.scaleSequential()</code> which instead of a range, has an interpolator.
+E.g. <code>scale.interpolate(d3.interpolateRainbow)</code></p>
+<h3 id="c-to-d">
+  C to D
+  <a class="anchor" href="#c-to-d">#</a>
+</h3>
+<p>A straightforward function is <code>.scaleQuantize()</code> which splits the domain into equal divisons among the range.
+It also clamps inputs into the domain.</p>
+<p>To split the domain into specific groups <code>.scaleThreshold()</code> can be used.
+<code>.domain([/* array of n values */])</code> will create <code>n+1</code> groups (&lt;arr[0], &gt;arr[0] &amp; arr[1]&lt;, &hellip; arr[n-1]&lt;).
+They are matched one-one with the range items. If there aren&rsquo;t enough elements in the range,
+the groups are allocated to the last item.</p>
+<h3 id="d-to-d">
+  D to D
+  <a class="anchor" href="#d-to-d">#</a>
+</h3>
+<p>The simplest way to do this is <code>.scaleOrdinal()</code> where the elements in domain are allocated on range element.
+If there aren&rsquo;t enough range elements the array repeats.
+If the value to be scaled doesn&rsquo;t exist in the domain, the scale will automatically add it.
+To prevent it from being added, specify a default value to be returned for unknown elements with
+<code>scale.unknown(value)</code></p>
+<p>There are other functions too like <code>.scaleBand()</code> and <code>.scalePoint()</code>.</p>
+</article>
  
       
 
@@ -631,6 +680,14 @@ This is possible via a key function which assigns keys to DOM elements based on 
           <ul>
             <li><a href="#selection-join">Selection Join</a></li>
             <li><a href="#keys">Keys</a></li>
+          </ul>
+        </li>
+        <li><a href="#enter-exit--update">Enter, Exit &amp; Update</a></li>
+        <li><a href="#scales">Scales</a>
+          <ul>
+            <li><a href="#c-to-c">C to C</a></li>
+            <li><a href="#c-to-d">C to D</a></li>
+            <li><a href="#d-to-d">D to D</a></li>
           </ul>
         </li>
       </ul>
