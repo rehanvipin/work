@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.93.3" />
+  <meta name="generator" content="Hugo 0.94.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Data Driven Docs? #  While it&rsquo;s a good library overall, I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
@@ -21,7 +21,7 @@ Oooh, this is one crazy library with a heck lot of things it can do. Nice confus
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.9dc721ed641307125f141c42a6e339614435b434dba1252f3d5f54acc162bfdb.js" integrity="sha256-ncch7WQTBxJfFBxCpuM5YUQ1tDTboSUvPV9UrMFiv9s="></script>
+<script defer src="/en.search.min.aba6e6ba3bb5ef0ccdf988ffacce04ddc7f6e75c85589b50099fec5336afc923.js" integrity="sha256-q6bmuju17wzN&#43;Yj/rM4E3cf251yFWJtQCZ/sUzavySM="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -396,6 +396,14 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#d-to-d">D to D</a></li>
           </ul>
         </li>
+        <li><a href="#fancy-paths">Fancy paths</a>
+          <ul>
+            <li><a href="#common-generators">Common generators</a></li>
+          </ul>
+        </li>
+        <li><a href="#axes">Axes</a></li>
+        <li><a href="#hierarchies">Hierarchies</a></li>
+        <li><a href="#transitions">Transitions</a></li>
       </ul>
     </li>
   </ul>
@@ -635,6 +643,80 @@ If the value to be scaled doesn&rsquo;t exist in the domain, the scale will auto
 To prevent it from being added, specify a default value to be returned for unknown elements with
 <code>scale.unknown(value)</code></p>
 <p>There are other functions too like <code>.scaleBand()</code> and <code>.scalePoint()</code>.</p>
+<h2 id="fancy-paths">
+  Fancy paths
+  <a class="anchor" href="#fancy-paths">#</a>
+</h2>
+<p>D3 has generator functions to generate paths that represent  line graphs, pie charts, curves, and more.
+This works using the <code>&lt;path&gt;</code> SVG tag and setting its <code>d</code> (data) attribute to a special strings
+returned by the functions which contain instructions on how to draw the required shapes.</p>
+<h3 id="common-generators">
+  Common generators
+  <a class="anchor" href="#common-generators">#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Configurable params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>line</code></td>
+<td>Simple line graph</td>
+<td><code>x</code>, <code>y</code> for each point in the line</td>
+</tr>
+<tr>
+<td><code>radialLine</code></td>
+<td>Like a line graph but instead of going left to right, it goes around a center</td>
+<td><code>angle</code>, <code>radius</code> for each point around the center</td>
+</tr>
+<tr>
+<td><code>area</code></td>
+<td>Area between two lines (need not be straight lines)</td>
+<td><code>x</code>, <code>y0</code> for top line, and <code>y1</code> for bottom</td>
+</tr>
+<tr>
+<td><code>radialArea</code></td>
+<td>Like how radialLine is to line</td>
+<td><code>angle</code>, <code>innerRadius</code>, and <code>outerRadius</code></td>
+</tr>
+</tbody>
+</table>
+<p>The configurable params can either be a function that takes in one value and returns a value,
+or it can be a value. E.g. <code>lineGenerator.x(909)</code> and <code>lineGenerator.x(d =&gt; d+10)</code> both work.</p>
+<p>Instead of passing an array of objects and configuring each param,
+the user can also just feed an array of arrays.</p>
+<p>E.g. if <code>.line()</code> has <code>.x</code> and <code>.y</code> to set, a user could also just feed an array like
+<code>.line([[1, 2], [3, 4], [5, 6], [8.2, 7]])</code></p>
+<p>To handle invalid data in the array, the user can set <code>.defined(datum =&gt; {})</code> on the <code>.line()</code> object.
+D3 will skip the element if the callback function returns false for it.</p>
+<p>Interpolation of the points can be changed by calling <code>.curve(someCoolCurveGen)</code> on the generator.</p>
+<h2 id="axes">
+  Axes
+  <a class="anchor" href="#axes">#</a>
+</h2>
+<p>These help give the user a scale of the data. An axis can be created in a container like <code>&lt;g&gt;</code>.
+Select the container. Create an axis with <code>.axis[Left|Right|Top|Bottom](scale)</code>.</p>
+<p>The scale&rsquo;s domain determines the ticks on the graph and the range helps determine its length.
+The axis can then be passed to the container Selection like so: <code>gSel.call(axis)</code>. That&rsquo;s it!</p>
+<p>It isn&rsquo;t limited to uniform ticks. Different scales like <code>.scaleSqrt()</code> can be used with axes.
+To make the axis look better, the domain can be rounded to &ldquo;nice&rdquo; values like so:
+<code>d3.scaleLinear().domain([11, 39]).nice()</code> will change to domain to (10, 40).</p>
+<p>The number of ticks can be changed by <code>axis.ticks(n)</code> or even set tick values like
+<code>axis.tickValues([a, b, c, d])</code>. The label of each tick can be formatted with something like
+<code>.tickFormat(d =&gt; &quot;-&quot;+d)</code></p>
+<h2 id="hierarchies">
+  Hierarchies
+  <a class="anchor" href="#hierarchies">#</a>
+</h2>
+<h2 id="transitions">
+  Transitions
+  <a class="anchor" href="#transitions">#</a>
+</h2>
+<p>There are other topics too but this should be enough to get started.</p>
 </article>
  
       
@@ -690,6 +772,14 @@ To prevent it from being added, specify a default value to be returned for unkno
             <li><a href="#d-to-d">D to D</a></li>
           </ul>
         </li>
+        <li><a href="#fancy-paths">Fancy paths</a>
+          <ul>
+            <li><a href="#common-generators">Common generators</a></li>
+          </ul>
+        </li>
+        <li><a href="#axes">Axes</a></li>
+        <li><a href="#hierarchies">Hierarchies</a></li>
+        <li><a href="#transitions">Transitions</a></li>
       </ul>
     </li>
   </ul>
