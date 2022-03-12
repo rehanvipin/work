@@ -2,15 +2,15 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.94.0" />
+  <meta name="generator" content="Hugo 0.94.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Data Driven Docs? #  While it&rsquo;s a good library overall, I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
-Oooh, this is one crazy library with a heck lot of things it can do. Nice confusion. These might be some good resources:
+<meta name="description" content="Data Driven Docs? #  It&rsquo;s a powerful library with a bit of a learning curve. I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
+Oooh, there a heck lot of things it can do. Nice confusion. These might be some good resources:
   Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="D3" />
-<meta property="og:description" content="Data Driven Docs? #  While it&rsquo;s a good library overall, I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
-Oooh, this is one crazy library with a heck lot of things it can do. Nice confusion. These might be some good resources:
+<meta property="og:description" content="Data Driven Docs? #  It&rsquo;s a powerful library with a bit of a learning curve. I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
+Oooh, there a heck lot of things it can do. Nice confusion. These might be some good resources:
   Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/docs/front-end-stuff/d3/" /><meta property="article:section" content="docs" />
@@ -21,7 +21,7 @@ Oooh, this is one crazy library with a heck lot of things it can do. Nice confus
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.aba6e6ba3bb5ef0ccdf988ffacce04ddc7f6e75c85589b50099fec5336afc923.js" integrity="sha256-q6bmuju17wzN&#43;Yj/rM4E3cf251yFWJtQCZ/sUzavySM="></script>
+<script defer src="/en.search.min.b4bda2cd65409965e92f0dbb9fc093c62482038ab0db80347a8de4e5ffec04c9.js" integrity="sha256-tL2izWVAmWXpLw27n8CTxiSCA4qw24A0eo3k5f/sBMk="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -396,13 +396,18 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#d-to-d">D to D</a></li>
           </ul>
         </li>
-        <li><a href="#fancy-paths">Fancy paths</a>
+        <li><a href="#shapes--lines">Shapes &amp; Lines</a>
           <ul>
             <li><a href="#common-generators">Common generators</a></li>
           </ul>
         </li>
         <li><a href="#axes">Axes</a></li>
-        <li><a href="#hierarchies">Hierarchies</a></li>
+        <li><a href="#hierarchies">Hierarchies</a>
+          <ul>
+            <li><a href="#hierarchy"><code>hierarchy</code></a></li>
+            <li><a href="#tree-layout">Tree Layout</a></li>
+          </ul>
+        </li>
         <li><a href="#transitions">Transitions</a></li>
       </ul>
     </li>
@@ -422,9 +427,10 @@ https://github.com/alex-shpak/hugo-book
   Data Driven Docs?
   <a class="anchor" href="#data-driven-docs">#</a>
 </h1>
-<p>While it&rsquo;s a good library overall, I&rsquo;m learning how to make network graphs with it.
+<p>It&rsquo;s a powerful library with a bit of a learning curve.
+I&rsquo;m learning how to make network graphs with it.
 Here goes nothing 😛</p>
-<p>Oooh, this is one crazy library with a heck lot of things it can do. Nice confusion.
+<p>Oooh, there a heck lot of things it can do. Nice confusion.
 These might be some good resources:</p>
 <ul>
 <li>
@@ -510,8 +516,10 @@ Both return a <code>Selection</code> object.</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// to get a d3 Selction from it you must do d3.select(this)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }); 
 </span></span></code></pre></div><blockquote class="book-hint danger">
-  Because of the way <code>this</code> works inside arrow functions,
-don&rsquo;t use arrow functions for the callback of <code>on</code>.
+  <p>Because of the way <code>this</code> works inside arrow functions,
+don&rsquo;t use arrow functions for the callback of <code>on</code> if you want to use <code>this</code>.</p>
+<p>When it comes to D3, it might just be a good idea to use <code>function</code> for most use cases.</p>
+
 </blockquote>
 
 <h3 id="insertion--deletion">
@@ -585,8 +593,8 @@ This is possible via a key function which assigns keys to DOM elements based on 
 <p>This picture from 
   <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a> is a good explanation:
 
-  <img src="/images/d3joinchart.png" alt="Data join chart" />
-This way of joining is fine-grained but it can be tedious. It&rsquo;s mainly used for transitions.
+  <img src="/images/d3joinchart.png" alt="Data join chart" /></p>
+<p>This way of joining is fine-grained but it can be tedious. It&rsquo;s mainly used for transitions.
 A more concise way is using the new selection join (D3 v5+).</p>
 <p>An example. Given a DOM like:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
@@ -643,9 +651,9 @@ If the value to be scaled doesn&rsquo;t exist in the domain, the scale will auto
 To prevent it from being added, specify a default value to be returned for unknown elements with
 <code>scale.unknown(value)</code></p>
 <p>There are other functions too like <code>.scaleBand()</code> and <code>.scalePoint()</code>.</p>
-<h2 id="fancy-paths">
-  Fancy paths
-  <a class="anchor" href="#fancy-paths">#</a>
+<h2 id="shapes--lines">
+  Shapes &amp; Lines
+  <a class="anchor" href="#shapes--lines">#</a>
 </h2>
 <p>D3 has generator functions to generate paths that represent  line graphs, pie charts, curves, and more.
 This works using the <code>&lt;path&gt;</code> SVG tag and setting its <code>d</code> (data) attribute to a special strings
@@ -687,13 +695,20 @@ returned by the functions which contain instructions on how to draw the required
 </table>
 <p>The configurable params can either be a function that takes in one value and returns a value,
 or it can be a value. E.g. <code>lineGenerator.x(909)</code> and <code>lineGenerator.x(d =&gt; d+10)</code> both work.</p>
-<p>Instead of passing an array of objects and configuring each param,
-the user can also just feed an array of arrays.</p>
-<p>E.g. if <code>.line()</code> has <code>.x</code> and <code>.y</code> to set, a user could also just feed an array like
-<code>.line([[1, 2], [3, 4], [5, 6], [8.2, 7]])</code></p>
-<p>To handle invalid data in the array, the user can set <code>.defined(datum =&gt; {})</code> on the <code>.line()</code> object.
+<p>Example usage:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">inputData</span> <span style="color:#f92672">=</span> [<span style="color:#75715e">/* complex objects */</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lineGen</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">line</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lineGen</span>.<span style="color:#a6e22e">x</span>(<span style="color:#a6e22e">arrayVal</span> =&gt; <span style="color:#a6e22e">arrayVal</span>.<span style="color:#a6e22e">prop1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lineGen</span>.<span style="color:#a6e22e">y</span>(<span style="color:#a6e22e">arrayVal</span> =&gt; <span style="color:#a6e22e">arrayVal</span>.<span style="color:#a6e22e">prop2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pathData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lineGen</span>(<span style="color:#a6e22e">inputData</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;path&#39;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#a6e22e">pathData</span>)
+</span></span></code></pre></div><p>Instead of passing an array of objects and configuring each param,
+the user can also just feed an array of arrays to the generator.</p>
+<p>To handle invalid data in the array, the user can set <code>.defined(datum =&gt; {})</code> on the generator.
 D3 will skip the element if the callback function returns false for it.</p>
-<p>Interpolation of the points can be changed by calling <code>.curve(someCoolCurveGen)</code> on the generator.</p>
+<p>Interpolation of the points can be changed by calling <code>.curve(someCoolCurveGen)</code> on the generator.
+Check out some popular curves 
+  <a href="https://github.com/d3/d3-shape#curves">in the docs</a>.</p>
 <h2 id="axes">
   Axes
   <a class="anchor" href="#axes">#</a>
@@ -712,11 +727,88 @@ To make the axis look better, the domain can be rounded to &ldquo;nice&rdquo; va
   Hierarchies
   <a class="anchor" href="#hierarchies">#</a>
 </h2>
+<p>There are multiple layouts here such as tree,
+cluster (just like a tree but all the leaves are on the same horizontal level), treemap, and so on.
+This section will focus on the tree layout.</p>
+<p>It uses the output of <code>d3.hierarchy</code>, a nested object, to layout the tree.
+<code>hierarchy</code> itself needs a nested object as input or a map of maps.</p>
+<h3 id="hierarchy">
+  <code>hierarchy</code>
+  <a class="anchor" href="#hierarchy">#</a>
+</h3>
+<p>Given an input with the format discussed above, <code>hierarchy</code> returns a nested object
+where each object (node) has the following params:</p>
+<ul>
+<li><code>data</code> : The item in the input data that this node is associated with. E.g. a map key and its value.</li>
+<li><code>children</code> : array of references to children (not present in leaf nodes)</li>
+<li><code>depth</code></li>
+<li><code>height</code></li>
+<li><code>parent</code> : reference to parent node</li>
+</ul>
+<p>It also has methods like:</p>
+<ul>
+<li><code>descendants</code> : Returns an array of all its descendants</li>
+<li><code>ancestors</code> : Returns an array of all its ancestors</li>
+<li><code>links</code> : Returns an array of all links under this subtree. A link looks like</li>
+</ul>
+<pre tabindex="0"><code>{
+  source: reference to source node object,
+  target: reference to target node object
+}
+</code></pre><h3 id="tree-layout">
+  Tree Layout
+  <a class="anchor" href="#tree-layout">#</a>
+</h3>
+<p>A tree layout function can be created like so: <code>let funk = d3.tree()</code>.
+The size this element will take in the DOM can be set like so: <code>funk.size([ht, wd])</code>.
+The <strong>layout can then be applied to the hierarchy object</strong> like so: <code>funk(hierarchyOutput)</code>.</p>
+<p>Applying a layout means it will add extra properties (display properties e.g. x and y locations)
+to each node in the hierarchy.</p>
+<p>Now that the object has display properties, it can be used to create DOM nodes and position them.</p>
+<h4 id="nodes">
+  Nodes
+  <a class="anchor" href="#nodes">#</a>
+</h4>
+<p>Use the <code>rootNode.descendants()</code> array along with a join for whatever shape you like (e.g. &ldquo;circle&rdquo;).</p>
+<h4 id="edges">
+  Edges
+  <a class="anchor" href="#edges">#</a>
+</h4>
+<p>Use the <code>rootNode.links()</code> array along with a join which creates lines with &ldquo;path&rdquo;.</p>
 <h2 id="transitions">
   Transitions
   <a class="anchor" href="#transitions">#</a>
 </h2>
-<p>There are other topics too but this should be enough to get started.</p>
+<p>When data gets updated, elements might have new places, might look different, or even vanish.
+Without smooth transitions, the transitions looks janky and not &ldquo;natural&rdquo;.</p>
+<p>To have a transition just call <code>transition()</code> on the Selection before calling any <code>attr</code> methods
+for which you want a transition.</p>
+<p>Could be position (e.g. &lsquo;x&rsquo;, &lsquo;cx&rsquo;), color (e.g. &lsquo;fill&rsquo;), or
+even size (e.g. &lsquo;r&rsquo;). It creates a transition Selection which has a few more methods
+and it automatically creates a transition when the join runs.</p>
+<p>A delay can be added by calling <code>delay(durationInMilli)</code>.
+A duration for the transition can be set with <code>duration(durationInMilli)</code></p>
+<p>Instead of setting a constant duration both the functions can take a callback function
+which can set determine the value according to some factor e.g. <code>(d, i) =&gt; i*1000</code></p>
+<p>Calling <code>transition()</code> a second time in the Selection chain will cause the second one to play out
+after the first one has finished.</p>
+<p>To put separate transitions for enter, exit, and update elements, use separate functions for the join
+and apply <code>transition()</code> within them where required. E.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">coolSelection</span>.<span style="color:#a6e22e">join</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">enterSelect</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enterSelect</span>.<span style="color:#a6e22e">transition</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#a6e22e">d</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">updateSelect</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">updateSelect</span>.<span style="color:#a6e22e">transition</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;green&#39;</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">exitSelect</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exitSelect</span>.<span style="color:#a6e22e">transition</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">remove</span>()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>There are other topics too but this should be enough to get started.</p>
 </article>
  
       
@@ -772,13 +864,18 @@ To make the axis look better, the domain can be rounded to &ldquo;nice&rdquo; va
             <li><a href="#d-to-d">D to D</a></li>
           </ul>
         </li>
-        <li><a href="#fancy-paths">Fancy paths</a>
+        <li><a href="#shapes--lines">Shapes &amp; Lines</a>
           <ul>
             <li><a href="#common-generators">Common generators</a></li>
           </ul>
         </li>
         <li><a href="#axes">Axes</a></li>
-        <li><a href="#hierarchies">Hierarchies</a></li>
+        <li><a href="#hierarchies">Hierarchies</a>
+          <ul>
+            <li><a href="#hierarchy"><code>hierarchy</code></a></li>
+            <li><a href="#tree-layout">Tree Layout</a></li>
+          </ul>
+        </li>
         <li><a href="#transitions">Transitions</a></li>
       </ul>
     </li>
