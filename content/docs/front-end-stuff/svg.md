@@ -9,3 +9,5 @@ weight: 1
 ---
 
 # Scalable Vector Graphics?
+
+What's really there to learn here and how do I do it?

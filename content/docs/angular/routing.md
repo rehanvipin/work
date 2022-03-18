@@ -17,7 +17,10 @@ A good practice is to create a separate module for routing and then import the m
 You can pass parameters in a route path, like so: `path: 'warehouse/:id'` where "id" is the parameter. To access it within your component code you should:
 * Add `ActivatedRoute` as a dependency to your component
 * Access the parameter via the dependency object, like so: `route.snapshot.params["id"]`
-* It is also recommended to setup a callback function with each param so that when navigating from that component to itself, the content is updated properly. This can be done like so:
+
+Angular does not reload a component when only the parameters change. 
+This can cause issues while navigating from a component to itself.
+A better idea to subscribe to the params like so:
 ```ts
 route.params.forEach((param: Param) => {
     // logic for updating content

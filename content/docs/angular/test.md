@@ -112,3 +112,9 @@ TestBed.configureTestingModule({
     ]
 })
 ```
+
+# Debugging
+This can be a pain. Here are some tools to help:
+* [Augury](https://augury.rangle.io/) can present info neatly in dev tools.
+* [ngx-logger](https://www.npmjs.com/package/ngx-logger) is a nice logger apparently.
+* Put `debugger` in your TS code so it can be paused in the browser.

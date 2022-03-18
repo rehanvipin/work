@@ -26,3 +26,4 @@ Just to note, the content I put up here is whatever I understood out of the cour
 Some cool things I learnt along the way:
 * The JSON pipe is useful when you want to display an object in a template.
 Use it like this: `{{ objkt | json }}`
+* To see what happens when you run an `ng` command, suffix it with `--dry-run`
