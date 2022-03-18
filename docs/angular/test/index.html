@@ -19,7 +19,7 @@ Isolated #   Only tests the JS class not the component Mostly used for services 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.b4bda2cd65409965e92f0dbb9fc093c62482038ab0db80347a8de4e5ffec04c9.js" integrity="sha256-tL2izWVAmWXpLw27n8CTxiSCA4qw24A0eo3k5f/sBMk="></script>
+<script defer src="/en.search.min.5bb65cf9d536cb855bdbfc15152aa2d955d00d2b8be7d15873425ec7936bbf2d.js" integrity="sha256-W7Zc&#43;dU2y4Vb2/wVFSqi2VXQDSuL59FYc0Jex5Nrvy0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -386,6 +386,7 @@ https://github.com/alex-shpak/hugo-book
         </li>
       </ul>
     </li>
+    <li><a href="#debugging">Debugging</a></li>
   </ul>
 </nav>
 
@@ -535,7 +536,19 @@ This is done by adding a <strong>schema</strong> to the testing module like so:<
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">NO_ERRORS_SCHEMA</span> <span style="color:#75715e">// from angular core
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ]
 </span></span><span style="display:flex;"><span>})
-</span></span></code></pre></div></article>
+</span></span></code></pre></div><h1 id="debugging">
+  Debugging
+  <a class="anchor" href="#debugging">#</a>
+</h1>
+<p>This can be a pain. Here are some tools to help:</p>
+<ul>
+<li>
+  <a href="https://augury.rangle.io/">Augury</a> can present info neatly in dev tools.</li>
+<li>
+  <a href="https://www.npmjs.com/package/ngx-logger">ngx-logger</a> is a nice logger apparently.</li>
+<li>Put <code>debugger</code> in your TS code so it can be paused in the browser.</li>
+</ul>
+</article>
  
       
 
@@ -582,6 +595,7 @@ This is done by adding a <strong>schema</strong> to the testing module like so:<
         </li>
       </ul>
     </li>
+    <li><a href="#debugging">Debugging</a></li>
   </ul>
 </nav>
 
