@@ -11,8 +11,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/docs/stolenstuff/</guid>
-      <description>Temporary code access #  D3 two sided graph #  Taken from https://plnkr.co/edit/P2Jcqh12cxVyToLdXun6
-HTML &amp;lt;head&amp;gt;  &amp;lt;script src=&amp;#34;https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;  &amp;lt;script src=&amp;#34;https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt;  &amp;lt;body&amp;gt;  &amp;lt;div id=&amp;#34;child-info&amp;#34; style=&amp;#34;display:none&amp;#34;&amp;gt;  &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;child-text&amp;#34; placeholder=&amp;#34;child name&amp;#34;&amp;gt;  &amp;lt;button id=&amp;#34;btn-add-child&amp;#34;&amp;gt;add&amp;lt;/button&amp;gt;    JS var treeData = [{  &amp;#34;name&amp;#34;: &amp;#34;Device&amp;#34;,  &amp;#34;parent&amp;#34;: &amp;#34;null&amp;#34;  }  ]; var treeData2 = [{  &amp;#34;name&amp;#34;: &amp;#34;Device&amp;#34;,  &amp;#34;parent&amp;#34;: &amp;#34;null&amp;#34;  }  ];  $(document).</description>
+      <description>Temporary code access #  Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
     </item>
     
     <item>
@@ -22,7 +21,7 @@ HTML &amp;lt;head&amp;gt;  &amp;lt;script src=&amp;#34;https://cdnjs.cloudflare.
       
       <guid>https://work.rehanvipin.me/docs/whatnext/</guid>
       <description>So much to learn 😮 #  I think I should learn these things because they might be useful at work:
- Common design patterns (with examples?) Should add a lifecycle section to Angular? Maybe just link to the docs? Add more content about Angular services (really needed?) TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts For the Angular docs do it in this order: &amp;ldquo;Getting Started&amp;rdquo; -&amp;gt; &amp;ldquo;Tutorials&amp;rdquo; -&amp;gt; &amp;ldquo;Understanding Angular&amp;rdquo; -&amp;gt; &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; ngModel is one fancy thing.</description>
+ Common design patterns (with examples?) Should add a lifecycle section to Angular? Maybe just link to the docs? Add more content about Angular services (really needed?) TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts For the Angular docs do it in this order: Understanding Angular&amp;quot; -&amp;gt; &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; ngModel is one fancy thing.</description>
     </item>
     
     <item>
