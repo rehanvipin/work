@@ -25,9 +25,11 @@ Idk what else to put on this page so here are some random nice things:
     * Use percentages for `width` (prefer to use `max-width`) or `ch` (equal to width of a char) when operating on a text container
     * Think twice before setting `height`. Try to set `min-height` if it is really needed.
 * Try to keep text confined to 60 chars a row.
+* [There's a standard for dates](https://www.iso.org/iso-8601-date-and-time-format.html): YYYY-MM-DD
+* [Python has a good set of builtin modules](https://docs.python.org/3/py-modindex.html)
 
 {{< hint "info" >}}
 ## Note
-This manual thing is pretty unrefined. It's like v0.1.0 rn.  
+This manual thing is pretty unrefined. It's like v0.1.1 rn.  
 P.S. ([Check out semver](https://semver.org/))
 {{< /hint >}}
