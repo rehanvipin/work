@@ -27,6 +27,9 @@ Idk what else to put on this page so here are some random nice things:
 * Try to keep text confined to 60 chars a row.
 * [There's a standard for dates](https://www.iso.org/iso-8601-date-and-time-format.html): YYYY-MM-DD
 * [Python has a good set of builtin modules](https://docs.python.org/3/py-modindex.html)
+* Whenever you contribute to a repo on GitHub your contributions fall under the same license as the repo.
+[As described in GitHub's TOS](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license) 
+* There's an **open source** design tool: [Penpot](https://penpot.app) which focuses on web standards
 
 {{< hint "info" >}}
 ## Note

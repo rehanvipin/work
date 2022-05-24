@@ -85,3 +85,15 @@ They help you use one part of a template in another. You can declare a variable 
 * Declare the variable like this `<comp-or-tag #refVar></comp-or-tag>`
 * You can then use this in other parts of the template, if it's a component you can access its **public properties**. Like so, `<other-tag [lul]="refVar.val1" (snap)="refVar.func1()"> {{ refVar.val2 }} </other-tag>`
 * It is not accessible in the TS of the parent component.
+
+## Styling
+Write styles in the sheets provided for the components. Angular performs "view encapsulation" which means
+a component's styles are applied to only its elements. This happens by adding special attributes to the 
+elements in the DOM e.g. `<h2 somerandomNGattribute></h2>` and adding that attribute to all encapuslated
+styles.
+
+Styles provided in the global stylesheet are still applicable to all componenents.
+To remove this encapsulation you can either:
+* set `encapsulation` to `ViewEncapsulation.None` in the component's metadata
+* add `::ng-deep` to child styles. This doesn't remove the encapsulation but allows adding styles to
+elements that aren't in the template.
