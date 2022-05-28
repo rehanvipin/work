@@ -19,7 +19,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.75c181940326c40b7cd49dac479eb90c35c84b6517fe6ccb167dea82b5d0c3e3.js" integrity="sha256-dcGBlAMmxAt81J2sR565DDXIS2UX/mzLFn3qgrXQw&#43;M="></script>
+<script defer src="/en.search.min.1a7f775eaf6584db438f6b9342d9a1f00ee9215d971faa888c0c549d1339354d.js" integrity="sha256-Gn93Xq9lhNtDj2uTQtmh8A7pIV2XH6qIjAxUnRM5NU0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -393,6 +393,8 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#css-encapsulation">CSS Encapsulation</a></li>
         <li><a href="#content-projection">Content Projection</a></li>
         <li><a href="#accessing-dom-with-viewchild">Accessing DOM with <code>viewChild</code></a></li>
+        <li><a href="#lifecycle">Lifecycle</a></li>
+        <li><a href="#dynamic-loading">Dynamic loading!</a></li>
       </ul>
     </li>
     <li><a href="#directives">Directives</a>
@@ -459,6 +461,8 @@ The object has properties like <code>selector</code> (which is a CSS selector to
 <ul>
 <li>Create an array of strings, where each one can have CSS style rules and assign that to the <code>styles</code> property of the decorator object of the component</li>
 <li>Add the rules in a file and create an array of strings (with file names) and assing it to <code>styleUrls</code>.</li>
+<li>Within the styles, if you want to refer to the element which the component is tied to
+(i.e., the one in the component&rsquo;s selector) use <code>:host</code>, e.g., <code>:host { font-style: monospace; }</code></li>
 </ul>
 <h2 id="css-encapsulation">
   CSS Encapsulation
@@ -496,6 +500,9 @@ In the parent template:</p>
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">ng-content</span> <span style="color:#a6e22e">select</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#whodisboi&#34;</span>&gt;&lt;/<span style="color:#f92672">ng-content</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">section</span>&gt;
 </span></span></code></pre></div><p>The select attribute of ng-content takes in CSS selectors to match the HTML content from the parent.</p>
+<p>{{ hint &ldquo;info&rdquo; }}
+<code>ng-container</code> is not present in the DOM.
+{{ /hint }}</p>
 <h2 id="accessing-dom-with-viewchild">
   Accessing DOM with <code>viewChild</code>
   <a class="anchor" href="#accessing-dom-with-viewchild">#</a>
@@ -504,8 +511,27 @@ In the parent template:</p>
 <ul>
 <li>Give it a temp-ref-var like so: <code>&lt;div #theBestElem&gt;&lt;/div&gt;</code></li>
 <li>Create a property on the component decoreated by <code>viewchild</code> like so: <code>viewChild('theBestElem') goodie: ElementRef</code></li>
+<li>The selector could also be a component / directive / service class</li>
 <li>You can then access its DOM properties or get even more granular control with <code>nativeElement</code>.</li>
 </ul>
+<h2 id="lifecycle">
+  Lifecycle
+  <a class="anchor" href="#lifecycle">#</a>
+</h2>
+<p>A component goes through a set of events during its lifecycle. It&rsquo;s possible to &ldquo;hook&rdquo; to those events
+(i.e., perform some extra actions you want). Some of these hooks are:</p>
+<ul>
+<li><code>ngOnInit</code></li>
+<li><code>ngOnChanges</code></li>
+<li><code>ngAfterContentInit</code></li>
+<li><code>ngAfterViewInit</code></li>
+</ul>
+<p>A full list of them, when they&rsquo;re called and what they do is present 
+  <a href="https://angular.io/guide/lifecycle-hooks#lifecycle-event-sequence">in the docs</a></p>
+<h2 id="dynamic-loading">
+  Dynamic loading!
+  <a class="anchor" href="#dynamic-loading">#</a>
+</h2>
 <h1 id="directives">
   Directives
   <a class="anchor" href="#directives">#</a>
@@ -574,6 +600,8 @@ In the parent template:</p>
         <li><a href="#css-encapsulation">CSS Encapsulation</a></li>
         <li><a href="#content-projection">Content Projection</a></li>
         <li><a href="#accessing-dom-with-viewchild">Accessing DOM with <code>viewChild</code></a></li>
+        <li><a href="#lifecycle">Lifecycle</a></li>
+        <li><a href="#dynamic-loading">Dynamic loading!</a></li>
       </ul>
     </li>
     <li><a href="#directives">Directives</a>

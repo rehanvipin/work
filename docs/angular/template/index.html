@@ -21,7 +21,7 @@ Interpolation #  In places within the HTML where you can put custom values (with
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.75c181940326c40b7cd49dac479eb90c35c84b6517fe6ccb167dea82b5d0c3e3.js" integrity="sha256-dcGBlAMmxAt81J2sR565DDXIS2UX/mzLFn3qgrXQw&#43;M="></script>
+<script defer src="/en.search.min.1a7f775eaf6584db438f6b9342d9a1f00ee9215d971faa888c0c549d1339354d.js" integrity="sha256-Gn93Xq9lhNtDj2uTQtmh8A7pIV2XH6qIjAxUnRM5NU0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -564,6 +564,19 @@ To remove this encapsulation you can either:</p>
 <li>add <code>::ng-deep</code> to child styles. This doesn&rsquo;t remove the encapsulation but allows adding styles to
 elements that aren&rsquo;t in the template.</li>
 </ul>
+<p>That&rsquo;s not the only type of encapsulation, there&rsquo;s also:</p>
+<ul>
+<li><code>ViewEncapsulation.ShadowDom</code> which gives this component a shadow DOM and places elements under
+that shadow root. All shadow elements styles are separated from global styles. Any style declared
+for components within this shadow DOM are attached to the shadow root.</li>
+<li><code>ViewEncapsulation.Emulated</code> is the default and sets styles for only that component&rsquo;s elements.</li>
+</ul>
+<blockquote class="book-hint warning">
+  The shadow DOM API is not available in all browsers (e.g. IE and Opera Mobile) but it&rsquo;s available in most
+modern ones and is available to at least 94% of all users at the time of writing this. 
+  <a href="https://caniuse.com/shadowdomv1">Check caniuse</a>
+</blockquote>
+
 </article>
  
       
