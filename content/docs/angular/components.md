@@ -35,6 +35,8 @@ The common patern here is passing along an event to the parent component. It wor
 You can add styles for a component (other than the global styles), in two ways:
 * Create an array of strings, where each one can have CSS style rules and assign that to the `styles` property of the decorator object of the component
 * Add the rules in a file and create an array of strings (with file names) and assing it to `styleUrls`.
+* Within the styles, if you want to refer to the element which the component is tied to
+(i.e., the one in the component's selector) use `:host`, e.g., `:host { font-style: monospace; }`
 
 ## CSS Encapsulation
 When you add CSS styles to your component, it only matches the elements directly in the component. It does not apply to a parent or child component. This is how that works:  
@@ -78,11 +80,29 @@ The HTML content within those slots can be used like so:
 
 The select attribute of ng-content takes in CSS selectors to match the HTML content from the parent.
 
+{{ hint "info" }}
+`ng-container` is not present in the DOM.
+{{ /hint }}
+
 ## Accessing DOM with `viewChild`
 To access the DOM of the HTML of a component:
 * Give it a temp-ref-var like so: `<div #theBestElem></div>`
 * Create a property on the component decoreated by `viewchild` like so: `viewChild('theBestElem') goodie: ElementRef`
+* The selector could also be a component / directive / service class
 * You can then access its DOM properties or get even more granular control with `nativeElement`.
+
+## Lifecycle
+A component goes through a set of events during its lifecycle. It's possible to "hook" to those events
+(i.e., perform some extra actions you want). Some of these hooks are:
+* `ngOnInit`
+* `ngOnChanges`
+* `ngAfterContentInit`
+* `ngAfterViewInit`
+
+A full list of them, when they're called and what they do is present [in the docs](https://angular.io/guide/lifecycle-hooks#lifecycle-event-sequence)
+
+## Dynamic loading!
+
 
 # Directives
 Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.

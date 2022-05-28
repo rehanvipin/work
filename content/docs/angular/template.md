@@ -97,3 +97,14 @@ To remove this encapsulation you can either:
 * set `encapsulation` to `ViewEncapsulation.None` in the component's metadata
 * add `::ng-deep` to child styles. This doesn't remove the encapsulation but allows adding styles to
 elements that aren't in the template.
+
+That's not the only type of encapsulation, there's also:
+* `ViewEncapsulation.ShadowDom` which gives this component a shadow DOM and places elements under
+that shadow root. All shadow elements styles are separated from global styles. Any style declared
+for components within this shadow DOM are attached to the shadow root.
+* `ViewEncapsulation.Emulated` is the default and sets styles for only that component's elements.
+
+{{< hint warning >}}
+The shadow DOM API is not available in all browsers (e.g. IE and Opera Mobile) but it's available in most
+modern ones and is available to at least 94% of all users at the time of writing this. [Check caniuse](https://caniuse.com/shadowdomv1)
+{{< /hint >}}

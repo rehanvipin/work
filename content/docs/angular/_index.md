@@ -27,3 +27,5 @@ Some cool things I learnt along the way:
 * The JSON pipe is useful when you want to display an object in a template.
 Use it like this: `{{ objkt | json }}`
 * To see what happens when you run an `ng` command, suffix it with `--dry-run`
+* There's the options to convert your components into web components.
+This means they can be framework agnostic. [They're still working on making the output Angular free](https://angular.io/guide/elements) at the time of writing this post. Web components have [good browser support](https://caniuse.com/?search=web%20components).
