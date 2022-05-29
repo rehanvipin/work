@@ -1,8 +1,5 @@
 ---
-menu:
-  after:
-    weight: 30
-title: "Credits"
+title: "/credits"
 bookTOC: false
 ---
 # Credits
@@ -11,3 +8,7 @@ bookTOC: false
 * [Compass](https://icons8.com/icon/80406/compass) icon by [Icons8](https://icons8.com)
 
 You can find the source for this site on [GitHub](https://github.com/coconutlad/work).
+
+A small guide to shortcodes within this theme:
+
+{{< button relref="/shortcodes" >}}Theme Guide{{< /button >}}

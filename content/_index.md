@@ -33,6 +33,6 @@ Idk what else to put on this page so here are some random nice things:
 
 {{< hint "info" >}}
 ## Note
-This manual thing is pretty unrefined. It's like v0.1.1 rn.  
+This manual thing is pretty unrefined. It's like v0.1.2 rn.  
 P.S. ([Check out semver](https://semver.org/))
 {{< /hint >}}

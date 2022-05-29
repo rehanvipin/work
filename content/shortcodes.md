@@ -1,6 +1,7 @@
 ---
-title: 'Shortcodes'
+title: 'theme-guide'
 weight: 20
+bookHidden: true
 ---
 # Buttons
 

@@ -1,8 +1,8 @@
 ---
-title: "StolenStuff"
+title: "/tmp"
 weight: 3
 # bookFlatSection: false
-# bookToc: true
+bookToc: false
 ---
 # Temporary code access
 Random stuff that doesn't fit anywhere else.

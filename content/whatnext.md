@@ -1,5 +1,5 @@
 ---
-title: "Whatnext"
+title: "/next"
 weight: 10
 # bookFlatSection: false
 # bookToc: true
@@ -12,6 +12,7 @@ I think I should learn these things because they might be useful at work:
 
 * For the Angular docs do it in this order: Understanding Angular" -> "Reference/Conceptual Reference"
 * Add more content about Angular services (really needed?)
+* A special section on `ng-template`, it seems to be pretty powerful.
 * TypeScript, since it's the default lang for Angular. [Just an overview from a YT video perhaps?](https://www.youtube.com/watch?v=BCg4U1FzODs)
 * Search for "TODO" in the Angular notes and do those parts
 * ngModel is one fancy thing. [Check out the docs](https://angular.io/api/forms/NgModel) to understand it.

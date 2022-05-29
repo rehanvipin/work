@@ -38,3 +38,14 @@ Angular only runs a pipe when the identity of the data has changed. It's value. 
 
 ## Async
 You can subscribe and process values from RxJS observables within the template itself. This is possible via the async pipe. It's often used with ngFor like this: `<div *ngFor="let book of books | async">We have {{ book.name }}</div>` where `books` is an observable which has multiple `next` calls and a `complete` call.
+
+When the component gets destroyed, it automatically unsubscribes from the observable.
+
+## Purity
+By default, pipes are pure. Pipes use data binding, Angular executes the pipe when a change is detected in
+the input value.
+
+Pure pipes execute on pure changes (e.g. an object's reference itself changed or a primitive's value changed).
+
+If a pipe is declared as impure, it will execute on all pure changes to the input as well as changes to the
+input object's properties. Since this can happen often, it is recommended to make impure pipes performant.

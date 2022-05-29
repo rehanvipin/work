@@ -25,7 +25,7 @@ disablePathToLower = true
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resolved by .GetPage function: https://gohugo.io/functions/getpage/
   # For backward compatibility you can set '*' to render all sections to menu. Acts same as '/'
-  BookSection = 'docs'
+  BookSection = '/'
 
   # Configure the date format used on the pages
   # - In git information

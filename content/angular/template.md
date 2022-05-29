@@ -10,8 +10,20 @@ The template builds the HTML content that is displayed for a component. It is HT
 There are multiple ways you can use JS objects in HTML. Two of them are:
 ### Interpolation
 In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: `<div>{{ some JS expression }}</div>`. All the public properties of the component class are available. The result is always a string. This is because the `toString()` method is called on the result of the expression. The binding between the class properties and the text is one way. **Updates to the property will be reflected in the HTML but not the other way around.**
+
+The variables referenced within the expression could come from multiple places, the order of search is:
+1. The template variable name.
+2. A name in the directive's context.
+3. The component's member names.
+
+Interpolation is secure since Angular will process the text to make sure any HTML / JS the user might have
+provided is not executed, only displayed on the screen.
+
 ### Property binding
 HTML elements have properties e.g. "class, style, action, id, nonce, etc". You can set the values of these properties, like so: `<div [nonce]=" some JS expression "></div>`. The result is **not** converted to a string.
+
+Angular sanitizes values passed to a property to prevent XSS.
+
 ### Rules for expressions
 You can't use a few things, like these:
 * Assignment operators
@@ -22,13 +34,16 @@ You can't use a few things, like these:
 In general, here are a few guidelines you should follow:
 * The expression shouldn't have side effects
 * Try to keep them simple and fast
+
 ### Event binding
 HTML elements also have events that they can emit e.g. "click, focus, hover, etc". You can bind these events (which means running code when it emitted) to statements, like so: `<div (hover)=" some JS statement "></div>`.
+
 ### Rules for statements
 Statements can have assignments but only with `=`, not `+=` or other stuff. 
 They can have multiple expressions separated by `;` but the other restrictions 
 that held for expressions still hold. They mostly do have side effects.
 {{< /details >}}
+
 ### Two way binding
 This can be done like so : `<child-elem [(lol)]="someVal"></child-elem>` which does a bunch of things:
 * The child element should have a property "lol" and an `EventEmitter` "lolChange"
@@ -62,7 +77,14 @@ This is to ngIf like a switch case is to an if condition. You define the switch 
 * `<img *ngSwitchCase="">` to compare particular JS objects (objects, not just strings) OR
 * `<img *ngSwitchDefault>` which will come to life if none of the other cases matched
 
-## Adding classes
+## Attribute binding
+It's recommended to use property binding wherever possible but sometimes the required element property does
+not exist. Some SVG attributes cannot be set via property binding because they have no "property targets".
+
+The simplest way to do this is: `<elem [attr.whateverattributename]="expr"></elem>`. Note that the `attr.`
+prefix is necessary. If the expression evaluates to `null` or `undefined` the attribute is removed from the element.
+
+### Adding classes
 There are multiple ways to do this. The simple way is for a single property like so: `<img [class.klassname]="bool JS expression">` which will add the class "klassname" to the element if the expression is truthy. 
 
 When you want to add multiple classes you can do so with `ngClass` like so `<img [ngClass]="fancy stuff">` where "fancy stuff" can be any JS expression that returns one of these:
@@ -70,8 +92,10 @@ When you want to add multiple classes you can do so with `ngClass` like so `<img
 * A string of space separated class names
 * An array of strings, each of which are class names
 
-## `ngStyle`
-You can add CSS styles too similar to classes. `ngStyle` has a similar syntax to `ngClass` except that the return value of the expression should be an object where the **keys are CSS style keys** and **values are CSS style values**. A small example: HTML element with `<img [ngStyle]="komPute()">`. The function:
+### Adding styles
+The simple way to set a style would be using attribute binding like so: `<elem [style.width]="CSS.px(10)"></elem>`. It's also possible to set multiple styles like so: `<a [style]="{width: '100px', height: '2px'}"></a>`.
+
+`ngStyle` can also be used to set styles. `ngStyle` has a similar syntax to `ngClass` except that the return value of the expression should be an object where the **keys are CSS style keys** and **values are CSS style values**. A small example: HTML element with `<img [ngStyle]="komPute()">`. The function:
 ```ts
 komPute() {
     if(/* condition */)
@@ -85,6 +109,11 @@ They help you use one part of a template in another. You can declare a variable 
 * Declare the variable like this `<comp-or-tag #refVar></comp-or-tag>`
 * You can then use this in other parts of the template, if it's a component you can access its **public properties**. Like so, `<other-tag [lul]="refVar.val1" (snap)="refVar.func1()"> {{ refVar.val2 }} </other-tag>`
 * It is not accessible in the TS of the parent component.
+
+{{< hint info >}}
+How does this work with `ngModel`? According to the docs:  
+If the variable specifies a name on the right-hand side, such as #var="ngModel", the variable refers to the directive or component on the element with a matching exportAs name.
+{{< /hint >}}
 
 ## Styling
 Write styles in the sheets provided for the components. Angular performs "view encapsulation" which means
@@ -107,4 +136,8 @@ for components within this shadow DOM are attached to the shadow root.
 {{< hint warning >}}
 The shadow DOM API is not available in all browsers (e.g. IE and Opera Mobile) but it's available in most
 modern ones and is available to at least 94% of all users at the time of writing this. [Check caniuse](https://caniuse.com/shadowdomv1)
+{{< /hint >}}
+
+{{< hint info >}}
+Thought only HTML files could be used as templates? SVGs can be used too!
 {{< /hint >}}
