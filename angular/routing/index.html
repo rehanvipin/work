@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.99.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Routing &amp; Co. #  Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!
+Creating routes #  Routes are defined as an array of objects.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Routing" />
+<meta property="og:description" content="Routing &amp; Co. #  Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!
+Creating routes #  Routes are defined as an array of objects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/angular/routing/" /><meta property="article:section" content="angular" />
+
+
+
+<title>Routing | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c029195c85e40978d9a8f4514856eec8" class="toggle" checked />
+    <label for="section-c029195c85e40978d9a8f4514856eec8" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class=" active">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/" class="">Front-End</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/svg/" class="">SVG</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/stolenstuff/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Routing</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#routing--co">Routing &amp; Co.</a>
+      <ul>
+        <li><a href="#creating-routes">Creating routes</a></li>
+        <li><a href="#route-parameters">Route parameters</a></li>
+        <li><a href="#links-to-routes">Links to routes</a></li>
+        <li><a href="#navigate-with-js">Navigate with JS</a></li>
+        <li><a href="#guards">Guards</a>
+          <ul>
+            <li><a href="#activation">Activation</a></li>
+            <li><a href="#deactivation">Deactivation</a></li>
+          </ul>
+        </li>
+        <li><a href="#active-route">Active route</a></li>
+        <li><a href="#lazy-loading-a-module">Lazy loading a Module</a></li>
+        <li><a href="#prefetching-with-resolve">Prefetching with resolve</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="routing--co">
+  Routing &amp; Co.
+  <a class="anchor" href="#routing--co">#</a>
+</h1>
+<p>Some modern apps, like the one built with Angular are <strong>Single Page Apps</strong>. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!</p>
+<h2 id="creating-routes">
+  Creating routes
+  <a class="anchor" href="#creating-routes">#</a>
+</h2>
+<p>Routes are defined as an array of objects. The array is of the type <code>Routes</code> from &ldquo;@angular/router&rdquo;.</p>
+<ul>
+<li>The object should be like: <code>{path:'', component: ComponentKlass}</code> which is of type <code>Route</code>.</li>
+<li>You then pass the array as an argument to <code>RouterModule.forRoot(routes)</code> in an <code>NgModule</code> of your app (e.g. <code>AppModule</code> in <code>app.module.ts</code>)</li>
+<li>If you want a route to redirect, you can set it like so: <code>{path:'blue', redirectTo: '/red', pathMatch: 'full'}</code></li>
+</ul>
+<p>A good practice is to create a separate module for routing and then import the module in <code>AppModule</code>. This way, routes and the <code>RouterModule</code> import will be in a separate file e.g. <code>app-routing.module.ts</code>. The main <code>AppModule</code> may also choose to export the new router module you created so it will be available throughout the app.</p>
+<h2 id="route-parameters">
+  Route parameters
+  <a class="anchor" href="#route-parameters">#</a>
+</h2>
+<p>You can pass parameters in a route path, like so: <code>path: 'warehouse/:id'</code> where &ldquo;id&rdquo; is the parameter. To access it within your component code you should:</p>
+<ul>
+<li>Add <code>ActivatedRoute</code> as a dependency to your component</li>
+<li>Access the parameter via the dependency object, like so: <code>route.snapshot.params[&quot;id&quot;]</code></li>
+</ul>
+<p>Angular does not reload a component when only the parameters change.
+This can cause issues while navigating from a component to itself.
+A better idea to subscribe to the params like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">route</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">param</span>: <span style="color:#66d9ef">Param</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// logic for updating content
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span></code></pre></div><h2 id="links-to-routes">
+  Links to routes
+  <a class="anchor" href="#links-to-routes">#</a>
+</h2>
+<p>You want Angular to generate the links to routes, not hardcode them. This is how you do it:</p>
+<ul>
+<li>Add the <code>routerLink</code> property to an element. As its value provide an array of path elements, like this: <code>['where', someParam]</code>, which will be joined with &lsquo;/&rsquo; and used.</li>
+<li>That element will be clickable and will go to that route when clicked. <code>&lt;a&gt;</code> elements will get an <code>href</code> property with the destination route as the value.</li>
+</ul>
+<h2 id="navigate-with-js">
+  Navigate with JS
+  <a class="anchor" href="#navigate-with-js">#</a>
+</h2>
+<p>You can also navigate the site, not just by clicking links, but also with JS if required. You just put <code>Router</code> from &ldquo;@angular/router&rdquo; as a dependency and then call <code>routerName.navigate([/* path as an array of strings */])</code></p>
+<p>There&rsquo;s also an Angular service called <code>Location</code> from &ldquo;@angular/core&rdquo; with which you can go back to the previous page.
+To use it, inject it as a dependency and then do <code>locationObj.back()</code>.</p>
+<h2 id="guards">
+  Guards
+  <a class="anchor" href="#guards">#</a>
+</h2>
+<p>When you don&rsquo;t want a user to visit or leave ceratin routes.</p>
+<h3 id="activation">
+  Activation
+  <a class="anchor" href="#activation">#</a>
+</h3>
+<p>Used to prevent users from visiting a route unless some condition is satisfied. You can specify the condition via a function or service. You can do it with a service, like so:</p>
+<ul>
+<li>Define a service which has a <code>canActivate</code> method that takes in an <code>ActivatedRouteSnap</code> object as a param. This function returns true / false telling if the should be able to accessed. If you want you can do things like navigate to a 404 page from that function.</li>
+<li>Pass in the service in an array as the value to the <code>canActivate</code> key of the <code>Route</code> object you wish to guard. Like so: <code>{path: 'event/:id', component: EventDetailsComponent, canActivate: [NavigationService]}</code></li>
+</ul>
+<h3 id="deactivation">
+  Deactivation
+  <a class="anchor" href="#deactivation">#</a>
+</h3>
+<p>Used to prevent users from leaving a page (they can always leave by changing the address in the address bar) unless some condition is satisfied. You can do it with a service, or with a function, like so:</p>
+<ul>
+<li>Define a function and add it as a provider. This means you need to create a <code>Provider</code> object and register it in the <code>NgModule</code>&rsquo;s <code>providers</code> array. It needs the <code>provide</code> property which is a string that you can use to access this provider and <code>useValue</code> property whose value the function you just defined.</li>
+<li>An example: <code>{provide: 'dontLoseData', useValue: checkBadDataState}</code>.</li>
+<li>The function must return true / false which determines if the user can leave the page.</li>
+<li>You can then use this provider by accessing it via its key, like so: <code>{path: 'event/new', component: abc, canDeactivate: ['dontLoseData']}</code></li>
+</ul>
+<h2 id="active-route">
+  Active route
+  <a class="anchor" href="#active-route">#</a>
+</h2>
+<p>You can add classes to elements which have <code>[routerLink]</code> when the current page is that link. That&rsquo;s done with <code>routerLinkActive='someKlass'</code> property. To match exactly, you can set <code>[routerLinkActiveOptions]</code> to <code>{exact: true}</code></p>
+<h2 id="lazy-loading-a-module">
+  Lazy loading a Module
+  <a class="anchor" href="#lazy-loading-a-module">#</a>
+</h2>
+<p>You can lazy load a module so that it only loads under a particular route. Therefore it saves bandwidth for the user when they just visit the main site. You define the module, its routes, and its components normally. Some changes:</p>
+<ul>
+<li>You import and use <code>CommonModule</code> instead of <code>BrowserModule</code> in <code>NgModule</code>.</li>
+<li>You use <code>RouterModule.forChild</code> instead of <code>RouterModule.forRoot</code>.</li>
+</ul>
+<p>Then to load this particular module on a route you can define it in the main route, like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>{ <span style="color:#75715e">// this is a Route object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;extraa&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">loadChildren</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#39;extraStuff.module&#39;</span> <span style="color:#75715e">/*the file where the module is defined*/</span>).<span style="color:#a6e22e">then</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">mod</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">mod</span>.<span style="color:#a6e22e">FancyModule</span> <span style="color:#75715e">// the NgModule&#39;d class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To improve perceived performance, this module can be prefetched whenever the browser is free.
+This can be done by adding another argument to the root router module like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">@NgModule</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">imports</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// other modules
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">RouterModule</span>.<span style="color:#a6e22e">forRoot</span>(<span style="color:#a6e22e">mainRoutes</span>, {<span style="color:#a6e22e">preLoadingStrategy</span>: <span style="color:#66d9ef">PreLoadAllModules</span>})
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><h2 id="prefetching-with-resolve">
+  Prefetching with resolve
+  <a class="anchor" href="#prefetching-with-resolve">#</a>
+</h2>
+<p>When a user visits a route a resolver loads the data required for the page before the component is loaded. It helps fix issues caused when the component is ready but the data required for its content is not.</p>
+<p>A resolver is usually a service that has a <code>resolve</code> method that takes in an <code>ActivatedRoute</code> object and returns an <code>Observable</code>. <strong>The observable is automatically subscribed to.</strong></p>
+<p>In the list of routes, for a <code>Route</code> object, specify a <code>resolve</code> property that is equal to an object where the keys can be used to access the data on the route later on. Like so: <code>resolve: { users: getUsersService }</code>. This can then be accessed via the <code>ActivatedRoute</code> like so: <code>this.route.snapshot.data['users']</code></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#routing--co">Routing &amp; Co.</a>
+      <ul>
+        <li><a href="#creating-routes">Creating routes</a></li>
+        <li><a href="#route-parameters">Route parameters</a></li>
+        <li><a href="#links-to-routes">Links to routes</a></li>
+        <li><a href="#navigate-with-js">Navigate with JS</a></li>
+        <li><a href="#guards">Guards</a>
+          <ul>
+            <li><a href="#activation">Activation</a></li>
+            <li><a href="#deactivation">Deactivation</a></li>
+          </ul>
+        </li>
+        <li><a href="#active-route">Active route</a></li>
+        <li><a href="#lazy-loading-a-module">Lazy loading a Module</a></li>
+        <li><a href="#prefetching-with-resolve">Prefetching with resolve</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

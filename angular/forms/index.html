@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.99.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Forms and validation #  There are two kinds of forms in Angular:
+ Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Forms" />
+<meta property="og:description" content="Forms and validation #  There are two kinds of forms in Angular:
+ Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/angular/forms/" /><meta property="article:section" content="angular" />
+
+
+
+<title>Forms | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c029195c85e40978d9a8f4514856eec8" class="toggle" checked />
+    <label for="section-c029195c85e40978d9a8f4514856eec8" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class=" active">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/" class="">Front-End</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/svg/" class="">SVG</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/stolenstuff/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Forms</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#forms-and-validation">Forms and validation</a>
+      <ul>
+        <li><a href="#creating-a-form">Creating a form</a></li>
+        <li><a href="#validation">Validation</a></li>
+        <li><a href="#reactive-forms">Reactive forms</a></li>
+        <li><a href="#validation-reactive-form">Validation (reactive form)</a></li>
+        <li><a href="#custom-validator">Custom validator</a></li>
+        <li><a href="#super-custom-validator">Super custom validator</a></li>
+        <li><a href="#multi-field-validation">Multi-field validation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="forms-and-validation">
+  Forms and validation
+  <a class="anchor" href="#forms-and-validation">#</a>
+</h1>
+<p>There are two kinds of forms in Angular:</p>
+<ul>
+<li>Template based (the content and the logic is in the HTML)</li>
+<li>Model based A.K.A. Reactive (the content and logic is in the component)</li>
+</ul>
+<h2 id="creating-a-form">
+  Creating a form
+  <a class="anchor" href="#creating-a-form">#</a>
+</h2>
+<ul>
+<li>You need the <code>FormModule</code> from &ldquo;@angular/forms&rdquo; to be imported in the module where you will be using forms.</li>
+<li>When you import that module, it adds an NgForm directive to all form tags.
+The directive instance can be accessed as described below.</li>
+<li>In the component with the form, on the form element, set a template reference variable like so: <code>&lt;form #someNiceNameForForm=&quot;ngForm&quot;&gt;&lt;/form&gt;</code>.
+This provides additional functionality as 
+  <a href="https://angular.io/guide/template-reference-variables#using-ngform-with-template-variables">described in the docs</a>.</li>
+<li>For each input element whose value you want, set the <code>name</code> attribute. This will be the key to access its value later on.</li>
+<li>For the submit action, prefer to bind to ngSubmit instead of using the submit button, like so: <code>&lt;form #formTempVar=&quot;ngForm&quot; (ngSubmit)=&quot;handlerFunc(formTempVar.value)&quot;&gt;&lt;/form&gt;</code></li>
+<li>The <code>value</code> prop. on the temp-ref-var is an object where the value for each input field with a name attr. is available.</li>
+<li>You can also bind <code>ngModel</code> (which is a directive) on each input element to bind it to values
+on the component, like so: <code>&lt;input (ngModel)=&quot;compoProp&quot; id=&quot;foo&quot; type=&quot;text&quot;&gt;</code>.
+To achieve <strong>two way data binding</strong> you can do this: <code>[(ngModel)]=&quot;compoProp</code>.</li>
+</ul>
+<h2 id="validation">
+  Validation
+  <a class="anchor" href="#validation">#</a>
+</h2>
+<p>Angular turns off the default behaviour of adding the &ldquo;required&rdquo; attribute on input elements. It does provide its own validation features:</p>
+<ul>
+<li><code>formTempRefVar</code> has properties like <code>valid</code>, <code>invalid</code>, <code>touched</code>, <code>dirty</code> etc.
+So does each input element, under <code>formTempRefVar.controls.inputElementName</code>.</li>
+<li>Those properties for individual elements can also be accessed via temp-ref-vars like so:
+<code>&lt;input type=&quot;text&quot; name=&quot;woah&quot; #niceHandle=&quot;ngModel&quot;&gt;{{niceHandle.valid}}&lt;/input&gt;</code></li>
+<li>Angular also adds classes like <code>ng-valid</code>, <code>ng-touched</code>, and <code>ng-pristine</code> to elements.
+It also sets <code>ng-submitted</code> on the <code>form</code> element when the form has been submitted.
+These can be used for styling</li>
+<li>The form can be reset by calling <code>formTempRefVar.reset()</code></li>
+</ul>
+<blockquote class="book-hint danger">
+  The element&rsquo;s property under <code>formTempRefVar.controls</code> may not be defined initially, therefore, if you want to check if the element is in an invalid state you should do it like this: <code>formTempRefVar.controls.inputElementName?.invalid</code>
+</blockquote>
+
+<h2 id="reactive-forms">
+  Reactive forms
+  <a class="anchor" href="#reactive-forms">#</a>
+</h2>
+<p>Here, the structure of the form and its validation rules are defined in the component itself. It&rsquo;s more flexible and lets you unit test things like validation easily. Here&rsquo;s how you make such a form:</p>
+<ul>
+<li>You need the <code>ReactiveFormModule</code> like how template forms need <code>FormModule</code></li>
+<li>The form is a property of the component. It is of the type <code>FormGroup</code>. You initialize it in <code>ngOnInit</code>, like so:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">year</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">birthday</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormGroup</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">day</span>: <span style="color:#66d9ef">day</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">month</span>: <span style="color:#66d9ef">month</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">year</span>: <span style="color:#66d9ef">year</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userLoginForm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormGroup</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">uname</span>: <span style="color:#66d9ef">username</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">paswd</span>: <span style="color:#66d9ef">password</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">dob</span>: <span style="color:#66d9ef">birthday</span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><ul>
+<li>The properties of the <code>FormGroup</code> are supposed to be the values you want from the form, or a group of values which are encased in a <code>FormGroup</code>s of their own.</li>
+<li>You must bind the HTML form and input elements like so: <code>&lt;form [formGroup]=&quot;userLoginForm&quot;&gt;&lt;/form&gt;</code> and <code>&lt;input formControlName=&quot;username&quot;&gt;&lt;/input&gt;</code>.</li>
+<li>In case of grouped values, the group must be bound <code>&lt;div formGroupName=&quot;dob&quot;&gt;&lt;/div&gt;</code> and then the constituent elements like so: <code>&lt;input formControlName=&quot;month&quot;&gt;&lt;/input&gt;</code></li>
+<li>You can also add a <code>ngModelGroup</code> attribute so that the form value will be structured so that
+the input elements within the group will be nested inside an object.
+A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input name=&quot;hi&quot;&gt;&lt;/div&gt;</code> will give a value object like this:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{   <span style="color:#75715e">// other fields
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lol</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hi</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;someval&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="validation-reactive-form">
+  Validation (reactive form)
+  <a class="anchor" href="#validation-reactive-form">#</a>
+</h2>
+<ul>
+<li>The format for a new FormControl is: <code>new FormControl(value the field should have, validation for the field)</code> where both params are optional</li>
+<li>An example validation, where you can mark a field as required is: <code>FormControl(userName, Validators.required)</code> where <code>Validators</code> must be imported from &ldquo;@angular/forms&rdquo;</li>
+<li>The state of the form is accessible from the primary <code>FormGroup</code> like so: <code>this.userLoginForm.valid</code></li>
+<li>To use multiple validators, pass them as an array: <code>[Validators.required, Validators.pattern('ab*')]</code></li>
+<li>The results of each validator (pass / fail) can be obtained like <code>userLoginForm.controls.elementName.errors.whatEverValidation</code> where the validation is something like <code>required</code> or <code>pattern</code> or something else.</li>
+</ul>
+<h2 id="custom-validator">
+  Custom validator
+  <a class="anchor" href="#custom-validator">#</a>
+</h2>
+<p>A validator is a function. It returns an error object if the validation failed else it returns <code>null</code>. The error object looks like this: <code>{'errorName': errorValue}</code>. The error value can then be accessed like <code>elementName.errors.errorName</code>. The only argument that the function takes is a <code>FormControl</code> object (which will be the element on which the validator is set).</p>
+<h2 id="super-custom-validator">
+  Super custom validator
+  <a class="anchor" href="#super-custom-validator">#</a>
+</h2>
+<p>You can also use a directive as a validator. Since it is a class it needs to implement <code>Validator</code> from &lsquo;@angular/forms&rsquo; which means it needs to have a function <code>validate</code> that takes in a <code>FormGroup</code> (or <code>FormControl</code> depending on where the directive is used) and return <code>null</code> if there are no errors else an error object like before.</p>
+<p>Since it is a directive it needs to be imported in the ngModule. To add it to Angular&rsquo;s list of validators (and therefore make it available for use) you can do this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NG_VALIDATORS</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/forms&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Directive</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;wow-nice&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">providers</span><span style="color:#f92672">:</span> [{
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">provides</span>: <span style="color:#66d9ef">NG_VALIDATORS</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">useExisting</span>: <span style="color:#66d9ef">NiceValidator</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">multi</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e">// this means add this validator as a provider to NG_VALIDATORS
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NiceValidator</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">validate</span>(<span style="color:#a6e22e">fg</span>: <span style="color:#66d9ef">FormGroup</span>) { <span style="color:#75715e">/* validation logic */</span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="multi-field-validation">
+  Multi-field validation
+  <a class="anchor" href="#multi-field-validation">#</a>
+</h2>
+<p>You need to do a few weird things to validate multiple fields:</p>
+<ul>
+<li>To access sibling fields, use the root group like so <code>fg.root.controls.siblingElement</code></li>
+<li>To actually validate elements with the directive validator you need a temp-ref-var like so:
+<code>&lt;div ngModelGroup=&quot;niceGrp&quot; validatorDirec #whyNeedIDK=&quot;ngModelGroup&quot;&gt;&lt;/div&gt;</code></li>
+<li>The sibling needs to re-run the validator whenever it updates. Can do that with an event binding: <code>&lt;div (change)=&quot;whyNeedIDK.control.controls.someField.upDateValueAndValidity()&gt;&lt;/div&gt;</code></li>
+</ul>
+<p>This whole thing is just super complex and weird.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#forms-and-validation">Forms and validation</a>
+      <ul>
+        <li><a href="#creating-a-form">Creating a form</a></li>
+        <li><a href="#validation">Validation</a></li>
+        <li><a href="#reactive-forms">Reactive forms</a></li>
+        <li><a href="#validation-reactive-form">Validation (reactive form)</a></li>
+        <li><a href="#custom-validator">Custom validator</a></li>
+        <li><a href="#super-custom-validator">Super custom validator</a></li>
+        <li><a href="#multi-field-validation">Multi-field validation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

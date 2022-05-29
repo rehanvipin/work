@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.99.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&rsquo;s called a front-end web development framework.
+Typescript #  Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Overview" />
+<meta property="og:description" content="An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&rsquo;s called a front-end web development framework.
+Typescript #  Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/angular/overview/" /><meta property="article:section" content="angular" />
+
+
+
+<title>Overview | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c029195c85e40978d9a8f4514856eec8" class="toggle" checked />
+    <label for="section-c029195c85e40978d9a8f4514856eec8" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class=" active">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/" class="">Front-End</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/svg/" class="">SVG</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/stolenstuff/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Overview</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#an-overview-and-miscellaneous-stuff">An overview (and miscellaneous stuff)</a>
+      <ul>
+        <li><a href="#typescript">Typescript</a>
+          <ul>
+            <li><a href="#static-typing">Static typing</a></li>
+            <li><a href="#interfaces">Interfaces</a></li>
+            <li><a href="#class-properties">Class properties</a></li>
+            <li><a href="#public--private-access">Public / Private access</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
+        <li><a href="#deployment-">Deployment 🎈</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="an-overview-and-miscellaneous-stuff">
+  An overview (and miscellaneous stuff)
+  <a class="anchor" href="#an-overview-and-miscellaneous-stuff">#</a>
+</h1>
+<p>Angular is a platform, 
+  <a href="https://angular.io/guide/what-is-angular">apparently</a>, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&rsquo;s called a front-end web development framework.</p>
+<h2 id="typescript">
+  Typescript
+  <a class="anchor" href="#typescript">#</a>
+</h2>
+<p>Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out 
+  <a href="https://www.typescriptlang.org/play">online</a>. Its main features are:</p>
+<h3 id="static-typing">
+  Static typing
+  <a class="anchor" href="#static-typing">#</a>
+</h3>
+<p>You can declare types while declaring variables, like so: <code>let var: number;</code>.</p>
+<h3 id="interfaces">
+  Interfaces
+  <a class="anchor" href="#interfaces">#</a>
+</h3>
+<p>They let you define a structure that objects must follow. An interface is a type. When you assign an object to a variable of that type, the object must have the properties in that interface (each of the same type). Like so</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">nice</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sic</span>: <span style="color:#66d9ef">nice</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sic</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hai&#34;</span>, <span style="color:#75715e">// adding, removing, or changing the types of these properties causes an error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">10</span>
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="class-properties">
+  Class properties
+  <a class="anchor" href="#class-properties">#</a>
+</h3>
+<p>ES6 classes mainly define their properties via their constructors. TS lets you to define these properties in the class itself. You can optionally specify types for them. This is only for readability. E.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">num</span>: <span style="color:#66d9ef">number</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">wutdis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wutdis</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hmm&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="public--private-access">
+  Public / Private access
+  <a class="anchor" href="#public--private-access">#</a>
+</h3>
+<p>All class properties in ES6 are public. You can make them private in TS by adding the <code>private</code> before them during declaration. It also provides this nifty shorthand for the constructor:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">wutdis</span>: <span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// it implicitly does this.wutdis = wutdis
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Hip</span>(<span style="color:#e6db74">&#34;sic&#34;</span>, <span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">f</span>); <span style="color:#75715e">// { wutdis: &#34;sic&#34;, num: 10 }
+</span></span></span></code></pre></div><h2 id="the-bootstrap-process">
+  The bootstrap process
+  <a class="anchor" href="#the-bootstrap-process">#</a>
+</h2>
+<ul>
+<li>The first file that is run is <code>main.ts</code> (as defined in <code>angular.json</code>  <strong>That&rsquo;s a very useful file</strong>).</li>
+<li>It bootstraps a module, <code>app/module.ts</code> by default.</li>
+<li>It bootstraps the root component, <code>app/app.component.ts</code> by default.</li>
+<li>The root component is placed in <code>app/index.html</code> which is what is rendered.</li>
+</ul>
+<h2 id="deployment-">
+  Deployment 🎈
+  <a class="anchor" href="#deployment-">#</a>
+</h2>
+<p>This is done with the <code>ng build</code> command which:</p>
+<ul>
+<li>Minifies code (removes whitespaces and renames variables)</li>
+<li>Bundling (merges many JS file into a single JS file) so fewer requests are made</li>
+<li>Tree shaking (the production app doesn&rsquo;t have code that is never used). It&rsquo;s a <em>little</em> different from dead code elimination.</li>
+</ul>
+<p>Angular has an Ahead Of Time (AOT) compiler that converts the HTML of templates into JS code that manupilates the DOM.
+It can help catch template errors, reduce the output size, and make rendering on the browser faster.</p>
+<p>By default, running <code>ng build</code> will generate a &ldquo;development&rdquo; build which can still be deployed but isn&rsquo;t as optimized as it could be.
+To run it in &ldquo;production&rdquo; mode use <code>ng build --prod</code> which reduces the number of requests and file sizes.</p>
+<p>Deployment just involves copying the directory within &ldquo;dist&rdquo; to the web server!</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#an-overview-and-miscellaneous-stuff">An overview (and miscellaneous stuff)</a>
+      <ul>
+        <li><a href="#typescript">Typescript</a>
+          <ul>
+            <li><a href="#static-typing">Static typing</a></li>
+            <li><a href="#interfaces">Interfaces</a></li>
+            <li><a href="#class-properties">Class properties</a></li>
+            <li><a href="#public--private-access">Public / Private access</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
+        <li><a href="#deployment-">Deployment 🎈</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,61 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://work.rehanvipin.me/docs/angular/</loc>
+    <loc>https://work.rehanvipin.me/angular/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/front-end-stuff/d3/</loc>
+    <loc>https://work.rehanvipin.me/front-end-stuff/d3/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/overview/</loc>
+    <loc>https://work.rehanvipin.me/angular/overview/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/components/</loc>
+    <loc>https://work.rehanvipin.me/angular/components/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/front-end-stuff/</loc>
+    <loc>https://work.rehanvipin.me/front-end-stuff/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/front-end-stuff/svg/</loc>
+    <loc>https://work.rehanvipin.me/front-end-stuff/svg/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/stolenstuff/</loc>
+    <loc>https://work.rehanvipin.me/stolenstuff/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/template/</loc>
+    <loc>https://work.rehanvipin.me/angular/template/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/services/</loc>
+    <loc>https://work.rehanvipin.me/angular/services/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/routing/</loc>
+    <loc>https://work.rehanvipin.me/angular/routing/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/forms/</loc>
+    <loc>https://work.rehanvipin.me/angular/forms/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/pipes/</loc>
+    <loc>https://work.rehanvipin.me/angular/pipes/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/di/</loc>
+    <loc>https://work.rehanvipin.me/angular/di/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/rxjs/</loc>
+    <loc>https://work.rehanvipin.me/angular/rxjs/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/test/</loc>
+    <loc>https://work.rehanvipin.me/whatnext/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/whatnext/</loc>
+    <loc>https://work.rehanvipin.me/angular/test/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/angular/libraries/</loc>
+    <loc>https://work.rehanvipin.me/angular/libraries/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/shortcodes/</loc>
+    <loc>https://work.rehanvipin.me/angular/directives/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/posts/</loc>
-    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/</loc>
-    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/meta/</loc>
-    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/posts/rtfm/</loc>
-    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/tags/</loc>
-    <lastmod>2022-01-24T20:07:08+05:30</lastmod>
-  </url><url>
-    <loc>https://work.rehanvipin.me/categories/</loc>
+    <loc>https://work.rehanvipin.me/shortcodes/</loc>
   </url><url>
     <loc>https://work.rehanvipin.me/credits/</loc>
   </url><url>
-    <loc>https://work.rehanvipin.me/docs/</loc>
+    <loc>https://work.rehanvipin.me/categories/</loc>
+  </url><url>
+    <loc>https://work.rehanvipin.me/</loc>
+  </url><url>
+    <loc>https://work.rehanvipin.me/tags/</loc>
   </url>
 </urlset>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.99.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Transforming data #  Built-in pipes #  You can transform data before it is rendered in a template. There are many inbuilt pipes. The format is {{ yourContent | pipeName:pipeArg1 }} where the arguments are JS objects / literals and are optional. Example: &lt;p&gt;A: {{a | currency:&#39;CAD&#39;:&#39;code&#39;}}&lt;/p&gt;.
+Custom pipe #  An example pipe:
+// in the file goodie.pipe.ts import {Pipe, PipeTransform} from &#39;@angular/core&#39;  @Pipe({  name: &#39;goodiepipe&#39; // the name used to call the pipe in the template }) export class GoodiePipe implements PipeTransform {  // this is the function that is called with the args  transform(input: string, arg1: number) {  if(arg1 &lt; 5)  return input&#43;&#34; is low&#34;;  return input&#43;&#34; is high&#34;;  } } You must then add it to the declarations of the NgModule where you want to use it.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Pipes" />
+<meta property="og:description" content="Transforming data #  Built-in pipes #  You can transform data before it is rendered in a template. There are many inbuilt pipes. The format is {{ yourContent | pipeName:pipeArg1 }} where the arguments are JS objects / literals and are optional. Example: &lt;p&gt;A: {{a | currency:&#39;CAD&#39;:&#39;code&#39;}}&lt;/p&gt;.
+Custom pipe #  An example pipe:
+// in the file goodie.pipe.ts import {Pipe, PipeTransform} from &#39;@angular/core&#39;  @Pipe({  name: &#39;goodiepipe&#39; // the name used to call the pipe in the template }) export class GoodiePipe implements PipeTransform {  // this is the function that is called with the args  transform(input: string, arg1: number) {  if(arg1 &lt; 5)  return input&#43;&#34; is low&#34;;  return input&#43;&#34; is high&#34;;  } } You must then add it to the declarations of the NgModule where you want to use it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/angular/pipes/" /><meta property="article:section" content="angular" />
+
+
+
+<title>Pipes | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c029195c85e40978d9a8f4514856eec8" class="toggle" checked />
+    <label for="section-c029195c85e40978d9a8f4514856eec8" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class=" active">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/" class="">Front-End</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/svg/" class="">SVG</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/stolenstuff/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Pipes</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#transforming-data">Transforming data</a>
+      <ul>
+        <li><a href="#built-in-pipes">Built-in pipes</a></li>
+        <li><a href="#custom-pipe">Custom pipe</a></li>
+        <li><a href="#filter-and-sort">Filter and Sort</a></li>
+        <li><a href="#async">Async</a></li>
+        <li><a href="#purity">Purity</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="transforming-data">
+  Transforming data
+  <a class="anchor" href="#transforming-data">#</a>
+</h1>
+<h2 id="built-in-pipes">
+  Built-in pipes
+  <a class="anchor" href="#built-in-pipes">#</a>
+</h2>
+<p>You can transform data before it is rendered in a template. There are many 
+  <a href="https://angular.io/api/common#pipes">inbuilt pipes</a>. The format is <code>{{ yourContent | pipeName:pipeArg1 }}</code> where the arguments are JS objects / literals and are optional. Example: <code>&lt;p&gt;A: {{a | currency:'CAD':'code'}}&lt;/p&gt;</code>.</p>
+<h2 id="custom-pipe">
+  Custom pipe
+  <a class="anchor" href="#custom-pipe">#</a>
+</h2>
+<p>An example pipe:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// in the file goodie.pipe.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">Pipe</span>, <span style="color:#a6e22e">PipeTransform</span>} <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Pipe</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;goodiepipe&#39;</span> <span style="color:#75715e">// the name used to call the pipe in the template
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GoodiePipe</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">PipeTransform</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// this is the function that is called with the args
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">transform</span>(<span style="color:#a6e22e">input</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">arg1</span>: <span style="color:#66d9ef">number</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">arg1</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">input</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; is low&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">input</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34; is high&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You must then add it to the <code>declarations</code> of the NgModule where you want to use it. It can then be used like so: <code>{{ someVar | goodpipe:32 }}</code></p>
+<h2 id="filter-and-sort">
+  Filter and Sort
+  <a class="anchor" href="#filter-and-sort">#</a>
+</h2>
+<p>AngularJS had the ability to do this with pipes. This meant that every time the data changed (i.e. a change detection cycle), the pipe would have to be called. This was <strong>slow</strong>.</p>
+<blockquote class="book-hint warning">
+  <p>Angular doesn&rsquo;t recommend that you sort or filter with pipes (you usually can&rsquo;t but there&rsquo;s the option to do it with <strong>impure pipes</strong>). It is recommended to sort / filter in the component itself.</p>
+<p>Angular only runs a pipe when the identity of the data has changed. It&rsquo;s value. <strong>It does not check if the reference has changed.</strong> Therefore, if you change the properties of an object, Angular will not run the pipe for it.</p>
+
+</blockquote>
+
+<h2 id="async">
+  Async
+  <a class="anchor" href="#async">#</a>
+</h2>
+<p>You can subscribe and process values from RxJS observables within the template itself. This is possible via the async pipe. It&rsquo;s often used with ngFor like this: <code>&lt;div *ngFor=&quot;let book of books | async&quot;&gt;We have {{ book.name }}&lt;/div&gt;</code> where <code>books</code> is an observable which has multiple <code>next</code> calls and a <code>complete</code> call.</p>
+<p>When the component gets destroyed, it automatically unsubscribes from the observable.</p>
+<h2 id="purity">
+  Purity
+  <a class="anchor" href="#purity">#</a>
+</h2>
+<p>By default, pipes are pure. Pipes use data binding, Angular executes the pipe when a change is detected in
+the input value.</p>
+<p>Pure pipes execute on pure changes (e.g. an object&rsquo;s reference itself changed or a primitive&rsquo;s value changed).</p>
+<p>If a pipe is declared as impure, it will execute on all pure changes to the input as well as changes to the
+input object&rsquo;s properties. Since this can happen often, it is recommended to make impure pipes performant.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#transforming-data">Transforming data</a>
+      <ul>
+        <li><a href="#built-in-pipes">Built-in pipes</a></li>
+        <li><a href="#custom-pipe">Custom pipe</a></li>
+        <li><a href="#filter-and-sort">Filter and Sort</a></li>
+        <li><a href="#async">Async</a></li>
+        <li><a href="#purity">Purity</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

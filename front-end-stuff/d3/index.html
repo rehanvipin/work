@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.99.1" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data Driven Docs? #  It&rsquo;s a powerful library with a bit of a learning curve. I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
+Oooh, there a heck lot of things it can do. Nice confusion. These might be some good resources:
+  Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="D3" />
+<meta property="og:description" content="Data Driven Docs? #  It&rsquo;s a powerful library with a bit of a learning curve. I&rsquo;m learning how to make network graphs with it. Here goes nothing 😛
+Oooh, there a heck lot of things it can do. Nice confusion. These might be some good resources:
+  Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/front-end-stuff/d3/" /><meta property="article:section" content="front-end-stuff" />
+
+
+
+<title>D3 | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c029195c85e40978d9a8f4514856eec8" class="toggle"  />
+    <label for="section-c029195c85e40978d9a8f4514856eec8" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/" class="">Front-End</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/d3/" class=" active">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/front-end-stuff/svg/" class="">SVG</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/stolenstuff/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>D3</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-driven-docs">Data Driven Docs?</a>
+      <ul>
+        <li><a href="#selection">Selection</a>
+          <ul>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#insertion--deletion">Insertion / Deletion</a></li>
+            <li><a href="#processing">Processing</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-joins">Data Joins</a>
+          <ul>
+            <li><a href="#selection-join">Selection Join</a></li>
+            <li><a href="#keys">Keys</a></li>
+          </ul>
+        </li>
+        <li><a href="#enter-exit--update">Enter, Exit &amp; Update</a></li>
+        <li><a href="#scales">Scales</a>
+          <ul>
+            <li><a href="#c-to-c">C to C</a></li>
+            <li><a href="#c-to-d">C to D</a></li>
+            <li><a href="#d-to-d">D to D</a></li>
+          </ul>
+        </li>
+        <li><a href="#shapes--lines">Shapes &amp; Lines</a>
+          <ul>
+            <li><a href="#common-generators">Common generators</a></li>
+          </ul>
+        </li>
+        <li><a href="#axes">Axes</a></li>
+        <li><a href="#hierarchies">Hierarchies</a>
+          <ul>
+            <li><a href="#hierarchy"><code>hierarchy</code></a></li>
+            <li><a href="#tree-layout">Tree Layout</a></li>
+          </ul>
+        </li>
+        <li><a href="#transitions">Transitions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="data-driven-docs">
+  Data Driven Docs?
+  <a class="anchor" href="#data-driven-docs">#</a>
+</h1>
+<p>It&rsquo;s a powerful library with a bit of a learning curve.
+I&rsquo;m learning how to make network graphs with it.
+Here goes nothing 😛</p>
+<p>Oooh, there a heck lot of things it can do. Nice confusion.
+These might be some good resources:</p>
+<ul>
+<li>
+  <a href="https://observablehq.com/@d3/learn-d3">Official tutorial</a></li>
+<li>
+  <a href="https://github.com/d3/d3/wiki/Tutorials">Huge collection of tutorials</a></li>
+<li>I like Pluralsight. Videos can be helpful y&rsquo;know.
+
+  <a href="https://app.pluralsight.com/library/courses/d3-data-visualization-fundamentals/table-of-contents">This course seems updated</a></li>
+<li>
+  <a href="https://www.d3indepth.com/">An updated D3 tutorial</a> (taken from the GitHub list) should also help!</li>
+</ul>
+<h2 id="selection">
+  Selection
+  <a class="anchor" href="#selection">#</a>
+</h2>
+<p>One feature of d3 is the ability to select and modify the DOM.</p>
+<p>Core to this are <code>select</code> and <code>selectAll</code> which take in an HTML Element or a CSS selector.
+Both return a <code>Selection</code> object.</p>
+<p>
+  <a href="https://github.com/d3/d3/blob/main/API.md#selections-d3-selection">API</a> for selecting and selections.</p>
+<h3 id="properties">
+  Properties
+  <a class="anchor" href="#properties">#</a>
+</h3>
+<p>The object has a few functions, each of which return a <code>Selection</code> object
+(that means chaining is possible)</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Params</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>style</td>
+<td>&lsquo;css-prop&rsquo;, value</td>
+<td>Sets a css property</td>
+</tr>
+<tr>
+<td>attr</td>
+<td>&lsquo;html-attr&rsquo;, value</td>
+<td>Sets an attribute on the HTML element</td>
+</tr>
+<tr>
+<td>classed</td>
+<td>&lsquo;classname&rsquo;, value</td>
+<td>Removes or adds class depending on value</td>
+</tr>
+<tr>
+<td>property</td>
+<td>&lsquo;html-prop&rsquo;, value</td>
+<td>Sets HTML attributes which can&rsquo;t be set by &lsquo;attr&rsquo;. E.g. <code>checked</code> on a checkbox</td>
+</tr>
+<tr>
+<td>text</td>
+<td>value</td>
+<td>Sets the text within a HTML element</td>
+</tr>
+<tr>
+<td>html</td>
+<td>value</td>
+<td>Sets HTML within the selected element</td>
+</tr>
+<tr>
+<td>select</td>
+<td>CSS selector</td>
+<td>Can be used to select child elements</td>
+</tr>
+</tbody>
+</table>
+<p><code>value</code> can be an actual value or a function. The function takes in two params:</p>
+<ul>
+<li><code>d</code> the datum, which is the data value corresponding to the index</li>
+<li><code>i</code> the index of the element among other elements in the Selection.</li>
+</ul>
+<p>Its possible to add an event to the Selection with the <code>on</code> property like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;rect&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;hover&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">datum</span>) { <span style="color:#75715e">// can be any DOM event
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// `this` inside this function refers to the HTMLElement
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// to get a d3 Selction from it you must do d3.select(this)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }); 
+</span></span></code></pre></div><blockquote class="book-hint danger">
+  <p>Because of the way <code>this</code> works inside arrow functions,
+don&rsquo;t use arrow functions for the callback of <code>on</code> if you want to use <code>this</code>.</p>
+<p>When it comes to D3, it might just be a good idea to use <code>function</code> for most use cases.</p>
+
+</blockquote>
+
+<h3 id="insertion--deletion">
+  Insertion / Deletion
+  <a class="anchor" href="#insertion--deletion">#</a>
+</h3>
+<p>Its possible to insert / remove DOM elements with D3. The functions are:</p>
+<ul>
+<li><code>.append('element-tag')</code> creates the specified element as the last child of the selection</li>
+<li><code>.insert('element-tag', 'css-selector')</code> same as append
+but it places this element before the CSS selector specified</li>
+<li><code>.remove</code> removes the element(s) in the Selection from the DOM</li>
+</ul>
+<h3 id="processing">
+  Processing
+  <a class="anchor" href="#processing">#</a>
+</h3>
+<p>A Selection can be processed in these ways:</p>
+<ul>
+<li><code>.each(function(d, i){}</code> calls the function for each element.</li>
+<li><code>.call(function(theSelection){})</code> calls the function once for the selection.
+It passes the selection object as an argument.</li>
+<li><code>.filter(function(d, i){})</code> calls the function for each element.
+It returns a new selection that only contains elements that returned true in the filter function.</li>
+<li><code>.sort(function(datumA, datumB){})</code> sorts the elements in the DOM with the comparator function.</li>
+</ul>
+<h2 id="data-joins">
+  Data Joins
+  <a class="anchor" href="#data-joins">#</a>
+</h2>
+<p>Modifying visual elements according to data in a declarative manner. It usually works like this:</p>
+<ul>
+<li>Create a Selection of the parent element which will hold the visual elements.</li>
+<li>Create an empty Selection with <code>.selectAll('element-to-join')</code>.</li>
+<li>Create a Selection with data by calling the <code>data</code> method on it with an array as the argument.</li>
+<li>On the latest selection call <code>.join('element-to-insert')</code></li>
+</ul>
+<p>
+  <a href="https://bost.ocks.org/mike/join/">Article to help with understanding joins</a>.
+
+  <a href="https://observablehq.com/@d3/selection-join">Another article. This one&rsquo;s about modern joins</a></p>
+<h3 id="selection-join">
+  Selection Join
+  <a class="anchor" href="#selection-join">#</a>
+</h3>
+<p>This join automatically appends and removes elements but also provides the ability for fine control.
+A sample:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span>);
+</span></span></code></pre></div><p>To control what happens to enter, update and exit elements, pass functions as args to it like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">selexon</span>.<span style="color:#a6e22e">join</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">enterSelection</span>){},
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">updateSelection</span>){},
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">exitSelection</span>){}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="keys">
+  Keys
+  <a class="anchor" href="#keys">#</a>
+</h3>
+<p>It&rsquo;s possible to make sure that DOM elements are exactly matched with the same data
+even if the elements are moved around.
+This is possible via a key function which assigns keys to DOM elements based on the data they get like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">xyz</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>){ <span style="color:#75715e">/* return unique id */</span> })
+</span></span></code></pre></div><h2 id="enter-exit--update">
+  Enter, Exit &amp; Update
+  <a class="anchor" href="#enter-exit--update">#</a>
+</h2>
+<p>This picture from 
+  <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a> is a good explanation:
+
+  <img src="/images/d3joinchart.png" alt="Data join chart" /></p>
+<p>This way of joining is fine-grained but it can be tedious. It&rsquo;s mainly used for transitions.
+A more concise way is using the new selection join (D3 v5+).</p>
+<p>An example. Given a DOM like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">g</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">g</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">svg</span>&gt;
+</span></span></code></pre></div><p>Circles can be selected like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">circs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>).<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>);
+</span></span></code></pre></div><p>Existing elements can be joined with data like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>);
+</span></span></code></pre></div><p>New elements can be created for extra datum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+</span></span></code></pre></div><p>Elements which don&rsquo;t have a datum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">exit</span>()
+</span></span></code></pre></div><h2 id="scales">
+  Scales
+  <a class="anchor" href="#scales">#</a>
+</h2>
+<p>Scales provide a way to map values from a domain to a range. They can be continuous or discrete.
+(There&rsquo;s no scale for D to C though).</p>
+<p>Usually the domain consits of data values and the range consists of visual properties
+(height, position, color, etc.)</p>
+<h3 id="c-to-c">
+  C to C
+  <a class="anchor" href="#c-to-c">#</a>
+</h3>
+<p>There are many scales here: Linear, Quadratic, Log, Exponential, etc. An example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">scaleLog</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scale</span>.<span style="color:#a6e22e">domain</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">scale</span>.<span style="color:#a6e22e">range</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scaledVal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">50</span>);
+</span></span></code></pre></div><p>For fancy colors there&rsquo;s also <code>d3.scaleSequential()</code> which instead of a range, has an interpolator.
+E.g. <code>scale.interpolate(d3.interpolateRainbow)</code></p>
+<h3 id="c-to-d">
+  C to D
+  <a class="anchor" href="#c-to-d">#</a>
+</h3>
+<p>A straightforward function is <code>.scaleQuantize()</code> which splits the domain into equal divisons among the range.
+It also clamps inputs into the domain.</p>
+<p>To split the domain into specific groups <code>.scaleThreshold()</code> can be used.
+<code>.domain([/* array of n values */])</code> will create <code>n+1</code> groups (&lt;arr[0], &gt;arr[0] &amp; arr[1]&lt;, &hellip; arr[n-1]&lt;).
+They are matched one-one with the range items. If there aren&rsquo;t enough elements in the range,
+the groups are allocated to the last item.</p>
+<h3 id="d-to-d">
+  D to D
+  <a class="anchor" href="#d-to-d">#</a>
+</h3>
+<p>The simplest way to do this is <code>.scaleOrdinal()</code> where the elements in domain are allocated on range element.
+If there aren&rsquo;t enough range elements the array repeats.
+If the value to be scaled doesn&rsquo;t exist in the domain, the scale will automatically add it.
+To prevent it from being added, specify a default value to be returned for unknown elements with
+<code>scale.unknown(value)</code></p>
+<p>There are other functions too like <code>.scaleBand()</code> and <code>.scalePoint()</code>.</p>
+<h2 id="shapes--lines">
+  Shapes &amp; Lines
+  <a class="anchor" href="#shapes--lines">#</a>
+</h2>
+<p>D3 has generator functions to generate paths that represent  line graphs, pie charts, curves, and more.
+This works using the <code>&lt;path&gt;</code> SVG tag and setting its <code>d</code> (data) attribute to a special strings
+returned by the functions which contain instructions on how to draw the required shapes.</p>
+<h3 id="common-generators">
+  Common generators
+  <a class="anchor" href="#common-generators">#</a>
+</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Configurable params</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>line</code></td>
+<td>Simple line graph</td>
+<td><code>x</code>, <code>y</code> for each point in the line</td>
+</tr>
+<tr>
+<td><code>radialLine</code></td>
+<td>Like a line graph but instead of going left to right, it goes around a center</td>
+<td><code>angle</code>, <code>radius</code> for each point around the center</td>
+</tr>
+<tr>
+<td><code>area</code></td>
+<td>Area between two lines (need not be straight lines)</td>
+<td><code>x</code>, <code>y0</code> for top line, and <code>y1</code> for bottom</td>
+</tr>
+<tr>
+<td><code>radialArea</code></td>
+<td>Like how radialLine is to line</td>
+<td><code>angle</code>, <code>innerRadius</code>, and <code>outerRadius</code></td>
+</tr>
+</tbody>
+</table>
+<p>The configurable params can either be a function that takes in one value and returns a value,
+or it can be a value. E.g. <code>lineGenerator.x(909)</code> and <code>lineGenerator.x(d =&gt; d+10)</code> both work.</p>
+<p>Example usage:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">inputData</span> <span style="color:#f92672">=</span> [<span style="color:#75715e">/* complex objects */</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lineGen</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">line</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lineGen</span>.<span style="color:#a6e22e">x</span>(<span style="color:#a6e22e">arrayVal</span> =&gt; <span style="color:#a6e22e">arrayVal</span>.<span style="color:#a6e22e">prop1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">lineGen</span>.<span style="color:#a6e22e">y</span>(<span style="color:#a6e22e">arrayVal</span> =&gt; <span style="color:#a6e22e">arrayVal</span>.<span style="color:#a6e22e">prop2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">pathData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">lineGen</span>(<span style="color:#a6e22e">inputData</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;path&#39;</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;d&#39;</span>, <span style="color:#a6e22e">pathData</span>)
+</span></span></code></pre></div><p>Instead of passing an array of objects and configuring each param,
+the user can also just feed an array of arrays to the generator.</p>
+<p>To handle invalid data in the array, the user can set <code>.defined(datum =&gt; {})</code> on the generator.
+D3 will skip the element if the callback function returns false for it.</p>
+<p>Interpolation of the points can be changed by calling <code>.curve(someCoolCurveGen)</code> on the generator.
+Check out some popular curves 
+  <a href="https://github.com/d3/d3-shape#curves">in the docs</a>.</p>
+<h2 id="axes">
+  Axes
+  <a class="anchor" href="#axes">#</a>
+</h2>
+<p>These help give the user a scale of the data. An axis can be created in a container like <code>&lt;g&gt;</code>.
+Select the container. Create an axis with <code>.axis[Left|Right|Top|Bottom](scale)</code>.</p>
+<p>The scale&rsquo;s domain determines the ticks on the graph and the range helps determine its length.
+The axis can then be passed to the container Selection like so: <code>gSel.call(axis)</code>. That&rsquo;s it!</p>
+<p>It isn&rsquo;t limited to uniform ticks. Different scales like <code>.scaleSqrt()</code> can be used with axes.
+To make the axis look better, the domain can be rounded to &ldquo;nice&rdquo; values like so:
+<code>d3.scaleLinear().domain([11, 39]).nice()</code> will change to domain to (10, 40).</p>
+<p>The number of ticks can be changed by <code>axis.ticks(n)</code> or even set tick values like
+<code>axis.tickValues([a, b, c, d])</code>. The label of each tick can be formatted with something like
+<code>.tickFormat(d =&gt; &quot;-&quot;+d)</code></p>
+<h2 id="hierarchies">
+  Hierarchies
+  <a class="anchor" href="#hierarchies">#</a>
+</h2>
+<p>There are multiple layouts here such as tree,
+cluster (just like a tree but all the leaves are on the same horizontal level), treemap, and so on.
+This section will focus on the tree layout.</p>
+<p>It uses the output of <code>d3.hierarchy</code>, a nested object, to layout the tree.
+<code>hierarchy</code> itself needs a nested object as input or a map of maps.</p>
+<h3 id="hierarchy">
+  <code>hierarchy</code>
+  <a class="anchor" href="#hierarchy">#</a>
+</h3>
+<p>Given an input with the format discussed above, <code>hierarchy</code> returns a nested object
+where each object (node) has the following params:</p>
+<ul>
+<li><code>data</code> : The item in the input data that this node is associated with. E.g. a map key and its value.</li>
+<li><code>children</code> : array of references to children (not present in leaf nodes)</li>
+<li><code>depth</code></li>
+<li><code>height</code></li>
+<li><code>parent</code> : reference to parent node</li>
+</ul>
+<p>It also has methods like:</p>
+<ul>
+<li><code>descendants</code> : Returns an array of all its descendants</li>
+<li><code>ancestors</code> : Returns an array of all its ancestors</li>
+<li><code>links</code> : Returns an array of all links under this subtree. A link looks like</li>
+</ul>
+<pre tabindex="0"><code>{
+  source: reference to source node object,
+  target: reference to target node object
+}
+</code></pre><h3 id="tree-layout">
+  Tree Layout
+  <a class="anchor" href="#tree-layout">#</a>
+</h3>
+<p>A tree layout function can be created like so: <code>let funk = d3.tree()</code>.
+The size this element will take in the DOM can be set like so: <code>funk.size([ht, wd])</code>.
+The <strong>layout can then be applied to the hierarchy object</strong> like so: <code>funk(hierarchyOutput)</code>.</p>
+<p>The tree&rsquo;s size need not be set explicitly, instead, a combination of <code>.nodeSize([ht, wd])</code> which
+sets the minimum space a node must be alloted, and <code>.separation((a, b) =&gt; 1)</code> which sets the
+the space between two nodes in terms of nodeSize
+(e.g. 3 means a and b will be separated by the space that 3 nodes would occupy)</p>
+<p>Applying a layout means it will add extra properties (display properties e.g. x and y locations)
+to each node in the hierarchy.</p>
+<p>Now that the object has display properties, it can be used to create DOM nodes and position them.</p>
+<h4 id="nodes">
+  Nodes
+  <a class="anchor" href="#nodes">#</a>
+</h4>
+<p>Use the <code>rootNode.descendants()</code> array along with a join for whatever shape you like (e.g. &ldquo;circle&rdquo;).</p>
+<h4 id="edges">
+  Edges
+  <a class="anchor" href="#edges">#</a>
+</h4>
+<p>Use the <code>rootNode.links()</code> array along with a join which creates lines with &ldquo;path&rdquo;.</p>
+<h2 id="transitions">
+  Transitions
+  <a class="anchor" href="#transitions">#</a>
+</h2>
+<p>When data gets updated, elements might have new places, might look different, or even vanish.
+Without smooth transitions, the transitions looks janky and not &ldquo;natural&rdquo;.</p>
+<p>To have a transition just call <code>transition()</code> on the Selection before calling any <code>attr</code> methods
+for which you want a transition.</p>
+<p>Could be position (e.g. &lsquo;x&rsquo;, &lsquo;cx&rsquo;), color (e.g. &lsquo;fill&rsquo;), or
+even size (e.g. &lsquo;r&rsquo;). It creates a transition Selection which has a few more methods
+and it automatically creates a transition when the join runs.</p>
+<p>A delay can be added by calling <code>delay(durationInMilli)</code>.
+A duration for the transition can be set with <code>duration(durationInMilli)</code></p>
+<p>Instead of setting a constant duration both the functions can take a callback function
+which can set determine the value according to some factor e.g. <code>(d, i) =&gt; i*1000</code></p>
+<p>Calling <code>transition()</code> a second time in the Selection chain will cause the second one to play out
+after the first one has finished.</p>
+<p>To put separate transitions for enter, exit, and update elements, use separate functions for the join
+and apply <code>transition()</code> within them where required. E.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">coolSelection</span>.<span style="color:#a6e22e">join</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">enterSelect</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enterSelect</span>.<span style="color:#a6e22e">transition</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#a6e22e">d</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">updateSelect</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">updateSelect</span>.<span style="color:#a6e22e">transition</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;green&#39;</span>)
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">exitSelect</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">exitSelect</span>.<span style="color:#a6e22e">transition</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">remove</span>()
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>There are other topics too but this should be enough to get started.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-driven-docs">Data Driven Docs?</a>
+      <ul>
+        <li><a href="#selection">Selection</a>
+          <ul>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#insertion--deletion">Insertion / Deletion</a></li>
+            <li><a href="#processing">Processing</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-joins">Data Joins</a>
+          <ul>
+            <li><a href="#selection-join">Selection Join</a></li>
+            <li><a href="#keys">Keys</a></li>
+          </ul>
+        </li>
+        <li><a href="#enter-exit--update">Enter, Exit &amp; Update</a></li>
+        <li><a href="#scales">Scales</a>
+          <ul>
+            <li><a href="#c-to-c">C to C</a></li>
+            <li><a href="#c-to-d">C to D</a></li>
+            <li><a href="#d-to-d">D to D</a></li>
+          </ul>
+        </li>
+        <li><a href="#shapes--lines">Shapes &amp; Lines</a>
+          <ul>
+            <li><a href="#common-generators">Common generators</a></li>
+          </ul>
+        </li>
+        <li><a href="#axes">Axes</a></li>
+        <li><a href="#hierarchies">Hierarchies</a>
+          <ul>
+            <li><a href="#hierarchy"><code>hierarchy</code></a></li>
+            <li><a href="#tree-layout">Tree Layout</a></li>
+          </ul>
+        </li>
+        <li><a href="#transitions">Transitions</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

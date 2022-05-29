@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on Field Manual</title>
-    <link>https://work.rehanvipin.me/</link>
-    <description>Recent content in Introduction on Field Manual</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>D3</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
-      <description>Data Driven Docs? #  It&amp;rsquo;s a powerful library with a bit of a learning curve. I&amp;rsquo;m learning how to make network graphs with it. Here goes nothing 😛
-Oooh, there a heck lot of things it can do. Nice confusion. These might be some good resources:
-  Official tutorial  Huge collection of tutorials I like Pluralsight. Videos can be helpful y&amp;rsquo;know. This course seems updated  An updated D3 tutorial (taken from the GitHub list) should also help!</description>
-    </item>
-    
+    <title>Angular on Field Manual</title>
+    <link>https://work.rehanvipin.me/angular/</link>
+    <description>Recent content in Angular on Field Manual</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/angular/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overview</title>
       <link>https://work.rehanvipin.me/angular/overview/</link>
@@ -34,25 +23,6 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       <guid>https://work.rehanvipin.me/angular/components/</guid>
       <description>The real CONTENT #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
  Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).</description>
-    </item>
-    
-    <item>
-      <title>SVG</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/svg/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/front-end-stuff/svg/</guid>
-      <description>Scalable Vector Graphics? #  There are already good resources available online. Check them out:
-  Kevin Powell&amp;rsquo;s guides on YouTube  Understanding SVG by Sara Soueidan - this is a series of 3 articles, at the end of this one there&amp;rsquo;s a link to the next one. They&amp;rsquo;re pretty deep and help you understand what&amp;rsquo;s really going on.  </description>
-    </item>
-    
-    <item>
-      <title>/tmp</title>
-      <link>https://work.rehanvipin.me/stolenstuff/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/stolenstuff/</guid>
-      <description>Temporary code access #  Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
     </item>
     
     <item>
@@ -127,16 +97,6 @@ Custom pipe #  An example pipe:
     </item>
     
     <item>
-      <title>/next</title>
-      <link>https://work.rehanvipin.me/whatnext/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/whatnext/</guid>
-      <description>So much to learn 😮 #  I think I should learn these things because they might be useful at work:
- For the Angular docs do it in this order: Understanding Angular&amp;quot; -&amp;gt; &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; Add more content about Angular services (really needed?) A special section on ng-template, it seems to be pretty powerful. TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps?</description>
-    </item>
-    
-    <item>
       <title>Testing</title>
       <link>https://work.rehanvipin.me/angular/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -166,28 +126,6 @@ Installing them #  Install via npm like so: npm i jquery.</description>
       <description>Directives: Hmmm &amp;hellip; #  Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
 Creating them #  You can create a directive class in a file like nice.directive.ts like so:
 import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39;  Directive({  selector: &amp;#39;&amp;#39; // CSS style selector e.g. [nice-stuff]  // the HTML would be like &amp;lt;somecomp nice-stuff&amp;gt;&amp;lt;/somecomp&amp;gt; }) export class NiceDirective {  } They need to be added to the declaration section of the ngModule where they will be used.</description>
-    </item>
-    
-    <item>
-      <title>theme-guide</title>
-      <link>https://work.rehanvipin.me/shortcodes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/shortcodes/</guid>
-      <description>Buttons #  Buttons are styled links that can lead to local page or external link.
-Example #  {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  Columns #  Columns help organize shorter pieces of content horizontally for readability.
-{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne...  &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt;  # Mid Content Lorem markdownum insigne.</description>
-    </item>
-    
-    <item>
-      <title>/credits</title>
-      <link>https://work.rehanvipin.me/credits/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/credits/</guid>
-      <description>Credits #   Built with HUGO Uses the hugo-book theme  Compass icon by Icons8  You can find the source for this site on GitHub.
-A small guide to shortcodes within this theme:
-Theme Guide  </description>
     </item>
     
   </channel>
