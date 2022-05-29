@@ -1,6 +1,6 @@
 ---
 title: "RxJS"
-weight: 9
+weight: 10
 ---
 # Async & network stuff
 Not everything happens right at once in a webapp. It shouldn't wait for certain events when it can execute other things. This is where asynchronous processing is useful. Promises were the preferred way to do it but now there are observables (from rxjs). Promises represent **one event that happens in the future** while observables represent **zero or more events that could happen synchronously or in the future**. This particular section is about RxJS and HTTP in Angular.

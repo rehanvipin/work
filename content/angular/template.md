@@ -19,8 +19,14 @@ The variables referenced within the expression could come from multiple places, 
 Interpolation is secure since Angular will process the text to make sure any HTML / JS the user might have
 provided is not executed, only displayed on the screen.
 
+Prevent interpolation from executing the expression using `ngNonBindable` like so:
+`<a ngNonBindable>{{ "will" + " not execute" }}</a>`
+
 ### Property binding
 HTML elements have properties e.g. "class, style, action, id, nonce, etc". You can set the values of these properties, like so: `<div [nonce]=" some JS expression "></div>`. The result is **not** converted to a string.
+
+If you don't have the square brackets, the expression is not evaluated, it's treated as a string. i.e.,
+`<a val="12+45"></a>` will set the property `val` as `'12+45'` while `<a [val]="12+45"></a>` will set it as 57.
 
 Angular sanitizes values passed to a property to prevent XSS.
 
@@ -44,7 +50,7 @@ They can have multiple expressions separated by `;` but the other restrictions
 that held for expressions still hold. They mostly do have side effects.
 {{< /details >}}
 
-### Two way binding
+## Two way binding
 This can be done like so : `<child-elem [(lol)]="someVal"></child-elem>` which does a bunch of things:
 * The child element should have a property "lol" and an `EventEmitter` "lolChange"
 * The parent should have a property "someVal"
@@ -65,7 +71,8 @@ ngFor is a structural directive. That means that it is capable of changing the D
 When you try to access an undefined value within a template, Angular will not display that element and it will throw an error in the console :(. If you are expecting something to be undefined you can use the **JavaScript safe navigation operator** `?.` which returns `undefined` if its LHS is undefined else goes ahead. [Check out the syntax on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining).
 
 ## `*ngIf`
-ngIf lets you conditionally render the element it is put on. It decides this based on the expression provided to it, like so: `<img *ngIf="some JS expression">`.  
+ngIf lets you conditionally render the element it is put on. It decides this based on the expression provided to it, like so: `<img *ngIf="some JS expression">`.
+The component corresponding to the element (if ngIf is used on a component element and not a standard HTML Element) will be deleted too, thus freeing up memory.  
 {{< hint warning >}}
 It is important to note that in case the condition is falsy, the entire element is commented out. It's not just hidden by some CSS / HTML property. In case some operations are done when the element is rendered and it is added / removed multiple times, it can **slow down performance**.
 
@@ -91,11 +98,12 @@ When you want to add multiple classes you can do so with `ngClass` like so `<img
 * An object, where the keys are class names and values are booleans which decide if that class will be added
 * A string of space separated class names
 * An array of strings, each of which are class names
+* A function that returns any one of the above (just the function name, don't call it!)
 
 ### Adding styles
 The simple way to set a style would be using attribute binding like so: `<elem [style.width]="CSS.px(10)"></elem>`. It's also possible to set multiple styles like so: `<a [style]="{width: '100px', height: '2px'}"></a>`.
 
-`ngStyle` can also be used to set styles. `ngStyle` has a similar syntax to `ngClass` except that the return value of the expression should be an object where the **keys are CSS style keys** and **values are CSS style values**. A small example: HTML element with `<img [ngStyle]="komPute()">`. The function:
+`ngStyle` can also be used to set styles. `ngStyle` has a similar syntax to `ngClass` except that the return value of the expression should be an object where the **keys are CSS style keys** and **values are CSS style values**. A small example: HTML element with `<img [ngStyle]="komPute">`. The function:
 ```ts
 komPute() {
     if(/* condition */)

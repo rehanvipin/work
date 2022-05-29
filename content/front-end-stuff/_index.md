@@ -6,7 +6,7 @@ bookCollapseSection: false
 ---
 
 # Front-End stuff I should know
-This business is new to me. What the heck is happening here? Let's try to figure it out.
-This isn't a particular course or topic. Just a collection of thing I learn along the way.
-Maybe a good foundation is required? Who knows.
-If you need to use something properly, you probably need to understand it well?
+This business is new to me. Just trying to figure out what's happening and what I can do.
+
+This isn't a particular course or topic. Just a collection of stuff that's been useful.
+Hopefully, it will help in building a solid foundation of practical skills.

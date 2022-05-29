@@ -6,10 +6,10 @@ bookCollapseSection: true
 ---
 
 # Angular, the fancy web framework
-I gotta use this for work lol. I heard that some people hate it. Not my problem. If it works, it works.
+Angular lets you make dynamic web apps easily.
 
-## Base
-Where am I starting from? Why is that important? It defines what kind of content will be in this manual. I know *nothing* about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let's see how this goes. YOLO 🙂.
+## Base Knowledge
+Why is that important? It defines what kind of content will be in this manual. I know *nothing* about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let's see how this goes. YOLO 🙂.
 
 ## Course stuff
 I'm following along [The Angular Fundamentals course on Pluralsight](https://www.pluralsight.com/courses/angular-fundamentals).

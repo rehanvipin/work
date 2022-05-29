@@ -1,6 +1,6 @@
 ---
 title: "Testing"
-weight: 10
+weight: 11
 ---
 # Unit & Integrated tests
 Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:

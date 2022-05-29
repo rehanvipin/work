@@ -1,6 +1,6 @@
 ---
 title: "Routing"
-weight: 5
+weight: 6
 ---
 # Routing & Co.
 Some modern apps, like the one built with Angular are **Single Page Apps**. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!

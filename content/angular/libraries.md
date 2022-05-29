@@ -1,6 +1,6 @@
 ---
 title: "Libraries"
-weight: 11
+weight: 12
 ---
 # Ultra level reusability
 They provide extra functionality to Angular. 

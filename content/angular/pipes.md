@@ -1,6 +1,6 @@
 ---
 title: "Pipes"
-weight: 7
+weight: 8
 ---
 # Transforming data
 
