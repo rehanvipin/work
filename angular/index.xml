@@ -47,6 +47,18 @@ Creating them #  You usually create one in a .service.ts file. It is an exported
     </item>
     
     <item>
+      <title>Directives</title>
+      <link>https://work.rehanvipin.me/angular/directives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/angular/directives/</guid>
+      <description>Directives: Hmmm &amp;hellip; #  These are just classes that add extra behavior to elements ~ Angular docs.
+Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
+Creating them #  You can create a directive class in a file like nice.directive.ts like so:
+import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39;  Directive({  selector: &amp;#39;&amp;#39; // CSS style selector e.</description>
+    </item>
+    
+    <item>
       <title>Routing</title>
       <link>https://work.rehanvipin.me/angular/routing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -115,17 +127,6 @@ Isolated #   Only tests the JS class not the component Mostly used for services 
       <description>Ultra level reusability #  They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
 Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.
 Installing them #  Install via npm like so: npm i jquery.</description>
-    </item>
-    
-    <item>
-      <title>Directives</title>
-      <link>https://work.rehanvipin.me/angular/directives/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/angular/directives/</guid>
-      <description>Directives: Hmmm &amp;hellip; #  Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
-Creating them #  You can create a directive class in a file like nice.directive.ts like so:
-import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39;  Directive({  selector: &amp;#39;&amp;#39; // CSS style selector e.g. [nice-stuff]  // the HTML would be like &amp;lt;somecomp nice-stuff&amp;gt;&amp;lt;/somecomp&amp;gt; }) export class NiceDirective {  } They need to be added to the declaration section of the ngModule where they will be used.</description>
     </item>
     
   </channel>

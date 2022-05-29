@@ -5,13 +5,15 @@
   <meta name="generator" content="Hugo 0.99.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Directives: Hmmm &hellip; #  Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
+<meta name="description" content="Directives: Hmmm &hellip; #  These are just classes that add extra behavior to elements ~ Angular docs.
+Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
 Creating them #  You can create a directive class in a file like nice.directive.ts like so:
-import { Directive, OnInit } from &#39;@angular/core&#39;  Directive({  selector: &#39;&#39; // CSS style selector e.g. [nice-stuff]  // the HTML would be like &lt;somecomp nice-stuff&gt;&lt;/somecomp&gt; }) export class NiceDirective {  } They need to be added to the declaration section of the ngModule where they will be used.">
+import { Directive, OnInit } from &#39;@angular/core&#39;  Directive({  selector: &#39;&#39; // CSS style selector e.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Directives" />
-<meta property="og:description" content="Directives: Hmmm &hellip; #  Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
+<meta property="og:description" content="Directives: Hmmm &hellip; #  These are just classes that add extra behavior to elements ~ Angular docs.
+Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
 Creating them #  You can create a directive class in a file like nice.directive.ts like so:
-import { Directive, OnInit } from &#39;@angular/core&#39;  Directive({  selector: &#39;&#39; // CSS style selector e.g. [nice-stuff]  // the HTML would be like &lt;somecomp nice-stuff&gt;&lt;/somecomp&gt; }) export class NiceDirective {  } They need to be added to the declaration section of the ngModule where they will be used." />
+import { Directive, OnInit } from &#39;@angular/core&#39;  Directive({  selector: &#39;&#39; // CSS style selector e." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/angular/directives/" /><meta property="article:section" content="angular" />
 
@@ -21,7 +23,7 @@ import { Directive, OnInit } from &#39;@angular/core&#39;  Directive({  selector
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+<script defer src="/en.search.min.316264761f7b1683ce46f192f027a465c2a5bf204b8a4883954b717389891427.js" integrity="sha256-MWJkdh97FoPORvGS8CekZcKlvyBLikiDlUtxc4mJFCc="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -144,6 +146,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://work.rehanvipin.me/angular/directives/" class=" active">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
   
 
@@ -223,19 +238,6 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://work.rehanvipin.me/angular/directives/" class=" active">Directives</a>
   
 
         </li>
@@ -385,7 +387,14 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#creating-them">Creating them</a></li>
         <li><a href="#passing-values-to-it">Passing values to it</a></li>
-        <li><a href="#builtins">Builtins</a></li>
+        <li><a href="#builtins">Builtins</a>
+          <ul>
+            <li><a href="#attribute">Attribute</a></li>
+            <li><a href="#structural">Structural</a></li>
+          </ul>
+        </li>
+        <li><a href="#attribute-1">Attribute</a></li>
+        <li><a href="#structural-1">Structural</a></li>
       </ul>
     </li>
   </ul>
@@ -404,6 +413,7 @@ https://github.com/alex-shpak/hugo-book
   Directives: Hmmm &hellip;
   <a class="anchor" href="#directives-hmmm-">#</a>
 </h1>
+<p>These are just classes that add extra behavior to elements ~ Angular docs.</p>
 <p>Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.</p>
 <h2 id="creating-them">
   Creating them
@@ -431,6 +441,35 @@ https://github.com/alex-shpak/hugo-book
   Builtins
   <a class="anchor" href="#builtins">#</a>
 </h2>
+<h3 id="attribute">
+  Attribute
+  <a class="anchor" href="#attribute">#</a>
+</h3>
+<p>Some examples are:
+
+
+
+
+  
+
+<a  href="/angular/template/#adding-classes"   class="book-btn">
+  ngClass
+</a>
+
+
+
+
+
+  
+
+<a  href="/angular/template/#adding-styles"   class="book-btn">
+  ngStyle
+</a>
+</p>
+<h3 id="structural">
+  Structural
+  <a class="anchor" href="#structural">#</a>
+</h3>
 <p>Some basic stuff has been covered here in the docs:
 
 
@@ -452,6 +491,73 @@ https://github.com/alex-shpak/hugo-book
   ngFor
 </a>
 </p>
+<p><code>&lt;a *ngIf=&quot;expr&quot;&gt;&lt;/a&gt;</code> is really a shortcut, it expands to: <code>&lt;ng-template [ngIf]=&quot;expr&quot;&gt;&lt;a&gt;&lt;/a&gt;&lt;/ng-template&gt;</code>.</p>
+<p>It&rsquo;s possible to have an else block like so:</p>
+<pre tabindex="0"><code>&lt;a *ngIf=&#34;expr; else theOtherBlock&#34;&gt;first&lt;/a&gt;
+&lt;a #theOtherBlock&gt;second&lt;/a&gt;
+</code></pre><p>If you want to be consistent you could write that as:</p>
+<pre tabindex="0"><code>&lt;div *ngIf=&#34;expr; then theFirstBlock else theOtherBlock&gt;
+&lt;a #theFirstBlock&gt;first&lt;/a&gt;
+&lt;a #theOtherBlock&gt;second&lt;/a&gt;
+</code></pre><blockquote class="book-hint info">
+  Does using a <code>&lt;div&gt;</code> there seem weird? It&rsquo;s possible to use <code>&lt;ng-container&gt;</code> instead.
+It doesn&rsquo;t even get output into the final HTML
+</blockquote>
+
+<p>Want to have an index while looping with ngFor? Do this:</p>
+<pre tabindex="0"><code>&lt;div *ngFor=&#34;let item of items; let i=index&#34;&gt;{{i + 1}} - {{item.name}}&lt;/div&gt;
+</code></pre><p>When the list that ngFor is rendering changes, it&rsquo;s possible to optimize the rendering by only
+rendering the elements that have changed (modified / removed / added). This is done with <code>trackBy</code>:</p>
+<pre tabindex="0"><code>&lt;div *ngFor=&#34;let item of items; trackBy: (i, d) =&gt; d.id&#34;&gt;
+  ({{item.id}}) {{item.name}}
+&lt;/div&gt;
+</code></pre><h2 id="attribute-1">
+  Attribute
+  <a class="anchor" href="#attribute-1">#</a>
+</h2>
+<p>How to make a custom one!<br>
+Start off with <code>ng generate directive somecoolstuff</code>. The base may not be enough, so set it up like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Directive</span>, <span style="color:#a6e22e">ElementRef</span>, <span style="color:#a6e22e">HostListener</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Directive</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[appSomecoolstuff]&#39;</span>
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SomecoolstuffDirective</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">el</span>: <span style="color:#66d9ef">ElementRef</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// can access DOM node with el.nativeElement
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@HostListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>) <span style="color:#a6e22e">handler() {</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// do stuff to the element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>It can be added to an element like this: <code>&lt;a appSomecoolstuff&gt;&lt;/a&gt;</code>.
+Multiple values can be passed to it using <code>@Input()</code> e.g.:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">@Input</span>() <span style="color:#a6e22e">randomProp1</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Input</span>() <span style="color:#a6e22e">randomProp2</span>: <span style="color:#66d9ef">number</span>;
+</span></span></code></pre></div><p>which can be used like so: <code>&lt;a appSomecoolstuff randomProp1=&quot;wowcool&quot; [randomProp2]=&quot;1+2&quot;&gt;&lt;/a&gt;</code>.</p>
+<h2 id="structural-1">
+  Structural
+  <a class="anchor" href="#structural-1">#</a>
+</h2>
+<p>These modify the DOM by adding / removing elements. Only one structural directive can be applied per element.
+It&rsquo;s possible to make your own like so: <code>ng g directive whatADirective</code>. The class can be modified like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Directive</span>, <span style="color:#a6e22e">Input</span>, <span style="color:#a6e22e">TemplateRef</span>, <span style="color:#a6e22e">ViewContainerRef</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/core&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Directive</span>({ <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;[appWhatADirective]&#39;</span>})
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WhatADirectiveDirective</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">someStuff</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wow&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">constructor</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">templateRef</span>: <span style="color:#66d9ef">TemplateRef</span>&lt;<span style="color:#f92672">any</span>&gt;,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">viewContainer</span>: <span style="color:#66d9ef">ViewContainerRef</span>
+</span></span><span style="display:flex;"><span>  ) { }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">@Input</span>() <span style="color:#66d9ef">set</span> <span style="color:#a6e22e">appWhatADirective</span>(<span style="color:#a6e22e">randomStuff</span>: <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do some stuff to the view container
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The translation between structural directive shortcuts and what Angular actually does 
+  <a href="https://angular.io/guide/structural-directives#shorthand-examples">can be found here</a></p>
 </article>
  
       
@@ -488,7 +594,14 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#creating-them">Creating them</a></li>
         <li><a href="#passing-values-to-it">Passing values to it</a></li>
-        <li><a href="#builtins">Builtins</a></li>
+        <li><a href="#builtins">Builtins</a>
+          <ul>
+            <li><a href="#attribute">Attribute</a></li>
+            <li><a href="#structural">Structural</a></li>
+          </ul>
+        </li>
+        <li><a href="#attribute-1">Attribute</a></li>
+        <li><a href="#structural-1">Structural</a></li>
       </ul>
     </li>
   </ul>

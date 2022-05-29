@@ -21,7 +21,7 @@ Interpolation #  In places within the HTML where you can put custom values (with
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.a16f110ab0c10bd9bb5fd8a52e5b7f6c7e4a3261d683d39850b3b883f9599566.js" integrity="sha256-oW8RCrDBC9m7X9ilLlt/bH5KMmHWg9OYULO4g/lZlWY="></script>
+<script defer src="/en.search.min.316264761f7b1683ce46f192f027a465c2a5bf204b8a4883954b717389891427.js" integrity="sha256-MWJkdh97FoPORvGS8CekZcKlvyBLikiDlUtxc4mJFCc="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -144,6 +144,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
   
 
@@ -223,19 +236,6 @@ https://github.com/alex-shpak/hugo-book
 
   
     <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
   
 
         </li>
@@ -383,11 +383,7 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#the-template-syntax">The template syntax</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#two-way-binding">Two way binding</a></li>
-          </ul>
-        </li>
+        <li><a href="#two-way-binding">Two way binding</a></li>
         <li><a href="#ngfor"><code>*ngFor</code></a></li>
         <li><a href="#undefined-values"><code>undefined</code> values</a></li>
         <li><a href="#ngif"><code>*ngIf</code></a></li>
@@ -440,11 +436,15 @@ https://github.com/alex-shpak/hugo-book
 </ol>
 <p>Interpolation is secure since Angular will process the text to make sure any HTML / JS the user might have
 provided is not executed, only displayed on the screen.</p>
+<p>Prevent interpolation from executing the expression using <code>ngNonBindable</code> like so:
+<code>&lt;a ngNonBindable&gt;{{ &quot;will&quot; + &quot; not execute&quot; }}&lt;/a&gt;</code></p>
 <h3 id="property-binding">
   Property binding
   <a class="anchor" href="#property-binding">#</a>
 </h3>
 <p>HTML elements have properties e.g. &ldquo;class, style, action, id, nonce, etc&rdquo;. You can set the values of these properties, like so: <code>&lt;div [nonce]=&quot; some JS expression &quot;&gt;&lt;/div&gt;</code>. The result is <strong>not</strong> converted to a string.</p>
+<p>If you don&rsquo;t have the square brackets, the expression is not evaluated, it&rsquo;s treated as a string. i.e.,
+<code>&lt;a val=&quot;12+45&quot;&gt;&lt;/a&gt;</code> will set the property <code>val</code> as <code>'12+45'</code> while <code>&lt;a [val]=&quot;12+45&quot;&gt;&lt;/a&gt;</code> will set it as 57.</p>
 <p>Angular sanitizes values passed to a property to prevent XSS.</p>
 <h3 id="rules-for-expressions">
   Rules for expressions
@@ -478,10 +478,10 @@ that held for expressions still hold. They mostly do have side effects.</p>
   </div>
 </details>
 
-<h3 id="two-way-binding">
+<h2 id="two-way-binding">
   Two way binding
   <a class="anchor" href="#two-way-binding">#</a>
-</h3>
+</h2>
 <p>This can be done like so : <code>&lt;child-elem [(lol)]=&quot;someVal&quot;&gt;&lt;/child-elem&gt;</code> which does a bunch of things:</p>
 <ul>
 <li>The child element should have a property &ldquo;lol&rdquo; and an <code>EventEmitter</code> &ldquo;lolChange&rdquo;</li>
@@ -509,7 +509,8 @@ that held for expressions still hold. They mostly do have side effects.</p>
   <code>*ngIf</code>
   <a class="anchor" href="#ngif">#</a>
 </h2>
-<p>ngIf lets you conditionally render the element it is put on. It decides this based on the expression provided to it, like so: <code>&lt;img *ngIf=&quot;some JS expression&quot;&gt;</code>.<br>
+<p>ngIf lets you conditionally render the element it is put on. It decides this based on the expression provided to it, like so: <code>&lt;img *ngIf=&quot;some JS expression&quot;&gt;</code>.
+The component corresponding to the element (if ngIf is used on a component element and not a standard HTML Element) will be deleted too, thus freeing up memory.<br>
 <blockquote class="book-hint warning">
   <p>It is important to note that in case the condition is falsy, the entire element is commented out. It&rsquo;s not just hidden by some CSS / HTML property. In case some operations are done when the element is rendered and it is added / removed multiple times, it can <strong>slow down performance</strong>.</p>
 <p>If you want to hide and un-hide the element multiple times you can do so with the HTML attribute &ldquo;hidden&rdquo; which you set like so: <code>&lt;img [hidden]=&quot;some JS expression&quot;&gt;</code>.</p>
@@ -543,13 +544,14 @@ prefix is necessary. If the expression evaluates to <code>null</code> or <code>u
 <li>An object, where the keys are class names and values are booleans which decide if that class will be added</li>
 <li>A string of space separated class names</li>
 <li>An array of strings, each of which are class names</li>
+<li>A function that returns any one of the above (just the function name, don&rsquo;t call it!)</li>
 </ul>
 <h3 id="adding-styles">
   Adding styles
   <a class="anchor" href="#adding-styles">#</a>
 </h3>
 <p>The simple way to set a style would be using attribute binding like so: <code>&lt;elem [style.width]=&quot;CSS.px(10)&quot;&gt;&lt;/elem&gt;</code>. It&rsquo;s also possible to set multiple styles like so: <code>&lt;a [style]=&quot;{width: '100px', height: '2px'}&quot;&gt;&lt;/a&gt;</code>.</p>
-<p><code>ngStyle</code> can also be used to set styles. <code>ngStyle</code> has a similar syntax to <code>ngClass</code> except that the return value of the expression should be an object where the <strong>keys are CSS style keys</strong> and <strong>values are CSS style values</strong>. A small example: HTML element with <code>&lt;img [ngStyle]=&quot;komPute()&quot;&gt;</code>. The function:</p>
+<p><code>ngStyle</code> can also be used to set styles. <code>ngStyle</code> has a similar syntax to <code>ngClass</code> except that the return value of the expression should be an object where the <strong>keys are CSS style keys</strong> and <strong>values are CSS style values</strong>. A small example: HTML element with <code>&lt;img [ngStyle]=&quot;komPute&quot;&gt;</code>. The function:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">komPute() {</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#75715e">/* condition */</span>)
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#39;background-color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;inline&#39;</span>};
@@ -637,11 +639,7 @@ modern ones and is available to at least 94% of all users at the time of writing
   <ul>
     <li><a href="#the-template-syntax">The template syntax</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#two-way-binding">Two way binding</a></li>
-          </ul>
-        </li>
+        <li><a href="#two-way-binding">Two way binding</a></li>
         <li><a href="#ngfor"><code>*ngFor</code></a></li>
         <li><a href="#undefined-values"><code>undefined</code> values</a></li>
         <li><a href="#ngif"><code>*ngIf</code></a></li>
