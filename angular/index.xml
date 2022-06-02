@@ -11,8 +11,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/overview/</guid>
-      <description>An overview (and miscellaneous stuff) #  Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&amp;rsquo;s called a front-end web development framework.
-Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same.</description>
+      <description>An overview (and miscellaneous stuff) # Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&amp;rsquo;s called a front-end web development framework.
+Typescript # Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same.</description>
     </item>
     
     <item>
@@ -21,8 +21,8 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/components/</guid>
-      <description>The real CONTENT #  Creating them #  A bare component is a class, defined in a .ts file. You can create new one like this:
- Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).</description>
+      <description>The real CONTENT # Creating them # A bare component is a class, defined in a .ts file. You can create new one like this:
+Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).</description>
     </item>
     
     <item>
@@ -31,9 +31,9 @@ Typescript #  Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/template/</guid>
-      <description>The template syntax #  The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
-Binding in HTML JS in HTML? #  There are multiple ways you can use JS objects in HTML. Two of them are:
-Interpolation #  In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &amp;lt;div&amp;gt;{{ some JS expression }}&amp;lt;/div&amp;gt;.</description>
+      <description>The template syntax # The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
+Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in HTML. Two of them are:
+Interpolation # In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &amp;lt;div&amp;gt;{{ some JS expression }}&amp;lt;/div&amp;gt;.</description>
     </item>
     
     <item>
@@ -42,8 +42,8 @@ Interpolation #  In places within the HTML where you can put custom values (with
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/services/</guid>
-      <description>Services (do STUFF) #  They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
-Creating them #  You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.</description>
+      <description>Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
+Creating them # You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.</description>
     </item>
     
     <item>
@@ -52,10 +52,10 @@ Creating them #  You usually create one in a .service.ts file. It is an exported
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/directives/</guid>
-      <description>Directives: Hmmm &amp;hellip; #  These are just classes that add extra behavior to elements ~ Angular docs.
+      <description>Directives: Hmmm &amp;hellip; # These are just classes that add extra behavior to elements ~ Angular docs.
 Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.
-Creating them #  You can create a directive class in a file like nice.directive.ts like so:
-import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39;  Directive({  selector: &amp;#39;&amp;#39; // CSS style selector e.</description>
+Creating them # You can create a directive class in a file like nice.directive.ts like so:
+import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39; Directive({ selector: &amp;#39;&amp;#39; // CSS style selector e.</description>
     </item>
     
     <item>
@@ -64,8 +64,8 @@ import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39;  Directive({  
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/routing/</guid>
-      <description>Routing &amp;amp; Co. #  Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!
-Creating routes #  Routes are defined as an array of objects.</description>
+      <description>Routing &amp;amp; Co. # Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!
+Creating routes # Routes are defined as an array of objects.</description>
     </item>
     
     <item>
@@ -74,8 +74,8 @@ Creating routes #  Routes are defined as an array of objects.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/forms/</guid>
-      <description>Forms and validation #  There are two kinds of forms in Angular:
- Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component)  Creating a form #   You need the FormModule from &amp;ldquo;@angular/forms&amp;rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags.</description>
+      <description>Forms and validation # There are two kinds of forms in Angular:
+Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component) Creating a form # You need the FormModule from &amp;ldquo;@angular/forms&amp;rdquo; to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags.</description>
     </item>
     
     <item>
@@ -84,9 +84,9 @@ Creating routes #  Routes are defined as an array of objects.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/pipes/</guid>
-      <description>Transforming data #  Built-in pipes #  You can transform data before it is rendered in a template. There are many inbuilt pipes. The format is {{ yourContent | pipeName:pipeArg1 }} where the arguments are JS objects / literals and are optional. Example: &amp;lt;p&amp;gt;A: {{a | currency:&#39;CAD&#39;:&#39;code&#39;}}&amp;lt;/p&amp;gt;.
-Custom pipe #  An example pipe:
-// in the file goodie.pipe.ts import {Pipe, PipeTransform} from &amp;#39;@angular/core&amp;#39;  @Pipe({  name: &amp;#39;goodiepipe&amp;#39; // the name used to call the pipe in the template }) export class GoodiePipe implements PipeTransform {  // this is the function that is called with the args  transform(input: string, arg1: number) {  if(arg1 &amp;lt; 5)  return input+&amp;#34; is low&amp;#34;;  return input+&amp;#34; is high&amp;#34;;  } } You must then add it to the declarations of the NgModule where you want to use it.</description>
+      <description>Transforming data # Built-in pipes # You can transform data before it is rendered in a template. There are many inbuilt pipes. The format is {{ yourContent | pipeName:pipeArg1 }} where the arguments are JS objects / literals and are optional. Example: &amp;lt;p&amp;gt;A: {{a | currency:&#39;CAD&#39;:&#39;code&#39;}}&amp;lt;/p&amp;gt;.
+Custom pipe # An example pipe:
+// in the file goodie.pipe.ts import {Pipe, PipeTransform} from &amp;#39;@angular/core&amp;#39; @Pipe({ name: &amp;#39;goodiepipe&amp;#39; // the name used to call the pipe in the template }) export class GoodiePipe implements PipeTransform { // this is the function that is called with the args transform(input: string, arg1: number) { if(arg1 &amp;lt; 5) return input+&amp;#34; is low&amp;#34;; return input+&amp;#34; is high&amp;#34;; } } You must then add it to the declarations of the NgModule where you want to use it.</description>
     </item>
     
     <item>
@@ -95,8 +95,8 @@ Custom pipe #  An example pipe:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/di/</guid>
-      <description>Adding features! 🙌 #  Dependency injection #  This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
- The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.</description>
+      <description>Adding features! 🙌 # Dependency injection # This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
+The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.</description>
     </item>
     
     <item>
@@ -105,7 +105,7 @@ Custom pipe #  An example pipe:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/rxjs/</guid>
-      <description>Async &amp;amp; network stuff #  Not everything happens right at once in a webapp. It shouldn&amp;rsquo;t wait for certain events when it can execute other things. This is where asynchronous processing is useful. Promises were the preferred way to do it but now there are observables (from rxjs). Promises represent one event that happens in the future while observables represent zero or more events that could happen synchronously or in the future.</description>
+      <description>Async &amp;amp; network stuff # Not everything happens right at once in a webapp. It shouldn&amp;rsquo;t wait for certain events when it can execute other things. This is where asynchronous processing is useful. Promises were the preferred way to do it but now there are observables (from rxjs). Promises represent one event that happens in the future while observables represent zero or more events that could happen synchronously or in the future.</description>
     </item>
     
     <item>
@@ -114,8 +114,8 @@ Custom pipe #  An example pipe:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/test/</guid>
-      <description>Unit &amp;amp; Integrated tests #  Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:
-Isolated #   Only tests the JS class not the component Mostly used for services and pipes Need to create instances of classes on your own   Integrated #   Tests the class and template together Mostly used for components and directives The objects are created by the framework    Unit tests #  They test a single unit (like a class, function, or a bunch of classes) in isolation.</description>
+      <description>Unit &amp;amp; Integrated tests # Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:
+Isolated # Only tests the JS class not the component Mostly used for services and pipes Need to create instances of classes on your own Integrated # Tests the class and template together Mostly used for components and directives The objects are created by the framework Unit tests # They test a single unit (like a class, function, or a bunch of classes) in isolation.</description>
     </item>
     
     <item>
@@ -124,9 +124,9 @@ Isolated #   Only tests the JS class not the component Mostly used for services 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/libraries/</guid>
-      <description>Ultra level reusability #  They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
+      <description>Ultra level reusability # They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
 Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.
-Installing them #  Install via npm like so: npm i jquery.</description>
+Installing them # Install via npm like so: npm i jquery.</description>
     </item>
     
   </channel>
