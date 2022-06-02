@@ -79,6 +79,14 @@ rendering the elements that have changed (modified / removed / added). This is d
 </div>
 ```
 
+`ngFor` has a bunch of local variables which can help reduce template code.
+[They can be found in the docs](https://angular.io/api/common/NgForOf#local-variables) but here is an example:
+```
+<li *ngFor="let user of users; index as i; count as c">
+  {{user.name}} is {{i}} out of {{c}} in the list
+</li>
+```
+
 ## Attribute
 How to make a custom one!  
 Start off with `ng generate directive somecoolstuff`. The base may not be enough, so set it up like this:
@@ -124,6 +132,13 @@ export class WhatADirectiveDirective {
     // do some stuff to the view container
   }
 }
+```
+
+which can then be used like so:
+```
+<p *wow="'somestring'">
+maybe do something with this content here?
+</p>
 ```
 
 The translation between structural directive shortcuts and what Angular actually does [can be found here](https://angular.io/guide/structural-directives#shorthand-examples)
