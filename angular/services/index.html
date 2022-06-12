@@ -2,14 +2,16 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.100.1" />
+  <meta name="generator" content="Hugo 0.100.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
-Creating them # You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.">
+According to that page linked above:
+A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Services" />
 <meta property="og:description" content="Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
-Creating them # You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes." />
+According to that page linked above:
+A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/angular/services/" /><meta property="article:section" content="angular" />
 
@@ -19,7 +21,7 @@ Creating them # You usually create one in a .service.ts file. It is an exported 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.9ff9f31122079fb5d0d071323f32d68e0df0015a834a087504c266d8644f9946.js" integrity="sha256-n/nzESIHn7XQ0HEyPzLWjg3wAVqDSgh1BMJm2GRPmUY="></script>
+<script defer src="/en.search.min.7fde6996ac5709f6df488744755e64abefc6d0f86aa38f7dd7d8863178e9ff07.js" integrity="sha256-f95plqxXCfbfSIdEdV5kq&#43;/G0Phqo49919iGMXjp/wc="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -382,6 +384,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#services-do-stuff">Services (do STUFF)</a>
       <ul>
         <li><a href="#creating-them">Creating them</a></li>
+        <li><a href="#using-them">Using them</a></li>
       </ul>
     </li>
   </ul>
@@ -402,11 +405,22 @@ https://github.com/alex-shpak/hugo-book
 </h1>
 <p>They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: 
   <a href="https://angular.io/guide/architecture-services">Services and DI</a>.</p>
+<p>According to that page linked above:</p>
+<blockquote>
+<p>A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console</p>
+</blockquote>
 <h2 id="creating-them">
   Creating them
   <a class="anchor" href="#creating-them">#</a>
 </h2>
 <p>You usually create one in a <code>.service.ts</code> file. It is an exported class with functions which perform the required business actions. It can then be <strong>injected</strong> into the required classes. It might depend on other services too.</p>
+<p>Providers tell injectors how to obtain or create the required dependencies.</p>
+<h2 id="using-them">
+  Using them
+  <a class="anchor" href="#using-them">#</a>
+</h2>
+<p>Services don&rsquo;t just need to be provided in modules or the root, it&rsquo;s also possible to provide a service
+object just for a component by setting the providers property in the component metadata.</p>
 <p>Read more about 
   <a href="/angular/di/">dependency injection here</a>.</p>
 </article>
@@ -444,6 +458,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#services-do-stuff">Services (do STUFF)</a>
       <ul>
         <li><a href="#creating-them">Creating them</a></li>
+        <li><a href="#using-them">Using them</a></li>
       </ul>
     </li>
   </ul>

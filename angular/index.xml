@@ -21,7 +21,8 @@ Typescript # Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to J
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/components/</guid>
-      <description>The real CONTENT # Creating them # A bare component is a class, defined in a .ts file. You can create new one like this:
+      <description>The real CONTENT # Fun fact: The @Component decorator actually extends @Directive decorator because components are technically directives.
+Creating them # A bare component is a class, defined in a .ts file. You can create new one like this:
 Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).</description>
     </item>
     
@@ -32,8 +33,8 @@ Create a .ts file and export a class that is decorated by Component from @angula
       
       <guid>https://work.rehanvipin.me/angular/template/</guid>
       <description>The template syntax # The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
-Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in HTML. Two of them are:
-Interpolation # In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: &amp;lt;div&amp;gt;{{ some JS expression }}&amp;lt;/div&amp;gt;.</description>
+There are HTML attributes and there are DOM properties. Sometimes there&amp;rsquo;s a one-one mapping between them, sometimes an attribute exists but has no corresponding property and vice-versa.
+Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in HTML.</description>
     </item>
     
     <item>
@@ -43,7 +44,8 @@ Interpolation # In places within the HTML where you can put custom values (withi
       
       <guid>https://work.rehanvipin.me/angular/services/</guid>
       <description>Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
-Creating them # You usually create one in a .service.ts file. It is an exported class with functions which perform the required business actions. It can then be injected into the required classes.</description>
+According to that page linked above:
+A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console</description>
     </item>
     
     <item>
