@@ -7,7 +7,7 @@ weight: 10
 # bookCollapseSection: false
 # bookComments: true
 ---
-# So much to learn 😮
+# So much to learn
 I think I should learn these things because they might be useful at work:
 
 * Finish off "Reference/Conceptual Reference" from the Angular docs.
@@ -23,5 +23,7 @@ There's also this https://angular.io/api/core/ViewContainerRef.
 * Writing documentation. It's useful because that's what people see first and that's how they can contribute
 and use what you're building. [Some points from here](https://www.freecodecamp.org/news/how-to-write-good-documentation/) and [this place which shows you how to start](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/). There are also [principles to follow](https://www.writethedocs.org/guide/writing/docs-principles/).
 * Common design patterns (with examples?)
+* Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
+"schematics" seems to be something cool.
 
-No rush, gonna add things whenever I feel the need to (I believe that is the best way for me to learn) 🍃.
+No rush, gonna add things whenever I feel the need to 🍃

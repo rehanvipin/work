@@ -55,6 +55,13 @@ console.log(f); // { wutdis: "sic", num: 10 }
 * It bootstraps the root component, `app/app.component.ts` by default.
 * The root component is placed in `app/index.html` which is what is rendered.
 
+## Modules and libraries
+* Only the root NgModule should have a bootstrap property in its decorator.
+The bootstrap property sets the root component for the app.
+* Libraries are plain JS modules which can have angular modules.
+
+## File structure of workspace
+
 ## Deployment 🎈
 This is done with the `ng build` command which:
 * Minifies code (removes whitespaces and renames variables)

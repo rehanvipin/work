@@ -6,6 +6,7 @@ weight: 2
 # bookComments: true
 ---
 # The real CONTENT
+Fun fact: The `@Component` decorator actually extends `@Directive` decorator because components are *technically* directives.
 
 ## Creating them
 A bare component is a class, defined in a .ts file. You can create new one like this:

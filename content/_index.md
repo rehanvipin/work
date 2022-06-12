@@ -30,6 +30,8 @@ Idk what else to put on this page so here are some random nice things:
 * Whenever you contribute to a repo on GitHub your contributions fall under the same license as the repo.
 [As described in GitHub's TOS](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license) 
 * There's an **open source** design tool: [Penpot](https://penpot.app) which focuses on web standards
+* Google drive is a useful too. They have a good range of keyboard shortcuts. You can view them by presing
+`Shift`+`\` or [from this nice support link](https://support.google.com/drive/answer/2563044).
 
 {{< hint "info" >}}
 ## Note

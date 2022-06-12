@@ -5,6 +5,9 @@ weight: 3
 # The template syntax
 The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
 
+There are HTML attributes and there are DOM properties. Sometimes there's a one-one mapping between them,
+sometimes an attribute exists but has no corresponding property and vice-versa.
+
 {{< details "Binding in HTML" >}}
 ## JS in HTML?
 There are multiple ways you can use JS objects in HTML. Two of them are:
@@ -121,6 +124,9 @@ They help you use one part of a template in another. You can declare a variable 
 {{< hint info >}}
 How does this work with `ngModel`? According to the docs:  
 If the variable specifies a name on the right-hand side, such as #var="ngModel", the variable refers to the directive or component on the element with a matching exportAs name.
+
+The same case with using the `ngForm` directive: `<form #lol="ngForm">`. `lol` will have values as specified
+by the `ngForm` directive.
 {{< /hint >}}
 
 ## Styling
