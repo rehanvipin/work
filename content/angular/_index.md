@@ -9,7 +9,7 @@ bookCollapseSection: true
 Angular lets you make dynamic web apps easily.
 
 ## Base Knowledge
-Why is that important? It defines what kind of content will be in this manual. I know *nothing* about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let's see how this goes. YOLO 🙂.
+I know *nothing* about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let's see how this goes. YOLO 🙂.
 
 ## Course stuff
 I'm following along [The Angular Fundamentals course on Pluralsight](https://www.pluralsight.com/courses/angular-fundamentals).
@@ -24,6 +24,7 @@ Just to note, the content I put up here is whatever I understood out of the cour
 
 ## Fun stuff
 Some cool things I learnt along the way:
+* When you run `ng new coolstuff`, it generates a lot of files. [The file structure is explained here](https://angular.io/guide/file-structure).
 * The JSON pipe is useful when you want to display an object in a template.
 Use it like this: `{{ objkt | json }}`
 * To see what happens when you run an `ng` command, suffix it with `--dry-run`

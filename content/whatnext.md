@@ -10,7 +10,7 @@ weight: 10
 # So much to learn
 I think I should learn these things because they might be useful at work:
 
-* Finish off "Reference/Conceptual Reference" from the Angular docs.
+* Finish off "Reference/Conceptual Reference" from the Angular docs. The ngModules and DI sections.
 * Add more content about Angular services (really needed?)
 * A special section on `ng-template`, it seems to be pretty powerful.
 * TypeScript, since it's the default lang for Angular. [Just an overview from a YT video perhaps?](https://www.youtube.com/watch?v=BCg4U1FzODs)
@@ -22,7 +22,7 @@ There's also this https://angular.io/api/core/ViewContainerRef.
 * Note down points from [Brad's](https://www.youtube.com/watch?v=XsEnj-1hG2o) [Walkthroughs](https://www.youtube.com/watch?v=moBhzSC455o) and [also](https://www.youtube.com/watch?v=KYFwcIRx16g) [Kevin's](https://www.youtube.com/watch?v=RhLMEdiKuMg).
 * Writing documentation. It's useful because that's what people see first and that's how they can contribute
 and use what you're building. [Some points from here](https://www.freecodecamp.org/news/how-to-write-good-documentation/) and [this place which shows you how to start](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/). There are also [principles to follow](https://www.writethedocs.org/guide/writing/docs-principles/).
-* Common design patterns (with examples?)
+* Common design patterns [from a good fcc article](https://www.freecodecamp.org/news/javascript-design-patterns-explained/)
 * Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
 "schematics" seems to be something cool.
 
