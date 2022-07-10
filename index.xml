@@ -138,7 +138,7 @@ The injector is the main mechanism. Angular creates an application-wide injector
       
       <guid>https://work.rehanvipin.me/whatnext/</guid>
       <description>So much to learn # I think I should learn these things because they might be useful at work:
-Finish off &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; from the Angular docs. Add more content about Angular services (really needed?) A special section on ng-template, it seems to be pretty powerful. TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts ngModel is one fancy thing.</description>
+Finish off &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; from the Angular docs. The ngModules and DI sections. Add more content about Angular services (really needed?) A special section on ng-template, it seems to be pretty powerful. TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts ngModel is one fancy thing.</description>
     </item>
     
     <item>
