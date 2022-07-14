@@ -26,5 +26,19 @@ Official tutorial Huge collection of tutorials I like Pluralsight. Videos can be
 Kevin Powell&amp;rsquo;s guides on YouTube Understanding SVG by Sara Soueidan - this is a series of 3 articles, at the end of this one there&amp;rsquo;s a link to the next one. They&amp;rsquo;re pretty deep and help you understand what&amp;rsquo;s really going on. </description>
     </item>
     
+    <item>
+      <title>Testing Typescript</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/testing-typescript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/front-end-stuff/testing-typescript/</guid>
+      <description>It&amp;rsquo;s sort of a pain # Especially when there&amp;rsquo;s DOM stuff and ESM involved.
+You would think that in 2022, it would be easy to write tests for your library that uses TS, DOM manipulation, and ESM.
+Haha, no.
+1. Make a new tsconfig file # Yeah, cuz es6 is not 7 years old apparently.
+Something like this (in tsconfig.callitwhatyouwant.json)
+{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;outDir&amp;#34;: &amp;#34;./dist/&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, // required for tests &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;strict&amp;#34;: true, &amp;#34;sourceMap&amp;#34;: true, &amp;#34;jsx&amp;#34;: &amp;#34;react&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;es2015&amp;#34;, &amp;#34;es2016&amp;#34;, &amp;#34;es2017&amp;#34;, &amp;#34;dom&amp;#34; ], }, &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.</description>
+    </item>
+    
   </channel>
 </rss>
