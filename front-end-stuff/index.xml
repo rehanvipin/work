@@ -37,7 +37,16 @@ You would think that in 2022, it would be easy to write tests for your library t
 Haha, no.
 1. Make a new tsconfig file # Yeah, cuz es6 is not 7 years old apparently.
 Something like this (in tsconfig.callitwhatyouwant.json)
-{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;outDir&amp;#34;: &amp;#34;./dist/&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, // required for tests &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;strict&amp;#34;: true, &amp;#34;sourceMap&amp;#34;: true, &amp;#34;jsx&amp;#34;: &amp;#34;react&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;es2015&amp;#34;, &amp;#34;es2016&amp;#34;, &amp;#34;es2017&amp;#34;, &amp;#34;dom&amp;#34; ], }, &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.</description>
+{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, // required for tests &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;es2015&amp;#34;, &amp;#34;es2016&amp;#34;, &amp;#34;es2017&amp;#34;, &amp;#34;dom&amp;#34; ], }, &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.</description>
+    </item>
+    
+    <item>
+      <title>Typescript</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
+      <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.</description>
     </item>
     
   </channel>

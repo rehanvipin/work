@@ -97,8 +97,8 @@ Custom pipe # An example pipe:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/di/</guid>
-      <description>Adding features! 🙌 # Dependency injection # This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
-The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.</description>
+      <description>Adding features! 🙌 # TODO: add stuff from this: https://angular.io/guide/hierarchical-dependency-injection and try to move most of the service related stuff to the services page.
+Dependency injection # This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs</description>
     </item>
     
     <item>
@@ -127,8 +127,8 @@ Isolated # Only tests the JS class not the component Mostly used for services an
       
       <guid>https://work.rehanvipin.me/angular/libraries/</guid>
       <description>Ultra level reusability # They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
-Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.
-Installing them # Install via npm like so: npm i jquery.</description>
+Angular libraries (e.g. the @angular/x ones) are NgModules.
+Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.</description>
     </item>
     
   </channel>

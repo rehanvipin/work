@@ -78,7 +78,7 @@ You would think that in 2022, it would be easy to write tests for your library t
 Haha, no.
 1. Make a new tsconfig file # Yeah, cuz es6 is not 7 years old apparently.
 Something like this (in tsconfig.callitwhatyouwant.json)
-{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;outDir&amp;#34;: &amp;#34;./dist/&amp;#34;, &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, // required for tests &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;strict&amp;#34;: true, &amp;#34;sourceMap&amp;#34;: true, &amp;#34;jsx&amp;#34;: &amp;#34;react&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;es2015&amp;#34;, &amp;#34;es2016&amp;#34;, &amp;#34;es2017&amp;#34;, &amp;#34;dom&amp;#34; ], }, &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.</description>
+{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, // required for tests &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;es2015&amp;#34;, &amp;#34;es2016&amp;#34;, &amp;#34;es2017&amp;#34;, &amp;#34;dom&amp;#34; ], }, &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.</description>
     </item>
     
     <item>
@@ -90,6 +90,15 @@ Something like this (in tsconfig.callitwhatyouwant.json)
       <description>Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
 According to that page linked above:
 A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console</description>
+    </item>
+    
+    <item>
+      <title>Typescript</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
+      <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.</description>
     </item>
     
     <item>
@@ -141,8 +150,8 @@ Custom pipe # An example pipe:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/angular/di/</guid>
-      <description>Adding features! 🙌 # Dependency injection # This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs
-The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed.</description>
+      <description>Adding features! 🙌 # TODO: add stuff from this: https://angular.io/guide/hierarchical-dependency-injection and try to move most of the service related stuff to the services page.
+Dependency injection # This is how you provide new components with extra resources they need to function. To indicate that a class (any class, not just a component / service) has a dependency or is a dependency you decorate it with @Injectable(). From the docs</description>
     </item>
     
     <item>
@@ -151,8 +160,8 @@ The injector is the main mechanism. Angular creates an application-wide injector
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/whatnext/</guid>
-      <description>So much to learn # I think I should learn these things because they might be useful at work:
-Finish off &amp;ldquo;Reference/Conceptual Reference&amp;rdquo; from the Angular docs. The ngModules and DI sections. Add more content about Angular services (really needed?) A special section on ng-template, it seems to be pretty powerful. TypeScript, since it&amp;rsquo;s the default lang for Angular. Just an overview from a YT video perhaps? Search for &amp;ldquo;TODO&amp;rdquo; in the Angular notes and do those parts ngModel is one fancy thing.</description>
+      <description>So much to learn # These sound useful:
+Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Get an overview of what design is about from this talk. Learn how to use penpot with their YT tutorials. This walkthrough can give a good idea. Note down points from Brad&amp;rsquo;s Walkthroughs and also Kevin&amp;rsquo;s. Writing documentation. It&amp;rsquo;s useful because that&amp;rsquo;s what people see first and that&amp;rsquo;s how they can contribute and use what you&amp;rsquo;re building.</description>
     </item>
     
     <item>
@@ -181,8 +190,8 @@ Isolated # Only tests the JS class not the component Mostly used for services an
       
       <guid>https://work.rehanvipin.me/angular/libraries/</guid>
       <description>Ultra level reusability # They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
-Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.
-Installing them # Install via npm like so: npm i jquery.</description>
+Angular libraries (e.g. the @angular/x ones) are NgModules.
+Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.</description>
     </item>
     
     <item>
