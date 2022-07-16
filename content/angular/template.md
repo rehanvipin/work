@@ -155,3 +155,6 @@ modern ones and is available to at least 94% of all users at the time of writing
 {{< hint info >}}
 Thought only HTML files could be used as templates? SVGs can be used too!
 {{< /hint >}}
+
+## `ng-template`
+TODO: A special section on `ng-template`, it seems to be pretty powerful.

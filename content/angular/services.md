@@ -18,3 +18,5 @@ Services don't just need to be provided in modules or the root, it's also possib
 object just for a component by setting the providers property in the component metadata.
 
 Read more about [dependency injection here](./di).
+
+TODO: Read this to learn how they are used: https://angular.io/guide/providers.

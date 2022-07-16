@@ -7,6 +7,8 @@ They provide extra functionality to Angular.
 They don't run on their own. They need to be used in an application.
 There are many first party libraries that are regularly used, like "@angular/forms".
 
+Angular libraries (e.g. the @angular/x ones) are `NgModules`.
+
 Some functionality of an app can be packaged into a library so it can be reused with other apps.
 They can then be published in "npm" or wherever.
 

@@ -59,6 +59,10 @@ console.log(f); // { wutdis: "sic", num: 10 }
 * Only the root NgModule should have a bootstrap property in its decorator.
 The bootstrap property sets the root component for the app.
 * Libraries are plain JS modules which can have angular modules.
+* A component / directive / pipe can be declared in only one `NgModule`
+* To use stuff that other module provide, you import that **`NgModule`** in this `NgModule`
+* When you list services in the providers array, they are available app wide.
+* It's possible to have multiple entry point components in the `bootstrap` array.
 
 ## File structure of workspace
 

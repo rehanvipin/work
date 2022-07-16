@@ -108,3 +108,7 @@ You need to do a few weird things to validate multiple fields:
 * The sibling needs to re-run the validator whenever it updates. Can do that with an event binding: `<div (change)="whyNeedIDK.control.controls.someField.upDateValueAndValidity()></div>`
 
 This whole thing is just super complex and weird.
+
+## `ngModel`
+TODO: this is one fancy thing. [Check out the docs](https://angular.io/api/forms/NgModel) to understand it.
+There's also this https://angular.io/api/core/ViewContainerRef.

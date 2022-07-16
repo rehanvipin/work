@@ -3,6 +3,8 @@ title: "Dependency Injection"
 weight: 9
 ---
 # Adding features! 🙌
+TODO: add stuff from this: https://angular.io/guide/hierarchical-dependency-injection
+and try to move most of the service related stuff to the services page.
 
 ## Dependency injection
 This is how you provide new components with extra resources they need to function. To indicate that a class (**any class**, not just a component / service) has a dependency or is a dependency you decorate it with `@Injectable()`. From the docs
@@ -24,11 +26,11 @@ You can do it in three ways:
 {{< columns >}}
 
 #### In `@Injectable()`
-You can specify the provider as the value to the `provider` key in the metadata object. If you specify `'root'` one instance will be available to all components.
+You can specify the provider as the value to the `providedIn` key in the metadata object. If you specify `'root'` one instance will be available to all components.
 <--->
 
 #### With an `NgModule`
-You specify the provider (e.g. the service class) in the `providers` array and one instance will be available to all components in the module.
+You specify the `providedIn` property as the `NgModule` where you want this service to be available.
 <--->
 
 #### With a component
@@ -37,6 +39,8 @@ You can place it in the `providers` array in the metadata of a component and it 
 {{< /columns >}}
 
 To use a function as a provider [check out this example](./routing/#deactivation).
+It is preferred to provide the service in the root injector unless there's a requirement to make it
+available only in some ngmodule.
 
 ## Using `InjectToken`
 This is a way for the injector to find the required provider from the list of available providers. Its an alternative to using a string. Its better since the token is a variable and the compiler will complain if there is another variable with the same name.

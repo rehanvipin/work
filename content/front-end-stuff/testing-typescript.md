@@ -21,12 +21,8 @@ Something like this (in `tsconfig.callitwhatyouwant.json`)
 ```json
 {
     "compilerOptions": {
-        "outDir": "./dist/",
         "module": "commonjs", // required for tests
         "target": "es5",
-        "strict": true,
-        "sourceMap": true,
-        "jsx": "react",
         "lib": [
             "es2015",
             "es2016",
