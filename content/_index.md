@@ -20,8 +20,8 @@ Idk what else to put on this page so here are some random nice things:
 * Want a notepad in your browser? Paste this in the address bar of a new tab:  
 `data:text/html, <body style="margin: 0;"><textarea style="font-size: 3rem; width: 100%; height: 100%; margin: 0; padding: 1rem; color: white; background-color: rgb(32, 32, 32); border: none; outline: none;" autofocus>`
 * Confused about what units to use in CSS? [Check out this video by Kevin Powell](https://www.youtube.com/watch?v=N5wpD9Ov_To)
-    * Use `rem` for fonts and most other things. It's relative to the `font-size` of `<html>` (which is 16px by default)
-    * `em` is relative to the `font-size`of the element it is on or the closest parent which has defined a font size. Can be useful when you want margins and paddings to change with font size.
+    * Use `rem` (i.e., root el) for fonts and most other things. It's relative to the `font-size` of `<html>` (which is 16px by default)
+    * `em` is relative to the `font-size` of the element it is on or the closest parent which has defined a font size. When it's used for some other property, it only references this element's font-size. It can be useful for padding and margins.
     * Use percentages for `width` (prefer to use `max-width`) or `ch` (equal to width of a char) when operating on a text container
     * Think twice before setting `height`. Try to set `min-height` if it is really needed.
 * Try to keep text confined to 60 chars a row.
@@ -32,6 +32,7 @@ Idk what else to put on this page so here are some random nice things:
 * There's an **open source** design tool: [Penpot](https://penpot.app) which focuses on web standards
 * Google drive has a good range of keyboard shortcuts. You can view them by presing
 `Shift`+`\` or [from this nice support link](https://support.google.com/drive/answer/2563044).
+* While building SaaS (stuff as a service), it might be useful to look at https://12factor.net/.
 
 {{< hint "info" >}}
 ## Note

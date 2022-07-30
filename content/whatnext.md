@@ -17,6 +17,7 @@ These sound useful:
 * Writing documentation. It's useful because that's what people see first and that's how they can contribute
 and use what you're building. [Some points from here](https://www.freecodecamp.org/news/how-to-write-good-documentation/) and [this place which shows you how to start](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/). There are also [principles to follow](https://www.writethedocs.org/guide/writing/docs-principles/).
 * Common design patterns [from a good fcc article](https://www.freecodecamp.org/news/javascript-design-patterns-explained/)
+* [Good article on testing.](https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/) This covers TDD and stuff
 * Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
 "schematics" seems to be something cool.
 
