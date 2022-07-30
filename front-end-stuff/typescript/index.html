@@ -5,9 +5,13 @@
   <meta name="generator" content="Hugo 0.101.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.">
+<meta name="description" content="Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
+Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&rsquo;s usage in this file should not throw an error. (e.g. it&rsquo;s declared in another file and both of them are used via script tags in HTML)
+Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Typescript" />
-<meta property="og:description" content="Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/." />
+<meta property="og:description" content="Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
+Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&rsquo;s usage in this file should not throw an error. (e.g. it&rsquo;s declared in another file and both of them are used via script tags in HTML)
+Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/front-end-stuff/typescript/" /><meta property="article:section" content="front-end-stuff" />
 
@@ -17,7 +21,7 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.0ba1ffebbcf3d8fc0aee5d1a0043a487148759c81318a039283545cf063532f6.js" integrity="sha256-C6H/67zz2PwK7l0aAEOkhxSHWcgTGKA5KDVFzwY1MvY="></script>
+<script defer src="/en.search.min.3940f0194da604a10af3a292ec18a6c8e35e2df919ca5d43a599adadfcc535f4.js" integrity="sha256-OUDwGU2mBKEK86KS7BimyONeLfkZyl1DpZmtrfzFNfQ="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -275,32 +279,6 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/front-end-stuff/svg/" class="">SVG</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="https://work.rehanvipin.me/front-end-stuff/testing-typescript/" class="">Testing Typescript</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
     <a href="https://work.rehanvipin.me/front-end-stuff/typescript/" class=" active">Typescript</a>
   
 
@@ -403,7 +381,20 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#write-javascript-with-confidence">Write JavaScript with confidence</a></li>
+    <li><a href="#write-javascript-with-confidence">Write JavaScript with confidence</a>
+      <ul>
+        <li><a href="#some-notes">Some notes</a></li>
+        <li><a href="#testing">Testing</a>
+          <ul>
+            <li><a href="#1-make-a-new-tsconfig-file">1. Make a new tsconfig file</a></li>
+            <li><a href="#2-install-stuff">2. Install stuff</a></li>
+            <li><a href="#3-setup-the-karma-config-file">3. Setup the karma config file</a></li>
+            <li><a href="#4-setup-the-package-json">4. Setup the package json</a></li>
+            <li><a href="#5-write-code--tests">5. Write code &amp; tests</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -422,6 +413,130 @@ https://github.com/alex-shpak/hugo-book
 </h1>
 <p>TODO: The docs are good. Check them out: 
   <a href="https://www.typescriptlang.org/docs/">https://www.typescriptlang.org/docs/</a>.</p>
+<h2 id="some-notes">
+  Some notes
+  <a class="anchor" href="#some-notes">#</a>
+</h2>
+<p><code>declare a</code> in TS is used to tell the compiler that the variable a is declared somewhere else and it&rsquo;s
+usage in this file should not throw an error.
+(e.g. it&rsquo;s declared in another file and both of them are used via script tags in HTML)</p>
+<p>Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.
+The code is also moved to the top of the constructor so that the constructor code can use the defined values.
+e.g.
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <h3 id="ts">
+  TS
+  <a class="anchor" href="#ts">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LOL</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wow this is cool&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wow&#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">c</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bongo cats&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h3 id="compiled-js">
+  Compiled JS
+  <a class="anchor" href="#compiled-js">#</a>
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LOL</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">c</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wow this is cool&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">z</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;bongo cats&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;wow&#39;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">c</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+  </div>
+  
+</div>
+</p>
+<h2 id="testing">
+  Testing
+  <a class="anchor" href="#testing">#</a>
+</h2>
+<p>It can be somewhat painful.</p>
+<h3 id="1-make-a-new-tsconfig-file">
+  1. Make a new tsconfig file
+  <a class="anchor" href="#1-make-a-new-tsconfig-file">#</a>
+</h3>
+<p>Aside from the tsconfig file that you&rsquo;re already using for your source code.
+Something like this (in <code>tsconfig.callitwhatyouwant.json</code>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;module&#34;</span>: <span style="color:#e6db74">&#34;commonjs&#34;</span>, <span style="color:#75715e">// required for tests
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;es5&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;lib&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;es2015&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;es2016&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;es2017&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;dom&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;include&#34;</span>: [<span style="color:#e6db74">&#34;src/**/*.ts&#34;</span>, <span style="color:#e6db74">&#34;./test/**/*.ts&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>remove stuff at your own risk. (But do try, this is somewhat of a mess)</p>
+<h3 id="2-install-stuff">
+  2. Install stuff
+  <a class="anchor" href="#2-install-stuff">#</a>
+</h3>
+<p>I&rsquo;m using Karma and Jasmine cuz they&rsquo;re nice.</p>
+<pre tabindex="0"><code>npm i -D karma karma-chrome-launcher karma-spec-reporter
+npm i -D typescript karma-typescipt karma-typescript-es6-transform
+npm i -D jasmine-core @types/jasmine karma-jasmine
+</code></pre><h3 id="3-setup-the-karma-config-file">
+  3. Setup the karma config file
+  <a class="anchor" href="#3-setup-the-karma-config-file">#</a>
+</h3>
+<p>this should do</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// karma.conf.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">config</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">set</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">frameworks</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;jasmine&#34;</span>, <span style="color:#e6db74">&#34;karma-typescript&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">files</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;src/**/*.ts&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;test/**/*.ts&#34;</span>
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">preprocessors</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;**/*.ts&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;karma-typescript&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">reporters</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;progress&#34;</span>, <span style="color:#e6db74">&#34;karma-typescript&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">browsers</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;Chrome&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">karmaTypescriptConfig</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">tsconfig</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tsconfig.callitwhatyouwant.json&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">bundlerOptions</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">transforms</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>                    <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;karma-typescript-es6-transform&#34;</span>)()
+</span></span><span style="display:flex;"><span>                ]
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">singleRun</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div><h3 id="4-setup-the-package-json">
+  4. Setup the package json
+  <a class="anchor" href="#4-setup-the-package-json">#</a>
+</h3>
+<p>Nothing really.</p>
+<pre tabindex="0"><code>&#34;scripts&#34;: {
+    &#34;test&#34;: &#34;karma start&#34;,
+}
+</code></pre><p>That&rsquo;s it. Nothing else is required in that file.</p>
+<h3 id="5-write-code--tests">
+  5. Write code &amp; tests
+  <a class="anchor" href="#5-write-code--tests">#</a>
+</h3>
+<p>Write them under <code>src/</code> and <code>test/</code> respectively.</p>
 </article>
  
       
@@ -454,7 +569,20 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#write-javascript-with-confidence">Write JavaScript with confidence</a></li>
+    <li><a href="#write-javascript-with-confidence">Write JavaScript with confidence</a>
+      <ul>
+        <li><a href="#some-notes">Some notes</a></li>
+        <li><a href="#testing">Testing</a>
+          <ul>
+            <li><a href="#1-make-a-new-tsconfig-file">1. Make a new tsconfig file</a></li>
+            <li><a href="#2-install-stuff">2. Install stuff</a></li>
+            <li><a href="#3-setup-the-karma-config-file">3. Setup the karma config file</a></li>
+            <li><a href="#4-setup-the-package-json">4. Setup the package json</a></li>
+            <li><a href="#5-write-code--tests">5. Write code &amp; tests</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

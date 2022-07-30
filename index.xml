@@ -6,17 +6,6 @@
     <description>Recent content in Introduction on Field Manual</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>D3</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
-      <description>Data Driven Docs? # It&amp;rsquo;s a powerful library with a bit of a learning curve. I&amp;rsquo;m learning how to make network graphs with it. Here goes nothing 😛
-Oooh, there a heck lot of things it can do. Nice confusion. These might be some good resources:
-Official tutorial Huge collection of tutorials I like Pluralsight. Videos can be helpful y&amp;rsquo;know. This course seems updated An updated D3 tutorial (taken from the GitHub list) should also help!</description>
-    </item>
-    
-    <item>
       <title>Overview</title>
       <link>https://work.rehanvipin.me/angular/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -38,13 +27,14 @@ Create a .ts file and export a class that is decorated by Component from @angula
     </item>
     
     <item>
-      <title>SVG</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/svg/</link>
+      <title>D3</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/svg/</guid>
-      <description> Scalable Vector Graphics? # There are already good resources available online. Check them out:
-Kevin Powell&amp;rsquo;s guides on YouTube Understanding SVG by Sara Soueidan - this is a series of 3 articles, at the end of this one there&amp;rsquo;s a link to the next one. They&amp;rsquo;re pretty deep and help you understand what&amp;rsquo;s really going on. </description>
+      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
+      <description>Data Driven Docs? # It&amp;rsquo;s a powerful library with a bit of a learning curve.
+There a heck lot of things it can do. Nice confusion. These might be some good resources:
+An updated D3 tutorial (This was the best!) Official tutorial (It can take some time to get used to observableHQ&amp;rsquo;s notebooks) Huge collection of tutorials [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations.</description>
     </item>
     
     <item>
@@ -68,17 +58,14 @@ Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in 
     </item>
     
     <item>
-      <title>Testing Typescript</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/testing-typescript/</link>
+      <title>Typescript</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/testing-typescript/</guid>
-      <description>It&amp;rsquo;s sort of a pain # Especially when there&amp;rsquo;s DOM stuff and ESM involved.
-You would think that in 2022, it would be easy to write tests for your library that uses TS, DOM manipulation, and ESM.
-Haha, no.
-1. Make a new tsconfig file # Yeah, cuz es6 is not 7 years old apparently.
-Something like this (in tsconfig.callitwhatyouwant.json)
-{ &amp;#34;compilerOptions&amp;#34;: { &amp;#34;module&amp;#34;: &amp;#34;commonjs&amp;#34;, // required for tests &amp;#34;target&amp;#34;: &amp;#34;es5&amp;#34;, &amp;#34;lib&amp;#34;: [ &amp;#34;es2015&amp;#34;, &amp;#34;es2016&amp;#34;, &amp;#34;es2017&amp;#34;, &amp;#34;dom&amp;#34; ], }, &amp;#34;include&amp;#34;: [&amp;#34;src/**/*.</description>
+      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
+      <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
+Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&amp;rsquo;s usage in this file should not throw an error. (e.g. it&amp;rsquo;s declared in another file and both of them are used via script tags in HTML)
+Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.</description>
     </item>
     
     <item>
@@ -90,15 +77,6 @@ Something like this (in tsconfig.callitwhatyouwant.json)
       <description>Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
 According to that page linked above:
 A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console</description>
-    </item>
-    
-    <item>
-      <title>Typescript</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
-      <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.</description>
     </item>
     
     <item>
