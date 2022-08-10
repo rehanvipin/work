@@ -20,5 +20,6 @@ and use what you're building. [Some points from here](https://www.freecodecamp.o
 * [Good article on testing.](https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/) This covers TDD and stuff
 * Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
 "schematics" seems to be something cool.
+* Vue videos to help with the documentation - https://www.youtube.com/playlist?list=PL-lxoPS_1OXV26ktPlpSWhRuocW5vsI8A
 
 No rush, gonna add things whenever I feel the need to 🍃

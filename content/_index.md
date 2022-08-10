@@ -34,9 +34,10 @@ There are many more keyboard shortcuts. You can see them by hitting `?`.
 * Google drive has a good range of keyboard shortcuts. You can view them by presing
 `Shift`+`\` or [from this nice support link](https://support.google.com/drive/answer/2563044).
 * While building SaaS (stuff as a service), it might be useful to look at https://12factor.net/.
+* Want to refactor your code? Check out <https://refactoring.guru/refactoring>
 
 {{< hint "info" >}}
 ## Note
-This manual thing is pretty unrefined. It's like v0.1.2 rn.  
+This manual thing is pretty unrefined. It's like v0.2.0 rn.  
 P.S. ([Check out semver](https://semver.org/))
 {{< /hint >}}
