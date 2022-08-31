@@ -25,3 +25,10 @@ media queries for the larger screen sizes. It leads to less CSS. Even if the des
 There's a nice [checklist](https://frontendchecklist.io)
 * A book about building [web apps](https://basecamp.com/gettingreal) by Basecamp. It's good apparently.
 [PDF](https://basecamp.com/gettingreal/getting-real.pdf) also available.
+* Confused about what units to use in CSS? [Check out this video by Kevin Powell](https://www.youtube.com/watch?v=N5wpD9Ov_To)
+    * Use `rem` (i.e., root el) for fonts and most other things. It's relative to the `font-size` of `<html>` (which is 16px by default)
+    * `em` is relative to the `font-size` of the element it is on or the closest parent which has defined a font size. When it's used for some other property, it only references this element's font-size. It can be useful for padding and margins.
+    * Use percentages for `width` (prefer to use `max-width`) or `ch` (equal to width of a char) when operating on a text container
+    * Think twice before setting `height`. Try to set `min-height` if it is really needed.
+* Try to keep text confined to 60 chars a row.
+* There's an **open source** design tool: [Penpot](https://penpot.app) which focuses on web standards

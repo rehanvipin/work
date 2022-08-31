@@ -20,24 +20,27 @@ There are many more keyboard shortcuts. You can see them by hitting `?`.
 * npm is not an acronym (it once was, not anymore) and must be written down in all lowercase :P
 * Want a notepad in your browser? Paste this in the address bar of a new tab:  
 `data:text/html, <body style="margin: 0;"><textarea style="font-size: 3rem; width: 100%; height: 100%; margin: 0; padding: 1rem; color: white; background-color: rgb(32, 32, 32); border: none; outline: none;" autofocus>`
-* Confused about what units to use in CSS? [Check out this video by Kevin Powell](https://www.youtube.com/watch?v=N5wpD9Ov_To)
-    * Use `rem` (i.e., root el) for fonts and most other things. It's relative to the `font-size` of `<html>` (which is 16px by default)
-    * `em` is relative to the `font-size` of the element it is on or the closest parent which has defined a font size. When it's used for some other property, it only references this element's font-size. It can be useful for padding and margins.
-    * Use percentages for `width` (prefer to use `max-width`) or `ch` (equal to width of a char) when operating on a text container
-    * Think twice before setting `height`. Try to set `min-height` if it is really needed.
-* Try to keep text confined to 60 chars a row.
 * [There's a standard for dates](https://www.iso.org/iso-8601-date-and-time-format.html): YYYY-MM-DD
 * [Python has a good set of builtin modules](https://docs.python.org/3/py-modindex.html)
 * Whenever you contribute to a repo on GitHub your contributions fall under the same license as the repo.
 [As described in GitHub's TOS](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license) 
-* There's an **open source** design tool: [Penpot](https://penpot.app) which focuses on web standards
 * Google drive has a good range of keyboard shortcuts. You can view them by presing
 `Shift`+`\` or [from this nice support link](https://support.google.com/drive/answer/2563044).
 * While building SaaS (stuff as a service), it might be useful to look at https://12factor.net/.
 * Want to refactor your code? Check out <https://refactoring.guru/refactoring>
+* There's a slight imperfection in the microsoft logo on black backgrounds
+where the red box seems to appear larger than the blue box below it. This is due to the way pixels
+are arranged in a display. [See it in more detail here](https://www.avforums.com/threads/anyone-else-have-an-offset-blue-and-red-square-on-the-microsoft-logo-of-office-2019.2310709/)
 
 {{< hint "info" >}}
 ## Note
 This manual thing is pretty unrefined. It's like v0.2.0 rn.  
 P.S. ([Check out semver](https://semver.org/))
+{{< /hint >}}
+
+{{< hint "info" >}}
+## C++ notes
+Some notes from a university course on sort-of-advanced C++: [cpp-notes](/pdfs/cpp-notes.pdf)
+Yes it does say "Generic Programming" and that's a part of it
+but most of is just about C++ and not just it's generic programming abilities.
 {{< /hint >}}
