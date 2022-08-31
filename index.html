@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.102.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="A field manual for work # Helps you masquerade as a software developer. Use at your own risk. 🍊
@@ -17,7 +17,7 @@ You can hit &gt; when you&rsquo;re on a GitHub repo to bring it an online VSCode
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.b1527e5346c4fe0e81f745ef3328a4b06bae6118a9440ffb50ef605c3253031f.js" integrity="sha256-sVJ&#43;U0bE/g6B90XvMyiksGuuYRipRA/7UO9gXDJTAx8="></script>
+<script defer src="/en.search.min.52ec3f1297c1eff7235000c26ed317be4c3ec5b9dace5b6f8207483811bc0aaf.js" integrity="sha256-Uuw/EpfB7/cjUADCbtMXvkw&#43;xbnazltvggdIOBG8Cq8="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/index.xml" title="Field Manual" />
@@ -405,16 +405,6 @@ There are many more keyboard shortcuts. You can see them by hitting <code>?</cod
 <li>npm is not an acronym (it once was, not anymore) and must be written down in all lowercase :P</li>
 <li>Want a notepad in your browser? Paste this in the address bar of a new tab:<br>
 <code>data:text/html, &lt;body style=&quot;margin: 0;&quot;&gt;&lt;textarea style=&quot;font-size: 3rem; width: 100%; height: 100%; margin: 0; padding: 1rem; color: white; background-color: rgb(32, 32, 32); border: none; outline: none;&quot; autofocus&gt;</code></li>
-<li>Confused about what units to use in CSS? 
-  <a href="https://www.youtube.com/watch?v=N5wpD9Ov_To">Check out this video by Kevin Powell</a>
-<ul>
-<li>Use <code>rem</code> (i.e., root el) for fonts and most other things. It&rsquo;s relative to the <code>font-size</code> of <code>&lt;html&gt;</code> (which is 16px by default)</li>
-<li><code>em</code> is relative to the <code>font-size</code> of the element it is on or the closest parent which has defined a font size. When it&rsquo;s used for some other property, it only references this element&rsquo;s font-size. It can be useful for padding and margins.</li>
-<li>Use percentages for <code>width</code> (prefer to use <code>max-width</code>) or <code>ch</code> (equal to width of a char) when operating on a text container</li>
-<li>Think twice before setting <code>height</code>. Try to set <code>min-height</code> if it is really needed.</li>
-</ul>
-</li>
-<li>Try to keep text confined to 60 chars a row.</li>
 <li>
   <a href="https://www.iso.org/iso-8601-date-and-time-format.html">There&rsquo;s a standard for dates</a>: YYYY-MM-DD</li>
 <li>
@@ -422,8 +412,6 @@ There are many more keyboard shortcuts. You can see them by hitting <code>?</cod
 <li>Whenever you contribute to a repo on GitHub your contributions fall under the same license as the repo.
 
   <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license">As described in GitHub&rsquo;s TOS</a></li>
-<li>There&rsquo;s an <strong>open source</strong> design tool: 
-  <a href="https://penpot.app">Penpot</a> which focuses on web standards</li>
 <li>Google drive has a good range of keyboard shortcuts. You can view them by presing
 <code>Shift</code>+<code>\</code> or 
   <a href="https://support.google.com/drive/answer/2563044">from this nice support link</a>.</li>
@@ -431,6 +419,10 @@ There are many more keyboard shortcuts. You can see them by hitting <code>?</cod
   <a href="https://12factor.net/">https://12factor.net/</a>.</li>
 <li>Want to refactor your code? Check out 
   <a href="https://refactoring.guru/refactoring">https://refactoring.guru/refactoring</a></li>
+<li>There&rsquo;s a slight imperfection in the microsoft logo on black backgrounds
+where the red box seems to appear larger than the blue box below it. This is due to the way pixels
+are arranged in a display. 
+  <a href="https://www.avforums.com/threads/anyone-else-have-an-offset-blue-and-red-square-on-the-microsoft-logo-of-office-2019.2310709/">See it in more detail here</a></li>
 </ul>
 <blockquote class="book-hint info">
   <h2 id="note">
@@ -440,6 +432,17 @@ There are many more keyboard shortcuts. You can see them by hitting <code>?</cod
 <p>This manual thing is pretty unrefined. It&rsquo;s like v0.2.0 rn.<br>
 P.S. (
   <a href="https://semver.org/">Check out semver</a>)
+</blockquote>
+
+<blockquote class="book-hint info">
+  <h2 id="c-notes">
+  C++ notes
+  <a class="anchor" href="#c-notes">#</a>
+</h2>
+<p>Some notes from a university course on sort-of-advanced C++: 
+  <a href="/pdfs/cpp-notes.pdf">cpp-notes</a>
+Yes it does say &ldquo;Generic Programming&rdquo; and that&rsquo;s a part of it
+but most of is just about C++ and not just it&rsquo;s generic programming abilities.
 </blockquote>
 
 </article>

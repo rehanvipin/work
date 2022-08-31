@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.102.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Front-End stuff # Don&rsquo;t really have any plans for what this section should contain. Here, have some fun facts while I figure out what should be on this page.
@@ -16,7 +16,7 @@ Fun facts # Variable hoisting was an unintended addition that came along with fu
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.b1527e5346c4fe0e81f745ef3328a4b06bae6118a9440ffb50ef605c3253031f.js" integrity="sha256-sVJ&#43;U0bE/g6B90XvMyiksGuuYRipRA/7UO9gXDJTAx8="></script>
+<script defer src="/en.search.min.52ec3f1297c1eff7235000c26ed317be4c3ec5b9dace5b6f8207483811bc0aaf.js" integrity="sha256-Uuw/EpfB7/cjUADCbtMXvkw&#43;xbnazltvggdIOBG8Cq8="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/front-end-stuff/index.xml" title="Field Manual" />
@@ -406,6 +406,18 @@ There&rsquo;s a nice
   <a href="https://basecamp.com/gettingreal">web apps</a> by Basecamp. It&rsquo;s good apparently.
 
   <a href="https://basecamp.com/gettingreal/getting-real.pdf">PDF</a> also available.</li>
+<li>Confused about what units to use in CSS? 
+  <a href="https://www.youtube.com/watch?v=N5wpD9Ov_To">Check out this video by Kevin Powell</a>
+<ul>
+<li>Use <code>rem</code> (i.e., root el) for fonts and most other things. It&rsquo;s relative to the <code>font-size</code> of <code>&lt;html&gt;</code> (which is 16px by default)</li>
+<li><code>em</code> is relative to the <code>font-size</code> of the element it is on or the closest parent which has defined a font size. When it&rsquo;s used for some other property, it only references this element&rsquo;s font-size. It can be useful for padding and margins.</li>
+<li>Use percentages for <code>width</code> (prefer to use <code>max-width</code>) or <code>ch</code> (equal to width of a char) when operating on a text container</li>
+<li>Think twice before setting <code>height</code>. Try to set <code>min-height</code> if it is really needed.</li>
+</ul>
+</li>
+<li>Try to keep text confined to 60 chars a row.</li>
+<li>There&rsquo;s an <strong>open source</strong> design tool: 
+  <a href="https://penpot.app">Penpot</a> which focuses on web standards</li>
 </ul>
 </article>
  
