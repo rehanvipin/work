@@ -15,7 +15,6 @@ There are many more keyboard shortcuts. You can see them by hitting `?`.
 * [Prettier](https://prettier.io/) is an auto code-formatter for web-dev
 * [ESLint](https://eslint.org/) is a linter that you can run (via the terminal or editor) on your code to catch possible bugs
 * [npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner/) is really cool! You can run the angular cli without installing it like so: `npx @angular/cli new facebook --skip-git`.
-* An easy way to locally deploy the built application is to run: `python -m http.server --bind localhost 8080` which serves the current directory at `http://localhost:8080`
 * You can add [graphs and diagrams to markdown files in GitHub](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) with [Mermaid!](https://mermaid-js.github.io/mermaid/#/)
 * npm is not an acronym (it once was, not anymore) and must be written down in all lowercase :P
 * Want a notepad in your browser? Paste this in the address bar of a new tab:  
@@ -28,9 +27,9 @@ There are many more keyboard shortcuts. You can see them by hitting `?`.
 `Shift`+`\` or [from this nice support link](https://support.google.com/drive/answer/2563044).
 * While building SaaS (stuff as a service), it might be useful to look at https://12factor.net/.
 * Want to refactor your code? Check out <https://refactoring.guru/refactoring>
-* There's a slight imperfection in the microsoft logo on black backgrounds
-where the red box seems to appear larger than the blue box below it. This is due to the way pixels
-are arranged in a display. [See it in more detail here](https://www.avforums.com/threads/anyone-else-have-an-offset-blue-and-red-square-on-the-microsoft-logo-of-office-2019.2310709/)
+* You shouldn't really be writing algorithms and memory management code in C++ anymore. [Use the builtin stuff](https://hackingcpp.com/cpp/cheat_sheets.html)
+* Talking about C++, here is some weird stuff about the language: [cpp-iceberg](https://fouronnes.github.io/cppiceberg/)
+* Want to see learn about the SOLID principles with some real code? [Check out this video](https://www.youtube.com/watch?v=pTB30aXS77U)
 
 {{< hint "info" >}}
 ## Note

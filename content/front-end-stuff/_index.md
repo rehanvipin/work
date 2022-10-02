@@ -32,3 +32,8 @@ There's a nice [checklist](https://frontendchecklist.io)
     * Think twice before setting `height`. Try to set `min-height` if it is really needed.
 * Try to keep text confined to 60 chars a row.
 * There's an **open source** design tool: [Penpot](https://penpot.app) which focuses on web standards
+* The word "JavaScript" is trademarked by Oracle (https://tinyclouds.org/trademark) as of Sept. 2022
+* An easy way to locally deploy the built application is to run: `python -m http.server --bind localhost 8080` which serves the current directory at `http://localhost:8080`
+* There's a slight imperfection in the microsoft logo on black backgrounds
+where the red box seems to appear larger than the blue box below it. This is due to the way pixels
+are arranged in a display. [See it in more detail here](https://www.avforums.com/threads/anyone-else-have-an-offset-blue-and-red-square-on-the-microsoft-logo-of-office-2019.2310709/)
