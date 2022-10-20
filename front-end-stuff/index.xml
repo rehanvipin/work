@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Front-End on Field Manual</title>
+    <title>Frontend on Field Manual</title>
     <link>https://work.rehanvipin.me/front-end-stuff/</link>
-    <description>Recent content in Front-End on Field Manual</description>
+    <description>Recent content in Frontend on Field Manual</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/front-end-stuff/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D3</title>

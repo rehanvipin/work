@@ -6,6 +6,17 @@
     <description>Recent content in Introduction on Field Manual</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>D3</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
+      <description>Data Driven Docs? # It&amp;rsquo;s a powerful library with a bit of a learning curve.
+There a heck lot of things it can do. Nice confusion. These might be some good resources:
+An updated D3 tutorial (This was the best!) Official tutorial (It can take some time to get used to observableHQ&amp;rsquo;s notebooks) Huge collection of tutorials https://wattenberger.com/blog/d3#intro [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations.</description>
+    </item>
+    
+    <item>
       <title>Overview</title>
       <link>https://work.rehanvipin.me/angular/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -13,6 +24,15 @@
       <guid>https://work.rehanvipin.me/angular/overview/</guid>
       <description>An overview (and miscellaneous stuff) # Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&amp;rsquo;s called a front-end web development framework.
 Typescript # Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same.</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot</title>
+      <link>https://work.rehanvipin.me/java/spring-boot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/spring-boot/</guid>
+      <description>Spring &amp;amp; Spring Boot # Spring is the most popular Java framework. What exactly does it do? Let&amp;rsquo;s find out.</description>
     </item>
     
     <item>
@@ -27,23 +47,14 @@ Create a .ts file and export a class that is decorated by Component from @angula
     </item>
     
     <item>
-      <title>D3</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
+      <title>Typescript</title>
+      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
-      <description>Data Driven Docs? # It&amp;rsquo;s a powerful library with a bit of a learning curve.
-There a heck lot of things it can do. Nice confusion. These might be some good resources:
-An updated D3 tutorial (This was the best!) Official tutorial (It can take some time to get used to observableHQ&amp;rsquo;s notebooks) Huge collection of tutorials https://wattenberger.com/blog/d3#intro [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations.</description>
-    </item>
-    
-    <item>
-      <title>/tmp</title>
-      <link>https://work.rehanvipin.me/stolenstuff/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/stolenstuff/</guid>
-      <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
+      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
+      <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
+Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&amp;rsquo;s usage in this file should not throw an error. (e.g. it&amp;rsquo;s declared in another file and both of them are used via script tags in HTML)
+Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.</description>
     </item>
     
     <item>
@@ -55,17 +66,6 @@ An updated D3 tutorial (This was the best!) Official tutorial (It can take some 
       <description>The template syntax # The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
 There are HTML attributes and there are DOM properties. Sometimes there&amp;rsquo;s a one-one mapping between them, sometimes an attribute exists but has no corresponding property and vice-versa.
 Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in HTML.</description>
-    </item>
-    
-    <item>
-      <title>Typescript</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
-      <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
-Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&amp;rsquo;s usage in this file should not throw an error. (e.g. it&amp;rsquo;s declared in another file and both of them are used via script tags in HTML)
-Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.</description>
     </item>
     
     <item>
@@ -133,16 +133,6 @@ Dependency injection # This is how you provide new components with extra resourc
     </item>
     
     <item>
-      <title>/next</title>
-      <link>https://work.rehanvipin.me/whatnext/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://work.rehanvipin.me/whatnext/</guid>
-      <description>So much to learn # These sound useful:
-Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Get an overview of what design is about from this talk. Learn how to use penpot with their YT tutorials. This walkthrough can give a good idea. Note down points from Brad&amp;rsquo;s Walkthroughs and also Kevin&amp;rsquo;s. Writing documentation. It&amp;rsquo;s useful because that&amp;rsquo;s what people see first and that&amp;rsquo;s how they can contribute and use what you&amp;rsquo;re building.</description>
-    </item>
-    
-    <item>
       <title>RxJS</title>
       <link>https://work.rehanvipin.me/angular/rxjs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -170,6 +160,25 @@ Isolated # Only tests the JS class not the component Mostly used for services an
       <description>Ultra level reusability # They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.
 Angular libraries (e.g. the @angular/x ones) are NgModules.
 Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.</description>
+    </item>
+    
+    <item>
+      <title>/tmp</title>
+      <link>https://work.rehanvipin.me/stolenstuff/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/stolenstuff/</guid>
+      <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
+    </item>
+    
+    <item>
+      <title>/next</title>
+      <link>https://work.rehanvipin.me/whatnext/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/whatnext/</guid>
+      <description>So much to learn # These sound useful:
+Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Get an overview of what design is about from this talk. Learn how to use penpot with their YT tutorials. This walkthrough can give a good idea. Note down points from Brad&amp;rsquo;s Walkthroughs and also Kevin&amp;rsquo;s. Writing documentation. It&amp;rsquo;s useful because that&amp;rsquo;s what people see first and that&amp;rsquo;s how they can contribute and use what you&amp;rsquo;re building.</description>
     </item>
     
     <item>
