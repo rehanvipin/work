@@ -1,6 +1,6 @@
 ---
 title: "Typescript"
-weight: 3
+weight: 2
 # bookFlatSection: false
 # bookToc: true
 # bookHidden: false
@@ -48,6 +48,8 @@ class LOL {
 
 ## Testing
 It can be somewhat painful.
+
+A really good series about JavaScript testing (specifically about Jasmine and some parts about Karma) - <https://www.youtube.com/playlist?list=PL_euSNU_eLbcpJdoM-WWzUlNNVM4TwtMl>
 
 ### 1. Make a new tsconfig file
 Aside from the tsconfig file that you're already using for your source code.

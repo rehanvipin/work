@@ -1,6 +1,6 @@
 ---
 title: 'theme-guide'
-weight: 20
+weight: 30
 bookHidden: true
 ---
 # Buttons

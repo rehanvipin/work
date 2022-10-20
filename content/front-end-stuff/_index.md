@@ -1,9 +1,9 @@
 ---
-weight: 1
+weight: 2
 bookFlatSection: true
-title: "Front-End"
+title: "Frontend"
 bookToc: false
-bookCollapseSection: false
+bookCollapseSection: true
 ---
 
 # Front-End stuff
