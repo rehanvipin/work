@@ -17,6 +17,8 @@ There are many more keyboard shortcuts. You can see them by hitting `?`.
 * [npx](https://nodejs.dev/learn/the-npx-nodejs-package-runner/) is really cool! You can run the angular cli without installing it like so: `npx @angular/cli new facebook --skip-git`.
 * You can add [graphs and diagrams to markdown files in GitHub](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/) with [Mermaid!](https://mermaid-js.github.io/mermaid/#/)
 * npm is not an acronym (it once was, not anymore) and must be written down in all lowercase :P
+* Talking about npm and node, it can be difficult to manage multiple versions of them
+on your system. [`nvm`](https://github.com/nvm-sh/nvm) is a good manager for Linux/Mac while [`fnm`](https://github.com/Schniz/fnm) is a good one for Windows.
 * Want a notepad in your browser? Paste this in the address bar of a new tab:  
 `data:text/html, <body style="margin: 0;"><textarea style="font-size: 3rem; width: 100%; height: 100%; margin: 0; padding: 1rem; color: white; background-color: rgb(32, 32, 32); border: none; outline: none;" autofocus>`
 * [There's a standard for dates](https://www.iso.org/iso-8601-date-and-time-format.html): YYYY-MM-DD

@@ -37,3 +37,4 @@ There's a nice [checklist](https://frontendchecklist.io)
 * There's a slight imperfection in the microsoft logo on black backgrounds
 where the red box seems to appear larger than the blue box below it. This is due to the way pixels
 are arranged in a display. [See it in more detail here](https://www.avforums.com/threads/anyone-else-have-an-offset-blue-and-red-square-on-the-microsoft-logo-of-office-2019.2310709/)
+* Want to see what are the new features in es6 and how many of them could be done in previous versions? This [website](http://es6-features.org/#Constants) lets you do that.
