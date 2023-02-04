@@ -10,6 +10,12 @@ bookCollapseSection: true
 Don't really have any plans for what this section should contain.
 Here, have some fun facts while I figure out what should be on this page.
 
+## Nice Resources
+Modern JS has many inbuilt features, not all of them are so well known.
+[Check them out, from the stateOfJS22](https://2022.stateofjs.com/en-US/features/language/)
+
+Good resource & book on how to design modern web apps: <https://www.patterns.dev/>
+
 ## Fun facts
 * Variable hoisting was an unintended addition that came along with function hoisting when JS was
 being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations.

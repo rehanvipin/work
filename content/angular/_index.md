@@ -20,6 +20,9 @@ This [Crash Course by Traversy Media](https://www.youtube.com/watch?v=3dHNOWTI7H
 
 Finally, [The Angular docs](https://angular.io/docs) are very good.
 
+What if you want to go even further and understand exactly what is happening?
+E.g., stuff about zones and change detection. Check out the articles at [Angular in Depth](https://indepth.dev/angular)
+
 Just to note, the content I put up here is whatever I understood out of the courses and many other sources off the internet. I haven't and I won't, purposefully, rip content off sources I haven't listed here. I try to write this stuff on my own but sometimes, when it comes to things like specs and such, they do need to be put in word for word.
 
 ## Fun stuff
