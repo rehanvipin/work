@@ -7,10 +7,10 @@
     <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D3</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
+      <link>https://work.rehanvipin.me/misc/d3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
+      <guid>https://work.rehanvipin.me/misc/d3/</guid>
       <description>Data Driven Docs? # It&amp;rsquo;s a powerful library with a bit of a learning curve.
 There a heck lot of things it can do. Nice confusion. These might be some good resources:
 An updated D3 tutorial (This was the best!) Official tutorial (It can take some time to get used to observableHQ&amp;rsquo;s notebooks) Huge collection of tutorials https://wattenberger.com/blog/d3#intro [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations.</description>
@@ -27,6 +27,17 @@ Typescript # Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to J
     </item>
     
     <item>
+      <title>Spring</title>
+      <link>https://work.rehanvipin.me/spring-boot/spring/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/spring-boot/spring/</guid>
+      <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code. Helps you write scalable code. Baked in with best practices so you can focus on the business problem.
+It encourages you to use interfaces.
+It&amp;rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans or whatever.</description>
+    </item>
+    
+    <item>
       <title>Components</title>
       <link>https://work.rehanvipin.me/angular/components/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -39,10 +50,10 @@ Create a .ts file and export a class that is decorated by Component from @angula
     
     <item>
       <title>Gradle</title>
-      <link>https://work.rehanvipin.me/java/gradle/</link>
+      <link>https://work.rehanvipin.me/spring-boot/gradle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/java/gradle/</guid>
+      <guid>https://work.rehanvipin.me/spring-boot/gradle/</guid>
       <description>A build tool.
 Some good videos:
 https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx49J1JCdQ </description>
@@ -50,10 +61,10 @@ https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx4
     
     <item>
       <title>Typescript</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
+      <link>https://work.rehanvipin.me/misc/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
+      <guid>https://work.rehanvipin.me/misc/typescript/</guid>
       <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
 Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&amp;rsquo;s usage in this file should not throw an error. (e.g. it&amp;rsquo;s declared in another file and both of them are used via script tags in HTML)
 Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.</description>
@@ -68,6 +79,17 @@ Any definitions in a class declaration are moved to the constructor when the cod
       <description>The template syntax # The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
 There are HTML attributes and there are DOM properties. Sometimes there&amp;rsquo;s a one-one mapping between them, sometimes an attribute exists but has no corresponding property and vice-versa.
 Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in HTML.</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks</title>
+      <link>https://work.rehanvipin.me/misc/tips-tricks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/misc/tips-tricks/</guid>
+      <description>Tips, tricks, and resources # Modern JS has many inbuilt features, not all of them are so well known. Check them out, from the stateOfJS22
+Good resource &amp;amp; book on how to design modern web apps: https://www.patterns.dev/
+Variable hoisting was an unintended addition that came along with function hoisting when JS was being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations. This stackoverflow q&amp;amp;a has some good answers.</description>
     </item>
     
     <item>
@@ -166,10 +188,10 @@ Some functionality of an app can be packaged into a library so it can be reused 
     
     <item>
       <title>/tmp</title>
-      <link>https://work.rehanvipin.me/stolenstuff/</link>
+      <link>https://work.rehanvipin.me/tmp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/stolenstuff/</guid>
+      <guid>https://work.rehanvipin.me/tmp/</guid>
       <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
     </item>
     

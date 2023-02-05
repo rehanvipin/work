@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Frontend on Field Manual</title>
-    <link>https://work.rehanvipin.me/front-end-stuff/</link>
-    <description>Recent content in Frontend on Field Manual</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/front-end-stuff/index.xml" rel="self" type="application/rss+xml" />
+    <title>Fun Stuff on Field Manual</title>
+    <link>https://work.rehanvipin.me/misc/</link>
+    <description>Recent content in Fun Stuff on Field Manual</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://work.rehanvipin.me/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D3</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/d3/</link>
+      <link>https://work.rehanvipin.me/misc/d3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/d3/</guid>
+      <guid>https://work.rehanvipin.me/misc/d3/</guid>
       <description>Data Driven Docs? # It&amp;rsquo;s a powerful library with a bit of a learning curve.
 There a heck lot of things it can do. Nice confusion. These might be some good resources:
 An updated D3 tutorial (This was the best!) Official tutorial (It can take some time to get used to observableHQ&amp;rsquo;s notebooks) Huge collection of tutorials https://wattenberger.com/blog/d3#intro [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations.</description>
@@ -18,13 +18,24 @@ An updated D3 tutorial (This was the best!) Official tutorial (It can take some 
     
     <item>
       <title>Typescript</title>
-      <link>https://work.rehanvipin.me/front-end-stuff/typescript/</link>
+      <link>https://work.rehanvipin.me/misc/typescript/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/front-end-stuff/typescript/</guid>
+      <guid>https://work.rehanvipin.me/misc/typescript/</guid>
       <description>Write JavaScript with confidence # TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
 Some notes # declare a in TS is used to tell the compiler that the variable a is declared somewhere else and it&amp;rsquo;s usage in this file should not throw an error. (e.g. it&amp;rsquo;s declared in another file and both of them are used via script tags in HTML)
 Any definitions in a class declaration are moved to the constructor when the code is transpiled to JS.</description>
+    </item>
+    
+    <item>
+      <title>Tips &amp; Tricks</title>
+      <link>https://work.rehanvipin.me/misc/tips-tricks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/misc/tips-tricks/</guid>
+      <description>Tips, tricks, and resources # Modern JS has many inbuilt features, not all of them are so well known. Check them out, from the stateOfJS22
+Good resource &amp;amp; book on how to design modern web apps: https://www.patterns.dev/
+Variable hoisting was an unintended addition that came along with function hoisting when JS was being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations. This stackoverflow q&amp;amp;a has some good answers.</description>
     </item>
     
   </channel>
