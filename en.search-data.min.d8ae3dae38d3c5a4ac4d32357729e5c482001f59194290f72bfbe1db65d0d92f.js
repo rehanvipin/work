@@ -78,10 +78,15 @@ class Hip { constructor(public wutdis: string, private num) { // it implicitly d
 Minifies code (removes whitespaces and renames variables) Bundling (merges many JS file into a single JS file) so fewer requests are made Tree shaking (the production app doesn\u0026rsquo;t have code that is never used). It\u0026rsquo;s a little different from dead code elimination. Angular has an Ahead Of Time (AOT) compiler that converts the HTML of templates into JS code that manupilates the DOM. It can help catch template errors, reduce the output size, and make rendering on the browser faster.
 By default, running ng build will generate a \u0026ldquo;development\u0026rdquo; build which can still be deployed but isn\u0026rsquo;t as optimized as it could be. To run it in \u0026ldquo;production\u0026rdquo; mode use ng build --prod which reduces the number of requests and file sizes.
 Deployment just involves copying the directory within \u0026ldquo;dist\u0026rdquo; to the web server!
-`}),e.add({id:3,href:"/java/spring-boot/",title:"Spring Boot",section:"Java",content:` Spring # Spring is a collection of projects like Spring Boot, Spring Framework, Spring Data, Spring Security etc. Spring Framework is the most popular Java framework. What exactly does it do? Let\u0026rsquo;s find out.
-Resources?
-An overview from official docs - https://docs.spring.io/spring-boot/docs/current/reference/html/using.html Spring Framework tutorial - https://www.baeldung.com/spring-tutorial Dependency Injection in Spring - https://www.baeldung.com/spring-dependency-injection Spring Boot tutorial - https://www.baeldung.com/spring-boot Spring Boot reference documentation - https://docs.spring.io/spring-boot/docs/current/reference/html/features.html Maybe this should be a separate section?
-`}),e.add({id:4,href:"/angular/components/",title:"Components",section:"Angular",content:` The real CONTENT # Fun fact: The @Component decorator actually extends @Directive decorator because components are technically directives.
+`}),e.add({id:3,href:"/java/spring-boot/",title:"Spring Boot",section:"Java",content:` Wat # I want to learn Spring Boot as it seems to be a very popular backend. It seems that it is an advancement of the Spring Framework. So I\u0026rsquo;m gonna try to learn that first.
+What\u0026rsquo;s Spring # Spring is a collection of projects like Spring Boot, Spring Framework, Spring Data, Spring Security etc. Spring Framework is the most popular Java framework. What exactly does it do? Let\u0026rsquo;s find out.
+Learning Journey # As usual, start off with a nice plurarlsight course to get an overview and pratcise: Spring Framework: Spring 5 Fundamentals
+Then deep dive through the Baeldung Spring tutorial.
+One of the core concepts seems to be that of dependency injection. Baeldung\u0026rsquo;s got a tutorial for that! Dependency Injection in Spring
+Finally, time to learn Spring Boot. Spring Boot tutorial and a project too.
+What project? A shopping cart with the Punk API
+Some offical resources:
+Spring Boot reference An overview of Spring Boot `}),e.add({id:4,href:"/angular/components/",title:"Components",section:"Angular",content:` The real CONTENT # Fun fact: The @Component decorator actually extends @Directive decorator because components are technically directives.
 Creating them # A bare component is a class, defined in a .ts file. You can create new one like this:
 Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl). Import this class in app.module.ts and add it to declarations in the NgModule decorator of AppModule. Data binding: Accessing the component\u0026rsquo;s properties within its template via the {{ any JS expression }} syntax.
 The constructor of a component should ideally be empty, put intialization code in ngOnInit.
@@ -122,9 +127,8 @@ npm i -D karma karma-chrome-launcher karma-spec-reporter npm i -D typescript kar
 Here\u0026rsquo;s some fun stuff to read:
 What distinguishes REST from other architectures? HATEOAS
 How to manage JDK installations on your Linux machine? Use SDKMAN!. Which is sort of like nvm but it also manages versions of Java SDKs like Gradle, Groovy, Scala, Apache Tomcat etc. Sounds more like apt now.
-Want to revise your basics in Java? Check this out : https://www.baeldung.com/java-tutorial
 What\u0026rsquo;s more, it lets you set SDKs per project too.
-`}),e.add({id:9,href:"/angular/template/",title:"Template Syntax",section:"Angular",content:` The template syntax # The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
+Want to revise your basics in Java? Check this out : https://www.baeldung.com/java-tutorial `}),e.add({id:9,href:"/angular/template/",title:"Template Syntax",section:"Angular",content:` The template syntax # The template builds the HTML content that is displayed for a component. It is HTML with some Angular template syntax which lets you make the component reusable.
 There are HTML attributes and there are DOM properties. Sometimes there\u0026rsquo;s a one-one mapping between them, sometimes an attribute exists but has no corresponding property and vice-versa.
 Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in HTML. Two of them are:
 Interpolation # In places within the HTML where you can put custom values (within tags, properties of attributes, etc) you can use the result of a JS expression like this: \u0026lt;div\u0026gt;{{ some JS expression }}\u0026lt;/div\u0026gt;. All the public properties of the component class are available. The result is always a string. This is because the toString() method is called on the result of the expression. The binding between the class properties and the text is one way. Updates to the property will be reflected in the HTML but not the other way around.
