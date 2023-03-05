@@ -2,16 +2,18 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.110.0">
+  <meta name="generator" content="Hugo 0.111.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code. Helps you write scalable code. Baked in with best practices so you can focus on the business problem.
-It encourages you to use interfaces.
-It&rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans or whatever.">
+It encourages you to use interfaces and helps minimize configuration code.
+That should make your app more flexible to different implementations and make it easier to test.
+It&rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans and stuff.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Spring" />
 <meta property="og:description" content="Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code. Helps you write scalable code. Baked in with best practices so you can focus on the business problem.
-It encourages you to use interfaces.
-It&rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans or whatever." />
+It encourages you to use interfaces and helps minimize configuration code.
+That should make your app more flexible to different implementations and make it easier to test.
+It&rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans and stuff." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/spring-boot/spring/" /><meta property="article:section" content="spring-boot" />
 
@@ -20,7 +22,7 @@ It&rsquo;s popular as it encourages developers to write POJOs rather than Enterp
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.547f8eeb2b3d919d1fef599f94f826c498985d0b16dd8299ae683516f691734a.js" integrity="sha256-VH&#43;O6ys9kZ0f71mflPgmxJiYXQsW3YKZrmg1FvaRc0o="></script>
+<script defer src="/en.search.min.8592fd2e43835d2ef6fab8eb9b8969ee6ad1bdb888a636e37e28032f8bd9887d.js" integrity="sha256-hZL9LkODXS72&#43;rjrm4lp7mrRvbiIpjbjfigDL4vZiH0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -443,6 +445,35 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#spring-framework">Spring Framework</a>
       <ul>
         <li><a href="#what-why-would-you-use-it">What? Why would you use it?</a></li>
+        <li><a href="#applicationcontext">ApplicationContext</a></li>
+        <li><a href="#java-configuration">Java configuration</a>
+          <ul>
+            <li><a href="#bean">@Bean</a></li>
+            <li><a href="#configuration">@Configuration</a></li>
+            <li><a href="#setter-injection">Setter injection</a></li>
+            <li><a href="#constructor-injection">Constructor injection</a></li>
+          </ul>
+        </li>
+        <li><a href="#scope">Scope</a>
+          <ul>
+            <li><a href="#singleton">Singleton</a></li>
+            <li><a href="#prototype">Prototype</a></li>
+            <li><a href="#web-scopes">Web scopes</a></li>
+          </ul>
+        </li>
+        <li><a href="#autowiring">Autowiring</a>
+          <ul>
+            <li><a href="#autowired">@Autowired</a></li>
+            <li><a href="#componentscan">@ComponentScan</a></li>
+            <li><a href="#component">@Component</a></li>
+            <li><a href="#repository">@Repository</a></li>
+            <li><a href="#service">@Service</a></li>
+            <li><a href="#controller">@Controller</a></li>
+          </ul>
+        </li>
+        <li><a href="#xml-configuration">XML Configuration</a></li>
+        <li><a href="#bean-lifecycle">Bean lifecycle</a></li>
+        <li><a href="#advanced-stuff">Advanced stuff</a></li>
       </ul>
     </li>
   </ul>
@@ -467,8 +498,103 @@ https://github.com/alex-shpak/hugo-book
 </h2>
 <p>It is a dependency injection framework that helps you simplify your code.
 Helps you write scalable code. Baked in with best practices so you can focus on the business problem.</p>
-<p>It encourages you to use interfaces.</p>
-<p>It&rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans or whatever.</p>
+<p>It encourages you to use interfaces and helps minimize configuration code.</p>
+<p>That should make your app more flexible to different implementations and make it easier to test.</p>
+<p>It&rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans and stuff.</p>
+<p>Another selling point of the Spring Framework is that it makes configuration changes easier.
+You don&rsquo;t have to recompile your app in case you want to use a different implementation of some interfaces.</p>
+<p>In Spring v5 (not sure since when), almost all configurations can be done with just Java.
+No XML necessary.</p>
+<h2 id="applicationcontext">
+  ApplicationContext
+  <a class="anchor" href="#applicationcontext">#</a>
+</h2>
+<h2 id="java-configuration">
+  Java configuration
+  <a class="anchor" href="#java-configuration">#</a>
+</h2>
+<p>One of the main thing Spring does is, it constructs the dependent objects for your class.
+Rather than you creating new objects. This is done through a bunch of configurations</p>
+<h3 id="bean">
+  @Bean
+  <a class="anchor" href="#bean">#</a>
+</h3>
+<h3 id="configuration">
+  @Configuration
+  <a class="anchor" href="#configuration">#</a>
+</h3>
+<h3 id="setter-injection">
+  Setter injection
+  <a class="anchor" href="#setter-injection">#</a>
+</h3>
+<h3 id="constructor-injection">
+  Constructor injection
+  <a class="anchor" href="#constructor-injection">#</a>
+</h3>
+<h2 id="scope">
+  Scope
+  <a class="anchor" href="#scope">#</a>
+</h2>
+<h3 id="singleton">
+  Singleton
+  <a class="anchor" href="#singleton">#</a>
+</h3>
+<h3 id="prototype">
+  Prototype
+  <a class="anchor" href="#prototype">#</a>
+</h3>
+<h3 id="web-scopes">
+  Web scopes
+  <a class="anchor" href="#web-scopes">#</a>
+</h3>
+<h2 id="autowiring">
+  Autowiring
+  <a class="anchor" href="#autowiring">#</a>
+</h2>
+<p>Convention over configuration</p>
+<h3 id="autowired">
+  @Autowired
+  <a class="anchor" href="#autowired">#</a>
+</h3>
+<h3 id="componentscan">
+  @ComponentScan
+  <a class="anchor" href="#componentscan">#</a>
+</h3>
+<p>Then, there are the stereotypes.</p>
+<h3 id="component">
+  @Component
+  <a class="anchor" href="#component">#</a>
+</h3>
+<h3 id="repository">
+  @Repository
+  <a class="anchor" href="#repository">#</a>
+</h3>
+<h3 id="service">
+  @Service
+  <a class="anchor" href="#service">#</a>
+</h3>
+<h3 id="controller">
+  @Controller
+  <a class="anchor" href="#controller">#</a>
+</h3>
+<h2 id="xml-configuration">
+  XML Configuration
+  <a class="anchor" href="#xml-configuration">#</a>
+</h2>
+<p>It was the original way to do it. Why would you still use XML configuration?
+It provides a separation of concerns where wiring up dependencies can be done away from the app code.</p>
+<h2 id="bean-lifecycle">
+  Bean lifecycle
+  <a class="anchor" href="#bean-lifecycle">#</a>
+</h2>
+<h2 id="advanced-stuff">
+  Advanced stuff
+  <a class="anchor" href="#advanced-stuff">#</a>
+</h2>
+<ul>
+<li>Bean profiles - don&rsquo;t do it, try to write code that works in all environments</li>
+<li>SPring Expression Language - used in @Value</li>
+</ul>
 </article>
  
       
@@ -504,6 +630,35 @@ Helps you write scalable code. Baked in with best practices so you can focus on 
     <li><a href="#spring-framework">Spring Framework</a>
       <ul>
         <li><a href="#what-why-would-you-use-it">What? Why would you use it?</a></li>
+        <li><a href="#applicationcontext">ApplicationContext</a></li>
+        <li><a href="#java-configuration">Java configuration</a>
+          <ul>
+            <li><a href="#bean">@Bean</a></li>
+            <li><a href="#configuration">@Configuration</a></li>
+            <li><a href="#setter-injection">Setter injection</a></li>
+            <li><a href="#constructor-injection">Constructor injection</a></li>
+          </ul>
+        </li>
+        <li><a href="#scope">Scope</a>
+          <ul>
+            <li><a href="#singleton">Singleton</a></li>
+            <li><a href="#prototype">Prototype</a></li>
+            <li><a href="#web-scopes">Web scopes</a></li>
+          </ul>
+        </li>
+        <li><a href="#autowiring">Autowiring</a>
+          <ul>
+            <li><a href="#autowired">@Autowired</a></li>
+            <li><a href="#componentscan">@ComponentScan</a></li>
+            <li><a href="#component">@Component</a></li>
+            <li><a href="#repository">@Repository</a></li>
+            <li><a href="#service">@Service</a></li>
+            <li><a href="#controller">@Controller</a></li>
+          </ul>
+        </li>
+        <li><a href="#xml-configuration">XML Configuration</a></li>
+        <li><a href="#bean-lifecycle">Bean lifecycle</a></li>
+        <li><a href="#advanced-stuff">Advanced stuff</a></li>
       </ul>
     </li>
   </ul>
