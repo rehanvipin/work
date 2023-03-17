@@ -193,7 +193,8 @@ Some functionality of an app can be packaged into a library so it can be reused 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/tmp/</guid>
-      <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
+      <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.
+import os import http.server import socketserver import sys from urllib.parse import urlparse HOST = &amp;#34;0.0.0.0&amp;#34; PORT = 3000 if len(sys.argv) &amp;gt; 2: PORT = int(sys.argv[1]) HOST = sys.argv[2] INDEXFILE = &amp;#39;index.html&amp;#39; class MyHandler(http.server.SimpleHTTPRequestHandler): def do_GET(self): # Parse query data to find out what was requested parsedParams = urlparse(self.path) # See if the file requested exists if os.access(&amp;#39;.&amp;#39; + os.</description>
     </item>
     
     <item>
