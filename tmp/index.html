@@ -6,10 +6,10 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Temporary code access # Random stuff that doesn&rsquo;t fit anywhere else.
-import os import http.server import socketserver import sys from urllib.parse import urlparse HOST = &#34;0.0.0.0&#34; PORT = 3000 if len(sys.argv) &gt; 2: PORT = int(sys.argv[1]) HOST = sys.argv[2] INDEXFILE = &#39;index.html&#39; class MyHandler(http.server.SimpleHTTPRequestHandler): def do_GET(self): # Parse query data to find out what was requested parsedParams = urlparse(self.path) # See if the file requested exists if os.access(&#39;.&#39; &#43; os.">
+import argparse import os from http.server import SimpleHTTPRequestHandler from socketserver import TCPServer from urllib.parse import urlparse parser = argparse.ArgumentParser(description=&#39;Start a server.&#39;) parser.add_argument(&#39;-p&#39;, &#39;--port&#39;, type=int, default=3000) parser.add_argument(&#39;-i&#39;, &#39;--interface&#39;, type=str, default=&#39;0.0.0.0&#39;, help=&#39;Interface to bind to&#39;) parser.add_argument(&#39;-b&#39;, &#39;--base-dir&#39;, type=str, default=&#39;.&#39;) args = parser.parse_args() HOST = args.interface PORT = args.port BASE_DIR = args.base_dir INDEXFILE = &#39;index.html&#39; if os.access(BASE_DIR, os.R_OK): os.chdir(BASE_DIR) else: print(&#39;cannot find&#39;, BASE_DIR) exit(1) class MyHandler(SimpleHTTPRequestHandler): def do_GET(self): # Parse query data to find out what was requested parsedParams = urlparse(self.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="/tmp" />
 <meta property="og:description" content="Temporary code access # Random stuff that doesn&rsquo;t fit anywhere else.
-import os import http.server import socketserver import sys from urllib.parse import urlparse HOST = &#34;0.0.0.0&#34; PORT = 3000 if len(sys.argv) &gt; 2: PORT = int(sys.argv[1]) HOST = sys.argv[2] INDEXFILE = &#39;index.html&#39; class MyHandler(http.server.SimpleHTTPRequestHandler): def do_GET(self): # Parse query data to find out what was requested parsedParams = urlparse(self.path) # See if the file requested exists if os.access(&#39;.&#39; &#43; os." />
+import argparse import os from http.server import SimpleHTTPRequestHandler from socketserver import TCPServer from urllib.parse import urlparse parser = argparse.ArgumentParser(description=&#39;Start a server.&#39;) parser.add_argument(&#39;-p&#39;, &#39;--port&#39;, type=int, default=3000) parser.add_argument(&#39;-i&#39;, &#39;--interface&#39;, type=str, default=&#39;0.0.0.0&#39;, help=&#39;Interface to bind to&#39;) parser.add_argument(&#39;-b&#39;, &#39;--base-dir&#39;, type=str, default=&#39;.&#39;) args = parser.parse_args() HOST = args.interface PORT = args.port BASE_DIR = args.base_dir INDEXFILE = &#39;index.html&#39; if os.access(BASE_DIR, os.R_OK): os.chdir(BASE_DIR) else: print(&#39;cannot find&#39;, BASE_DIR) exit(1) class MyHandler(SimpleHTTPRequestHandler): def do_GET(self): # Parse query data to find out what was requested parsedParams = urlparse(self." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/tmp/" /><meta property="article:section" content="" />
 
@@ -441,42 +441,51 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#temporary-code-access">#</a>
 </h1>
 <p>Random stuff that doesn&rsquo;t fit anywhere else.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> http.server
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> socketserver
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#f92672">import</span> argparse
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> http.server <span style="color:#f92672">import</span> SimpleHTTPRequestHandler
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> socketserver <span style="color:#f92672">import</span> TCPServer
 </span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> urllib.parse <span style="color:#f92672">import</span> urlparse
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.0.0.0&#34;</span>
-</span></span><span style="display:flex;"><span>PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> len(sys<span style="color:#f92672">.</span>argv) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span>:
-</span></span><span style="display:flex;"><span>    PORT <span style="color:#f92672">=</span> int(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])
-</span></span><span style="display:flex;"><span>    HOST <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Start a server.&#39;</span>)
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-p&#39;</span>, <span style="color:#e6db74">&#39;--port&#39;</span>, type<span style="color:#f92672">=</span>int, default<span style="color:#f92672">=</span><span style="color:#ae81ff">3000</span>)
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-i&#39;</span>, <span style="color:#e6db74">&#39;--interface&#39;</span>, type<span style="color:#f92672">=</span>str, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0.0.0.0&#39;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Interface to bind to&#39;</span>)
+</span></span><span style="display:flex;"><span>parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-b&#39;</span>, <span style="color:#e6db74">&#39;--base-dir&#39;</span>, type<span style="color:#f92672">=</span>str, default<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;.&#39;</span>)
+</span></span><span style="display:flex;"><span>args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>HOST <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span>interface
+</span></span><span style="display:flex;"><span>PORT <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span>port
+</span></span><span style="display:flex;"><span>BASE_DIR <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span>base_dir
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>INDEXFILE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;index.html&#39;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyHandler</span>(http<span style="color:#f92672">.</span>server<span style="color:#f92672">.</span>SimpleHTTPRequestHandler):
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_GET</span>(self):
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>access(BASE_DIR, os<span style="color:#f92672">.</span>R_OK):
+</span></span><span style="display:flex;"><span>    os<span style="color:#f92672">.</span>chdir(BASE_DIR)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#39;cannot find&#39;</span>, BASE_DIR)
+</span></span><span style="display:flex;"><span>    exit(<span style="color:#ae81ff">1</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Parse query data to find out what was requested</span>
-</span></span><span style="display:flex;"><span>    parsedParams <span style="color:#f92672">=</span> urlparse(self<span style="color:#f92672">.</span>path)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyHandler</span>(SimpleHTTPRequestHandler):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_GET</span>(self):
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#75715e"># See if the file requested exists</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>access(<span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> os<span style="color:#f92672">.</span>sep <span style="color:#f92672">+</span> parsedParams<span style="color:#f92672">.</span>path, os<span style="color:#f92672">.</span>R_OK):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Parse query data to find out what was requested</span>
+</span></span><span style="display:flex;"><span>        parsedParams <span style="color:#f92672">=</span> urlparse(self<span style="color:#f92672">.</span>path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># See if the file requested exists</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>access(<span style="color:#e6db74">&#39;.&#39;</span> <span style="color:#f92672">+</span> os<span style="color:#f92672">.</span>sep <span style="color:#f92672">+</span> parsedParams<span style="color:#f92672">.</span>path, os<span style="color:#f92672">.</span>R_OK):
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># File exists, serve it up</span>
-</span></span><span style="display:flex;"><span>        http<span style="color:#f92672">.</span>server<span style="color:#f92672">.</span>SimpleHTTPRequestHandler<span style="color:#f92672">.</span>do_GET(self);
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            SimpleHTTPRequestHandler<span style="color:#f92672">.</span>do_GET(self);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e"># send index.html, but don&#39;t redirect</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">200</span>)
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>send_header(<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;text/html&#39;</span>)  
-</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>end_headers()
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> open(INDEXFILE, <span style="color:#e6db74">&#39;rb&#39;</span>) <span style="color:#66d9ef">as</span> fin:
-</span></span><span style="display:flex;"><span>          self<span style="color:#f92672">.</span>copyfile(fin, self<span style="color:#f92672">.</span>wfile)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>send_header(<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;text/html&#39;</span>)  
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>end_headers()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">with</span> open(INDEXFILE, <span style="color:#e6db74">&#39;rb&#39;</span>) <span style="color:#66d9ef">as</span> fin:
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>copyfile(fin, self<span style="color:#f92672">.</span>wfile)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Handler <span style="color:#f92672">=</span> MyHandler
 </span></span><span style="display:flex;"><span>HOST_PORT <span style="color:#f92672">=</span> (HOST, PORT)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> socketserver<span style="color:#f92672">.</span>TCPServer(HOST_PORT, Handler) <span style="color:#66d9ef">as</span> httpd:
-</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;serving at port&#34;</span>, HOST_PORT)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> TCPServer(HOST_PORT, MyHandler) <span style="color:#66d9ef">as</span> httpd:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;serving dir -&#34;</span>, BASE_DIR, <span style="color:#e6db74">&#34;- at port&#34;</span>, HOST_PORT)
 </span></span><span style="display:flex;"><span>    httpd<span style="color:#f92672">.</span>serve_forever()
 </span></span></code></pre></div></article>
  
