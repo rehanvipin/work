@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.111.3">
+  <meta name="generator" content="Hugo 0.114.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Async &amp; network stuff # Not everything happens right at once in a webapp. It shouldn&rsquo;t wait for certain events when it can execute other things. This is where asynchronous processing is useful. Promises were the preferred way to do it but now there are observables (from rxjs). Promises represent one event that happens in the future while observables represent zero or more events that could happen synchronously or in the future.">
@@ -449,6 +449,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#scheduler">Scheduler</a></li>
           </ul>
         </li>
+        <li><a href="#rxjs-operators">RxJS operators</a></li>
       </ul>
     </li>
   </ul>
@@ -652,6 +653,13 @@ They are used like this: <code>const sub = new ReplaySubject&lt;number&gt;(buffe
 </h3>
 <p>Controls when subscriptions start. Can modify this so that subscriptions start immediately, on the next event loop, next micro loop, or after some timeout. This is kinda complex so 
   <a href="https://rxjs.dev/guide/scheduler">here&rsquo;s a link to the docs</a>.</p>
+<h2 id="rxjs-operators">
+  RxJS operators
+  <a class="anchor" href="#rxjs-operators">#</a>
+</h2>
+<p>Another section for this topic?? Yep, there&rsquo;s a lot of variety here and these are the popular ones:</p>
+<p>Bunch of useful ones grouped by category: 
+  <a href="https://www.learnrxjs.io/learn-rxjs/operators">https://www.learnrxjs.io/learn-rxjs/operators</a></p>
 </article>
  
       
@@ -697,6 +705,7 @@ They are used like this: <code>const sub = new ReplaySubject&lt;number&gt;(buffe
             <li><a href="#scheduler">Scheduler</a></li>
           </ul>
         </li>
+        <li><a href="#rxjs-operators">RxJS operators</a></li>
       </ul>
     </li>
   </ul>
