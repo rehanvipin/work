@@ -172,3 +172,8 @@ This is the default type of subject created when no type is specified. The subsc
 
 ### Scheduler
 Controls when subscriptions start. Can modify this so that subscriptions start immediately, on the next event loop, next micro loop, or after some timeout. This is kinda complex so [here's a link to the docs](https://rxjs.dev/guide/scheduler).
+
+## RxJS operators
+Another section for this topic?? Yep, there's a lot of variety here and these are the popular ones:
+
+Bunch of useful ones grouped by category: <https://www.learnrxjs.io/learn-rxjs/operators>
