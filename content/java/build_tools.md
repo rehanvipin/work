@@ -1,6 +1,6 @@
 ---
 title: "Build tools"
-weight: 2
+weight: 3
 # bookFlatSection: false
 # bookCollapseSection: false
 # bookComments: true
@@ -10,6 +10,7 @@ Why not just use `javac` ? Well, you can but tools save time because there could
 * Many Java files that need to be compiled for the main file.
 * Incremental builds, building only the classes whose code has changed.
 * External dependencies that need to be fetched.
+* Package code into a `.jar` or `.jmod` file.
 * Custom arguments for compiling certain classes ?
 * Custom arguments for running the tests.
 
