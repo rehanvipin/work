@@ -1,5 +1,5 @@
 ---
-title: "Spring"
+title: "Spring Framework"
 weight: 1
 # bookFlatSection: false
 # bookCollapseSection: false
@@ -8,8 +8,10 @@ weight: 1
 # Spring Framework
 
 ## What? Why would you use it?
-It is a dependency injection framework that helps you simplify your code.
-Helps you write scalable code. Baked in with best practices so you can focus on the business problem.
+It is a dependency injection framework that helps you simplify your code and make it more testable.
+It started as an alternative to Java 2 EE and has now grown beyond it.
+It even includes a web framework (Web MVC) within it.
+Baked in with best practices so you can focus on the business problem.
 
 It encourages you to use interfaces and helps minimize configuration code.
 
