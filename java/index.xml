@@ -12,8 +12,17 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/java/intro/</guid>
-      <description>Introduction &amp;amp; Dev Setup # Firstly, what is Java? Let&amp;rsquo;s look into the Java product as a whole. It has:
-The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.</description>
+      <description>Introduction &amp;amp; Dev Setup # What is the Java platform? # The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment.</description>
+    </item>
+    
+    <item>
+      <title>Mods &amp; Packs</title>
+      <link>https://work.rehanvipin.me/java/modules/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/modules/</guid>
+      <description>Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.
+What are they? How are they different?</description>
     </item>
     
     <item>
@@ -23,7 +32,7 @@ The Java compiler, which defines what the Java language is and converts it to by
       
       <guid>https://work.rehanvipin.me/java/build_tools/</guid>
       <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
-Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Custom arguments for compiling certain classes ? Custom arguments for running the tests. This is what tools like maven and gradle try to solve.</description>
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
     </item>
     
   </channel>

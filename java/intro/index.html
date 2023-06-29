@@ -5,11 +5,9 @@
   <meta name="generator" content="Hugo 0.114.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction &amp; Dev Setup # Firstly, what is Java? Let&rsquo;s look into the Java product as a whole. It has:
-The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.">
+<meta name="description" content="Introduction &amp; Dev Setup # What is the Java platform? # The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Setup" />
-<meta property="og:description" content="Introduction &amp; Dev Setup # Firstly, what is Java? Let&rsquo;s look into the Java product as a whole. It has:
-The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i." />
+<meta property="og:description" content="Introduction &amp; Dev Setup # What is the Java platform? # The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/java/intro/" /><meta property="article:section" content="java" />
 
@@ -326,6 +324,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
   
 
@@ -485,7 +496,14 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction--dev-setup">Introduction &amp; Dev Setup</a></li>
+    <li><a href="#introduction--dev-setup">Introduction &amp; Dev Setup</a>
+      <ul>
+        <li><a href="#what-is-the-java-platform">What is the Java platform?</a></li>
+        <li><a href="#setting-up-dev-environment">Setting up dev environment</a></li>
+        <li><a href="#packaging-the-output">Packaging the output</a></li>
+        <li><a href="#why-is-the-standard-library-a-bunch-of-jmod-files">Why is the standard library a bunch of <code>.jmod</code> files?</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -502,7 +520,10 @@ https://github.com/alex-shpak/hugo-book
   Introduction &amp; Dev Setup
   <a class="anchor" href="#introduction--dev-setup">#</a>
 </h1>
-<p>Firstly, what is Java? Let&rsquo;s look into the Java product as a whole. It has:</p>
+<h2 id="what-is-the-java-platform">
+  What is the Java platform?
+  <a class="anchor" href="#what-is-the-java-platform">#</a>
+</h2>
 <ul>
 <li>The Java compiler, which defines what the Java language is and converts it to bytecode.
 Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files.</li>
@@ -519,10 +540,39 @@ and similarly Java code can use compiled bytecode generated from other languages
 Java SE is a specification for the JDK and a bunch of extra libraries (e.g., Java FX).</p>
 <p>There&rsquo;s also Java ME (Mobile Edition) to run on low capability hardware.</p>
 <p>There&rsquo;s also Java Card for &hellip; smart cards and stuff.</p>
+<p>There <em>was</em> a Java EE but it&rsquo;s not maintained anymore, it&rsquo;s now become Jakarta EE (not sure what that is).</p>
 <p>OpenJDK is an open-source implementation of the Java SE spec. Only source code though.
 It doesn&rsquo;t have any binaries or installers for the JDK.<br>
 Who builds the binaries / installers? People like Azul systems, Oracle, Microsoft, Adoptium etc.
 They might modify the source code a bit.</p>
+<h2 id="setting-up-dev-environment">
+  Setting up dev environment
+  <a class="anchor" href="#setting-up-dev-environment">#</a>
+</h2>
+<ol>
+<li>Firstly, you will need a JDK. You can download a build of the OpenJDK. It&rsquo;s a zip file containing these items: <code>bin  conf  include  jmods  legal  lib  release</code>.</li>
+<li>Unzip the contents in some location e.g., <code>/home/user/jdk</code>. This will be the value of <code>JAVA_HOME</code> variable</li>
+<li>Add the location of the binaries to your <code>PATH</code>, you can add <code>$JAVA_HOME/bin</code></li>
+</ol>
+<p>Where is the compiler and the JVM? In the <code>bin</code> directory.</p>
+<p>Where is the standard library? In the <code>jmods</code> directory. There are a bunch of <code>.jmod</code> files.</p>
+<h2 id="packaging-the-output">
+  Packaging the output
+  <a class="anchor" href="#packaging-the-output">#</a>
+</h2>
+<p>Turns out, the process is similar to creating tar files.
+JAR files on decompression contain <code>.class</code> files arranged in the required structure.
+They also have a <code>META-INF/MANIFEST.MF</code> file which contains metadata about the JAR and tells where the main class is that has to be run. This will be specified in a key-value pair like so: <code>Main-Class: net.java.bingo.Main</code>.</p>
+<p>You can specify a custom manifest file that it will use to create the actual manifest file.
+To do that, just add a <code>m</code> option to the command e.g., <code>jar cmf MY-FAV-MANIFEST.MF Output.jar src/</code>.</p>
+<h2 id="why-is-the-standard-library-a-bunch-of-jmod-files">
+  Why is the standard library a bunch of <code>.jmod</code> files?
+  <a class="anchor" href="#why-is-the-standard-library-a-bunch-of-jmod-files">#</a>
+</h2>
+<p>This change happened in Java 9 to make a space optimize JRE.
+They are very similar to <code>.jar</code> files, they can additionally have native code and other stuff that don&rsquo;t go in JAR files.</p>
+<p>They are to be used in the &ldquo;link&rdquo; phase between the compile and run phase. This is where a set of modules can be assembled and optimized into a custom run-time image. As per the 
+  <a href="https://openjdk.org/jeps/261">JPE</a></p>
 </article>
  
       
@@ -555,7 +605,14 @@ They might modify the source code a bit.</p>
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#introduction--dev-setup">Introduction &amp; Dev Setup</a></li>
+    <li><a href="#introduction--dev-setup">Introduction &amp; Dev Setup</a>
+      <ul>
+        <li><a href="#what-is-the-java-platform">What is the Java platform?</a></li>
+        <li><a href="#setting-up-dev-environment">Setting up dev environment</a></li>
+        <li><a href="#packaging-the-output">Packaging the output</a></li>
+        <li><a href="#why-is-the-standard-library-a-bunch-of-jmod-files">Why is the standard library a bunch of <code>.jmod</code> files?</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
