@@ -5,19 +5,22 @@
   <meta name="generator" content="Hugo 0.114.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Categories" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://work.rehanvipin.me/categories/" />
-<title>Categories | Field Manual</title>
+<meta name="description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Custom arguments for compiling certain classes ? Custom arguments for running the tests. This is what tools like maven and gradle try to solve.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Build tools" />
+<meta property="og:description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Custom arguments for compiling certain classes ? Custom arguments for running the tests. This is what tools like maven and gradle try to solve." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/java/build_tools/" /><meta property="article:section" content="java" />
+
+
+<title>Build tools | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.8592fd2e43835d2ef6fab8eb9b8969ee6ad1bdb888a636e37e28032f8bd9887d.js" integrity="sha256-hZL9LkODXS72&#43;rjrm4lp7mrRvbiIpjbjfigDL4vZiH0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/categories/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -294,7 +297,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-518f725d76ef42edca45fe01865b4d20" class="toggle"  />
+    <input type="checkbox" id="section-518f725d76ef42edca45fe01865b4d20" class="toggle" checked />
     <label for="section-518f725d76ef42edca45fe01865b4d20" class="flex justify-between">
       <a href="https://work.rehanvipin.me/java/" class="">Java</a>
     </label>
@@ -323,7 +326,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+    <a href="https://work.rehanvipin.me/java/build_tools/" class=" active">Build tools</a>
   
 
         </li>
@@ -466,7 +469,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Categories</strong>
+  <strong>Build tools</strong>
 
   <label for="toc-control">
     
@@ -479,29 +482,19 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li><a href="#building-java-code">Building Java code</a>
       <ul>
-      
+        <li><a href="#third-party-dependencies">Third party dependencies</a></li>
+        <li><a href="#maven">Maven</a></li>
+        <li><a href="#gradle">Gradle</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
 
   </aside>
@@ -511,9 +504,35 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
+  <article class="markdown"><h1 id="building-java-code">
+  Building Java code
+  <a class="anchor" href="#building-java-code">#</a>
+</h1>
+<p>Why not just use <code>javac</code> ? Well, you can but tools save time because there could be:</p>
+<ul>
+<li>Many Java files that need to be compiled for the main file.</li>
+<li>Incremental builds, building only the classes whose code has changed.</li>
+<li>External dependencies that need to be fetched.</li>
+<li>Custom arguments for compiling certain classes ?</li>
+<li>Custom arguments for running the tests.</li>
+</ul>
+<p>This is what tools like <code>maven</code> and <code>gradle</code> try to solve.</p>
+<h2 id="third-party-dependencies">
+  Third party dependencies
+  <a class="anchor" href="#third-party-dependencies">#</a>
+</h2>
+<p>Where are these located? Nowadays, most of them are hoste in maven-central (sort of like npm).</p>
+<h2 id="maven">
+  Maven
+  <a class="anchor" href="#maven">#</a>
+</h2>
+<p>Specify the build script(s) in a declarative format in pom.xml.</p>
+<h2 id="gradle">
+  Gradle
+  <a class="anchor" href="#gradle">#</a>
+</h2>
+<p>Specify the build script(s) in a &hellip; scripting language format. With Groovy / Kotlin.</p>
+</article>
  
       
 
@@ -542,29 +561,19 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li><a href="#building-java-code">Building Java code</a>
       <ul>
-      
+        <li><a href="#third-party-dependencies">Third party dependencies</a></li>
+        <li><a href="#maven">Maven</a></li>
+        <li><a href="#gradle">Gradle</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
  
       </div>

@@ -7,15 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="https://work.rehanvipin.me/spring-boot/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Spring</title>
-      <link>https://work.rehanvipin.me/spring-boot/spring/</link>
+      <title>Spring Framework</title>
+      <link>https://work.rehanvipin.me/spring-boot/framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/spring-boot/spring/</guid>
-      <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code. Helps you write scalable code. Baked in with best practices so you can focus on the business problem.
-It encourages you to use interfaces and helps minimize configuration code.
-That should make your app more flexible to different implementations and make it easier to test.
-It&amp;rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans and stuff.</description>
+      <guid>https://work.rehanvipin.me/spring-boot/framework/</guid>
+      <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code and make it more testable. It started as an alternative to Java 2 EE and has now grown beyond it. It even includes a web framework (Web MVC) within it. Baked in with best practices so you can focus on the business problem.
+It encourages you to use interfaces and helps minimize configuration code.</description>
     </item>
     
     <item>

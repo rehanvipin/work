@@ -28,15 +28,33 @@ Typescript # Angular uses TS. It&amp;rsquo;s a superset of JS that compiles to J
     </item>
     
     <item>
-      <title>Spring</title>
-      <link>https://work.rehanvipin.me/spring-boot/spring/</link>
+      <title>Setup</title>
+      <link>https://work.rehanvipin.me/java/intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/spring-boot/spring/</guid>
-      <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code. Helps you write scalable code. Baked in with best practices so you can focus on the business problem.
-It encourages you to use interfaces and helps minimize configuration code.
-That should make your app more flexible to different implementations and make it easier to test.
-It&amp;rsquo;s popular as it encourages developers to write POJOs rather than Enterprise Java Beans and stuff.</description>
+      <guid>https://work.rehanvipin.me/java/intro/</guid>
+      <description>Introduction &amp;amp; Dev Setup # Firstly, what is Java? Let&amp;rsquo;s look into the Java product as a whole. It has:
+The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.</description>
+    </item>
+    
+    <item>
+      <title>Spring Framework</title>
+      <link>https://work.rehanvipin.me/spring-boot/framework/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/spring-boot/framework/</guid>
+      <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code and make it more testable. It started as an alternative to Java 2 EE and has now grown beyond it. It even includes a web framework (Web MVC) within it. Baked in with best practices so you can focus on the business problem.
+It encourages you to use interfaces and helps minimize configuration code.</description>
+    </item>
+    
+    <item>
+      <title>Build tools</title>
+      <link>https://work.rehanvipin.me/java/build_tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/build_tools/</guid>
+      <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Custom arguments for compiling certain classes ? Custom arguments for running the tests. This is what tools like maven and gradle try to solve.</description>
     </item>
     
     <item>
