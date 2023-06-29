@@ -5,24 +5,22 @@
   <meta name="generator" content="Hugo 0.114.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A build tool.
-Some good videos:
-https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx49J1JCdQ ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Gradle" />
-<meta property="og:description" content="A build tool.
-Some good videos:
-https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx49J1JCdQ " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://work.rehanvipin.me/spring-boot/gradle/" /><meta property="article:section" content="spring-boot" />
-
-
-<title>Gradle | Field Manual</title>
+<meta name="description" content="Java # The corporate programming language.
+It&rsquo;s not so bad tbh. It&rsquo;s got a large ecosystem of supporting projects and is somewhat easier to use than C&#43;&#43;.
+People claim that the JVM has been optimized so much over the years that Java programs aren&rsquo;t that slow anymore.
+I know a decent amount of Java, but not enough. I still don&rsquo;t know what classpaths and packages are. This is an attempt to &ldquo;formally&rdquo; understand the language and the ecosystem.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Java" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://work.rehanvipin.me/java/" />
+<title>Java | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.8592fd2e43835d2ef6fab8eb9b8969ee6ad1bdb888a636e37e28032f8bd9887d.js" integrity="sha256-hZL9LkODXS72&#43;rjrm4lp7mrRvbiIpjbjfigDL4vZiH0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/java/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -252,7 +250,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3ebf09082305f5d98c43518ec4d58f24" class="toggle" checked />
+    <input type="checkbox" id="section-3ebf09082305f5d98c43518ec4d58f24" class="toggle"  />
     <label for="section-3ebf09082305f5d98c43518ec4d58f24" class="flex justify-between">
       <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
     </label>
@@ -281,7 +279,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/spring-boot/gradle/" class=" active">Gradle</a>
+    <a href="https://work.rehanvipin.me/spring-boot/gradle/" class="">Gradle</a>
   
 
         </li>
@@ -299,9 +297,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-518f725d76ef42edca45fe01865b4d20" class="toggle"  />
+    <input type="checkbox" id="section-518f725d76ef42edca45fe01865b4d20" class="toggle" checked />
     <label for="section-518f725d76ef42edca45fe01865b4d20" class="flex justify-between">
-      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+      <a href="https://work.rehanvipin.me/java/" class="active">Java</a>
     </label>
   
 
@@ -445,39 +443,50 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Gradle</strong>
+  <strong>Java</strong>
 
   <label for="toc-control">
-    
-    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
 
 
   
-  <aside class="hidden clearfix">
-    
-  
-<nav id="TableOfContents"></nav>
-
-
-
-  </aside>
-  
  
       </header>
 
       
       
-  <article class="markdown"><p>A build tool.</p>
-<p>Some good videos:</p>
+  <article class="markdown"><h1 id="java">
+  Java
+  <a class="anchor" href="#java">#</a>
+</h1>
+<p>The corporate programming language.</p>
+<p>It&rsquo;s not so bad tbh. It&rsquo;s got a large ecosystem of supporting projects and is somewhat easier to use than C++.</p>
+<p>People claim that the JVM has been optimized so much over the years that Java programs aren&rsquo;t that slow anymore.</p>
+<p>I know a decent amount of Java, but not enough. I still don&rsquo;t know what classpaths and packages are.
+This is an attempt to &ldquo;formally&rdquo; understand the language and the ecosystem.</p>
+<h2 id="plan">
+  Plan
+  <a class="anchor" href="#plan">#</a>
+</h2>
 <ul>
 <li>
-  <a href="https://www.youtube.com/watch?v=gKPMKRnnbXU">https://www.youtube.com/watch?v=gKPMKRnnbXU</a></li>
+  <a href="https://app.pluralsight.com/library/courses/modern-java-big-picture/table-of-contents">An overview of modern java</a></li>
 <li>
-  <a href="https://www.youtube.com/watch?v=ojx49J1JCdQ">https://www.youtube.com/watch?v=ojx49J1JCdQ</a></li>
+  <a href="https://app.pluralsight.com/library/courses/setting-up-java-development-environment/table-of-contents">Setting up a development environment</a></li>
+<li>
+  <a href="https://app.pluralsight.com/library/courses/understanding-java-vm-memory-management/table-of-contents">Memory management in the JVM</a>. There are other JVM courses too, they seem interesting.</li>
+<li>
+  <a href="https://app.pluralsight.com/paths/skill/java-se-17">Java 17</a>. Some things are new in the latest LTS, check out how they can help.</li>
+<li>
+  <a href="https://www.baeldung.com/java-tutorial">Baeldung&rsquo;s series</a> covers a lot of topics. Check out some of the new stuff there.</li>
 </ul>
+<h2 id="do-something-with-this">
+  Do something with this?
+  <a class="anchor" href="#do-something-with-this">#</a>
+</h2>
+<p>So many courses and tutorials. What do I do with this knowledge? 🤔</p>
 </article>
  
       
@@ -503,17 +512,6 @@ https://github.com/alex-shpak/hugo-book
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  
-<nav id="TableOfContents"></nav>
-
-
- 
-      </div>
-    </aside>
     
   </main>
 
