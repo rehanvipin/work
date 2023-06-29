@@ -58,3 +58,9 @@ This change happened in Java 9 to make a space optimize JRE.
 They are very similar to `.jar` files, they can additionally have native code and other stuff that don't go in JAR files.
 
 They are to be used in the "link" phase between the compile and run phase. This is where a set of modules can be assembled and optimized into a custom run-time image. As per the [JPE](https://openjdk.org/jeps/261)
+
+## The JRE
+[Info here](https://www.baeldung.com/jvm-vs-jre-vs-jdk)
+
+## The development tools
+[Info here](https://www.baeldung.com/jvm-vs-jre-vs-jdk)
