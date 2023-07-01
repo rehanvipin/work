@@ -11,3 +11,8 @@ Previously it was through packages and classpath.
 After [project jigsaw](https://www.baeldung.com/project-jigsaw-java-modularity), it is through modules.
 
 What are they? How are they different?
+
+Good resources for the same:
+* https://dev.java/learn/packages/
+* https://dev.java/learn/modules/
+* https://dev.java/learn/jlink/

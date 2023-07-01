@@ -46,7 +46,7 @@ Where is the standard library? In the `jmods` directory. There are a bunch of `.
 
 
 ## Packaging the output
-Turns out, the process is similar to creating tar files.
+Turns out, the process is similar to creating tar files. It actually follow the `.zip` format though.
 JAR files on decompression contain `.class` files arranged in the required structure.
 They also have a `META-INF/MANIFEST.MF` file which contains metadata about the JAR and tells where the main class is that has to be run. This will be specified in a key-value pair like so: `Main-Class: net.java.bingo.Main`.
 
@@ -59,8 +59,38 @@ They are very similar to `.jar` files, they can additionally have native code an
 
 They are to be used in the "link" phase between the compile and run phase. This is where a set of modules can be assembled and optimized into a custom run-time image. As per the [JPE](https://openjdk.org/jeps/261)
 
+## The JVM
+What's the default VM that Java uses? It's called the [Hotspot VM](https://openjdk.org/groups/hotspot/).
+The Hotspot project has also developed runtime libraries.
+
+The Java VM could be seen as being made of:
+
+### Class loaders
+Loads classes as required, dynamically, to the JVM.
+
+### Interpreter
+This executes bytcode line by line.
+
+### JIT Compiler
+If a method is being called frequently, it is compiled to machine code in a separate thread.
+Once that's done, the next invocation would be through machine code directly. Meaning it will be faster.
+
+There's also the garbage collector and platform specific libraries required for execution.
+For cases where you need to access native methods through Java, there's also the Java Native Interface.
+
+### Passing CLI properties to the JVM
+There are some standard options e.g., -cp for classpath, -agentlib, -dsa etc.
+How do you define system properties for your program? Through `-Dprop-name=prop-value` .
+There are some non-standard options which can be set with `-Xprop-name=prop-value` .
+Some advanced options can be set with `-XX`
+
+I should probably create a separate section about exploring the JVM.
+
 ## The JRE
-[Info here](https://www.baeldung.com/jvm-vs-jre-vs-jdk)
+What are the classes / properties files required to run java programs?
+Note that the location of these classes have changed with Java 9. [Relevant JEP](https://openjdk.org/jeps/220) explaining the new locations.
+There's no more an `rt.jar` or `tools.jar` (which were known as bootstrap classes), they have been moved to modules in the `lib` directory.
+The configuration files are at `$JAVA_HOME/conf`.
 
 ## The development tools
-[Info here](https://www.baeldung.com/jvm-vs-jre-vs-jdk)
+There are a bunch of extra tools like disassemblers, debuggers, security tools, RPC tools and monitoring tools (e.g., jps, jconsole etc) which come with the JDK. A small list of them can be found here : [Baeldung](https://www.baeldung.com/jvm-vs-jre-vs-jdk#jdk).
