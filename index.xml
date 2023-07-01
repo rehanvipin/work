@@ -74,8 +74,10 @@ https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx4
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/java/modules/</guid>
-      <description>Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.
-What are they? How are they different?</description>
+      <description> Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.
+What are they? How are they different?
+Good resources for the same:
+https://dev.java/learn/packages/ https://dev.java/learn/modules/ https://dev.java/learn/jlink/ </description>
     </item>
     
     <item>
@@ -90,13 +92,14 @@ Any definitions in a class declaration are moved to the constructor when the cod
     </item>
     
     <item>
-      <title>Build tools</title>
-      <link>https://work.rehanvipin.me/java/build_tools/</link>
+      <title>JVM</title>
+      <link>https://work.rehanvipin.me/java/jvm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://work.rehanvipin.me/java/build_tools/</guid>
-      <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
-Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
+      <guid>https://work.rehanvipin.me/java/jvm/</guid>
+      <description> The Java Virtual Machine # It executes the bytecode apparently.
+Learn more about it&amp;rsquo;s internals through these courses:
+Memory Management Class Loading </description>
     </item>
     
     <item>
@@ -119,6 +122,16 @@ Binding in HTML JS in HTML? # There are multiple ways you can use JS objects in 
       <description>Tips, tricks, and resources # Modern JS has many inbuilt features, not all of them are so well known. Check them out, from the stateOfJS22
 Good resource &amp;amp; book on how to design modern web apps: https://www.patterns.dev/
 Variable hoisting was an unintended addition that came along with function hoisting when JS was being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations. This stackoverflow q&amp;amp;a has some good answers.</description>
+    </item>
+    
+    <item>
+      <title>Build tools</title>
+      <link>https://work.rehanvipin.me/java/build_tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/build_tools/</guid>
+      <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
     </item>
     
     <item>

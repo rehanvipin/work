@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.114.1">
+  <meta name="generator" content="Hugo 0.115.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Introduction &amp; Dev Setup # What is the Java platform? # The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment.">
@@ -337,6 +337,19 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
     <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
   
 
@@ -502,6 +515,14 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#setting-up-dev-environment">Setting up dev environment</a></li>
         <li><a href="#packaging-the-output">Packaging the output</a></li>
         <li><a href="#why-is-the-standard-library-a-bunch-of-jmod-files">Why is the standard library a bunch of <code>.jmod</code> files?</a></li>
+        <li><a href="#the-jvm">The JVM</a>
+          <ul>
+            <li><a href="#class-loaders">Class loaders</a></li>
+            <li><a href="#interpreter">Interpreter</a></li>
+            <li><a href="#jit-compiler">JIT Compiler</a></li>
+            <li><a href="#passing-cli-properties-to-the-jvm">Passing CLI properties to the JVM</a></li>
+          </ul>
+        </li>
         <li><a href="#the-jre">The JRE</a></li>
         <li><a href="#the-development-tools">The development tools</a></li>
       </ul>
@@ -562,7 +583,7 @@ They might modify the source code a bit.</p>
   Packaging the output
   <a class="anchor" href="#packaging-the-output">#</a>
 </h2>
-<p>Turns out, the process is similar to creating tar files.
+<p>Turns out, the process is similar to creating tar files. It actually follow the <code>.zip</code> format though.
 JAR files on decompression contain <code>.class</code> files arranged in the required structure.
 They also have a <code>META-INF/MANIFEST.MF</code> file which contains metadata about the JAR and tells where the main class is that has to be run. This will be specified in a key-value pair like so: <code>Main-Class: net.java.bingo.Main</code>.</p>
 <p>You can specify a custom manifest file that it will use to create the actual manifest file.
@@ -575,18 +596,56 @@ To do that, just add a <code>m</code> option to the command e.g., <code>jar cmf 
 They are very similar to <code>.jar</code> files, they can additionally have native code and other stuff that don&rsquo;t go in JAR files.</p>
 <p>They are to be used in the &ldquo;link&rdquo; phase between the compile and run phase. This is where a set of modules can be assembled and optimized into a custom run-time image. As per the 
   <a href="https://openjdk.org/jeps/261">JPE</a></p>
+<h2 id="the-jvm">
+  The JVM
+  <a class="anchor" href="#the-jvm">#</a>
+</h2>
+<p>What&rsquo;s the default VM that Java uses? It&rsquo;s called the 
+  <a href="https://openjdk.org/groups/hotspot/">Hotspot VM</a>.
+The Hotspot project has also developed runtime libraries.</p>
+<p>The Java VM could be seen as being made of:</p>
+<h3 id="class-loaders">
+  Class loaders
+  <a class="anchor" href="#class-loaders">#</a>
+</h3>
+<p>Loads classes as required, dynamically, to the JVM.</p>
+<h3 id="interpreter">
+  Interpreter
+  <a class="anchor" href="#interpreter">#</a>
+</h3>
+<p>This executes bytcode line by line.</p>
+<h3 id="jit-compiler">
+  JIT Compiler
+  <a class="anchor" href="#jit-compiler">#</a>
+</h3>
+<p>If a method is being called frequently, it is compiled to machine code in a separate thread.
+Once that&rsquo;s done, the next invocation would be through machine code directly. Meaning it will be faster.</p>
+<p>There&rsquo;s also the garbage collector and platform specific libraries required for execution.
+For cases where you need to access native methods through Java, there&rsquo;s also the Java Native Interface.</p>
+<h3 id="passing-cli-properties-to-the-jvm">
+  Passing CLI properties to the JVM
+  <a class="anchor" href="#passing-cli-properties-to-the-jvm">#</a>
+</h3>
+<p>There are some standard options e.g., -cp for classpath, -agentlib, -dsa etc.
+How do you define system properties for your program? Through <code>-Dprop-name=prop-value</code> .
+There are some non-standard options which can be set with <code>-Xprop-name=prop-value</code> .
+Some advanced options can be set with <code>-XX</code></p>
+<p>I should probably create a separate section about exploring the JVM.</p>
 <h2 id="the-jre">
   The JRE
   <a class="anchor" href="#the-jre">#</a>
 </h2>
-<p>
-  <a href="https://www.baeldung.com/jvm-vs-jre-vs-jdk">Info here</a></p>
+<p>What are the classes / properties files required to run java programs?
+Note that the location of these classes have changed with Java 9. 
+  <a href="https://openjdk.org/jeps/220">Relevant JEP</a> explaining the new locations.
+There&rsquo;s no more an <code>rt.jar</code> or <code>tools.jar</code> (which were known as bootstrap classes), they have been moved to modules in the <code>lib</code> directory.
+The configuration files are at <code>$JAVA_HOME/conf</code>.</p>
 <h2 id="the-development-tools">
   The development tools
   <a class="anchor" href="#the-development-tools">#</a>
 </h2>
-<p>
-  <a href="https://www.baeldung.com/jvm-vs-jre-vs-jdk">Info here</a></p>
+<p>There are a bunch of extra tools like disassemblers, debuggers, security tools, RPC tools and monitoring tools (e.g., jps, jconsole etc) which come with the JDK. A small list of them can be found here : 
+  <a href="https://www.baeldung.com/jvm-vs-jre-vs-jdk#jdk">Baeldung</a>.</p>
 </article>
  
       
@@ -625,6 +684,14 @@ They are very similar to <code>.jar</code> files, they can additionally have nat
         <li><a href="#setting-up-dev-environment">Setting up dev environment</a></li>
         <li><a href="#packaging-the-output">Packaging the output</a></li>
         <li><a href="#why-is-the-standard-library-a-bunch-of-jmod-files">Why is the standard library a bunch of <code>.jmod</code> files?</a></li>
+        <li><a href="#the-jvm">The JVM</a>
+          <ul>
+            <li><a href="#class-loaders">Class loaders</a></li>
+            <li><a href="#interpreter">Interpreter</a></li>
+            <li><a href="#jit-compiler">JIT Compiler</a></li>
+            <li><a href="#passing-cli-properties-to-the-jvm">Passing CLI properties to the JVM</a></li>
+          </ul>
+        </li>
         <li><a href="#the-jre">The JRE</a></li>
         <li><a href="#the-development-tools">The development tools</a></li>
       </ul>

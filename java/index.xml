@@ -21,8 +21,21 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/java/modules/</guid>
-      <description>Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.
-What are they? How are they different?</description>
+      <description> Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.
+What are they? How are they different?
+Good resources for the same:
+https://dev.java/learn/packages/ https://dev.java/learn/modules/ https://dev.java/learn/jlink/ </description>
+    </item>
+    
+    <item>
+      <title>JVM</title>
+      <link>https://work.rehanvipin.me/java/jvm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/jvm/</guid>
+      <description> The Java Virtual Machine # It executes the bytecode apparently.
+Learn more about it&amp;rsquo;s internals through these courses:
+Memory Management Class Loading </description>
     </item>
     
     <item>
