@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.115.0">
+  <meta name="generator" content="Hugo 0.115.2">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
-Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.">
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. (Transitive dependencies! Versions!) Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Build tools" />
 <meta property="og:description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
-Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests." />
+Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. (Transitive dependencies! Versions!) Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://work.rehanvipin.me/java/build_tools/" /><meta property="article:section" content="java" />
 
@@ -513,6 +513,7 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#building-java-code">Building Java code</a>
       <ul>
+        <li><a href="#compile-and-execute-with-external-libraries">Compile and execute with external libraries</a></li>
         <li><a href="#third-party-dependencies">Third party dependencies</a></li>
         <li><a href="#maven">Maven</a></li>
         <li><a href="#gradle">Gradle</a></li>
@@ -538,12 +539,41 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li>Many Java files that need to be compiled for the main file.</li>
 <li>Incremental builds, building only the classes whose code has changed.</li>
-<li>External dependencies that need to be fetched.</li>
+<li>External dependencies that need to be fetched. (Transitive dependencies! Versions!)</li>
 <li>Package code into a <code>.jar</code> or <code>.jmod</code> file.</li>
 <li>Custom arguments for compiling certain classes ?</li>
 <li>Custom arguments for running the tests.</li>
 </ul>
 <p>This is what tools like <code>maven</code> and <code>gradle</code> try to solve.</p>
+<h2 id="compile-and-execute-with-external-libraries">
+  Compile and execute with external libraries
+  <a class="anchor" href="#compile-and-execute-with-external-libraries">#</a>
+</h2>
+<p>Suppose you wanted to use the <code>jackson-databind</code> package, how do you do it manually?</p>
+<ol>
+<li>Use the classes from the library in your code, e.g.:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ol start="2">
+<li>Download the jar file for the package from maven-central. You will now have a file like so: <code>jackson-databind-2.15.2.jar</code></li>
+<li>Compile your java file, i.e., <code>A.java</code> like so: <code>javac -cp jackson-databind-2.15.2.jar A.java</code></li>
+<li>Download the jar files for all transitive dependencies of <code>jackson-databind</code>,
+which happen to be <code>jackson-annotations-2.15.2.jar</code> and <code>jackson-core-2.15.2.jar</code>.</li>
+<li>Execute your class like so: <code>java -cp jackson-databind-2.15.2.jar:jackson-annotations-2.15.2.jar:jackson-core-2.15.2.jar:. A</code>
+(note that the current directory was put on classpath as well, this is so that it can find class <code>A</code>)</li>
+</ol>
+<p>What&rsquo;s the default classpath? The current directory from where you are executing <code>java</code>.<br>
+Will it search recursively in the classpath directories trying to find your files? No.<br>
+There is no trying. It will look in the exact location. Nothing else.</p>
+<p>There&rsquo;s also <code>-module-path</code> ??</p>
+<p>The <code>javac</code> command also requires the <code>-cp</code> argument when there are dependencies.
+You can see which class files and source files it loads by passing the <code>-verbose</code> option.
+The command doesn&rsquo;t just compile the <code>.java</code> file you have specified, it would compile any other <code>.java</code> files that your file uses and don&rsquo;t yet have corresponding <code>.class</code> files.</p>
 <h2 id="third-party-dependencies">
   Third party dependencies
   <a class="anchor" href="#third-party-dependencies">#</a>
@@ -593,6 +623,7 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#building-java-code">Building Java code</a>
       <ul>
+        <li><a href="#compile-and-execute-with-external-libraries">Compile and execute with external libraries</a></li>
         <li><a href="#third-party-dependencies">Third party dependencies</a></li>
         <li><a href="#maven">Maven</a></li>
         <li><a href="#gradle">Gradle</a></li>
