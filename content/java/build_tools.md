@@ -48,7 +48,12 @@ The command doesn't just compile the `.java` file you have specified, it would c
 Where are these located? Nowadays, most of them are hoste in maven-central (sort of like npm).
 
 ## Maven
-Specify the build script(s) in a declarative format in pom.xml.
+Helps in managing project dependencies, build / test tasks, and documentation.
+You can the project info in a declarative format in pom.xml.
+
+### Setup
+Download and install `mvn` in your system.
+The `MAVEN_HOME` variable is required to be set in the parent dir of `bin` where `mvn` is present.
 
 ## Gradle
-Specify the build script(s) in a ... scripting language format. With Groovy / Kotlin.
+Similar objectives to Maven, but you can specify the project info in a ... scripting language format. With Groovy / Kotlin.
