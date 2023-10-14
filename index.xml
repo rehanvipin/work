@@ -158,6 +158,16 @@ import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39; Directive({ se
     </item>
     
     <item>
+      <title>Web Server</title>
+      <link>https://work.rehanvipin.me/java/web-server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/web-server/</guid>
+      <description>Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.
+Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring</description>
+    </item>
+    
+    <item>
       <title>Routing</title>
       <link>https://work.rehanvipin.me/angular/routing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -234,8 +244,7 @@ Some functionality of an app can be packaged into a library so it can be reused 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://work.rehanvipin.me/tmp/</guid>
-      <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.
-import argparse import os from http.server import SimpleHTTPRequestHandler from socketserver import TCPServer from urllib.parse import urlparse parser = argparse.ArgumentParser(description=&amp;#39;Start a server.&amp;#39;) parser.add_argument(&amp;#39;-p&amp;#39;, &amp;#39;--port&amp;#39;, type=int, default=3000) parser.add_argument(&amp;#39;-i&amp;#39;, &amp;#39;--interface&amp;#39;, type=str, default=&amp;#39;0.0.0.0&amp;#39;, help=&amp;#39;Interface to bind to&amp;#39;) parser.add_argument(&amp;#39;-b&amp;#39;, &amp;#39;--base-dir&amp;#39;, type=str, default=&amp;#39;.&amp;#39;) args = parser.parse_args() HOST = args.interface PORT = args.port BASE_DIR = args.base_dir INDEXFILE = &amp;#39;index.html&amp;#39; if os.access(BASE_DIR, os.R_OK): os.chdir(BASE_DIR) else: print(&amp;#39;cannot find&amp;#39;, BASE_DIR) exit(1) class MyHandler(SimpleHTTPRequestHandler): def do_GET(self): # Parse query data to find out what was requested parsedParams = urlparse(self.</description>
+      <description>Temporary code access # Random stuff that doesn&amp;rsquo;t fit anywhere else.</description>
     </item>
     
     <item>

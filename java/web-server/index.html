@@ -5,23 +5,22 @@
   <meta name="generator" content="Hugo 0.119.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Java # The corporate programming language.
-It&rsquo;s got a large ecosystem of supporting projects and is somewhat easier to use than C&#43;&#43;.
-The general idea is that the JVM has been optimized so much over the years that Java programs aren&rsquo;t slow-by-default anymore.
-I know a decent amount of Java, but not enough. I still don&rsquo;t know what classpaths and packages are.
-Plan # Setting up a development environment. Learn a bit about the internals of the JVM.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Java" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://work.rehanvipin.me/java/" />
-<title>Java | Field Manual</title>
+<meta name="description" content="Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.
+Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Web Server" />
+<meta property="og:description" content="Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.
+Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/java/web-server/" /><meta property="article:section" content="java" />
+
+
+<title>Web Server | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.5c5101b402ea3d030b4ce219bb8eccd5c09317d7f2c253758c72c62841d3f173.js" integrity="sha256-XFEBtALqPQMLTOIZu47M1cCTF9fywlN1jHLGKEHT8XM="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/java/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -300,7 +299,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-518f725d76ef42edca45fe01865b4d20" class="toggle" checked />
     <label for="section-518f725d76ef42edca45fe01865b4d20" class="flex justify-between">
-      <a href="https://work.rehanvipin.me/java/" class="active">Java</a>
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
     </label>
   
 
@@ -366,7 +365,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+    <a href="https://work.rehanvipin.me/java/web-server/" class=" active">Web Server</a>
   
 
         </li>
@@ -509,55 +508,51 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Java</strong>
+  <strong>Web Server</strong>
 
   <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
 
 
   
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sharing-stuff-to-browsers">Sharing stuff to browsers</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="java">
-  Java
-  <a class="anchor" href="#java">#</a>
+  <article class="markdown"><h1 id="sharing-stuff-to-browsers">
+  Sharing stuff to browsers
+  <a class="anchor" href="#sharing-stuff-to-browsers">#</a>
 </h1>
-<p>The corporate programming language.</p>
-<p>It&rsquo;s got a large ecosystem of supporting projects and is somewhat easier to use than C++.</p>
-<p>The general idea is that the JVM has been optimized so much over the years that Java programs aren&rsquo;t slow-by-default anymore.</p>
-<p>I know a decent amount of Java, but not enough. I still don&rsquo;t know what classpaths and packages are.</p>
-<h2 id="plan">
-  Plan
-  <a class="anchor" href="#plan">#</a>
-</h2>
-<ul>
-<li>
-  <a href="https://app.pluralsight.com/library/courses/setting-up-java-development-environment/table-of-contents">Setting up a development environment</a>.</li>
-<li>Learn a bit about the internals of the JVM.</li>
-<li>
-  <a href="https://app.pluralsight.com/library/courses/java-se-17-playbook/table-of-contents">A playbook for common tasks</a>.</li>
-<li>
-  <a href="https://app.pluralsight.com/library/courses/java-se-17-refactoring-solid-code/table-of-contents">Refactoring code</a> according to SOLID principles.</li>
-</ul>
-<p>Is this too unorganized? There&rsquo;s a more structured way to learn Java : 
-  <a href="https://dev.java/learn/">dev.java</a> that you could follow.</p>
-<h2 id="do-something-with-this">
-  Do something with this?
-  <a class="anchor" href="#do-something-with-this">#</a>
-</h2>
-<p>So many courses and tutorials. What do I do with this knowledge? 🤔
-No idea, honestly.</p>
-<h2 id="fun-facts">
-  Fun facts
-  <a class="anchor" href="#fun-facts">#</a>
-</h2>
-<p>There&rsquo;s a bunch of FAQs on the Collections API. 
-  <a href="https://docs.oracle.com/en/java/javase/20/docs/api/java.base/java/util/doc-files/coll-designfaq.html">About their design</a>.</p>
+<p>Sure, you can use Spring MVC and others, but what about using something more low-level.</p>
+<ol>
+<li>Jetty Server</li>
+<li>Jetty Servlet (to handle requests)</li>
+<li>Apache CXF (to implement REST APIs, compliant with JAX-RS)</li>
+</ol>
+<p>
+  <a href="https://www.baeldung.com/jetty-embedded">https://www.baeldung.com/jetty-embedded</a>
+
+  <a href="https://www.baeldung.com/introduction-to-apache-cxf">https://www.baeldung.com/introduction-to-apache-cxf</a>
+
+  <a href="https://www.baeldung.com/rest-api-jax-rs-vs-spring">https://www.baeldung.com/rest-api-jax-rs-vs-spring</a></p>
 </article>
  
       
@@ -583,6 +578,21 @@ No idea, honestly.</p>
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#sharing-stuff-to-browsers">Sharing stuff to browsers</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
     
   </main>
 

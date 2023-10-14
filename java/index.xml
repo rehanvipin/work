@@ -48,5 +48,15 @@ Memory Management Class Loading </description>
 Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. (Transitive dependencies! Versions!) Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
     </item>
     
+    <item>
+      <title>Web Server</title>
+      <link>https://work.rehanvipin.me/java/web-server/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://work.rehanvipin.me/java/web-server/</guid>
+      <description>Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.
+Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring</description>
+    </item>
+    
   </channel>
 </rss>
