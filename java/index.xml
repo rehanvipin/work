@@ -5,58 +5,42 @@
     <link>https://work.rehanvipin.me/java/</link>
     <description>Recent content in Java on Field Manual</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://work.rehanvipin.me/java/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://work.rehanvipin.me/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup</title>
       <link>https://work.rehanvipin.me/java/intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://work.rehanvipin.me/java/intro/</guid>
       <description>Introduction &amp;amp; Dev Setup # What is the Java platform? # The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment.</description>
     </item>
-    
     <item>
       <title>Mods &amp; Packs</title>
       <link>https://work.rehanvipin.me/java/modules/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://work.rehanvipin.me/java/modules/</guid>
-      <description> Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.
-What are they? How are they different?
-Good resources for the same:
-https://dev.java/learn/packages/ https://dev.java/learn/modules/ https://dev.java/learn/jlink/ </description>
+      <description> Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.&#xA;What are they? How are they different?&#xA;Good resources for the same:&#xA;https://dev.java/learn/packages/ https://dev.java/learn/modules/ https://dev.java/learn/jlink/ </description>
     </item>
-    
     <item>
       <title>JVM</title>
       <link>https://work.rehanvipin.me/java/jvm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://work.rehanvipin.me/java/jvm/</guid>
-      <description> The Java Virtual Machine # It executes the bytecode apparently.
-Learn more about it&amp;rsquo;s internals through these courses:
-Memory Management Class Loading </description>
+      <description> The Java Virtual Machine # It executes the bytecode apparently.&#xA;Learn more about it&amp;rsquo;s internals through these courses:&#xA;Memory Management Class Loading </description>
     </item>
-    
     <item>
       <title>Build tools</title>
       <link>https://work.rehanvipin.me/java/build_tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://work.rehanvipin.me/java/build_tools/</guid>
-      <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
-Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. (Transitive dependencies! Versions!) Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
+      <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:&#xA;Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. (Transitive dependencies! Versions!) Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
     </item>
-    
     <item>
       <title>Web Server</title>
       <link>https://work.rehanvipin.me/java/web-server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://work.rehanvipin.me/java/web-server/</guid>
-      <description>Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.
-Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring</description>
+      <description>Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.&#xA;Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring</description>
     </item>
-    
   </channel>
 </rss>

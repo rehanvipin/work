@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.119.0">
+  <meta name="generator" content="Hugo 0.123.8">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
@@ -14,11 +14,12 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <meta property="og:url" content="https://work.rehanvipin.me/java/build_tools/" /><meta property="article:section" content="java" />
 
 
+
 <title>Build tools | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.5c5101b402ea3d030b4ce219bb8eccd5c09317d7f2c253758c72c62841d3f173.js" integrity="sha256-XFEBtALqPQMLTOIZu47M1cCTF9fywlN1jHLGKEHT8XM="></script>
+<script defer src="/en.search.min.cfd1d34daa58dfc8ba7893aa432fe2080cec5974c54a004dc0374f79e7595769.js" integrity="sha256-z9HTTapY38i6eJOqQy/iCAzsWXTFSgBNwDdPeedZV2k="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -73,8 +74,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-c029195c85e40978d9a8f4514856eec8" class="toggle"  />
-    <label for="section-c029195c85e40978d9a8f4514856eec8" class="flex justify-between">
+    <input type="checkbox" id="section-db70775a2f464f55832baa63954506fc" class="toggle"  />
+    <label for="section-db70775a2f464f55832baa63954506fc" class="flex justify-between">
       <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
     </label>
   
@@ -250,8 +251,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-3ebf09082305f5d98c43518ec4d58f24" class="toggle"  />
-    <label for="section-3ebf09082305f5d98c43518ec4d58f24" class="flex justify-between">
+    <input type="checkbox" id="section-044fa29ae89cdc7fefbeda99f0fc5d1f" class="toggle"  />
+    <label for="section-044fa29ae89cdc7fefbeda99f0fc5d1f" class="flex justify-between">
       <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
     </label>
   
@@ -297,8 +298,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-518f725d76ef42edca45fe01865b4d20" class="toggle" checked />
-    <label for="section-518f725d76ef42edca45fe01865b4d20" class="flex justify-between">
+    <input type="checkbox" id="section-a533dae2ec66f5b51d3c38ec9d934c01" class="toggle" checked />
+    <label for="section-a533dae2ec66f5b51d3c38ec9d934c01" class="flex justify-between">
       <a href="https://work.rehanvipin.me/java/" class="">Java</a>
     </label>
   
@@ -570,12 +571,12 @@ https://github.com/alex-shpak/hugo-book
 <ol>
 <li>Use the classes from the library in your code, e.g.:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>        ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper<span style="color:#f92672">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>() {
+</span></span><span style="display:flex;"><span>        ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ol start="2">
 <li>Download the jar file for the package from maven-central. You will now have a file like so: <code>jackson-databind-2.15.2.jar</code></li>
 <li>Compile your java file, i.e., <code>A.java</code> like so: <code>javac -cp jackson-databind-2.15.2.jar A.java</code></li>
