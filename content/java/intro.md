@@ -92,5 +92,11 @@ Note that the location of these classes have changed with Java 9. [Relevant JEP]
 There's no more an `rt.jar` or `tools.jar` (which were known as bootstrap classes), they have been moved to modules in the `lib` directory.
 The configuration files are at `$JAVA_HOME/conf`.
 
+Now, it's also possible to create your own JRE which contains the modules only required to run your app.
+This can be done via `jlink` and helps in making Java apps which ship with their own JRE and don't have
+any requirements on the users to have a full JRE pre-installed.
+
+How can you do so? Adoptium has a [small guide](https://adoptium.net/blog/2021/10/jlink-to-produce-own-runtime/).
+
 ## The development tools
 There are a bunch of extra tools like disassemblers, debuggers, security tools, RPC tools and monitoring tools (e.g., jps, jconsole etc) which come with the JDK. A small list of them can be found here : [Baeldung](https://www.baeldung.com/jvm-vs-jre-vs-jdk#jdk).

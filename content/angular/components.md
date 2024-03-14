@@ -102,5 +102,7 @@ A component goes through a set of events during its lifecycle. It's possible to 
 
 A full list of them, when they're called and what they do is present [in the docs](https://angular.io/guide/lifecycle-hooks#lifecycle-event-sequence)
 
+And some good examples for each one are in this [article](https://angularindepth.com/posts/1494/complete-guide-angular-lifecycle-hooks)
+
 ## Dynamic loading!
 TODO: get back to this. [The docs was a bit more complicated than expected.](https://angular.io/guide/dynamic-component-loader)

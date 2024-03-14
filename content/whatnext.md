@@ -11,6 +11,12 @@ weight: 21
 These sound useful:
 
 * Search for "TODO" in notes and do those parts
+* Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
+"schematics" seems to be something cool.
+* Learn more about JS and TS. JS WebAPIs and event loop to be specific. [Talk 1](https://www.youtube.com/watch?v=cCOL7MC4Pl0&t=170s) and [Talk 2](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
+* RxJS and Angular Signals from this [course](https://app.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals/table-of-contents)
+* The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles [one](https://angularindepth.com/posts/1001/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error) and [two](https://angularindepth.com/posts/1514/deep-dive-into-the-infamous-expressionchangedafterithasbeencheckederror-in-angular)
+* About change detection in Angular. [one](https://angularindepth.com/posts/1512/change-detection-and-component-trees-in-angular-applications) and [two](https://angularindepth.com/posts/1509/overview-of-angulars-change-detection-operations-in-ivy)
 * Get an overview of what design is about [from this talk](https://www.youtube.com/watch?v=FBUJYEQ7OGY).
 * Learn how to use penpot [with their YT tutorials](https://www.youtube.com/watch?v=MpINco5nWw4&list=PLgcCPfOv5v57cJS0im5FYFwbsu6X5mkNq). [This walkthrough can give a good idea](https://www.youtube.com/watch?v=KUg3xIFWK_g).
 * Note down points from [Brad's](https://www.youtube.com/watch?v=XsEnj-1hG2o) [Walkthroughs](https://www.youtube.com/watch?v=moBhzSC455o) and [also](https://www.youtube.com/watch?v=KYFwcIRx16g) [Kevin's](https://www.youtube.com/watch?v=RhLMEdiKuMg).
@@ -18,7 +24,3 @@ These sound useful:
 and use what you're building. [Some points from here](https://www.freecodecamp.org/news/how-to-write-good-documentation/) and [this place which shows you how to start](https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/). There are also [principles to follow](https://www.writethedocs.org/guide/writing/docs-principles/).
 * Common design patterns [from a good fcc article](https://www.freecodecamp.org/news/javascript-design-patterns-explained/)
 * [Good article on testing.](https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/) This covers TDD and stuff
-* Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
-"schematics" seems to be something cool.
-
-No rush, gonna add things whenever I feel the need to 🍃
