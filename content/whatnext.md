@@ -13,7 +13,6 @@ These sound useful:
 * Search for "TODO" in notes and do those parts
 * Angular has its own "learn next" [page](https://angular.io/guide/architecture-next-steps) in which
 "schematics" seems to be something cool.
-* Learn more about JS and TS. JS WebAPIs and event loop to be specific. [Talk 1](https://www.youtube.com/watch?v=cCOL7MC4Pl0&t=170s) and [Talk 2](https://www.youtube.com/watch?v=8aGhZQkoFbQ).
 * RxJS and Angular Signals from this [course](https://app.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals/table-of-contents)
 * The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles [one](https://angularindepth.com/posts/1001/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error) and [two](https://angularindepth.com/posts/1514/deep-dive-into-the-infamous-expressionchangedafterithasbeencheckederror-in-angular)
 * About change detection in Angular. [one](https://angularindepth.com/posts/1512/change-detection-and-component-trees-in-angular-applications) and [two](https://angularindepth.com/posts/1509/overview-of-angulars-change-detection-operations-in-ivy)
