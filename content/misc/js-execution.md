@@ -1,8 +1,8 @@
 ---
 weight: 4
-bookFlatSection: true
 title: "JavaScript execution"
-bookToc: false
+# bookFlatSection: true
+# bookToc: false
 bookCollapseSection: false
 ---
 
