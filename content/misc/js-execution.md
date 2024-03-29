@@ -113,3 +113,19 @@ const othergen = ayo('hey there');
 like an array, you can iterate over them.
 
 TODO : Learn more about them here : <https://javascript.info/generators>
+
+## Execution flow : 
+JS is an interpreted language. Here is how the JS execution engine in the browser
+handles it.
+1. Parse a line
+2. Compile
+3. Optimize
+3. Execute
+5. Garbage Collection
+
+However, to make if faster, there is a Just-In-Time compiler,
+which is done by monitoring the code for hot-spots (e.g., code run frequently) and
+then compiling / compiling with optimizations so machine code is available fast.
+
+WebAssembly is faster because it is precompiled and optimized for the architecture.
+Often the machine code it produces is more optimized than the one JS engine produces.
