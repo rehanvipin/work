@@ -246,6 +246,9 @@ When adding multiple callbacks via addEventListener, it&rsquo;s not guaranteed w
 Generators # These are similar to Python generators. You can define one like so:
 function* ayo(val) { yield &#39;x&#39;; yield &#39;y&#39;; yield &#39;z&#39;; } const genr = ayo(); console.log(genr.next()); // {value: &#39;x&#39;; done: false;} console.log(genr.next()); // {value: &#39;y&#39;; done: false;} console.log(genr.next()); // {value: &#39;z&#39;; done: false;} console.log(genr.next()); // {value: undefined; done: true;} const othergen = ayo(&#39;hey there&#39;); like an array, you can iterate over them.
 TODO : Learn more about them here : https://javascript.info/generators
+Execution flow : # JS is an interpreted language. Here is how the JS execution engine in the browser handles it.
+Parse a line Compile Optimize Execute Garbage Collection However, to make if faster, there is a Just-In-Time compiler, which is done by monitoring the code for hot-spots (e.g., code run frequently) and then compiling / compiling with optimizations so machine code is available fast.
+WebAssembly is faster because it is precompiled and optimized for the architecture. Often the machine code it produces is more optimized than the one JS engine produces.
 `}),e.add({id:16,href:"/angular/services/",title:"Services",section:"Angular",content:` Services (do STUFF) # They are classes where you can put business logic for components. They should be specific. Components and services should be as reusable as possible. This is a good, short read about them: Services and DI.
 According to that page linked above:
 A component can delegate certain tasks to services, such as fetching data from the server, validating user input, or logging directly to the console

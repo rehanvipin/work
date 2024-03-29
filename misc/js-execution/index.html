@@ -18,7 +18,7 @@ WTH is the Event Loop? Further Adventures of the Event Loop Jake Archibald on th
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.8d88ee7b21545ff636784bc1e84b2b51d121ef2feb0f3f3f2d49c1dfc41f0c7f.js" integrity="sha256-jYjueyFUX/Y2eEvB6EsrUdEh7y/rDz8/LUnB38QfDH8="></script>
+<script defer src="/en.search.min.03e384314508d834c09f1e320c6f391c965f5f845fe344258711dd43f8fbe6f4.js" integrity="sha256-A&#43;OEMUUI2DTAnx4yDG85HJZfX4Rf40QlhxHdQ/j75vQ="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -653,6 +653,24 @@ Events dispatched programatically also follow all the regular bubbling and captu
 </span></span></code></pre></div><p>like an array, you can iterate over them.</p>
 <p>TODO : Learn more about them here : 
   <a href="https://javascript.info/generators">https://javascript.info/generators</a></p>
+<h2 id="execution-flow-">
+  Execution flow :
+  <a class="anchor" href="#execution-flow-">#</a>
+</h2>
+<p>JS is an interpreted language. Here is how the JS execution engine in the browser
+handles it.</p>
+<ol>
+<li>Parse a line</li>
+<li>Compile</li>
+<li>Optimize</li>
+<li>Execute</li>
+<li>Garbage Collection</li>
+</ol>
+<p>However, to make if faster, there is a Just-In-Time compiler,
+which is done by monitoring the code for hot-spots (e.g., code run frequently) and
+then compiling / compiling with optimizations so machine code is available fast.</p>
+<p>WebAssembly is faster because it is precompiled and optimized for the architecture.
+Often the machine code it produces is more optimized than the one JS engine produces.</p>
 </article>
  
       
