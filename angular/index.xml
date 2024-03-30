@@ -91,5 +91,12 @@
       <guid>https://work.rehanvipin.me/angular/libraries/</guid>
       <description>Ultra level reusability # They provide extra functionality to Angular. They don&amp;rsquo;t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like &amp;ldquo;@angular/forms&amp;rdquo;.&#xA;Angular libraries (e.g. the @angular/x ones) are NgModules.&#xA;Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in &amp;ldquo;npm&amp;rdquo; or wherever.</description>
     </item>
+    <item>
+      <title>Reactivity with Signals</title>
+      <link>https://work.rehanvipin.me/angular/signals/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/angular/signals/</guid>
+      <description> Signals # To make Angular apps more responsive. The different parts are :&#xA;Observing certain changes Listening to notifications about the changes Reacting accordingly </description>
+    </item>
   </channel>
 </rss>

@@ -5,21 +5,22 @@
   <meta name="generator" content="Hugo 0.124.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Angular, the fancy web framework # Angular lets you make dynamic web apps easily. This was written when Angular 14 came out.
-Base Knowledge # I know nothing about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let&rsquo;s see how this goes. YOLO 🙂.
-Course stuff # I&rsquo;m following along The Angular Fundamentals course on Pluralsight. The authors have nice practice exercises available on their website.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Angular" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://work.rehanvipin.me/angular/" />
-<title>Angular | Field Manual</title>
+<meta name="description" content=" Signals # To make Angular apps more responsive. The different parts are :
+Observing certain changes Listening to notifications about the changes Reacting accordingly ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Reactivity with Signals" />
+<meta property="og:description" content=" Signals # To make Angular apps more responsive. The different parts are :
+Observing certain changes Listening to notifications about the changes Reacting accordingly " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://work.rehanvipin.me/angular/signals/" /><meta property="article:section" content="angular" />
+
+
+<title>Reactivity with Signals | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.82bb005adacec244283ce929a4ce4631f0a6dfdb2cb2a8c9dc991d68f6248775.js" integrity="sha256-grsAWtrOwkQoPOkppM5GMfCm39sssqjJ3JkdaPYkh3U="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/angular/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -74,7 +75,7 @@ https://github.com/alex-shpak/hugo-book
   
     <input type="checkbox" id="section-db70775a2f464f55832baa63954506fc" class="toggle" checked />
     <label for="section-db70775a2f464f55832baa63954506fc" class="flex justify-between">
-      <a href="https://work.rehanvipin.me/angular/" class="active">Angular</a>
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
     </label>
   
 
@@ -244,7 +245,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+    <a href="https://work.rehanvipin.me/angular/signals/" class=" active">Reactivity with Signals</a>
   
 
         </li>
@@ -533,7 +534,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Angular</strong>
+  <strong>Reactivity with Signals</strong>
 
   <label for="toc-control">
     
@@ -549,13 +550,7 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#angular-the-fancy-web-framework">Angular, the fancy web framework</a>
-      <ul>
-        <li><a href="#base-knowledge">Base Knowledge</a></li>
-        <li><a href="#course-stuff">Course stuff</a></li>
-        <li><a href="#fun-stuff">Fun stuff</a></li>
-      </ul>
-    </li>
+    <li><a href="#signals">Signals</a></li>
   </ul>
 </nav>
 
@@ -568,49 +563,16 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="angular-the-fancy-web-framework">
-  Angular, the fancy web framework
-  <a class="anchor" href="#angular-the-fancy-web-framework">#</a>
+  <article class="markdown"><h1 id="signals">
+  Signals
+  <a class="anchor" href="#signals">#</a>
 </h1>
-<p>Angular lets you make dynamic web apps easily. This was written when Angular 14 came out.</p>
-<h2 id="base-knowledge">
-  Base Knowledge
-  <a class="anchor" href="#base-knowledge">#</a>
-</h2>
-<p>I know <em>nothing</em> about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let&rsquo;s see how this goes. YOLO 🙂.</p>
-<h2 id="course-stuff">
-  Course stuff
-  <a class="anchor" href="#course-stuff">#</a>
-</h2>
-<p>I&rsquo;m following along 
-  <a href="https://www.pluralsight.com/courses/angular-fundamentals">The Angular Fundamentals course on Pluralsight</a>.
-The authors have nice practice exercises 
-  <a href="https://jcoop.io/angular-practice-exercises/">available on their website</a>.
-
-  <a href="https://github.com/jmcooper/angular-fundamentals-files">Code for the course is available on GitHub</a>.</p>
-<p>This 
-  <a href="https://www.youtube.com/watch?v=3dHNOWTI7H8">Crash Course by Traversy Media</a> is also very good.</p>
-<p>Finally, 
-  <a href="https://angular.io/docs">The Angular docs</a> are very good.</p>
-<p>What if you want to go even further and understand exactly what is happening?
-E.g., stuff about zones and change detection. Check out the articles at 
-  <a href="https://indepth.dev/angular">Angular in Depth</a></p>
-<p>Just to note, the content I put up here is whatever I understood out of the courses and many other sources off the internet. I haven&rsquo;t and I won&rsquo;t, purposefully, rip content off sources I haven&rsquo;t listed here. I try to write this stuff on my own but sometimes, when it comes to things like specs and such, they do need to be put in word for word.</p>
-<h2 id="fun-stuff">
-  Fun stuff
-  <a class="anchor" href="#fun-stuff">#</a>
-</h2>
-<p>Some cool things I learnt along the way:</p>
+<p>To make Angular apps more responsive.
+The different parts are :</p>
 <ul>
-<li>When you run <code>ng new coolstuff</code>, it generates a lot of files. 
-  <a href="https://angular.io/guide/file-structure">The file structure is explained here</a>.</li>
-<li>The JSON pipe is useful when you want to display an object in a template.
-Use it like this: <code>{{ objkt | json }}</code></li>
-<li>To see what happens when you run an <code>ng</code> command, suffix it with <code>--dry-run</code></li>
-<li>There&rsquo;s the options to convert your components into web components.
-This means they can be framework agnostic. 
-  <a href="https://angular.io/guide/elements">They&rsquo;re still working on making the output Angular free</a> at the time of writing this post. Web components have 
-  <a href="https://caniuse.com/?search=web%20components">good browser support</a>.</li>
+<li>Observing certain changes</li>
+<li>Listening to notifications about the changes</li>
+<li>Reacting accordingly</li>
 </ul>
 </article>
  
@@ -644,13 +606,7 @@ This means they can be framework agnostic.
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#angular-the-fancy-web-framework">Angular, the fancy web framework</a>
-      <ul>
-        <li><a href="#base-knowledge">Base Knowledge</a></li>
-        <li><a href="#course-stuff">Course stuff</a></li>
-        <li><a href="#fun-stuff">Fun stuff</a></li>
-      </ul>
-    </li>
+    <li><a href="#signals">Signals</a></li>
   </ul>
 </nav>
 
