@@ -159,7 +159,7 @@
       <link>https://work.rehanvipin.me/angular/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/angular/test/</guid>
-      <description>Unit &amp;amp; Integrated tests # Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:&#xA;Isolated # Only tests the JS class not the component Mostly used for services and pipes Need to create instances of classes on your own Integrated # Tests the class and template together Mostly used for components and directives The objects are created by the framework Unit tests # They test a single unit (like a class, function, or a bunch of classes) in isolation.</description>
+      <description>Unit &amp;amp; Integrated tests # NOTE : Check the reference doc regarding Testing APIs for Angular .&#xA;Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:&#xA;Isolated # Only tests the JS class not the component Mostly used for services and pipes Need to create instances of classes on your own Integrated # Tests the class and template together Mostly used for components and directives The objects are created by the framework Unit tests # They test a single unit (like a class, function, or a bunch of classes) in isolation.</description>
     </item>
     <item>
       <title>Libraries</title>
@@ -173,7 +173,7 @@
       <link>https://work.rehanvipin.me/angular/signals/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/angular/signals/</guid>
-      <description> Signals # To make Angular apps more responsive. The different parts are :&#xA;Observing certain changes Listening to notifications about the changes Reacting accordingly </description>
+      <description>Signals # To make Angular apps more responsive. The different parts are :&#xA;Observing certain changes Listening to notifications about the changes Reacting accordingly Signals can be thought of as a combination of state and a notification mechanism.&#xA;How is that different from RxJS observables? They are a notification mechanism for events and don&amp;rsquo;t really hold state.</description>
     </item>
     <item>
       <title>/tmp</title>
@@ -187,7 +187,7 @@
       <link>https://work.rehanvipin.me/whatnext/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/whatnext/</guid>
-      <description>So much to learn # These sound useful:&#xA;Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Angular has its own &amp;ldquo;learn next&amp;rdquo; page in which &amp;ldquo;schematics&amp;rdquo; seems to be something cool. RxJS and Angular Signals from this course The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles one and two About change detection in Angular. one and two Get an overview of what design is about from this talk. Learn how to use penpot with their YT tutorials.</description>
+      <description>So much to learn # These sound useful:&#xA;What to learn next # Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Angular has its own &amp;ldquo;learn next&amp;rdquo; page in which &amp;ldquo;schematics&amp;rdquo; seems to be something cool. RxJS and Angular Signals from this course The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles one and two About change detection in Angular. one and two Angular router - https://blog.angular-university.io/angular2-router/ What really is ngModule - https://blog.</description>
     </item>
     <item>
       <title>theme-guide</title>
