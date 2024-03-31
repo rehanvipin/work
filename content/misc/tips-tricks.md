@@ -41,3 +41,5 @@ There's a nice [checklist](https://frontendchecklist.io)
 where the red box seems to appear larger than the blue box below it. This is due to the way pixels
 are arranged in a display. [See it in more detail here](https://www.avforums.com/threads/anyone-else-have-an-offset-blue-and-red-square-on-the-microsoft-logo-of-office-2019.2310709/)
 * Want to see what are the new features in es6 and how many of them could be done in previous versions? This [website](http://es6-features.org/#Constants) lets you do that.
+* Reference for JavaScript and some practice exercises : <https://wesbos.com/javascript>
+* Browsers now have better client side functioning capabilities. Such as [a proper DB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API), [virtualfile system](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system), and even [running full programs](https://webcontainers.io/)

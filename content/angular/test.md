@@ -3,6 +3,9 @@ title: "Testing"
 weight: 11
 ---
 # Unit & Integrated tests
+NOTE : Check the [reference doc](https://angular.dev/guide/testing/utility-apis) regarding
+Testing APIs for Angular .
+
 Angular uses Jasmine for unit testing and Karma to run the tests on browsers. Tests can be:
 
 {{< columns >}}
