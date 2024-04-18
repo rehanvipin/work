@@ -15,7 +15,9 @@ Well, the ways I know of are ...
 5. Rails (MVC)
 6. Cloudflare web workers (the "serverless" design)
 
-## MVC
+## Architectures
+
+### MVC
 Model View Controller.
 Lots of strong opinions about this.
 Apparently, there are no MVC frameworks, but just apps which implement the MVC architecture pattern.
@@ -33,26 +35,28 @@ The model layer is an important one. It can be thought of as containing:
 
 Models could directly interact with the View layer, but should not be dependent on the UI.
 
-## SPA
+## Rendering Patterns
+
+### SPA
 Single Page Apps. Built with help of libraries like React.
 They ship JavaScript to the client which creates the HTML pages on the fly,
 helping in reducing time for changes in the page.
 
 Pros and Cons below:
 
-### Pros
+#### Pros
 * Quick page-updates on user interactions. REACTIVNESS. The whole reason this became popular.
 * Can easily work with client-side data which may change (e.g., location).
 * Context of current state of app is easily available.
 * Server not always required. Something like Firebase could be enough if data persistence is the only concern.
 
-### Cons
+#### Cons
 * First load could be slow. May be alivieated with lazy loading.
 But not as fast as getting HTML from server.
 * Lots of JavaScript needs to be executed, requires some processing on the client.
 * Systems not able to get the HTML that would be displayed to the users (e.g., robot crawler)
 
-## SSR
+### SSR
 Server Side Rendering? Isn't that just the classical multi-page-applications?
 Which MVC apps would provide? By directly sending HTML to the client?
 
@@ -63,8 +67,9 @@ How?
 The server sends a full HTML page to the client.
 But it also then sends a `main.js` to hydrate the client with reactiveness (meaning any action they perform now will not require a full page load).
 
-That's a simplified view, the same logic can be applied for each component.
-i.e., the server sends the entire HTML for any components required.
+If the same logic is applied for each component,
+i.e., the server sends the entire HTML for any component, and then provides hydration later on,
+that's called Streaming SSR.
 
 The good part is, client side JS need not worry about what all data is required / conditions need to be applied on the HTML of a component.
 The server can do all the data fetches, apply conditions, and pass the end-result HTML to the client.
@@ -73,13 +78,18 @@ With React Server Components, it can also send a "suspend" state of the componen
 (basically the loading indicators the component should show before the actual state is ready).
 Or, if that's not preferred, it can block till the comp is ready.
 
-## SSG
+### SSG
 Pre-render all possible pages of the app in HTML.
 Minimal JS for client interaction. There is no server here, just a CDN.
 
 For large sites with lots of pages, it would not be practical to build everything.
 Instead, there is **Incremental Static Regeneration (ISR)**, which will create a static site for a page
 at runtime, and keep that page cached for a while. Kind of a lazy-loading SSG, but with a server.
+
+### Islands
+Split page into components. Only the ones which require interactivity get JS,
+the rest are plain HTML blocks sent from server.
+Used by Astro & Fresh.
 
 ## Notes
 Apparently, MVC of Rails is not the "original" MVC,
