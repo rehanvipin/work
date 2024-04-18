@@ -4,7 +4,7 @@
     <title>Fun Stuff on Field Manual</title>
     <link>https://work.rehanvipin.me/misc/</link>
     <description>Recent content in Fun Stuff on Field Manual</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo 0.125.1</generator>
     <language>en</language>
     <atom:link href="https://work.rehanvipin.me/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -34,6 +34,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/misc/js-execution/</guid>
       <description>How does JS run in the browser &amp;amp; node? # Info gotten from coding and these wonderful talks, in this order:&#xA;WTH is the Event Loop? Further Adventures of the Event Loop Jake Archibald on the Event Loop Overview # The v8 runtime provides a call stack and heap. Then in the browser, we have the WebAPIs, which provides FUNctions which can make code execute elsewhere. We have :</description>
+    </item>
+    <item>
+      <title>Web App Architecture</title>
+      <link>https://work.rehanvipin.me/misc/web-app-arch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/misc/web-app-arch/</guid>
+      <description>Overall design between browser &amp;amp; server # How do you serve content to a user in 2024? Well, the ways I know of are &amp;hellip;&#xA;Django, or Flask (what architectres do these promote? MVC?) Spring Boot &amp;amp; React (Single Page Apps. MVVM apparently??) Next.js (and other SSR) Hugo (Static Site Gen) Rails (MVC) Cloudflare web workers (the &amp;ldquo;serverless&amp;rdquo; design) Architectures # MVC # Model View Controller. Lots of strong opinions about this.</description>
     </item>
   </channel>
 </rss>

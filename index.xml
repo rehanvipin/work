@@ -4,7 +4,7 @@
     <title>Introduction on Field Manual</title>
     <link>https://work.rehanvipin.me/</link>
     <description>Recent content in Introduction on Field Manual</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo 0.125.1</generator>
     <language>en</language>
     <atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -111,6 +111,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/angular/directives/</guid>
       <description>Directives: Hmmm &amp;hellip; # These are just classes that add extra behavior to elements ~ Angular docs.&#xA;Components are represented in HTML as elements. Directives are represented as attributes on those elements. A directive can also be applied on a simple HTML element, not just components.&#xA;Creating them # You can create a directive class in a file like nice.directive.ts like so:&#xA;import { Directive, OnInit } from &amp;#39;@angular/core&amp;#39; Directive({ selector: &amp;#39;&amp;#39; // CSS style selector e.</description>
+    </item>
+    <item>
+      <title>Web App Architecture</title>
+      <link>https://work.rehanvipin.me/misc/web-app-arch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/misc/web-app-arch/</guid>
+      <description>Overall design between browser &amp;amp; server # How do you serve content to a user in 2024? Well, the ways I know of are &amp;hellip;&#xA;Django, or Flask (what architectres do these promote? MVC?) Spring Boot &amp;amp; React (Single Page Apps. MVVM apparently??) Next.js (and other SSR) Hugo (Static Site Gen) Rails (MVC) Cloudflare web workers (the &amp;ldquo;serverless&amp;rdquo; design) Architectures # MVC # Model View Controller. Lots of strong opinions about this.</description>
     </item>
     <item>
       <title>Web Server</title>

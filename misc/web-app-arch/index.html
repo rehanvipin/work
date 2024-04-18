@@ -5,17 +5,17 @@
   <meta name="generator" content="Hugo 0.125.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="So much to learn # These sound useful:
-What to learn next # Search for &ldquo;TODO&rdquo; in notes and do those parts Angular has its own &ldquo;learn next&rdquo; page in which &ldquo;schematics&rdquo; seems to be something cool. RxJS and Angular Signals from this course The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles one and two About change detection in Angular. one and two Angular router - https://blog.angular-university.io/angular2-router/ What really is ngModule - https://blog.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/whatnext/">
+<meta name="description" content="Overall design between browser &amp; server # How do you serve content to a user in 2024? Well, the ways I know of are &hellip;
+Django, or Flask (what architectres do these promote? MVC?) Spring Boot &amp; React (Single Page Apps. MVVM apparently??) Next.js (and other SSR) Hugo (Static Site Gen) Rails (MVC) Cloudflare web workers (the &ldquo;serverless&rdquo; design) Architectures # MVC # Model View Controller. Lots of strong opinions about this.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/misc/web-app-arch/">
   <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="/next">
-  <meta property="og:description" content="So much to learn # These sound useful:
-What to learn next # Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Angular has its own &amp;ldquo;learn next&amp;rdquo; page in which &amp;ldquo;schematics&amp;rdquo; seems to be something cool. RxJS and Angular Signals from this course The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles one and two About change detection in Angular. one and two Angular router - https://blog.angular-university.io/angular2-router/ What really is ngModule - https://blog.">
+  <meta property="og:title" content="Web App Architecture">
+  <meta property="og:description" content="Overall design between browser &amp;amp; server # How do you serve content to a user in 2024? Well, the ways I know of are &amp;hellip;
+Django, or Flask (what architectres do these promote? MVC?) Spring Boot &amp;amp; React (Single Page Apps. MVVM apparently??) Next.js (and other SSR) Hugo (Static Site Gen) Rails (MVC) Cloudflare web workers (the &amp;ldquo;serverless&amp;rdquo; design) Architectures # MVC # Model View Controller. Lots of strong opinions about this.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
-  <meta property="article:section" content="">
-<title>/next | Field Manual</title>
+  <meta property="article:section" content="misc">
+<title>Web App Architecture | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
@@ -462,7 +462,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/misc/web-app-arch/" class="">Web App Architecture</a>
+    <a href="https://work.rehanvipin.me/misc/web-app-arch/" class=" active">Web App Architecture</a>
   
 
         </li>
@@ -493,7 +493,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/whatnext/" class=" active">/next</a>
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
   
 
         </li>
@@ -548,7 +548,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>/next</strong>
+  <strong>Web App Architecture</strong>
 
   <label for="toc-control">
     
@@ -564,10 +564,22 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#so-much-to-learn">So much to learn</a>
+    <li><a href="#overall-design-between-browser--server">Overall design between browser &amp; server</a>
       <ul>
-        <li><a href="#what-to-learn-next">What to learn next</a></li>
-        <li><a href="#low-priority---design">Low Priority - Design</a></li>
+        <li><a href="#architectures">Architectures</a>
+          <ul>
+            <li><a href="#mvc">MVC</a></li>
+          </ul>
+        </li>
+        <li><a href="#rendering-patterns">Rendering Patterns</a>
+          <ul>
+            <li><a href="#spa">SPA</a></li>
+            <li><a href="#ssr">SSR</a></li>
+            <li><a href="#ssg">SSG</a></li>
+            <li><a href="#islands">Islands</a></li>
+          </ul>
+        </li>
+        <li><a href="#notes">Notes</a></li>
       </ul>
     </li>
   </ul>
@@ -582,58 +594,119 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="so-much-to-learn">
-  So much to learn
-  <a class="anchor" href="#so-much-to-learn">#</a>
+  <article class="markdown"><h1 id="overall-design-between-browser--server">
+  Overall design between browser &amp; server
+  <a class="anchor" href="#overall-design-between-browser--server">#</a>
 </h1>
-<p>These sound useful:</p>
-<h2 id="what-to-learn-next">
-  What to learn next
-  <a class="anchor" href="#what-to-learn-next">#</a>
+<p>How do you serve content to a user in 2024?
+Well, the ways I know of are &hellip;</p>
+<ol>
+<li>Django, or Flask (what architectres do these promote? MVC?)</li>
+<li>Spring Boot &amp; React (Single Page Apps. MVVM apparently??)</li>
+<li>Next.js (and other SSR)</li>
+<li>Hugo (Static Site Gen)</li>
+<li>Rails (MVC)</li>
+<li>Cloudflare web workers (the &ldquo;serverless&rdquo; design)</li>
+</ol>
+<h2 id="architectures">
+  Architectures
+  <a class="anchor" href="#architectures">#</a>
 </h2>
+<h3 id="mvc">
+  MVC
+  <a class="anchor" href="#mvc">#</a>
+</h3>
+<p>Model View Controller.
+Lots of strong opinions about this.
+Apparently, there are no MVC frameworks, but just apps which implement the MVC architecture pattern.
+That might be an over-simplification. There could be frameworks which make it easy to do MVC.</p>
+<p>MVC is split into the model section and the presentation section (hence the Separation Of Concerns). Or for simplicity, like this:</p>
 <ul>
-<li>Search for &ldquo;TODO&rdquo; in notes and do those parts</li>
-<li>Angular has its own &ldquo;learn next&rdquo; 
-  <a href="https://angular.io/guide/architecture-next-steps">page</a> in which
-&ldquo;schematics&rdquo; seems to be something cool.</li>
-<li>RxJS and Angular Signals from this 
-  <a href="https://app.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals/table-of-contents">course</a></li>
-<li>The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles 
-  <a href="https://angularindepth.com/posts/1001/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error">one</a> and 
-  <a href="https://angularindepth.com/posts/1514/deep-dive-into-the-infamous-expressionchangedafterithasbeencheckederror-in-angular">two</a></li>
-<li>About change detection in Angular. 
-  <a href="https://angularindepth.com/posts/1512/change-detection-and-component-trees-in-angular-applications">one</a> and 
-  <a href="https://angularindepth.com/posts/1509/overview-of-angulars-change-detection-operations-in-ivy">two</a></li>
-<li>Angular router - 
-  <a href="https://blog.angular-university.io/angular2-router/">https://blog.angular-university.io/angular2-router/</a></li>
-<li>What really is ngModule - 
-  <a href="https://blog.angular-university.io/angular2-ngmodule/">https://blog.angular-university.io/angular2-ngmodule/</a></li>
+<li>Model layer contains business logic. It also handles the data persistence.</li>
+<li>View layer presents the UI, given the data to present. They are not meant for doing processing.</li>
+<li>Controller passes data between Model &amp; View, and also performs auth, handles request-response, and displaying correct View to the user. It does not handle the routing of requests i.e., matching.</li>
 </ul>
-<h2 id="low-priority---design">
-  Low Priority - Design
-  <a class="anchor" href="#low-priority---design">#</a>
+<p>The model layer is an important one. It can be thought of as containing:</p>
+<ul>
+<li>Domain entities, corresponding to business objects. These should contain the business logic for that entity.</li>
+<li>Data mappers, which handle conversion between domain entities &amp; persistence storage.</li>
+<li>Services, responsible for application logic, including interactions between domain entities.</li>
+</ul>
+<p>Models could directly interact with the View layer, but should not be dependent on the UI.</p>
+<h2 id="rendering-patterns">
+  Rendering Patterns
+  <a class="anchor" href="#rendering-patterns">#</a>
 </h2>
+<h3 id="spa">
+  SPA
+  <a class="anchor" href="#spa">#</a>
+</h3>
+<p>Single Page Apps. Built with help of libraries like React.
+They ship JavaScript to the client which creates the HTML pages on the fly,
+helping in reducing time for changes in the page.</p>
+<p>Pros and Cons below:</p>
+<h4 id="pros">
+  Pros
+  <a class="anchor" href="#pros">#</a>
+</h4>
 <ul>
-<li>Get an overview of what design is about 
-  <a href="https://www.youtube.com/watch?v=FBUJYEQ7OGY">from this talk</a>.</li>
-<li>Learn how to use penpot 
-  <a href="https://www.youtube.com/watch?v=MpINco5nWw4&amp;list=PLgcCPfOv5v57cJS0im5FYFwbsu6X5mkNq">with their YT tutorials</a>. 
-  <a href="https://www.youtube.com/watch?v=KUg3xIFWK_g">This walkthrough can give a good idea</a>.</li>
-<li>Note down points from 
-  <a href="https://www.youtube.com/watch?v=XsEnj-1hG2o">Brad&rsquo;s</a> 
-  <a href="https://www.youtube.com/watch?v=moBhzSC455o">Walkthroughs</a> and 
-  <a href="https://www.youtube.com/watch?v=KYFwcIRx16g">also</a> 
-  <a href="https://www.youtube.com/watch?v=RhLMEdiKuMg">Kevin&rsquo;s</a>.</li>
-<li>Writing documentation. It&rsquo;s useful because that&rsquo;s what people see first and that&rsquo;s how they can contribute
-and use what you&rsquo;re building. 
-  <a href="https://www.freecodecamp.org/news/how-to-write-good-documentation/">Some points from here</a> and 
-  <a href="https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/">this place which shows you how to start</a>. There are also 
-  <a href="https://www.writethedocs.org/guide/writing/docs-principles/">principles to follow</a>.</li>
-<li>Common design patterns 
-  <a href="https://www.freecodecamp.org/news/javascript-design-patterns-explained/">from a good fcc article</a></li>
-<li>
-  <a href="https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/">Good article on testing.</a> This covers TDD and stuff</li>
+<li>Quick page-updates on user interactions. REACTIVNESS. The whole reason this became popular.</li>
+<li>Can easily work with client-side data which may change (e.g., location).</li>
+<li>Context of current state of app is easily available.</li>
+<li>Server not always required. Something like Firebase could be enough if data persistence is the only concern.</li>
 </ul>
+<h4 id="cons">
+  Cons
+  <a class="anchor" href="#cons">#</a>
+</h4>
+<ul>
+<li>First load could be slow. May be alivieated with lazy loading.
+But not as fast as getting HTML from server.</li>
+<li>Lots of JavaScript needs to be executed, requires some processing on the client.</li>
+<li>Systems not able to get the HTML that would be displayed to the users (e.g., robot crawler)</li>
+</ul>
+<h3 id="ssr">
+  SSR
+  <a class="anchor" href="#ssr">#</a>
+</h3>
+<p>Server Side Rendering? Isn&rsquo;t that just the classical multi-page-applications?
+Which MVC apps would provide? By directly sending HTML to the client?</p>
+<p>Yes, it includes that, but it&rsquo;s a mix of SPA too.
+So that the reactivness of the app is still there, without full page loads.</p>
+<p>How?
+The server sends a full HTML page to the client.
+But it also then sends a <code>main.js</code> to hydrate the client with reactiveness (meaning any action they perform now will not require a full page load).</p>
+<p>If the same logic is applied for each component,
+i.e., the server sends the entire HTML for any component, and then provides hydration later on,
+that&rsquo;s called Streaming SSR.</p>
+<p>The good part is, client side JS need not worry about what all data is required / conditions need to be applied on the HTML of a component.
+The server can do all the data fetches, apply conditions, and pass the end-result HTML to the client.</p>
+<p>With React Server Components, it can also send a &ldquo;suspend&rdquo; state of the component
+(basically the loading indicators the component should show before the actual state is ready).
+Or, if that&rsquo;s not preferred, it can block till the comp is ready.</p>
+<h3 id="ssg">
+  SSG
+  <a class="anchor" href="#ssg">#</a>
+</h3>
+<p>Pre-render all possible pages of the app in HTML.
+Minimal JS for client interaction. There is no server here, just a CDN.</p>
+<p>For large sites with lots of pages, it would not be practical to build everything.
+Instead, there is <strong>Incremental Static Regeneration (ISR)</strong>, which will create a static site for a page
+at runtime, and keep that page cached for a while. Kind of a lazy-loading SSG, but with a server.</p>
+<h3 id="islands">
+  Islands
+  <a class="anchor" href="#islands">#</a>
+</h3>
+<p>Split page into components. Only the ones which require interactivity get JS,
+the rest are plain HTML blocks sent from server.
+Used by Astro &amp; Fresh.</p>
+<h2 id="notes">
+  Notes
+  <a class="anchor" href="#notes">#</a>
+</h2>
+<p>Apparently, MVC of Rails is not the &ldquo;original&rdquo; MVC,
+but rather a version 2 designed to suit web apps.
+The OG one was for n-tier web apps where these could be different systems.</p>
 </article>
  
       
@@ -666,10 +739,22 @@ and use what you&rsquo;re building.
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#so-much-to-learn">So much to learn</a>
+    <li><a href="#overall-design-between-browser--server">Overall design between browser &amp; server</a>
       <ul>
-        <li><a href="#what-to-learn-next">What to learn next</a></li>
-        <li><a href="#low-priority---design">Low Priority - Design</a></li>
+        <li><a href="#architectures">Architectures</a>
+          <ul>
+            <li><a href="#mvc">MVC</a></li>
+          </ul>
+        </li>
+        <li><a href="#rendering-patterns">Rendering Patterns</a>
+          <ul>
+            <li><a href="#spa">SPA</a></li>
+            <li><a href="#ssr">SSR</a></li>
+            <li><a href="#ssg">SSG</a></li>
+            <li><a href="#islands">Islands</a></li>
+          </ul>
+        </li>
+        <li><a href="#notes">Notes</a></li>
       </ul>
     </li>
   </ul>
