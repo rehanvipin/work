@@ -33,7 +33,22 @@ The model layer is an important one. It can be thought of as containing:
 * Data mappers, which handle conversion between domain entities & persistence storage.
 * Services, responsible for application logic, including interactions between domain entities.
 
-Models could directly interact with the View layer, but should not be dependent on the UI.
+View layer can directly read from Model layer, just be careful so that Models are not be dependent on the UI.  
+The Model & View layer don't have knowledge of the Controller.  
+
+### MVP
+Model View Presenter.
+Pretty much same as MVC, but all interactions between Model & View happen through Presenter layer.
+
+View & Presenter could be aware of each other.
+
+### Model View ViewModel
+The aim of this approach was to simplify the View layer. Instead of having coding logic,
+it just has simple bindings to the properties & methods in the ViewModel layer.
+
+The View definition could be written in a simple language e.g., XML.  
+The ViewModel is itself not aware of the View, and all data transfer is done through the bindings.
+The ViewModel layer interacts with the Model layer only.
 
 ## Rendering Patterns
 
