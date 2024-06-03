@@ -1,5 +1,6 @@
 ---
 title: "/credits"
+weight: 22
 bookTOC: false
 ---
 # Credits
