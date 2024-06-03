@@ -5,25 +5,23 @@
   <meta name="generator" content="Hugo 0.126.3">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" The Java Virtual Machine # It executes the bytecode apparently.
-Learn more about it&rsquo;s internals through these courses:
-Memory Management Class Loading ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/java/jvm/">
+<meta name="description" content=" How does computer software work? # Especially the ones running on a Linux OS, since those are open-source. Of course, BSD ones also fall in the same category, but I interact directly with Linux more often.
+TODO # Linux Audio. How does it work, how does it break so easily, and how can it be fixed. Understand output of inxi -SMAz ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/linux/">
   <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="JVM">
-  <meta property="og:description" content=" The Java Virtual Machine # It executes the bytecode apparently.
-Learn more about it’s internals through these courses:
-Memory Management Class Loading ">
+  <meta property="og:title" content="Linux stuff">
+  <meta property="og:description" content=" How does computer software work? # Especially the ones running on a Linux OS, since those are open-source. Of course, BSD ones also fall in the same category, but I interact directly with Linux more often.
+TODO # Linux Audio. How does it work, how does it break so easily, and how can it be fixed. Understand output of inxi -SMAz ">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="java">
-<title>JVM | Field Manual</title>
+  <meta property="og:type" content="website">
+<title>Linux stuff | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.8d392b64c1fb26291409c9a054d2ea211e8dbc73608307e4fd7933e9c7b1f6d2.js" integrity="sha256-jTkrZMH7JikUCcmgVNLqIR6NvHNggwfk/Xkz6cex9tI="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/linux/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -313,7 +311,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a533dae2ec66f5b51d3c38ec9d934c01" class="toggle" checked />
+    <input type="checkbox" id="section-a533dae2ec66f5b51d3c38ec9d934c01" class="toggle"  />
     <label for="section-a533dae2ec66f5b51d3c38ec9d934c01" class="flex justify-between">
       <a href="https://work.rehanvipin.me/java/" class="">Java</a>
     </label>
@@ -355,7 +353,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/java/jvm/" class=" active">JVM</a>
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
   
 
         </li>
@@ -482,7 +480,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    <a href="https://work.rehanvipin.me/linux/" class=" active">Linux stuff</a>
   
 
           
@@ -568,7 +566,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>JVM</strong>
+  <strong>Linux stuff</strong>
 
   <label for="toc-control">
     
@@ -584,7 +582,11 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#the-java-virtual-machine">The Java Virtual Machine</a></li>
+    <li><a href="#how-does-computer-software-work">How does computer software work?</a>
+      <ul>
+        <li><a href="#todo">TODO</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -597,18 +599,21 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="the-java-virtual-machine">
-  The Java Virtual Machine
-  <a class="anchor" href="#the-java-virtual-machine">#</a>
+  <article class="markdown"><h1 id="how-does-computer-software-work">
+  How does computer software work?
+  <a class="anchor" href="#how-does-computer-software-work">#</a>
 </h1>
-<p>It executes the bytecode apparently.</p>
-<p>Learn more about it&rsquo;s internals through these courses:</p>
-<ul>
-<li>
-  <a href="https://app.pluralsight.com/library/courses/understanding-java-vm-memory-management/table-of-contents">Memory Management</a></li>
-<li>
-  <a href="https://app.pluralsight.com/library/courses/understanding-java-vm-class-loading-reflection/table-of-contents">Class Loading</a></li>
-</ul>
+<p>Especially the ones running on a Linux OS, since those are open-source.
+Of course, BSD ones also fall in the same category, but I interact directly with Linux more often.</p>
+<h2 id="todo">
+  TODO
+  <a class="anchor" href="#todo">#</a>
+</h2>
+<ol>
+<li>Linux Audio.
+How does it work, how does it break so easily, and how can it be fixed.
+Understand output of <code>inxi -SMAz</code></li>
+</ol>
 </article>
  
       
@@ -641,7 +646,11 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#the-java-virtual-machine">The Java Virtual Machine</a></li>
+    <li><a href="#how-does-computer-software-work">How does computer software work?</a>
+      <ul>
+        <li><a href="#todo">TODO</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

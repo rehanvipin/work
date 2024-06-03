@@ -4,7 +4,7 @@
     <title>Introduction on Field Manual</title>
     <link>https://work.rehanvipin.me/</link>
     <description>Recent content in Introduction on Field Manual</description>
-    <generator>Hugo 0.125.2</generator>
+    <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://work.rehanvipin.me/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -197,18 +197,18 @@
       <description>So much to learn # These sound useful:&#xA;What to learn next # Search for &amp;ldquo;TODO&amp;rdquo; in notes and do those parts Angular has its own &amp;ldquo;learn next&amp;rdquo; page in which &amp;ldquo;schematics&amp;rdquo; seems to be something cool. RxJS and Angular Signals from this course The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles one and two About change detection in Angular. one and two Angular router - https://blog.angular-university.io/angular2-router/ What really is ngModule - https://blog.</description>
     </item>
     <item>
-      <title>theme-guide</title>
-      <link>https://work.rehanvipin.me/shortcodes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://work.rehanvipin.me/shortcodes/</guid>
-      <description>Buttons # Buttons are styled links that can lead to local page or external link.&#xA;Example # {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}} Get Home Contribute Columns # Columns help organize shorter pieces of content horizontally for readability.&#xA;{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne.</description>
-    </item>
-    <item>
       <title>/credits</title>
       <link>https://work.rehanvipin.me/credits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/credits/</guid>
       <description> Credits # Built with HUGO Uses the hugo-book theme Compass icon by Icons8 You can find the source for this site on GitHub.&#xA;A small guide to shortcodes within this theme:&#xA;Theme Guide </description>
+    </item>
+    <item>
+      <title>theme-guide</title>
+      <link>https://work.rehanvipin.me/shortcodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/shortcodes/</guid>
+      <description>Buttons # Buttons are styled links that can lead to local page or external link.&#xA;Example # {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}} Get Home Contribute Columns # Columns help organize shorter pieces of content horizontally for readability.&#xA;{{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic separator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne.</description>
     </item>
   </channel>
 </rss>
