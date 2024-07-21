@@ -44,6 +44,13 @@ The `javac` command also requires the `-cp` argument when there are dependencies
 You can see which class files and source files it loads by passing the `-verbose` option.
 The command doesn't just compile the `.java` file you have specified, it would compile any other `.java` files that your file uses and don't yet have corresponding `.class` files.
 
+## History of build tools
+* `javac` and `java`, the only things you really need
+* `make` to reduce the commands you need to write
+* `ant`, as a platform-independent alternative, and was customized to work better with java (e.g., compiling multiple source files at once, rather than one at a time, as each dependency is found. scanning folders for java files, rather than having to add them one by one as new files are added.). `ivy` was developed to do dependency management for it.
+* `maven`, which added many conventions over configurations, and plugins to make config files smaller, and makes them uniform. still in XML.
+* `gradle`, which brought a DSL to do things programatically
+
 ## Third party dependencies
 Where are these located? Nowadays, most of them are hoste in maven-central (sort of like npm).
 
@@ -56,4 +63,63 @@ Download and install `mvn` in your system.
 The `MAVEN_HOME` variable is required to be set in the parent dir of `bin` where `mvn` is present.
 
 ## Gradle
-Similar objectives to Maven, but you can specify the project info in a ... scripting language format. With Groovy / Kotlin.
+Similar objectives to Maven, but you can specify the project info in a ... scripting language format. With Groovy / Kotlin.  
+Can help in reducing duplication.
+
+### Setup
+Download from `gradle.com`, and you have the `gradle` binary. It uses `GRADLE_USER_HOME` where it places temporary files.
+Once you have an inital binary on your system, you can add gradle "wrapper" files for each project.  
+That way, you can specify which version of gradle should be used for that project, and it will download the binary specifically for it (if not already there).  
+This also means that anyone downloading your code and running it, just needs to have the JDK installed, and nothing else.
+
+# Gradle (In Detail)
+Compile and run your code with doing the least amount of configuration.  
+There are `.gradle` files which define `tasks` which can build / run / test your code. The default one is `build.gradle`.  
+Those files are defined in the `Groovy` language by defualt. You can also have "builds" in the `Kotlin` language, in `build.gradle.kts` files.  
+Gradle itself runs on the JVM, since it is built using Java.
+
+## Build
+Gradle uses a concept of "build". A project having a `build.gradle` file is called a build. Nearly every gradle command runs wrt a "build".  
+You can create such a buildscript for your project by doing `gradle init` (which also adds extra stuff e.g., wrapper & settings.gradle files)
+
+## Tasks
+They have lifecycles, and we can add code to run at some stages of these lifecyles.  
+Then you can invoke the task from gradle e.g., `gradle myNewTask`, and that will go through full life cycle of the task.  
+Run `gradle tasks` to see all available tasks for the "build".
+
+## Projects
+When you run `gradle` inside a "build", it first looks for the settings.gradle file, creates a "Settings" object,
+determines which projects are in the "build", and then looks for the buildscripts (some `*.gradle` file) for each of those projects to construct "Project" objects.
+There is only one root project for each "build".
+
+## Plugins
+These add extra tasks to the "build" and maybe even extra settings. Once you add a plugin, you can re-run `gradle tasks` to see what new stuff is there.
+Plugins can be added via `plugin { id: 'java' }` in the buildscript or `apply plugin 'java'` (deprecated).
+
+## Syntax
+The groovy & kotlin buildscripts have stuff like this:
+```groovy
+plugins {
+    id("plugin")
+}
+```
+
+That's a shorthand for this code which uses a lambda function:
+```groovy
+plugins(function() {
+    id("plugin")
+})
+```
+where `id` is a method of a "this" object which is identified by Gradle. so something like this:
+```groovy
+ext {
+    wassup = "hi"
+}
+```
+might do `ext.setWassup("hi")`
+
+how are so many objects, and methods available in the script files? gradle [auto-imports](https://docs.gradle.org/current/userguide/writing_build_scripts.html#script-default-imports) them.
+
+## Fun stuff
+* Gradle [supports](https://docs.gradle.org/current/userguide/continuous_builds.html) "continuous invocation of tasks" based on files changing. This can be done by adding the `--continuous` flag.
+* You needn't write the full name of a task. If you have tasks 'projects', and 'properties', you can just do `gradle proj` to run the first one.

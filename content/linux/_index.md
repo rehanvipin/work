@@ -1,7 +1,9 @@
 ---
 title: "Linux stuff"
+weight: 4
 bookFlatSection: true
-weight: 5
+bookToc: false
+bookCollapseSection: true
 ---
 # How does computer software work?
 
