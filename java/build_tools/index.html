@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.126.3">
+  <meta name="generator" content="Hugo 0.129.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
@@ -19,7 +19,7 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.8d392b64c1fb26291409c9a054d2ea211e8dbc73608307e4fd7933e9c7b1f6d2.js" integrity="sha256-jTkrZMH7JikUCcmgVNLqIR6NvHNggwfk/Xkz6cex9tI="></script>
+<script defer src="/en.search.min.6fb3eabb0e0b7f4174001455affafec61f0f5f5614e334462b0bf5bb8ebd482a.js" integrity="sha256-b7Pquw4Lf0F0ABRVr/r&#43;xh8PX1YU4zRGKwv1u469SCo="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -397,6 +397,27 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-9e5aaccdf48687824ccd3b3097af8e41" class="toggle"  />
+    <label for="section-9e5aaccdf48687824ccd3b3097af8e41" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -467,24 +488,6 @@ https://github.com/alex-shpak/hugo-book
 
         </li>
       
-    
-  </ul>
-
-        </li>
-      
-    
-      
-        <li class="book-section-flat" >
-          
-  
-  
-
-  
-    <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
-  
-
-          
-  <ul>
     
   </ul>
 
@@ -585,13 +588,28 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#building-java-code">Building Java code</a>
       <ul>
         <li><a href="#compile-and-execute-with-external-libraries">Compile and execute with external libraries</a></li>
+        <li><a href="#history-of-build-tools">History of build tools</a></li>
         <li><a href="#third-party-dependencies">Third party dependencies</a></li>
         <li><a href="#maven">Maven</a>
           <ul>
             <li><a href="#setup">Setup</a></li>
           </ul>
         </li>
-        <li><a href="#gradle">Gradle</a></li>
+        <li><a href="#gradle">Gradle</a>
+          <ul>
+            <li><a href="#setup-1">Setup</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#gradle-in-detail">Gradle (In Detail)</a>
+      <ul>
+        <li><a href="#build">Build</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#plugins">Plugins</a></li>
+        <li><a href="#syntax">Syntax</a></li>
+        <li><a href="#fun-stuff">Fun stuff</a></li>
       </ul>
     </li>
   </ul>
@@ -649,6 +667,17 @@ There is no trying. It will look in the exact location. Nothing else.</p>
 <p>The <code>javac</code> command also requires the <code>-cp</code> argument when there are dependencies.
 You can see which class files and source files it loads by passing the <code>-verbose</code> option.
 The command doesn&rsquo;t just compile the <code>.java</code> file you have specified, it would compile any other <code>.java</code> files that your file uses and don&rsquo;t yet have corresponding <code>.class</code> files.</p>
+<h2 id="history-of-build-tools">
+  History of build tools
+  <a class="anchor" href="#history-of-build-tools">#</a>
+</h2>
+<ul>
+<li><code>javac</code> and <code>java</code>, the only things you really need</li>
+<li><code>make</code> to reduce the commands you need to write</li>
+<li><code>ant</code>, as a platform-independent alternative, and was customized to work better with java (e.g., compiling multiple source files at once, rather than one at a time, as each dependency is found. scanning folders for java files, rather than having to add them one by one as new files are added.). <code>ivy</code> was developed to do dependency management for it.</li>
+<li><code>maven</code>, which added many conventions over configurations, and plugins to make config files smaller, and makes them uniform. still in XML.</li>
+<li><code>gradle</code>, which brought a DSL to do things programatically</li>
+</ul>
 <h2 id="third-party-dependencies">
   Third party dependencies
   <a class="anchor" href="#third-party-dependencies">#</a>
@@ -670,7 +699,78 @@ The <code>MAVEN_HOME</code> variable is required to be set in the parent dir of 
   Gradle
   <a class="anchor" href="#gradle">#</a>
 </h2>
-<p>Similar objectives to Maven, but you can specify the project info in a &hellip; scripting language format. With Groovy / Kotlin.</p>
+<p>Similar objectives to Maven, but you can specify the project info in a &hellip; scripting language format. With Groovy / Kotlin.<br>
+Can help in reducing duplication.</p>
+<h3 id="setup-1">
+  Setup
+  <a class="anchor" href="#setup-1">#</a>
+</h3>
+<p>Download from <code>gradle.com</code>, and you have the <code>gradle</code> binary. It uses <code>GRADLE_USER_HOME</code> where it places temporary files.
+Once you have an inital binary on your system, you can add gradle &ldquo;wrapper&rdquo; files for each project.<br>
+That way, you can specify which version of gradle should be used for that project, and it will download the binary specifically for it (if not already there).<br>
+This also means that anyone downloading your code and running it, just needs to have the JDK installed, and nothing else.</p>
+<h1 id="gradle-in-detail">
+  Gradle (In Detail)
+  <a class="anchor" href="#gradle-in-detail">#</a>
+</h1>
+<p>Compile and run your code with doing the least amount of configuration.<br>
+There are <code>.gradle</code> files which define <code>tasks</code> which can build / run / test your code. The default one is <code>build.gradle</code>.<br>
+Those files are defined in the <code>Groovy</code> language by defualt. You can also have &ldquo;builds&rdquo; in the <code>Kotlin</code> language, in <code>build.gradle.kts</code> files.<br>
+Gradle itself runs on the JVM, since it is built using Java.</p>
+<h2 id="build">
+  Build
+  <a class="anchor" href="#build">#</a>
+</h2>
+<p>Gradle uses a concept of &ldquo;build&rdquo;. A project having a <code>build.gradle</code> file is called a build. Nearly every gradle command runs wrt a &ldquo;build&rdquo;.<br>
+You can create such a buildscript for your project by doing <code>gradle init</code> (which also adds extra stuff e.g., wrapper &amp; settings.gradle files)</p>
+<h2 id="tasks">
+  Tasks
+  <a class="anchor" href="#tasks">#</a>
+</h2>
+<p>They have lifecycles, and we can add code to run at some stages of these lifecyles.<br>
+Then you can invoke the task from gradle e.g., <code>gradle myNewTask</code>, and that will go through full life cycle of the task.<br>
+Run <code>gradle tasks</code> to see all available tasks for the &ldquo;build&rdquo;.</p>
+<h2 id="projects">
+  Projects
+  <a class="anchor" href="#projects">#</a>
+</h2>
+<p>When you run <code>gradle</code> inside a &ldquo;build&rdquo;, it first looks for the settings.gradle file, creates a &ldquo;Settings&rdquo; object,
+determines which projects are in the &ldquo;build&rdquo;, and then looks for the buildscripts (some <code>*.gradle</code> file) for each of those projects to construct &ldquo;Project&rdquo; objects.
+There is only one root project for each &ldquo;build&rdquo;.</p>
+<h2 id="plugins">
+  Plugins
+  <a class="anchor" href="#plugins">#</a>
+</h2>
+<p>These add extra tasks to the &ldquo;build&rdquo; and maybe even extra settings. Once you add a plugin, you can re-run <code>gradle tasks</code> to see what new stuff is there.
+Plugins can be added via <code>plugin { id: 'java' }</code> in the buildscript or <code>apply plugin 'java'</code> (deprecated).</p>
+<h2 id="syntax">
+  Syntax
+  <a class="anchor" href="#syntax">#</a>
+</h2>
+<p>The groovy &amp; kotlin buildscripts have stuff like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;plugin&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>That&rsquo;s a shorthand for this code which uses a lambda function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins<span style="color:#f92672">(</span>function<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;plugin&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">})</span>
+</span></span></code></pre></div><p>where <code>id</code> is a method of a &ldquo;this&rdquo; object which is identified by Gradle. so something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>ext <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    wassup <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hi&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>might do <code>ext.setWassup(&quot;hi&quot;)</code></p>
+<p>how are so many objects, and methods available in the script files? gradle 
+  <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html#script-default-imports">auto-imports</a> them.</p>
+<h2 id="fun-stuff">
+  Fun stuff
+  <a class="anchor" href="#fun-stuff">#</a>
+</h2>
+<ul>
+<li>Gradle 
+  <a href="https://docs.gradle.org/current/userguide/continuous_builds.html">supports</a> &ldquo;continuous invocation of tasks&rdquo; based on files changing. This can be done by adding the <code>--continuous</code> flag.</li>
+<li>You needn&rsquo;t write the full name of a task. If you have tasks &lsquo;projects&rsquo;, and &lsquo;properties&rsquo;, you can just do <code>gradle proj</code> to run the first one.</li>
+</ul>
 </article>
  
       
@@ -706,13 +806,28 @@ The <code>MAVEN_HOME</code> variable is required to be set in the parent dir of 
     <li><a href="#building-java-code">Building Java code</a>
       <ul>
         <li><a href="#compile-and-execute-with-external-libraries">Compile and execute with external libraries</a></li>
+        <li><a href="#history-of-build-tools">History of build tools</a></li>
         <li><a href="#third-party-dependencies">Third party dependencies</a></li>
         <li><a href="#maven">Maven</a>
           <ul>
             <li><a href="#setup">Setup</a></li>
           </ul>
         </li>
-        <li><a href="#gradle">Gradle</a></li>
+        <li><a href="#gradle">Gradle</a>
+          <ul>
+            <li><a href="#setup-1">Setup</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#gradle-in-detail">Gradle (In Detail)</a>
+      <ul>
+        <li><a href="#build">Build</a></li>
+        <li><a href="#tasks">Tasks</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#plugins">Plugins</a></li>
+        <li><a href="#syntax">Syntax</a></li>
+        <li><a href="#fun-stuff">Fun stuff</a></li>
       </ul>
     </li>
   </ul>
