@@ -19,7 +19,7 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.6fb3eabb0e0b7f4174001455affafec61f0f5f5614e334462b0bf5bb8ebd482a.js" integrity="sha256-b7Pquw4Lf0F0ABRVr/r&#43;xh8PX1YU4zRGKwv1u469SCo="></script>
+<script defer src="/en.search.min.0a6eb72bdac370249dba3476350d06e8f6787fcbe4ff394f99608d34f6daf408.js" integrity="sha256-Cm63K9rDcCSdujR2NQ0G6PZ4f8vk/zlPmWCNNPba9Ag="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -723,13 +723,42 @@ Gradle itself runs on the JVM, since it is built using Java.</p>
 </h2>
 <p>Gradle uses a concept of &ldquo;build&rdquo;. A project having a <code>build.gradle</code> file is called a build. Nearly every gradle command runs wrt a &ldquo;build&rdquo;.<br>
 You can create such a buildscript for your project by doing <code>gradle init</code> (which also adds extra stuff e.g., wrapper &amp; settings.gradle files)</p>
+<p>There is a build lifecycle which happens when <code>gradle xyzTask</code> is run.
+It does &ldquo;initialization&rdquo;, which is reading the settings file,
+then does &ldquo;configuration&rdquo;, which is executing the buildscripts for each project involved, creating the task graph etc.,
+then does the actual execution of each task involved.</p>
+<p>This means any code written outside of a task defintion in the buildscript will be executed in the configuration phase.</p>
+<p>Tasks can be chosen to run in parallel with the <code>--parallel</code> flag.</p>
 <h2 id="tasks">
   Tasks
   <a class="anchor" href="#tasks">#</a>
 </h2>
-<p>They have lifecycles, and we can add code to run at some stages of these lifecyles.<br>
+<p>They have lifecycles, and we can add code to run at some stages of these lifecyles, through some lifecycle hooks.<br>
 Then you can invoke the task from gradle e.g., <code>gradle myNewTask</code>, and that will go through full life cycle of the task.<br>
-Run <code>gradle tasks</code> to see all available tasks for the &ldquo;build&rdquo;.</p>
+Run <code>gradle tasks</code> to see all available tasks for the &ldquo;build&rdquo;.<br>
+Some lifecycle hooks which are called during a task&rsquo;s execution lifecyle are <code>doFirst</code>, and <code>doLast</code>.</p>
+<p>Tasks are objects of the <code>Task</code> type, and are instances of the <code>DefaultTask</code> class by default.<br>
+There are other inbuilt <code>Task</code> sub-classes as well e.g., <code>Copy</code>, <code>Jar</code>, <code>Zip</code> etc. of which task objects can be instantiated.</p>
+<p>To know more about a task, run <code>gradle help --tasks taskName</code>.</p>
+<p>It is also possible to define a new task class which takes inputs &amp; produces outputs. Those are of types <code>TaskInputs</code>, and <code>TaskOutputs</code>, and are defined with one of the @Input, or @Output annotations e.g.,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestTask</span> <span style="color:#f92672">:</span> DefaultTask<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Input</span>
+</span></span><span style="display:flex;"><span>    val xyz <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@OutputFile</span>
+</span></span><span style="display:flex;"><span>    val abc: File <span style="color:#f92672">=</span> File<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/var/tmp/hi.txt&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@TaskAction</span>
+</span></span><span style="display:flex;"><span>    fun <span style="color:#a6e22e">someFuncName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        abc<span style="color:#f92672">.</span><span style="color:#a6e22e">createNewFile</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>To add dependencies between tasks, just set the <code>dependsOn</code> property in the depending task.<br>
+The list of all tasks are available in a <code>TaskCollection</code>, which is by default called <code>tasks</code>.
+To add to it, we do <code>tasks.register(&quot;newOne&quot;)</code>, and to fetch we do <code>tasks.named(&quot;newOne&quot;)</code></p>
+<p>The <code>@TaskAction</code> annotation defines the function which should be run when an task of that class is invoked.<br>
+That function is called after <code>doFirst</code>, and before <code>doLast</code>.
+It is also possible to create tasks which don&rsquo;t have any action at all e.g., <code>build</code>. They can have other properties and functions, but don&rsquo;t really have an action to do by themselves.</p>
 <h2 id="projects">
   Projects
   <a class="anchor" href="#projects">#</a>
