@@ -82,10 +82,49 @@ Gradle itself runs on the JVM, since it is built using Java.
 Gradle uses a concept of "build". A project having a `build.gradle` file is called a build. Nearly every gradle command runs wrt a "build".  
 You can create such a buildscript for your project by doing `gradle init` (which also adds extra stuff e.g., wrapper & settings.gradle files)
 
+There is a build lifecycle which happens when `gradle xyzTask` is run.
+It does "initialization", which is reading the settings file,
+then does "configuration", which is executing the buildscripts for each project involved, creating the task graph etc.,
+then does the actual execution of each task involved.  
+
+This means any code written outside of a task defintion in the buildscript will be executed in the configuration phase.
+
+Tasks can be chosen to run in parallel with the `--parallel` flag.
+
 ## Tasks
-They have lifecycles, and we can add code to run at some stages of these lifecyles.  
+They have lifecycles, and we can add code to run at some stages of these lifecyles, through some lifecycle hooks.  
 Then you can invoke the task from gradle e.g., `gradle myNewTask`, and that will go through full life cycle of the task.  
-Run `gradle tasks` to see all available tasks for the "build".
+Run `gradle tasks` to see all available tasks for the "build".  
+Some lifecycle hooks which are called during a task's execution lifecyle are `doFirst`, and `doLast`.
+
+Tasks are objects of the `Task` type, and are instances of the `DefaultTask` class by default.  
+There are other inbuilt `Task` sub-classes as well e.g., `Copy`, `Jar`, `Zip` etc. of which task objects can be instantiated.
+
+To know more about a task, run `gradle help --tasks taskName`.  
+
+It is also possible to define a new task class which takes inputs & produces outputs. Those are of types `TaskInputs`, and `TaskOutputs`, and are defined with one of the @Input, or @Output annotations e.g.,
+```groovy
+abstract class TestTask : DefaultTask() {
+    @Input
+    val xyz = ""
+
+    @OutputFile
+    val abc: File = File("/var/tmp/hi.txt")
+
+    @TaskAction
+    fun someFuncName() {
+        abc.createNewFile()
+    }
+}
+```
+
+To add dependencies between tasks, just set the `dependsOn` property in the depending task.  
+The list of all tasks are available in a `TaskCollection`, which is by default called `tasks`.
+To add to it, we do `tasks.register("newOne")`, and to fetch we do `tasks.named("newOne")`
+
+The `@TaskAction` annotation defines the function which should be run when an task of that class is invoked.  
+That function is called after `doFirst`, and before `doLast`.
+It is also possible to create tasks which don't have any action at all e.g., `build`. They can have other properties and functions, but don't really have an action to do by themselves.
 
 ## Projects
 When you run `gradle` inside a "build", it first looks for the settings.gradle file, creates a "Settings" object,
