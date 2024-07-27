@@ -76,7 +76,7 @@ This also means that anyone downloading your code and running it, just needs to 
 Compile and run your code with doing the least amount of configuration.  
 There are `.gradle` files which define `tasks` which can build / run / test your code. The default one is `build.gradle`.  
 Those files are defined in the `Groovy` language by defualt. You can also have "builds" in the `Kotlin` language, in `build.gradle.kts` files.  
-Gradle itself runs on the JVM, since it is built using Java.
+Gradle itself runs on the JVM, since it is built using Java. You can choose which JVM it should run on.
 
 ## Build
 Gradle uses a concept of "build". A project having a `build.gradle` file is called a build. Nearly every gradle command runs wrt a "build".  
@@ -90,6 +90,21 @@ then does the actual execution of each task involved.
 This means any code written outside of a task defintion in the buildscript will be executed in the configuration phase.
 
 Tasks can be chosen to run in parallel with the `--parallel` flag.
+
+Gradle provides the ability to specify which Java version must the code / generated class files comply with.
+This can be set via `sourceCompatibility`, `targetCompatibility`, but it is preferred to set a `toolchain` instead.  
+The `toolchain` lets users specify which JRE / JDK (if required) must be found (or downloaded) for compiling / other tasks of the build.  
+It is specified like so:
+```groovy
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // optional
+        vendor = JvmVendorSpec.AZUL_ZULU // optional
+    }
+}
+```
+
+It is also possible to specify different java version requirements for each task separately, in which case those multiple versions are part of the toolchain.
 
 ## Tasks
 They have lifecycles, and we can add code to run at some stages of these lifecyles, through some lifecycle hooks.  
@@ -124,7 +139,7 @@ To add to it, we do `tasks.register("newOne")`, and to fetch we do `tasks.named(
 
 The `@TaskAction` annotation defines the function which should be run when an task of that class is invoked.  
 That function is called after `doFirst`, and before `doLast`.
-It is also possible to create tasks which don't have any action at all e.g., `build`. They can have other properties and functions, but don't really have an action to do by themselves.
+It is also possible to create tasks which don't have any action at all e.g., `build`. They can have other properties and functions, but don't really have an action to do by themselves. They are known as "lifecycle tasks"
 
 ## Projects
 When you run `gradle` inside a "build", it first looks for the settings.gradle file, creates a "Settings" object,
@@ -132,8 +147,17 @@ determines which projects are in the "build", and then looks for the buildscript
 There is only one root project for each "build".
 
 ## Plugins
-These add extra tasks to the "build" and maybe even extra settings. Once you add a plugin, you can re-run `gradle tasks` to see what new stuff is there.
-Plugins can be added via `plugin { id: 'java' }` in the buildscript or `apply plugin 'java'` (deprecated).
+These add extra tasks to the "build" and extra properties too. Once you add a plugin, you can re-run `gradle tasks` to see what new stuff is there.
+Plugins can be added via `plugin { id: 'java' }` in the buildscript or `apply plugin 'java'` (deprecated).  
+Some of the commone ones are:
+* `java` - adds some tasks to build, test, and package code, docs etc. uses some conventions to determine where source files, resources etc. are
+* `application` - adds tasks to run app, generate dists and run scripts
+* `java-library` - adds properties, and splits dependencies into `api` and `implementation`
+
+Plugins themselves can extend other plugins. Therefore, if you have `java-library`, it will implicitly import the `java` plugin as well.
+
+The `java` plugin knows where to look for the code via some default paths in `sourceSets`.
+If a project has a different layout, it can set the `sourceSets` to the custom paths.
 
 ## Syntax
 The groovy & kotlin buildscripts have stuff like this:
