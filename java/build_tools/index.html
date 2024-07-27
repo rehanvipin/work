@@ -19,7 +19,7 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.0a6eb72bdac370249dba3476350d06e8f6787fcbe4ff394f99608d34f6daf408.js" integrity="sha256-Cm63K9rDcCSdujR2NQ0G6PZ4f8vk/zlPmWCNNPba9Ag="></script>
+<script defer src="/en.search.min.f509f4b9cff62b42c18002fdd9ffb52ec8cc8d77fed9b4e133985e4d1b272953.js" integrity="sha256-9Qn0uc/2K0LBgAL92f&#43;1LsjMjXf&#43;2bThM5heTRsnKVM="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -716,7 +716,7 @@ This also means that anyone downloading your code and running it, just needs to 
 <p>Compile and run your code with doing the least amount of configuration.<br>
 There are <code>.gradle</code> files which define <code>tasks</code> which can build / run / test your code. The default one is <code>build.gradle</code>.<br>
 Those files are defined in the <code>Groovy</code> language by defualt. You can also have &ldquo;builds&rdquo; in the <code>Kotlin</code> language, in <code>build.gradle.kts</code> files.<br>
-Gradle itself runs on the JVM, since it is built using Java.</p>
+Gradle itself runs on the JVM, since it is built using Java. You can choose which JVM it should run on.</p>
 <h2 id="build">
   Build
   <a class="anchor" href="#build">#</a>
@@ -729,6 +729,17 @@ then does &ldquo;configuration&rdquo;, which is executing the buildscripts for e
 then does the actual execution of each task involved.</p>
 <p>This means any code written outside of a task defintion in the buildscript will be executed in the configuration phase.</p>
 <p>Tasks can be chosen to run in parallel with the <code>--parallel</code> flag.</p>
+<p>Gradle provides the ability to specify which Java version must the code / generated class files comply with.
+This can be set via <code>sourceCompatibility</code>, <code>targetCompatibility</code>, but it is preferred to set a <code>toolchain</code> instead.<br>
+The <code>toolchain</code> lets users specify which JRE / JDK (if required) must be found (or downloaded) for compiling / other tasks of the build.<br>
+It is specified like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>java <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    toolchain <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        languageVersion <span style="color:#f92672">=</span> JavaLanguageVersion<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#ae81ff">21</span><span style="color:#f92672">)</span> <span style="color:#75715e">// optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        vendor <span style="color:#f92672">=</span> JvmVendorSpec<span style="color:#f92672">.</span><span style="color:#a6e22e">AZUL_ZULU</span> <span style="color:#75715e">// optional
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>It is also possible to specify different java version requirements for each task separately, in which case those multiple versions are part of the toolchain.</p>
 <h2 id="tasks">
   Tasks
   <a class="anchor" href="#tasks">#</a>
@@ -758,7 +769,7 @@ The list of all tasks are available in a <code>TaskCollection</code>, which is b
 To add to it, we do <code>tasks.register(&quot;newOne&quot;)</code>, and to fetch we do <code>tasks.named(&quot;newOne&quot;)</code></p>
 <p>The <code>@TaskAction</code> annotation defines the function which should be run when an task of that class is invoked.<br>
 That function is called after <code>doFirst</code>, and before <code>doLast</code>.
-It is also possible to create tasks which don&rsquo;t have any action at all e.g., <code>build</code>. They can have other properties and functions, but don&rsquo;t really have an action to do by themselves.</p>
+It is also possible to create tasks which don&rsquo;t have any action at all e.g., <code>build</code>. They can have other properties and functions, but don&rsquo;t really have an action to do by themselves. They are known as &ldquo;lifecycle tasks&rdquo;</p>
 <h2 id="projects">
   Projects
   <a class="anchor" href="#projects">#</a>
@@ -770,8 +781,17 @@ There is only one root project for each &ldquo;build&rdquo;.</p>
   Plugins
   <a class="anchor" href="#plugins">#</a>
 </h2>
-<p>These add extra tasks to the &ldquo;build&rdquo; and maybe even extra settings. Once you add a plugin, you can re-run <code>gradle tasks</code> to see what new stuff is there.
-Plugins can be added via <code>plugin { id: 'java' }</code> in the buildscript or <code>apply plugin 'java'</code> (deprecated).</p>
+<p>These add extra tasks to the &ldquo;build&rdquo; and extra properties too. Once you add a plugin, you can re-run <code>gradle tasks</code> to see what new stuff is there.
+Plugins can be added via <code>plugin { id: 'java' }</code> in the buildscript or <code>apply plugin 'java'</code> (deprecated).<br>
+Some of the commone ones are:</p>
+<ul>
+<li><code>java</code> - adds some tasks to build, test, and package code, docs etc. uses some conventions to determine where source files, resources etc. are</li>
+<li><code>application</code> - adds tasks to run app, generate dists and run scripts</li>
+<li><code>java-library</code> - adds properties, and splits dependencies into <code>api</code> and <code>implementation</code></li>
+</ul>
+<p>Plugins themselves can extend other plugins. Therefore, if you have <code>java-library</code>, it will implicitly import the <code>java</code> plugin as well.</p>
+<p>The <code>java</code> plugin knows where to look for the code via some default paths in <code>sourceSets</code>.
+If a project has a different layout, it can set the <code>sourceSets</code> to the custom paths.</p>
 <h2 id="syntax">
   Syntax
   <a class="anchor" href="#syntax">#</a>

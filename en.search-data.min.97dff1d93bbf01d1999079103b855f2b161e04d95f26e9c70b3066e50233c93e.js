@@ -231,12 +231,16 @@ This also means that anyone downloading your code and running it, just needs to 
 Gradle (In Detail) # Compile and run your code with doing the least amount of configuration.
 There are .gradle files which define tasks which can build / run / test your code. The default one is build.gradle.
 Those files are defined in the Groovy language by defualt. You can also have &ldquo;builds&rdquo; in the Kotlin language, in build.gradle.kts files.
-Gradle itself runs on the JVM, since it is built using Java.
+Gradle itself runs on the JVM, since it is built using Java. You can choose which JVM it should run on.
 Build # Gradle uses a concept of &ldquo;build&rdquo;. A project having a build.gradle file is called a build. Nearly every gradle command runs wrt a &ldquo;build&rdquo;.
 You can create such a buildscript for your project by doing gradle init (which also adds extra stuff e.g., wrapper &amp; settings.gradle files)
 There is a build lifecycle which happens when gradle xyzTask is run. It does &ldquo;initialization&rdquo;, which is reading the settings file, then does &ldquo;configuration&rdquo;, which is executing the buildscripts for each project involved, creating the task graph etc., then does the actual execution of each task involved.
 This means any code written outside of a task defintion in the buildscript will be executed in the configuration phase.
 Tasks can be chosen to run in parallel with the --parallel flag.
+Gradle provides the ability to specify which Java version must the code / generated class files comply with. This can be set via sourceCompatibility, targetCompatibility, but it is preferred to set a toolchain instead.
+The toolchain lets users specify which JRE / JDK (if required) must be found (or downloaded) for compiling / other tasks of the build.
+It is specified like so:
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) // optional vendor = JvmVendorSpec.AZUL_ZULU // optional } } It is also possible to specify different java version requirements for each task separately, in which case those multiple versions are part of the toolchain.
 Tasks # They have lifecycles, and we can add code to run at some stages of these lifecyles, through some lifecycle hooks.
 Then you can invoke the task from gradle e.g., gradle myNewTask, and that will go through full life cycle of the task.
 Run gradle tasks to see all available tasks for the &ldquo;build&rdquo;.
@@ -248,9 +252,12 @@ It is also possible to define a new task class which takes inputs &amp; produces
 abstract class TestTask : DefaultTask() { @Input val xyz = &#34;&#34; @OutputFile val abc: File = File(&#34;/var/tmp/hi.txt&#34;) @TaskAction fun someFuncName() { abc.createNewFile() } } To add dependencies between tasks, just set the dependsOn property in the depending task.
 The list of all tasks are available in a TaskCollection, which is by default called tasks. To add to it, we do tasks.register(&quot;newOne&quot;), and to fetch we do tasks.named(&quot;newOne&quot;)
 The @TaskAction annotation defines the function which should be run when an task of that class is invoked.
-That function is called after doFirst, and before doLast. It is also possible to create tasks which don&rsquo;t have any action at all e.g., build. They can have other properties and functions, but don&rsquo;t really have an action to do by themselves.
+That function is called after doFirst, and before doLast. It is also possible to create tasks which don&rsquo;t have any action at all e.g., build. They can have other properties and functions, but don&rsquo;t really have an action to do by themselves. They are known as &ldquo;lifecycle tasks&rdquo;
 Projects # When you run gradle inside a &ldquo;build&rdquo;, it first looks for the settings.gradle file, creates a &ldquo;Settings&rdquo; object, determines which projects are in the &ldquo;build&rdquo;, and then looks for the buildscripts (some *.gradle file) for each of those projects to construct &ldquo;Project&rdquo; objects. There is only one root project for each &ldquo;build&rdquo;.
-Plugins # These add extra tasks to the &ldquo;build&rdquo; and maybe even extra settings. Once you add a plugin, you can re-run gradle tasks to see what new stuff is there. Plugins can be added via plugin { id: 'java' } in the buildscript or apply plugin 'java' (deprecated).
+Plugins # These add extra tasks to the &ldquo;build&rdquo; and extra properties too. Once you add a plugin, you can re-run gradle tasks to see what new stuff is there. Plugins can be added via plugin { id: 'java' } in the buildscript or apply plugin 'java' (deprecated).
+Some of the commone ones are:
+java - adds some tasks to build, test, and package code, docs etc. uses some conventions to determine where source files, resources etc. are application - adds tasks to run app, generate dists and run scripts java-library - adds properties, and splits dependencies into api and implementation Plugins themselves can extend other plugins. Therefore, if you have java-library, it will implicitly import the java plugin as well.
+The java plugin knows where to look for the code via some default paths in sourceSets. If a project has a different layout, it can set the sourceSets to the custom paths.
 Syntax # The groovy &amp; kotlin buildscripts have stuff like this:
 plugins { id(&#34;plugin&#34;) } That&rsquo;s a shorthand for this code which uses a lambda function:
 plugins(function() { id(&#34;plugin&#34;) }) where id is a method of a &ldquo;this&rdquo; object which is identified by Gradle. so something like this:
