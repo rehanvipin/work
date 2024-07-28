@@ -19,7 +19,7 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.f509f4b9cff62b42c18002fdd9ffb52ec8cc8d77fed9b4e133985e4d1b272953.js" integrity="sha256-9Qn0uc/2K0LBgAL92f&#43;1LsjMjXf&#43;2bThM5heTRsnKVM="></script>
+<script defer src="/en.search.min.2476b5443aaaca905f7e7f778b8813582c087e700c38ae2cbd2a7b460e6e97d4.js" integrity="sha256-JHa1RDqqypBffn93i4gTWCwIfnAMOK4svSp7Rg5ul9Q="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -609,6 +609,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#projects">Projects</a></li>
         <li><a href="#plugins">Plugins</a></li>
         <li><a href="#syntax">Syntax</a></li>
+        <li><a href="#dependencies">Dependencies</a></li>
         <li><a href="#fun-stuff">Fun stuff</a></li>
       </ul>
     </li>
@@ -811,6 +812,24 @@ If a project has a different layout, it can set the <code>sourceSets</code> to t
 </span></span></code></pre></div><p>might do <code>ext.setWassup(&quot;hi&quot;)</code></p>
 <p>how are so many objects, and methods available in the script files? gradle 
   <a href="https://docs.gradle.org/current/userguide/writing_build_scripts.html#script-default-imports">auto-imports</a> them.</p>
+<h2 id="dependencies">
+  Dependencies
+  <a class="anchor" href="#dependencies">#</a>
+</h2>
+<p>How to use other people&rsquo;s code in your project. You can depend on external / internal libraries, projects.<br>
+Dependencies are fetched from a &ldquo;repository&rdquo;. Each dependency is assumed to be a java module.
+Repository could be a directory on the file system, a web server serving files via the maven / ivy spec (which means either providing maven POM files or ivy XML files, or even a .module file).
+The metadata file for each library will tell where to get the jar file / other dependency &ldquo;artifacts&rdquo; from.
+It also has other metadata like author info, transitive dependencies info, etc.
+Usually the metadata file and artifacts are in the same location.<br>
+Once artifacts are fetched, they are kept in a cache (along with metadata files, albeit in a diff place) in the file system for quick use.</p>
+<p>Different dependencies can be required at different times, e.g., some for compiling, some for running, some for testing etc.
+Gradle helps in specifying different scopes for each one. The <strong>main</strong> scope is the <code>implementation</code> scope, which sets
+<code>runtimeOnly</code> and <code>compileOnly</code> scopes. The <code>testImplementation</code> scope inherits from <code>implementation</code> and it also sets
+<code>testRuntimeOnly</code>, and <code>testCompileOnly</code>. There are many other scopes too, and plugins can define their own.<br>
+However, that&rsquo;s not what is actually used by the <code>build</code>, <code>run</code>, and <code>test</code> tasks.
+They use <code>compileClasspath</code>, <code>runtimeClasspath</code>, <code>testCompileClasspath</code>, which are resolvable configurations (meaning it will go and find the jars &amp; transitive dependencies etc) and inherit from <code>implementation</code>, <code>compileOnly</code>, etc. which is where you actually list the deps that you want.</p>
+<p>Each dependency can be represented by a string <code>&quot;groupId:artifactId:version&quot;</code> or longer <code>group &quot;&quot; name &quot;&quot; version &quot;&quot;</code>.</p>
 <h2 id="fun-stuff">
   Fun stuff
   <a class="anchor" href="#fun-stuff">#</a>
@@ -876,6 +895,7 @@ If a project has a different layout, it can set the <code>sourceSets</code> to t
         <li><a href="#projects">Projects</a></li>
         <li><a href="#plugins">Plugins</a></li>
         <li><a href="#syntax">Syntax</a></li>
+        <li><a href="#dependencies">Dependencies</a></li>
         <li><a href="#fun-stuff">Fun stuff</a></li>
       </ul>
     </li>
