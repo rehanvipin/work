@@ -183,6 +183,24 @@ might do `ext.setWassup("hi")`
 
 how are so many objects, and methods available in the script files? gradle [auto-imports](https://docs.gradle.org/current/userguide/writing_build_scripts.html#script-default-imports) them.
 
+## Dependencies
+How to use other people's code in your project. You can depend on external / internal libraries, projects.  
+Dependencies are fetched from a "repository". Each dependency is assumed to be a java module.
+Repository could be a directory on the file system, a web server serving files via the maven / ivy spec (which means either providing maven POM files or ivy XML files, or even a .module file).
+The metadata file for each library will tell where to get the jar file / other dependency "artifacts" from.
+It also has other metadata like author info, transitive dependencies info, etc.
+Usually the metadata file and artifacts are in the same location.  
+Once artifacts are fetched, they are kept in a cache (along with metadata files, albeit in a diff place) in the file system for quick use.
+
+Different dependencies can be required at different times, e.g., some for compiling, some for running, some for testing etc.
+Gradle helps in specifying different scopes for each one. The **main** scope is the `implementation` scope, which sets
+`runtimeOnly` and `compileOnly` scopes. The `testImplementation` scope inherits from `implementation` and it also sets
+`testRuntimeOnly`, and `testCompileOnly`. There are many other scopes too, and plugins can define their own.  
+However, that's not what is actually used by the `build`, `run`, and `test` tasks.
+They use `compileClasspath`, `runtimeClasspath`, `testCompileClasspath`, which are resolvable configurations (meaning it will go and find the jars & transitive dependencies etc) and inherit from `implementation`, `compileOnly`, etc. which is where you actually list the deps that you want.
+
+Each dependency can be represented by a string `"groupId:artifactId:version"` or longer `group "" name "" version ""`.
+
 ## Fun stuff
 * Gradle [supports](https://docs.gradle.org/current/userguide/continuous_builds.html) "continuous invocation of tasks" based on files changing. This can be done by adding the `--continuous` flag.
 * You needn't write the full name of a task. If you have tasks 'projects', and 'properties', you can just do `gradle proj` to run the first one.
