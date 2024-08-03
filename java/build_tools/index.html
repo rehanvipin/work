@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.129.0">
+  <meta name="generator" content="Hugo 0.131.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:
@@ -19,7 +19,7 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.2476b5443aaaca905f7e7f778b8813582c087e700c38ae2cbd2a7b460e6e97d4.js" integrity="sha256-JHa1RDqqypBffn93i4gTWCwIfnAMOK4svSp7Rg5ul9Q="></script>
+<script defer src="/en.search.min.3f293021da6b2b1c15786c283aefebe746f5e7351e3127004fa16e5c38b39b32.js" integrity="sha256-PykwIdprKxwVeGwoOu/r50b15zUeMScAT6FuXDizmzI="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -610,6 +610,13 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#plugins">Plugins</a></li>
         <li><a href="#syntax">Syntax</a></li>
         <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#multi-projects">Multi Projects</a>
+          <ul>
+            <li><a href="#executing-tasks">Executing tasks</a></li>
+            <li><a href="#configurations">Configurations</a></li>
+            <li><a href="#dependencies-1">Dependencies</a></li>
+          </ul>
+        </li>
         <li><a href="#fun-stuff">Fun stuff</a></li>
       </ul>
     </li>
@@ -793,6 +800,10 @@ Some of the commone ones are:</p>
 <p>Plugins themselves can extend other plugins. Therefore, if you have <code>java-library</code>, it will implicitly import the <code>java</code> plugin as well.</p>
 <p>The <code>java</code> plugin knows where to look for the code via some default paths in <code>sourceSets</code>.
 If a project has a different layout, it can set the <code>sourceSets</code> to the custom paths.</p>
+<p>Where does gradle get the plugins from?
+Some are inbuilt. The third-party ones are available here: <code>https://plugins.gradle.org/</code>.
+If you want to get them from a custom repository, you&rsquo;ll need to set the URL in <code>pluginManagement</code> in the <code>settings.gradle</code>.<br>
+It&rsquo;s also possible to set plugin versions inside the <code>pluginManagement</code> block and is more preferred as you can use variables (not possible in <code>plugin {}</code>).</p>
 <h2 id="syntax">
   Syntax
   <a class="anchor" href="#syntax">#</a>
@@ -829,7 +840,53 @@ Gradle helps in specifying different scopes for each one. The <strong>main</stro
 <code>testRuntimeOnly</code>, and <code>testCompileOnly</code>. There are many other scopes too, and plugins can define their own.<br>
 However, that&rsquo;s not what is actually used by the <code>build</code>, <code>run</code>, and <code>test</code> tasks.
 They use <code>compileClasspath</code>, <code>runtimeClasspath</code>, <code>testCompileClasspath</code>, which are resolvable configurations (meaning it will go and find the jars &amp; transitive dependencies etc) and inherit from <code>implementation</code>, <code>compileOnly</code>, etc. which is where you actually list the deps that you want.</p>
-<p>Each dependency can be represented by a string <code>&quot;groupId:artifactId:version&quot;</code> or longer <code>group &quot;&quot; name &quot;&quot; version &quot;&quot;</code>.</p>
+<p>Each dependency can be represented by a string <code>&quot;groupId:artifactId:version&quot;</code> or longer <code>group &quot;&quot; name &quot;&quot; version &quot;&quot;</code>.<br>
+If there&rsquo;s multiple GAV modules, they can be specified with a &ldquo;classifier&rdquo; suffix, which comes after the version.</p>
+<p>When creating a library, it is possible to get library dependencies using the &ldquo;api&rdquo; scope if these dependencies might be exposed to library consumers,
+e.g., via method parameters / return types.  This way, the consumer will get the library in their list of dependencies.</p>
+<h2 id="multi-projects">
+  Multi Projects
+  <a class="anchor" href="#multi-projects">#</a>
+</h2>
+<p>Gradle provides support for multiple subprojects (AKA modules) within your top-level project. Each of them have their own buildscripts.<br>
+There is a top-level settings &amp; can be a top level build script as well, but there is always a top level project (AKA root project).<br>
+Although each one can specify their own plugins &amp; dependencies, they are managed and stored in one place.<br>
+Once you create a separate folder for each project &amp; give each one a build script, you can add these projects to the settings like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>rootProject<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fun1&#34;</span>
+</span></span><span style="display:flex;"><span>include<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;fun2&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;fun3&#34;</span><span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>and upon running <code>gradle projects</code>, you can see the project tree like so:</p>
+<pre tabindex="0"><code>Root project &#39;fun1&#39;
++--- Project &#39;:fun2&#39;
+\--- Project &#39;:fun3&#39;
+</code></pre><h3 id="executing-tasks">
+  Executing tasks
+  <a class="anchor" href="#executing-tasks">#</a>
+</h3>
+<p>You can step into any of the subdirectories and run tasks e.g., <code>gradle funTimes</code>
+and it will run the <code>funTimes</code> task on the sub-project and all its sub-projects which have this task defined.
+You can also run it for a particular project by giving the fully qualified project name e.g., <code>:fun2:funTimes</code>. The root one doesn&rsquo;t need any qualifiers.<br>
+But if you want to run only for the root, you do so by running <code>gradle :funTimes</code>.</p>
+<h3 id="configurations">
+  Configurations
+  <a class="anchor" href="#configurations">#</a>
+</h3>
+<p>You can specify specify some settings e.g., properties, dependencies for <code>subprojects</code>, or <code>allprojects</code> if you want to define some common configurations
+to be shared across multiple projects. Even project specific stuff can be added via <code>project(&quot;:fun2&quot;) {}</code>.</p>
+<p>It&rsquo;s also possible to apply plugins for the root &amp; subprojects in one place. It is also possible to fetch it in the root project &amp; apply in the subprojects only.
+e.g.,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;funplugin&#34;</span><span style="color:#f92672">)</span> version <span style="color:#e6db74">&#34;x&#34;</span> apply <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>and use in subproject like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;funplugin&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="dependencies-1">
+  Dependencies
+  <a class="anchor" href="#dependencies-1">#</a>
+</h3>
+<p>It is possible to use one subproject in another. It can just be added to the <code>dependencies</code> block of the consumer project with the required scope. E.g.,
+<code>implementation project(&quot;:fun3&quot;)</code></p>
 <h2 id="fun-stuff">
   Fun stuff
   <a class="anchor" href="#fun-stuff">#</a>
@@ -896,6 +953,13 @@ They use <code>compileClasspath</code>, <code>runtimeClasspath</code>, <code>tes
         <li><a href="#plugins">Plugins</a></li>
         <li><a href="#syntax">Syntax</a></li>
         <li><a href="#dependencies">Dependencies</a></li>
+        <li><a href="#multi-projects">Multi Projects</a>
+          <ul>
+            <li><a href="#executing-tasks">Executing tasks</a></li>
+            <li><a href="#configurations">Configurations</a></li>
+            <li><a href="#dependencies-1">Dependencies</a></li>
+          </ul>
+        </li>
         <li><a href="#fun-stuff">Fun stuff</a></li>
       </ul>
     </li>
