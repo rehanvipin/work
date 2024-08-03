@@ -159,6 +159,11 @@ Plugins themselves can extend other plugins. Therefore, if you have `java-librar
 The `java` plugin knows where to look for the code via some default paths in `sourceSets`.
 If a project has a different layout, it can set the `sourceSets` to the custom paths.
 
+Where does gradle get the plugins from?
+Some are inbuilt. The third-party ones are available here: `https://plugins.gradle.org/`.
+If you want to get them from a custom repository, you'll need to set the URL in `pluginManagement` in the `settings.gradle`.  
+It's also possible to set plugin versions inside the `pluginManagement` block and is more preferred as you can use variables (not possible in `plugin {}`).
+
 ## Syntax
 The groovy & kotlin buildscripts have stuff like this:
 ```groovy
@@ -199,7 +204,56 @@ Gradle helps in specifying different scopes for each one. The **main** scope is 
 However, that's not what is actually used by the `build`, `run`, and `test` tasks.
 They use `compileClasspath`, `runtimeClasspath`, `testCompileClasspath`, which are resolvable configurations (meaning it will go and find the jars & transitive dependencies etc) and inherit from `implementation`, `compileOnly`, etc. which is where you actually list the deps that you want.
 
-Each dependency can be represented by a string `"groupId:artifactId:version"` or longer `group "" name "" version ""`.
+Each dependency can be represented by a string `"groupId:artifactId:version"` or longer `group "" name "" version ""`.  
+If there's multiple GAV modules, they can be specified with a "classifier" suffix, which comes after the version.
+
+When creating a library, it is possible to get library dependencies using the "api" scope if these dependencies might be exposed to library consumers,
+e.g., via method parameters / return types.  This way, the consumer will get the library in their list of dependencies.
+
+## Multi Projects
+Gradle provides support for multiple subprojects (AKA modules) within your top-level project. Each of them have their own buildscripts.  
+There is a top-level settings & can be a top level build script as well, but there is always a top level project (AKA root project).  
+Although each one can specify their own plugins & dependencies, they are managed and stored in one place.  
+Once you create a separate folder for each project & give each one a build script, you can add these projects to the settings like so:
+```groovy
+rootProject.name = "fun1"
+include("fun2", "fun3")
+```
+
+and upon running `gradle projects`, you can see the project tree like so:
+```
+Root project 'fun1'
++--- Project ':fun2'
+\--- Project ':fun3'
+```
+
+### Executing tasks
+You can step into any of the subdirectories and run tasks e.g., `gradle funTimes`
+and it will run the `funTimes` task on the sub-project and all its sub-projects which have this task defined.
+You can also run it for a particular project by giving the fully qualified project name e.g., `:fun2:funTimes`. The root one doesn't need any qualifiers.  
+But if you want to run only for the root, you do so by running `gradle :funTimes`.
+
+### Configurations
+You can specify specify some settings e.g., properties, dependencies for `subprojects`, or `allprojects` if you want to define some common configurations
+to be shared across multiple projects. Even project specific stuff can be added via `project(":fun2") {}`.
+
+It's also possible to apply plugins for the root & subprojects in one place. It is also possible to fetch it in the root project & apply in the subprojects only.
+e.g.,
+```groovy
+plugins {
+    id("funplugin") version "x" apply false
+}
+```
+and use in subproject like so:
+```groovy
+plugins {
+    id("funplugin")
+}
+```
+
+### Dependencies
+It is possible to use one subproject in another. It can just be added to the `dependencies` block of the consumer project with the required scope. E.g.,
+`implementation project(":fun3")`
 
 ## Fun stuff
 * Gradle [supports](https://docs.gradle.org/current/userguide/continuous_builds.html) "continuous invocation of tasks" based on files changing. This can be done by adding the `--continuous` flag.
