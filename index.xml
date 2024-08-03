@@ -134,6 +134,13 @@
       <description>Routing &amp;amp; Co. # Some modern apps, like the one built with Angular are Single Page Apps. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!&#xA;Creating routes # Routes are defined as an array of objects.</description>
     </item>
     <item>
+      <title>Web Authentication</title>
+      <link>https://work.rehanvipin.me/misc/web-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/misc/web-auth/</guid>
+      <description>Authentication in web services # How does an application figure out who is talking to it? What part of the identity of that person / system is enough?&#xA;e-mails &amp;amp; passwords are one way. WebAuthn is another. kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO. session tokens passed on as cookies can also work depending on the use case.</description>
+    </item>
+    <item>
       <title>Forms</title>
       <link>https://work.rehanvipin.me/angular/forms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

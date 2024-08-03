@@ -42,5 +42,12 @@
       <guid>https://work.rehanvipin.me/misc/web-app-arch/</guid>
       <description>Overall design between browser &amp;amp; server # How do you serve content to a user in 2024? Well, the ways I know of are &amp;hellip;&#xA;Django, or Flask (what architectres do these promote? MVC?) Spring Boot &amp;amp; React (Single Page Apps. MVVM apparently??) Next.js (and other SSR) Hugo (Static Site Gen) Rails (MVC) Cloudflare web workers (the &amp;ldquo;serverless&amp;rdquo; design) Architectures # MVC # Model View Controller. Lots of strong opinions about this.</description>
     </item>
+    <item>
+      <title>Web Authentication</title>
+      <link>https://work.rehanvipin.me/misc/web-auth/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/misc/web-auth/</guid>
+      <description>Authentication in web services # How does an application figure out who is talking to it? What part of the identity of that person / system is enough?&#xA;e-mails &amp;amp; passwords are one way. WebAuthn is another. kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO. session tokens passed on as cookies can also work depending on the use case.</description>
+    </item>
   </channel>
 </rss>

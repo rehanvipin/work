@@ -5,25 +5,23 @@
   <meta name="generator" content="Hugo 0.131.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="A field manual for work # Helps you masquerade as a software developer. Use at your own risk. 🍊
-Fun facts # Idk what else to put on this page so here are some random nice things:
-You can hit &gt; when you&rsquo;re on a GitHub repo to bring it an online VSCode instance (on github.dev) to edit the files. You can&rsquo;t run anything tho cuz that&rsquo;s a paid feature.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/">
+<meta name="description" content="Authentication in web services # How does an application figure out who is talking to it? What part of the identity of that person / system is enough?
+e-mails &amp; passwords are one way. WebAuthn is another. kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO. session tokens passed on as cookies can also work depending on the use case.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/misc/web-auth/">
   <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="Introduction">
-  <meta property="og:description" content="A field manual for work # Helps you masquerade as a software developer. Use at your own risk. 🍊
-Fun facts # Idk what else to put on this page so here are some random nice things:
-You can hit &gt; when you’re on a GitHub repo to bring it an online VSCode instance (on github.dev) to edit the files. You can’t run anything tho cuz that’s a paid feature.">
+  <meta property="og:title" content="Web Authentication">
+  <meta property="og:description" content="Authentication in web services # How does an application figure out who is talking to it? What part of the identity of that person / system is enough?
+e-mails &amp; passwords are one way. WebAuthn is another. kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO. session tokens passed on as cookies can also work depending on the use case.">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-<title>Introduction | Field Manual</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="misc">
+<title>Web Authentication | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.fc98f43c8f5dd5a7667a9f40d351729bef0d17ee2199a32924d812841fa97d55.js" integrity="sha256-/Jj0PI9d1admep9A01Fym&#43;8NF&#43;4hmaMpJNgShB&#43;pfVU="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -498,7 +496,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/misc/web-auth/" class="">Web Authentication</a>
+    <a href="https://work.rehanvipin.me/misc/web-auth/" class=" active">Web Authentication</a>
   
 
         </li>
@@ -584,94 +582,123 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Introduction</strong>
+  <strong>Web Authentication</strong>
 
   <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
     
   </label>
 </div>
 
 
   
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#authentication-in-web-services">Authentication in web services</a>
+      <ul>
+        <li><a href="#oidc">OIDC</a></li>
+        <li><a href="#jwt">JWT</a></li>
+        <li><a href="#saml">SAML</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="a-field-manual-for-work">
-  A field manual for work
-  <a class="anchor" href="#a-field-manual-for-work">#</a>
+  <article class="markdown"><h1 id="authentication-in-web-services">
+  Authentication in web services
+  <a class="anchor" href="#authentication-in-web-services">#</a>
 </h1>
-<p>Helps you masquerade as a software developer. Use at your own risk. 🍊</p>
-<h2 id="fun-facts">
-  Fun facts
-  <a class="anchor" href="#fun-facts">#</a>
-</h2>
-<p>Idk what else to put on this page so here are some random nice things:</p>
+<p>How does an application figure out who is talking to it? What part of the identity of that person / system is enough?</p>
+<p>e-mails &amp; passwords are one way. WebAuthn is another.
+kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO.
+session tokens passed on as cookies can also work depending on the use case.</p>
+<p>I&rsquo;m gonna look at some relatively modern ones:</p>
 <ul>
-<li>You can hit <code>&gt;</code> when you&rsquo;re on a GitHub repo to bring it an online VSCode instance (on 
-  <a href="https://github.dev">github.dev</a>) to edit the files. You can&rsquo;t run anything tho cuz that&rsquo;s a paid feature.
-There are many more keyboard shortcuts. You can see them by hitting <code>?</code>.</li>
-<li>
-  <a href="https://stackblitz.com">Stackblitz</a> is building a really cool developer experience where you can do local web development without installing node and stuff on your local system. You can even share these instances!</li>
-<li>
-  <a href="https://prettier.io/">Prettier</a> is an auto code-formatter for web-dev</li>
-<li>
-  <a href="https://eslint.org/">ESLint</a> is a linter that you can run (via the terminal or editor) on your code to catch possible bugs</li>
-<li>
-  <a href="https://nodejs.dev/learn/the-npx-nodejs-package-runner/">npx</a> is really cool! You can run the angular cli without installing it like so: <code>npx @angular/cli new facebook --skip-git</code>.</li>
-<li>You can add 
-  <a href="https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/">graphs and diagrams to markdown files in GitHub</a> with 
-  <a href="https://mermaid-js.github.io/mermaid/#/">Mermaid!</a></li>
-<li>npm is not an acronym (it once was, not anymore) and must be written down in all lowercase :P</li>
-<li>Talking about npm and node, it can be difficult to manage multiple versions of them
-on your system. 
-  <a href="https://github.com/nvm-sh/nvm"><code>nvm</code></a> is a good manager for Linux/Mac while 
-  <a href="https://github.com/Schniz/fnm"><code>fnm</code></a> is a good one for Windows.</li>
-<li>Want a notepad in your browser? Paste this in the address bar of a new tab:<br>
-<code>data:text/html, &lt;body style=&quot;margin: 0;&quot;&gt;&lt;textarea style=&quot;font-size: 3rem; width: 100%; height: 100%; margin: 0; padding: 1rem; color: white; background-color: rgb(32, 32, 32); border: none; outline: none;&quot; autofocus&gt;</code></li>
-<li>
-  <a href="https://www.iso.org/iso-8601-date-and-time-format.html">There&rsquo;s a standard for dates</a>: YYYY-MM-DD</li>
-<li>
-  <a href="https://docs.python.org/3/py-modindex.html">Python has a good set of builtin modules</a></li>
-<li>Whenever you contribute to a repo on GitHub your contributions fall under the same license as the repo.
-
-  <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service#6-contributions-under-repository-license">As described in GitHub&rsquo;s TOS</a></li>
-<li>Google drive has a good range of keyboard shortcuts. You can view them by presing
-<code>Shift</code>+<code>\</code> or 
-  <a href="https://support.google.com/drive/answer/2563044">from this nice support link</a>.</li>
-<li>While building SaaS (stuff as a service), it might be useful to look at 
-  <a href="https://12factor.net/">https://12factor.net/</a>.</li>
-<li>Want to refactor your code? Check out 
-  <a href="https://refactoring.guru/refactoring">https://refactoring.guru/refactoring</a></li>
-<li>You shouldn&rsquo;t really be writing algorithms and memory management code in C++ anymore. 
-  <a href="https://hackingcpp.com/cpp/cheat_sheets.html">Use the builtin stuff</a></li>
-<li>Talking about C++, here is some weird stuff about the language: 
-  <a href="https://fouronnes.github.io/cppiceberg/">cpp-iceberg</a></li>
-<li>Want to see learn about the SOLID principles with some real code? 
-  <a href="https://www.youtube.com/watch?v=pTB30aXS77U">Check out this video</a></li>
+<li>SAML</li>
+<li>OAUTH 2</li>
+<li>OIDC</li>
+<li>JWT ??</li>
 </ul>
-<blockquote class="book-hint info">
-  <h2 id="note">
-  Note
-  <a class="anchor" href="#note">#</a>
+<h2 id="oidc">
+  OIDC
+  <a class="anchor" href="#oidc">#</a>
 </h2>
-<p>This manual thing is pretty unrefined. It&rsquo;s like v0.2.0 rn.<br>
-P.S. (
-  <a href="https://semver.org/">Check out semver</a>)</p>
-</blockquote>
-
-<blockquote class="book-hint info">
-  <h2 id="c-notes">
-  C++ notes
-  <a class="anchor" href="#c-notes">#</a>
+<p>OIDC is an authentication mechanism built on top of OAuth 2.0.<br>
+OAuth 2.0 itself is an authorization protocol to provide one app (e.g., App A) access to a user&rsquo;s resources in another app (e.g., App B), after authenticating the user &amp; getting their consent via an authorization server.
+In the case of OIDC, the App A also gets an ID card of the user along with the access token of App B.<br>
+That ID card is sent as a JWT (JSON Web Token), which is a format.
+The authorization server could be App B itself, or another service that it trusts.</p>
+<p>The flow is like this (one of many OAuth 2.0 &ldquo;flows&rdquo;. this one is the web server flow):</p>
+<ul>
+<li>User wants to login to App A</li>
+<li>They click on a &ldquo;login with App B&rdquo; button on the App A</li>
+<li>App A redirects user to the resource server to get an access token for App B</li>
+<li>The resource server checks whether the user has logged into App B, or if not, logs them in</li>
+<li>The resource server checks whether the user provides their consent</li>
+<li>User is redirected to App A, which now has an authorization code</li>
+<li>App A asks for an access token &amp; ID token from authz server. this happens in App A&rsquo;s backend server. the access token will be used to talk to App B.
+ID token is a JWT which is like an ID Card of the user. JWT is just encoded and not encrypted. it is signed though. and it is supposed to be a SECRET!</li>
+<li>App A now knows who the user is, as per the users records in App B&rsquo;s system, and as much as it has scope to see</li>
+<li>If App A wants, it can talk to App B on behalf of the user, as per the scope of the access token</li>
+</ul>
+<p>Tech jargon:</p>
+<ul>
+<li>client id &amp; client secret which App A (the client) uses to talk to the authorization server. doesn&rsquo;t involve the user</li>
+<li>callback URL, provided by App A. it is the URI that resource server should send user to, if consent granted</li>
+<li>response type. what kinda response the client wants to get after authz server gets the user&rsquo;s consent</li>
+<li>authorization code. the default response type. this is a secret that the App A will use for comms
+with the authorization server when talking about that particular user. it&rsquo;s like a session cookie.</li>
+<li>JWT. the ID token of a particular user that authorization server sends to App A
+as a response when it sends the request along with the authorization code.</li>
+</ul>
+<p>if App A runs entirely on the client device, e.g., PWA / Mobile App, then they can&rsquo;t use the client secret, since it will be exposed to the user / public.
+in such cases, there&rsquo;s a PKCE flow which can be used.</p>
+<p>OAuth 2.0 is a web standard. 
+  <a href="https://www.rfc-editor.org/info/rfc6749">IETF RFC</a>, whereas OAuth 1.0 was just a name used by some libraries floating around in the initial days before the standard got developed.</p>
+<h2 id="jwt">
+  JWT
+  <a class="anchor" href="#jwt">#</a>
 </h2>
-<p>Some notes from a university course on sort-of-advanced C++: 
-  <a href="/pdfs/cpp-notes.pdf">cpp-notes</a>
-Yes it does say &ldquo;Generic Programming&rdquo; and that&rsquo;s a part of it
-but most of is just about C++ and not just it&rsquo;s generic programming abilities.</p>
-</blockquote>
-
+<p>JSON Web Token? With such a generic name, it&rsquo;s sure sounds like trouble. But it&rsquo;s also a web standard :O 
+  <a href="https://datatracker.ietf.org/doc/html/rfc7519">IETF RFC</a>.</p>
+<p>It consists of three parts. Once the JSONs of all three are encoded, it becomes a URL safe string, with a &lsquo;.&rsquo; separating the three parts. the parts are:</p>
+<ul>
+<li>header. telling the subtype of token, algo used for signing etc.</li>
+<li>body. whatever JSON. all custom data, including secrets and stuff go here. the stuff here is also known as &ldquo;claim(s)&rdquo;</li>
+<li>signature. this is used to verify that the token was generated by the authorization service and not tampered with</li>
+</ul>
+<p>Once authenticated, the JWT is used to identify the client. Like a sessionID cookie. But unlike the cookie, the JWT has meaning when decoded &amp; can be decoded
+to get info about the user, e.g., username, email, permissions etc. Once the server sends the JWT to the client, the client can send it along with every request
+as part of the Authorization header. Because of the signature, the server knows the token isn&rsquo;t tampered with. It is also possible for the server to reject some
+JWTs after an expiration period, or expire them if they suspect a leak.</p>
+<p>Some websites also use a concept of <em>refresh token</em> which allows the access token to be refreshed frequently to reduce impacts of leaks.
+A refresh token is has a longer expiry and can be used to refresh access tokens. What if a refresh token leaks? Yeah, it could.
+It should be stored in a safer place. And like access tokens, they can be invalidated.</p>
+<p>Why they became popular is that since it contains info about the user,
+that info can be used by the server for app logic instead of going to the DB to get info about the user who made the request.
+That also means that a JWT from one server can be sent to another related server and that needn&rsquo;t re-authenticate the user. Not really possible with sessionIds.
+However, this increases the request size if there&rsquo;s too much info being stored in the token.</p>
+<p>Since it identifies a user, they should make sure to keep it secret. Should be treated at the same secrecy level as a password.</p>
+<h2 id="saml">
+  SAML
+  <a class="anchor" href="#saml">#</a>
+</h2>
+<p>Is older than OAuth. Current version is SAML 2.0, but not actively being developed. Meant for SSO. It provides authentication and authorization.<br>
+Frequently used in internal enterprise systems. Uses a central IdP (identity provider) which all services talk to.
+Why would you ever use this? It&rsquo;s already used in multiple places. And the flow seems simpler than OAuth. However, OAuth is the preferred choice for new apps.</p>
 </article>
  
       
@@ -697,6 +724,27 @@ but most of is just about C++ and not just it&rsquo;s generic programming abilit
       <label for="menu-control" class="hidden book-menu-overlay"></label>
     </div>
 
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#authentication-in-web-services">Authentication in web services</a>
+      <ul>
+        <li><a href="#oidc">OIDC</a></li>
+        <li><a href="#jwt">JWT</a></li>
+        <li><a href="#saml">SAML</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
     
   </main>
 
