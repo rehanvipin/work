@@ -19,7 +19,7 @@ e-mails &amp; passwords are one way. WebAuthn is another. kerberos is a good opt
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.df23676f556a7be7a1e479ea7c470b9c124d2065116949e78c3f37934b7afd70.js" integrity="sha256-3yNnb1Vqe&#43;eh5HnqfEcLnBJNIGURaUnnjD83k0t6/XA="></script>
+<script defer src="/en.search.min.b7c3c288e9b00a1defbd9948b2b20e13ffd8ffdb2cf98ab5b15363c457c4fc3c.js" integrity="sha256-t8PCiOmwCh3vvZlIsrIOE//Y/9ss&#43;Yq1sVNjxFfE/Dw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -603,6 +603,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#oidc">OIDC</a></li>
         <li><a href="#jwt">JWT</a></li>
         <li><a href="#saml">SAML</a></li>
+        <li><a href="#faqs">FAQs</a></li>
       </ul>
     </li>
   </ul>
@@ -653,19 +654,20 @@ ID token is a JWT which is like an ID Card of the user. JWT is just encoded and 
 <p>Tech jargon:</p>
 <ul>
 <li>client id &amp; client secret which App A (the client) uses to talk to the authorization server. doesn&rsquo;t involve the user</li>
-<li>callback URL, provided by App A. it is the URI that authorization server should redirect user to, if consent granted</li>
+<li>callback URL / redirect URI, provided by App A. it is the URI that authorization server should redirect user to, if consent granted</li>
 <li>response type. what kinda response the client wants to get after authz server gets the user&rsquo;s consent</li>
 <li>authorization code. the default response type. this is a not-so-secret string that the App A will use for comms
 with the authorization server when talking about that particular user. it&rsquo;s like a session cookie.
 the authz server will only accept if it is accompanied with a client secret.</li>
 <li>JWT. the ID token of a particular user that authorization server sends to App A
 as a response when it sends the request along with the authorization code.</li>
+<li>registeration. when the client sets up an account with the authz server. it needs to give a redirect_uri &amp; some details. gets a client id, secret.</li>
 </ul>
 <p>if App A runs entirely on the client device, e.g., PWA / Mobile App, then they can&rsquo;t use the client secret, since it will be exposed to the user / public.
 in such cases, there&rsquo;s a PKCE flow which can be used.</p>
 <p>there&rsquo;s also an Implicit flow for such devices, where instead of authz server sending an authorization code, it just sends the access token directly.
 however, this is a bit risky, since a secret is now on the client&rsquo;s device. it should be stored safely, e.g., via a httpOnly cookie.</p>
-<p>there&rsquo;s a client-client flow which doesn&rsquo;t involve the user at all, and used for system to system communication only.</p>
+<p>there&rsquo;s a client credentials flow which doesn&rsquo;t involve the user at all, and used for system to system communication only.</p>
 <p>there&rsquo;s a device flow for cases where user isn&rsquo;t able to interact on a device to provide their consent. e.g., a terminal.<br>
 in such cases, the device will ask user to open a link and type in a code to do the authorization grant with the authorization server.</p>
 <p>OAuth 2.0 is a web standard. 
@@ -703,6 +705,43 @@ However, this increases the request size if there&rsquo;s too much info being st
 <p>Is older than OAuth. Current version is SAML 2.0, but not actively being developed. Meant for SSO. It provides authentication and authorization.<br>
 Frequently used in internal enterprise systems. Uses a central IdP (identity provider) which all services talk to.
 Why would you ever use this? It&rsquo;s already used in multiple places. And the flow seems simpler than OAuth. However, OAuth is the preferred choice for new apps.</p>
+<h2 id="faqs">
+  FAQs
+  <a class="anchor" href="#faqs">#</a>
+</h2>
+<p>These are questions that came up while I was exploring different posts / videos.</p>
+<ol>
+<li>
+<p>Why is a refresh token required if the access token itself could be used to get new ones?
+Uhh.. IDK. The claim is that a refresh token can be invalidated, but then so could access tokens.</p>
+</li>
+<li>
+<p>Why provide a &ldquo;state&rdquo; param in the auth_code request?
+If you want to give the redirect_uri of your site some data about the state of the app from which the user was sent to the authz server.
+The other case is to prevent CSRF. Your site should be the able to determine if the state string indeed came from it.
+Else, someone could make a auth URL which will then ask the user to login, consent &amp; send them to your site.</p>
+</li>
+</ol>
+<p>more details: 
+  <a href="https://stackoverflow.com/q/26132066/13229013">https://stackoverflow.com/q/26132066/13229013</a></p>
+<ol start="3">
+<li>What&rsquo;s the diff b/w state &amp; nonce?
+state is for browser based flows whereas nonce is for the id token request.
+to verify that the server is indeed returing a response to your request &amp; prevents replay attacks.
+state could have some meaning encoded whereas nonce is a random number.</li>
+</ol>
+<p>still don&rsquo;t get it fully. nonce can inform a user of MiTM attack, but it can&rsquo;t really prevent it I guess.</p>
+<p>more details: 
+  <a href="https://stackoverflow.com/q/46844285/13229013">https://stackoverflow.com/q/46844285/13229013</a></p>
+<ol start="4">
+<li>Why does redirect_uri need to be part of the access token request?
+This one is actually a topic of discussion. Some claim that it&rsquo;s not really useful.
+Apparently, not registerting a static redirect_uri can lead to phishing attacks if someone creates a link to make authz server send users to a rogue site.
+but that&rsquo;s only applicable for auth code requests. what about the access token request? which doesn&rsquo;t redirect.</li>
+</ol>
+<p>all this shouldn&rsquo;t happen when using the client secret.</p>
+<p>more details: 
+  <a href="https://stackoverflow.com/questions/37659188/why-is-redirect-uri-required-on-access-token-request">https://stackoverflow.com/questions/37659188/why-is-redirect-uri-required-on-access-token-request</a></p>
 </article>
  
       
@@ -740,6 +779,7 @@ Why would you ever use this? It&rsquo;s already used in multiple places. And the
         <li><a href="#oidc">OIDC</a></li>
         <li><a href="#jwt">JWT</a></li>
         <li><a href="#saml">SAML</a></li>
+        <li><a href="#faqs">FAQs</a></li>
       </ul>
     </li>
   </ul>
