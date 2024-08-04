@@ -12,14 +12,11 @@ e-mails & passwords are one way. WebAuthn is another.
 kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO.
 session tokens passed on as cookies can also work depending on the use case.
 
-I'm gonna look at some relatively modern ones:
-* SAML
-* OAUTH 2
-* OIDC
-* JWT ??
+I'm gonna look at some relatively modern ones.
+Note that unlike the above, these aren't cryptographic protocols. In the end they still use one of the above ways to authenticate the user at some point.
 
 ## OIDC
-OIDC is an authentication mechanism built on top of OAuth 2.0.  
+OAuth 2.0 is the main thing. OIDC is just a standard way to do authentication with OAuth. Else ppl were making their own implementaitons.  
 OAuth 2.0 itself is an authorization protocol to provide one app (e.g., App A) access to a user's resources in another app (e.g., App B), after authenticating the user & getting their consent via an authorization server.
 In the case of OIDC, the App A also gets an ID card of the user along with the access token of App B.  
 That ID card is sent as a JWT (JSON Web Token), which is a format.
@@ -28,28 +25,40 @@ The authorization server could be App B itself, or another service that it trust
 The flow is like this (one of many OAuth 2.0 "flows". this one is the web server flow):
 * User wants to login to App A
 * They click on a "login with App B" button on the App A
-* App A redirects user to the resource server to get an access token for App B
-* The resource server checks whether the user has logged into App B, or if not, logs them in
-* The resource server checks whether the user provides their consent
+* App A redirects user to the authorization server for App B (the resource server)
+* The authorization server checks whether the user has logged into App B, or if not, asks them to log in
+* The authorization server checks whether the user provides their consent
 * User is redirected to App A, which now has an authorization code
-* App A asks for an access token & ID token from authz server. this happens in App A's backend server. the access token will be used to talk to App B.
-ID token is a JWT which is like an ID Card of the user. JWT is just encoded and not encrypted. it is signed though. and it is supposed to be a SECRET!
-* App A now knows who the user is, as per the users records in App B's system, and as much as it has scope to see
-* If App A wants, it can talk to App B on behalf of the user, as per the scope of the access token
+* App A asks for an access token & ID token from authz server. this happens in App A's backend server.
+the access token will be used to talk to App B and it is supposed to be a SECRET!
+ID token is a JWT which is like an ID Card of the user. JWT is just encoded and not encrypted. it is signed though.
+* App A now knows who the user is, as per the users records in App B's system
+* App A can talk to App B via it's backend server, on behalf of the user, as per the scope of the access token
 
 Tech jargon:
 * client id & client secret which App A (the client) uses to talk to the authorization server. doesn't involve the user
-* callback URL, provided by App A. it is the URI that resource server should send user to, if consent granted
+* callback URL, provided by App A. it is the URI that authorization server should redirect user to, if consent granted
 * response type. what kinda response the client wants to get after authz server gets the user's consent
-* authorization code. the default response type. this is a secret that the App A will use for comms
+* authorization code. the default response type. this is a not-so-secret string that the App A will use for comms
 with the authorization server when talking about that particular user. it's like a session cookie.
+the authz server will only accept if it is accompanied with a client secret.
 * JWT. the ID token of a particular user that authorization server sends to App A
 as a response when it sends the request along with the authorization code.
 
 if App A runs entirely on the client device, e.g., PWA / Mobile App, then they can't use the client secret, since it will be exposed to the user / public.
-in such cases, there's a PKCE flow which can be used.
+in such cases, there's a PKCE flow which can be used.  
+
+there's also an Implicit flow for such devices, where instead of authz server sending an authorization code, it just sends the access token directly.
+however, this is a bit risky, since a secret is now on the client's device. it should be stored safely, e.g., via a httpOnly cookie.
+
+there's a client-client flow which doesn't involve the user at all, and used for system to system communication only.
+
+there's a device flow for cases where user isn't able to interact on a device to provide their consent. e.g., a terminal.  
+in such cases, the device will ask user to open a link and type in a code to do the authorization grant with the authorization server.
 
 OAuth 2.0 is a web standard. [IETF RFC](https://www.rfc-editor.org/info/rfc6749), whereas OAuth 1.0 was just a name used by some libraries floating around in the initial days before the standard got developed.
+
+OIDC is not a web standard (maybe it needn't have been), but they have a standard written on their site : <https://openid.net>
 
 ## JWT
 JSON Web Token? With such a generic name, it's sure sounds like trouble. But it's also a web standard :O [IETF RFC](https://datatracker.ietf.org/doc/html/rfc7519).
@@ -68,7 +77,7 @@ Some websites also use a concept of _refresh token_ which allows the access toke
 A refresh token is has a longer expiry and can be used to refresh access tokens. What if a refresh token leaks? Yeah, it could.
 It should be stored in a safer place. And like access tokens, they can be invalidated.
 
-Why they became popular is that since it contains info about the user,
+JWTs became popular since they contain info about the user,
 that info can be used by the server for app logic instead of going to the DB to get info about the user who made the request.
 That also means that a JWT from one server can be sent to another related server and that needn't re-authenticate the user. Not really possible with sessionIds.
 However, this increases the request size if there's too much info being stored in the token.
