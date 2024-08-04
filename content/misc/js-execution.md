@@ -7,7 +7,7 @@ bookCollapseSection: false
 ---
 
 # How does JS run in the browser & node?
-Info gotten from coding and these wonderful talks, in this order:
+If you prefer visuals over text, these talks are really good (videos aren't mine):
 * [WTH is the Event Loop?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 * [Further Adventures of the Event Loop](https://www.youtube.com/watch?v=u1kqx6AenYw)
 * [Jake Archibald on the Event Loop](https://www.youtube.com/watch?v=cCOL7MC4Pl0)
