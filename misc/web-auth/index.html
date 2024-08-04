@@ -19,7 +19,7 @@ e-mails &amp; passwords are one way. WebAuthn is another. kerberos is a good opt
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.fc98f43c8f5dd5a7667a9f40d351729bef0d17ee2199a32924d812841fa97d55.js" integrity="sha256-/Jj0PI9d1admep9A01Fym&#43;8NF&#43;4hmaMpJNgShB&#43;pfVU="></script>
+<script defer src="/en.search.min.df23676f556a7be7a1e479ea7c470b9c124d2065116949e78c3f37934b7afd70.js" integrity="sha256-3yNnb1Vqe&#43;eh5HnqfEcLnBJNIGURaUnnjD83k0t6/XA="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -625,18 +625,13 @@ https://github.com/alex-shpak/hugo-book
 <p>e-mails &amp; passwords are one way. WebAuthn is another.
 kerberos is a good option inside an enterprise. it provides a convenient SSO experience when combined with SPNEGO.
 session tokens passed on as cookies can also work depending on the use case.</p>
-<p>I&rsquo;m gonna look at some relatively modern ones:</p>
-<ul>
-<li>SAML</li>
-<li>OAUTH 2</li>
-<li>OIDC</li>
-<li>JWT ??</li>
-</ul>
+<p>I&rsquo;m gonna look at some relatively modern ones.
+Note that unlike the above, these aren&rsquo;t cryptographic protocols. In the end they still use one of the above ways to authenticate the user at some point.</p>
 <h2 id="oidc">
   OIDC
   <a class="anchor" href="#oidc">#</a>
 </h2>
-<p>OIDC is an authentication mechanism built on top of OAuth 2.0.<br>
+<p>OAuth 2.0 is the main thing. OIDC is just a standard way to do authentication with OAuth. Else ppl were making their own implementaitons.<br>
 OAuth 2.0 itself is an authorization protocol to provide one app (e.g., App A) access to a user&rsquo;s resources in another app (e.g., App B), after authenticating the user &amp; getting their consent via an authorization server.
 In the case of OIDC, the App A also gets an ID card of the user along with the access token of App B.<br>
 That ID card is sent as a JWT (JSON Web Token), which is a format.
@@ -645,29 +640,38 @@ The authorization server could be App B itself, or another service that it trust
 <ul>
 <li>User wants to login to App A</li>
 <li>They click on a &ldquo;login with App B&rdquo; button on the App A</li>
-<li>App A redirects user to the resource server to get an access token for App B</li>
-<li>The resource server checks whether the user has logged into App B, or if not, logs them in</li>
-<li>The resource server checks whether the user provides their consent</li>
+<li>App A redirects user to the authorization server for App B (the resource server)</li>
+<li>The authorization server checks whether the user has logged into App B, or if not, asks them to log in</li>
+<li>The authorization server checks whether the user provides their consent</li>
 <li>User is redirected to App A, which now has an authorization code</li>
-<li>App A asks for an access token &amp; ID token from authz server. this happens in App A&rsquo;s backend server. the access token will be used to talk to App B.
-ID token is a JWT which is like an ID Card of the user. JWT is just encoded and not encrypted. it is signed though. and it is supposed to be a SECRET!</li>
-<li>App A now knows who the user is, as per the users records in App B&rsquo;s system, and as much as it has scope to see</li>
-<li>If App A wants, it can talk to App B on behalf of the user, as per the scope of the access token</li>
+<li>App A asks for an access token &amp; ID token from authz server. this happens in App A&rsquo;s backend server.
+the access token will be used to talk to App B and it is supposed to be a SECRET!
+ID token is a JWT which is like an ID Card of the user. JWT is just encoded and not encrypted. it is signed though.</li>
+<li>App A now knows who the user is, as per the users records in App B&rsquo;s system</li>
+<li>App A can talk to App B via it&rsquo;s backend server, on behalf of the user, as per the scope of the access token</li>
 </ul>
 <p>Tech jargon:</p>
 <ul>
 <li>client id &amp; client secret which App A (the client) uses to talk to the authorization server. doesn&rsquo;t involve the user</li>
-<li>callback URL, provided by App A. it is the URI that resource server should send user to, if consent granted</li>
+<li>callback URL, provided by App A. it is the URI that authorization server should redirect user to, if consent granted</li>
 <li>response type. what kinda response the client wants to get after authz server gets the user&rsquo;s consent</li>
-<li>authorization code. the default response type. this is a secret that the App A will use for comms
-with the authorization server when talking about that particular user. it&rsquo;s like a session cookie.</li>
+<li>authorization code. the default response type. this is a not-so-secret string that the App A will use for comms
+with the authorization server when talking about that particular user. it&rsquo;s like a session cookie.
+the authz server will only accept if it is accompanied with a client secret.</li>
 <li>JWT. the ID token of a particular user that authorization server sends to App A
 as a response when it sends the request along with the authorization code.</li>
 </ul>
 <p>if App A runs entirely on the client device, e.g., PWA / Mobile App, then they can&rsquo;t use the client secret, since it will be exposed to the user / public.
 in such cases, there&rsquo;s a PKCE flow which can be used.</p>
+<p>there&rsquo;s also an Implicit flow for such devices, where instead of authz server sending an authorization code, it just sends the access token directly.
+however, this is a bit risky, since a secret is now on the client&rsquo;s device. it should be stored safely, e.g., via a httpOnly cookie.</p>
+<p>there&rsquo;s a client-client flow which doesn&rsquo;t involve the user at all, and used for system to system communication only.</p>
+<p>there&rsquo;s a device flow for cases where user isn&rsquo;t able to interact on a device to provide their consent. e.g., a terminal.<br>
+in such cases, the device will ask user to open a link and type in a code to do the authorization grant with the authorization server.</p>
 <p>OAuth 2.0 is a web standard. 
   <a href="https://www.rfc-editor.org/info/rfc6749">IETF RFC</a>, whereas OAuth 1.0 was just a name used by some libraries floating around in the initial days before the standard got developed.</p>
+<p>OIDC is not a web standard (maybe it needn&rsquo;t have been), but they have a standard written on their site : 
+  <a href="https://openid.net">https://openid.net</a></p>
 <h2 id="jwt">
   JWT
   <a class="anchor" href="#jwt">#</a>
@@ -687,7 +691,7 @@ JWTs after an expiration period, or expire them if they suspect a leak.</p>
 <p>Some websites also use a concept of <em>refresh token</em> which allows the access token to be refreshed frequently to reduce impacts of leaks.
 A refresh token is has a longer expiry and can be used to refresh access tokens. What if a refresh token leaks? Yeah, it could.
 It should be stored in a safer place. And like access tokens, they can be invalidated.</p>
-<p>Why they became popular is that since it contains info about the user,
+<p>JWTs became popular since they contain info about the user,
 that info can be used by the server for app logic instead of going to the DB to get info about the user who made the request.
 That also means that a JWT from one server can be sent to another related server and that needn&rsquo;t re-authenticate the user. Not really possible with sessionIds.
 However, this increases the request size if there&rsquo;s too much info being stored in the token.</p>
