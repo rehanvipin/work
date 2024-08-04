@@ -9,7 +9,7 @@ bookCollapseSection: true
 Angular lets you make dynamic web apps easily. This was written when Angular 14 came out.
 
 ## Base Knowledge
-I know *nothing* about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let's see how this goes. YOLO 🙂.
+I know *nothing* about Angular. I know a bare minimum of HTML, CSS, and JS. 😰 let's see how this goes.
 
 ## Course stuff
 I'm following along [The Angular Fundamentals course on Pluralsight](https://www.pluralsight.com/courses/angular-fundamentals).
