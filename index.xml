@@ -43,13 +43,6 @@
       <description>The real CONTENT # Fun fact: The @Component decorator actually extends @Directive decorator because components are technically directives.&#xA;Creating them # A bare component is a class, defined in a .ts file. You can create new one like this:&#xA;Create a .ts file and export a class that is decorated by Component from @angular/core. The decorator takes in an object as argument. The object has properties like selector (which is a CSS selector to find out which HTML elements this component should apply to) and template (or templateUrl).</description>
     </item>
     <item>
-      <title>Gradle</title>
-      <link>https://work.rehanvipin.me/spring-boot/gradle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://work.rehanvipin.me/spring-boot/gradle/</guid>
-      <description>A build tool.&#xA;Some good videos:&#xA;https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx49J1JCdQ </description>
-    </item>
-    <item>
       <title>Mods &amp; Packs</title>
       <link>https://work.rehanvipin.me/java/modules/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

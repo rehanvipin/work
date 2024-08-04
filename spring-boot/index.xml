@@ -14,12 +14,5 @@
       <guid>https://work.rehanvipin.me/spring-boot/framework/</guid>
       <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code and make it more testable. It started as an alternative to Java 2 EE and has now grown beyond it. It even includes a web framework (Web MVC) within it. Baked in with best practices so you can focus on the business problem.&#xA;It encourages you to use interfaces and helps minimize configuration code.</description>
     </item>
-    <item>
-      <title>Gradle</title>
-      <link>https://work.rehanvipin.me/spring-boot/gradle/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://work.rehanvipin.me/spring-boot/gradle/</guid>
-      <description>A build tool.&#xA;Some good videos:&#xA;https://www.youtube.com/watch?v=gKPMKRnnbXU https://www.youtube.com/watch?v=ojx49J1JCdQ </description>
-    </item>
   </channel>
 </rss>
