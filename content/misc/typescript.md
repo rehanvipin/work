@@ -23,8 +23,8 @@ e.g.
 ```ts
 class LOL {
     private a: number;
-    private b: string;
-    private c = 'wow this is cool';
+    private b: string = 'bob';
+    private c = 'wow this is cool' + this.b;
     constructor() {
         this.a = 1;
         this.b = 'wow' + this.c;
@@ -37,7 +37,8 @@ class LOL {
 ```js
 class LOL {
     constructor() {
-        this.c = 'wow this is cool';
+        this.b = 'bob';
+        this.c = 'wow this is cool' + this.b;
         this.z = 'bongo cats';
         this.a = 1;
         this.b = 'wow' + this.c;

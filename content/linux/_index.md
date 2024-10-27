@@ -7,8 +7,7 @@ bookCollapseSection: true
 ---
 # How does computer software work?
 
-Especially the ones running on a Linux OS, since those are open-source.
-Of course, BSD ones also fall in the same category, but I interact directly with Linux more often.
+Especially the ones running on a Linux OS.
 
 ## TODO
 1. Linux Audio.
