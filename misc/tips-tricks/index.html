@@ -2,18 +2,73 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.131.0">
+  <meta name="generator" content="Hugo 0.138.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Tips, tricks, and resources # Modern JS has many inbuilt features, not all of them are so well known. Check them out, from the stateOfJS22
-Good resource &amp; book on how to design modern web apps: https://www.patterns.dev/
-Variable hoisting was an unintended addition that came along with function hoisting when JS was being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations. This stackoverflow q&amp;a has some good answers.">
+<meta name="description" content="
+  Tips, tricks, and resources
+  #
+
+Modern JS has many inbuilt features, not all of them are so well known.
+
+  Check them out, from the stateOfJS22
+Good resource &amp; book on how to design modern web apps: 
+  https://www.patterns.dev/
+
+Variable hoisting was an unintended addition that came along with function hoisting when JS was
+being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations.
+This 
+  stackoverflow q&amp;a has some good answers.
+There&rsquo;s no concept of &ldquo;initialization&rdquo; in JS.
+There is declaration (let a) and there is assignment (a = 2).
+&ldquo;Definition&rdquo; is just syntax sugar to do both declaration and assignment at once.
+typeof null evaluates to &#39;object&#39; in JS. 
+  Which is a bug apparently.
+While writing the CSS for a site, it&rsquo;s a good idea to write it mobile first and then add
+media queries for the larger screen sizes. It leads to less CSS. Even if the design was desktop based.
+JS has so many inbuilt things. 
+  Proxy is one of them.
+Want to know if you&rsquo;ve covered all best-practices and stuff for your web app?
+There&rsquo;s a nice 
+  checklist
+A book about building 
+  web apps by Basecamp. It&rsquo;s good apparently.
+
+  PDF also available.
+Confused about what units to use in CSS? 
+  Check out this video by Kevin Powell
+
+Use rem (i.e., root el) for fonts and most other things. It&rsquo;s relative to the font-size of &lt;html&gt; (which is 16px by default)
+em is relative to the font-size of the element it is on or the closest parent which has defined a font size. When it&rsquo;s used for some other property, it only references this element&rsquo;s font-size. It can be useful for padding and margins.
+Use percentages for width (prefer to use max-width) or ch (equal to width of a char) when operating on a text container
+Think twice before setting height. Try to set min-height if it is really needed.
+
+
+Try to keep text confined to 60 chars a row.
+There&rsquo;s an open source design tool: 
+  Penpot which focuses on web standards
+The word &ldquo;JavaScript&rdquo; is trademarked by Oracle (
+  https://tinyclouds.org/trademark) as of Sept. 2022
+An easy way to locally deploy the built application is to run: python -m http.server --bind localhost 8080 which serves the current directory at http://localhost:8080
+There&rsquo;s a slight imperfection in the microsoft logo on black backgrounds
+where the red box seems to appear larger than the blue box below it. This is due to the way pixels
+are arranged in a display. 
+  See it in more detail here
+Want to see what are the new features in es6 and how many of them could be done in previous versions? This 
+  website lets you do that.
+Reference for JavaScript and some practice exercises : 
+  https://wesbos.com/javascript
+Browsers now have better client side functioning capabilities. Such as 
+  a proper DB, 
+  virtualfile system, and even 
+  running full programs
+">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/misc/tips-tricks/">
   <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="Tips &amp; Tricks">
+  <meta property="og:title" content="Tips & Tricks">
   <meta property="og:description" content="Tips, tricks, and resources # Modern JS has many inbuilt features, not all of them are so well known. Check them out, from the stateOfJS22
 Good resource &amp; book on how to design modern web apps: https://www.patterns.dev/
-Variable hoisting was an unintended addition that came along with function hoisting when JS was being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations. This stackoverflow q&amp;a has some good answers.">
+Variable hoisting was an unintended addition that came along with function hoisting when JS was being developed. Hoisting is done by the two-scan interpreter. The first scan is to find declarations. This stackoverflow q&amp;a has some good answers. There’s no concept of “initialization” in JS. There is declaration (let a) and there is assignment (a = 2). “Definition” is just syntax sugar to do both declaration and assignment at once. typeof null evaluates to &#39;object&#39; in JS. Which is a bug apparently. While writing the CSS for a site, it’s a good idea to write it mobile first and then add media queries for the larger screen sizes. It leads to less CSS. Even if the design was desktop based. JS has so many inbuilt things. Proxy is one of them. Want to know if you’ve covered all best-practices and stuff for your web app? There’s a nice checklist A book about building web apps by Basecamp. It’s good apparently. PDF also available. Confused about what units to use in CSS? Check out this video by Kevin Powell Use rem (i.e., root el) for fonts and most other things. It’s relative to the font-size of &lt;html&gt; (which is 16px by default) em is relative to the font-size of the element it is on or the closest parent which has defined a font size. When it’s used for some other property, it only references this element’s font-size. It can be useful for padding and margins. Use percentages for width (prefer to use max-width) or ch (equal to width of a char) when operating on a text container Think twice before setting height. Try to set min-height if it is really needed. Try to keep text confined to 60 chars a row. There’s an open source design tool: Penpot which focuses on web standards The word “JavaScript” is trademarked by Oracle ( https://tinyclouds.org/trademark) as of Sept. 2022 An easy way to locally deploy the built application is to run: python -m http.server --bind localhost 8080 which serves the current directory at http://localhost:8080 There’s a slight imperfection in the microsoft logo on black backgrounds where the red box seems to appear larger than the blue box below it. This is due to the way pixels are arranged in a display. See it in more detail here Want to see what are the new features in es6 and how many of them could be done in previous versions? This website lets you do that. Reference for JavaScript and some practice exercises : https://wesbos.com/javascript Browsers now have better client side functioning capabilities. Such as a proper DB, virtualfile system, and even running full programs">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="misc">
@@ -21,7 +76,7 @@ Variable hoisting was an unintended addition that came along with function hoist
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.6690f9663a01fdd3ad7fc07ad54a1bc4c70de1c83f714d89e22dd8e5a5f97f49.js" integrity="sha256-ZpD5ZjoB/dOtf8B61UobxMcN4cg/cU2J4i3Y5aX5f0k="></script>
+<script defer src="/en.search.min.dc90f50eefcab36bb3a2035d71b94e99b362e570f84ac584551c1bb31a0a89a7.js" integrity="sha256-3JD1Du/Ks2uzogNdcblOmbNi5XD4SsWEVRwbsxoKiac="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -76,8 +131,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-db70775a2f464f55832baa63954506fc" class="toggle"  />
-    <label for="section-db70775a2f464f55832baa63954506fc" class="flex justify-between">
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
       <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
     </label>
   
@@ -266,8 +321,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-044fa29ae89cdc7fefbeda99f0fc5d1f" class="toggle"  />
-    <label for="section-044fa29ae89cdc7fefbeda99f0fc5d1f" class="flex justify-between">
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
       <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
     </label>
   
@@ -300,8 +355,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a533dae2ec66f5b51d3c38ec9d934c01" class="toggle"  />
-    <label for="section-a533dae2ec66f5b51d3c38ec9d934c01" class="flex justify-between">
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
       <a href="https://work.rehanvipin.me/java/" class="">Java</a>
     </label>
   
@@ -386,8 +441,8 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-9e5aaccdf48687824ccd3b3097af8e41" class="toggle"  />
-    <label for="section-9e5aaccdf48687824ccd3b3097af8e41" class="flex justify-between">
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
       <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
     </label>
   
@@ -650,8 +705,6 @@ are arranged in a display.
       <footer class="book-footer">
         
   <div class="flex flex-wrap justify-between">
-
-
 
 
 

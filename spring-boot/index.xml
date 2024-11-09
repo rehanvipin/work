@@ -12,7 +12,7 @@
       <link>https://work.rehanvipin.me/spring-boot/framework/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/spring-boot/framework/</guid>
-      <description>Spring Framework # What? Why would you use it? # It is a dependency injection framework that helps you simplify your code and make it more testable. It started as an alternative to Java 2 EE and has now grown beyond it. It even includes a web framework (Web MVC) within it. Baked in with best practices so you can focus on the business problem.&#xA;It encourages you to use interfaces and helps minimize configuration code.</description>
+      <description>&lt;h1 id=&#34;spring-framework&#34;&gt;&#xA;  Spring Framework&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#spring-framework&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;what-why-would-you-use-it&#34;&gt;&#xA;  What? Why would you use it?&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#what-why-would-you-use-it&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;It is a dependency injection framework that helps you simplify your code and make it more testable.&#xA;It started as an alternative to Java 2 EE and has now grown beyond it.&#xA;It even includes a web framework (Web MVC) within it.&#xA;Baked in with best practices so you can focus on the business problem.&lt;/p&gt;&#xA;&lt;p&gt;It encourages you to use interfaces and helps minimize configuration code.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

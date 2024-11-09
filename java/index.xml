@@ -12,35 +12,35 @@
       <link>https://work.rehanvipin.me/java/intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/java/intro/</guid>
-      <description>Introduction &amp;amp; Dev Setup # What is the Java platform? # The Java compiler, which defines what the Java language is and converts it to bytecode. Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files. The Java Virtual Machine which executes the bytecode on the computer. This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment.</description>
+      <description>&lt;h1 id=&#34;introduction--dev-setup&#34;&gt;&#xA;  Introduction &amp;amp; Dev Setup&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#introduction--dev-setup&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;what-is-the-java-platform&#34;&gt;&#xA;  What is the Java platform?&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#what-is-the-java-platform&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The Java compiler, which defines what the Java language is and converts it to bytecode.&#xA;Also a bunch of other tools which can help in development e.g., tools to inspect / decompile files.&lt;/li&gt;&#xA;&lt;li&gt;The Java Virtual Machine which executes the bytecode on the computer.&#xA;This along with the classes required to run the program (i.e., standard libraries) is called the Java Runtime Environment.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;These two together make up the Java Development Kit, which is required to write and execute Java programs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mods &amp; Packs</title>
       <link>https://work.rehanvipin.me/java/modules/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/java/modules/</guid>
-      <description> Modules &amp;amp; Packages # How is java code bundled up to be shared? Previously it was through packages and classpath. After project jigsaw, it is through modules.&#xA;What are they? How are they different?&#xA;Good resources for the same:&#xA;https://dev.java/learn/packages/ https://dev.java/learn/modules/ https://dev.java/learn/jlink/ </description>
+      <description>&lt;h1 id=&#34;modules--packages&#34;&gt;&#xA;  Modules &amp;amp; Packages&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#modules--packages&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;How is java code bundled up to be shared?&#xA;Previously it was through packages and classpath.&#xA;After &#xA;  &lt;a href=&#34;https://www.baeldung.com/project-jigsaw-java-modularity&#34;&gt;project jigsaw&lt;/a&gt;, it is through modules.&lt;/p&gt;&#xA;&lt;p&gt;What are they? How are they different?&lt;/p&gt;&#xA;&lt;p&gt;Good resources for the same:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;  &lt;a href=&#34;https://dev.java/learn/packages/&#34;&gt;https://dev.java/learn/packages/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;  &lt;a href=&#34;https://dev.java/learn/modules/&#34;&gt;https://dev.java/learn/modules/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;  &lt;a href=&#34;https://dev.java/learn/jlink/&#34;&gt;https://dev.java/learn/jlink/&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>JVM</title>
       <link>https://work.rehanvipin.me/java/jvm/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/java/jvm/</guid>
-      <description> The Java Virtual Machine # It executes the bytecode apparently.&#xA;Learn more about it&amp;rsquo;s internals through these courses:&#xA;Memory Management Class Loading </description>
+      <description>&lt;h1 id=&#34;the-java-virtual-machine&#34;&gt;&#xA;  The Java Virtual Machine&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#the-java-virtual-machine&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;It executes the bytecode apparently.&lt;/p&gt;&#xA;&lt;p&gt;Learn more about it&amp;rsquo;s internals through these courses:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;  &lt;a href=&#34;https://app.pluralsight.com/library/courses/understanding-java-vm-memory-management/table-of-contents&#34;&gt;Memory Management&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;  &lt;a href=&#34;https://app.pluralsight.com/library/courses/understanding-java-vm-class-loading-reflection/table-of-contents&#34;&gt;Class Loading&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Build tools</title>
       <link>https://work.rehanvipin.me/java/build_tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/java/build_tools/</guid>
-      <description>Building Java code # Why not just use javac ? Well, you can but tools save time because there could be:&#xA;Many Java files that need to be compiled for the main file. Incremental builds, building only the classes whose code has changed. External dependencies that need to be fetched. (Transitive dependencies! Versions!) Package code into a .jar or .jmod file. Custom arguments for compiling certain classes ? Custom arguments for running the tests.</description>
+      <description>&lt;h1 id=&#34;building-java-code&#34;&gt;&#xA;  Building Java code&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#building-java-code&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Why not just use &lt;code&gt;javac&lt;/code&gt; ? Well, you can but tools save time because there could be:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Many Java files that need to be compiled for the main file.&lt;/li&gt;&#xA;&lt;li&gt;Incremental builds, building only the classes whose code has changed.&lt;/li&gt;&#xA;&lt;li&gt;External dependencies that need to be fetched. (Transitive dependencies! Versions!)&lt;/li&gt;&#xA;&lt;li&gt;Package code into a &lt;code&gt;.jar&lt;/code&gt; or &lt;code&gt;.jmod&lt;/code&gt; file.&lt;/li&gt;&#xA;&lt;li&gt;Custom arguments for compiling certain classes ?&lt;/li&gt;&#xA;&lt;li&gt;Custom arguments for running the tests.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This is what tools like &lt;code&gt;maven&lt;/code&gt; and &lt;code&gt;gradle&lt;/code&gt; try to solve.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Web Server</title>
       <link>https://work.rehanvipin.me/java/web-server/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://work.rehanvipin.me/java/web-server/</guid>
-      <description>Sharing stuff to browsers # Sure, you can use Spring MVC and others, but what about using something more low-level.&#xA;Jetty Server Jetty Servlet (to handle requests) Apache CXF (to implement REST APIs, compliant with JAX-RS) https://www.baeldung.com/jetty-embedded https://www.baeldung.com/introduction-to-apache-cxf https://www.baeldung.com/rest-api-jax-rs-vs-spring</description>
+      <description>&lt;h1 id=&#34;sharing-stuff-to-browsers&#34;&gt;&#xA;  Sharing stuff to browsers&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sharing-stuff-to-browsers&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Sure, you can use Spring MVC and others, but what about using something more low-level.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Jetty Server&lt;/li&gt;&#xA;&lt;li&gt;Jetty Servlet (to handle requests)&lt;/li&gt;&#xA;&lt;li&gt;Apache CXF (to implement REST APIs, compliant with JAX-RS)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://www.baeldung.com/jetty-embedded&#34;&gt;https://www.baeldung.com/jetty-embedded&lt;/a&gt;&#xA;&#xA;  &lt;a href=&#34;https://www.baeldung.com/introduction-to-apache-cxf&#34;&gt;https://www.baeldung.com/introduction-to-apache-cxf&lt;/a&gt;&#xA;&#xA;  &lt;a href=&#34;https://www.baeldung.com/rest-api-jax-rs-vs-spring&#34;&gt;https://www.baeldung.com/rest-api-jax-rs-vs-spring&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
