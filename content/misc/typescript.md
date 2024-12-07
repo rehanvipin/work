@@ -8,7 +8,7 @@ weight: 2
 # bookComments: true
 ---
 # Write JavaScript with confidence
-TODO: The docs are good. Check them out: https://www.typescriptlang.org/docs/.
+The docs are good. Check them out: https://www.typescriptlang.org/docs/.
 
 ## Some notes
 `declare a` in TS is used to tell the compiler that the variable a is declared somewhere else and it's

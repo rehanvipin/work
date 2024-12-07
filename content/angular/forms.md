@@ -110,5 +110,4 @@ You need to do a few weird things to validate multiple fields:
 This whole thing is just super complex and weird.
 
 ## `ngModel`
-TODO: this is one fancy thing. [Check out the docs](https://angular.io/api/forms/NgModel) to understand it.
-There's also this https://angular.io/api/core/ViewContainerRef.
+TODO: this is one fancy thing. [Check out the docs](https://angular.dev/api/forms/NgModel?tab=description) to understand it.

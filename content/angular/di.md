@@ -3,9 +3,6 @@ title: "Dependency Injection"
 weight: 9
 ---
 # Adding features! 🙌
-TODO: add stuff from this: https://angular.io/guide/hierarchical-dependency-injection
-and try to move most of the service related stuff to the services page.
-
 ## Dependency injection
 This is how you provide new components with extra resources they need to function. To indicate that a class (**any class**, not just a component / service) has a dependency or is a dependency you decorate it with `@Injectable()`. From the docs
 > The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed. You don't have to create injectors.
@@ -71,3 +68,18 @@ Alternatives to `useValue`
 * The usual way where you put the service class within the `providers` array of the ngModule is a shorthand for `{provider: someGoodClass, useClass: someGoodClass}`
 * `useExisting` lets you use a different, **already registered (i.e. existing)**, provider when the user requests one provider. Something like this: `{provider: someGoodClass, useExisting: someShadyClass}`
 * `useFactory` lets you use a function to create an object. This is complex. [Check out the docs](https://angular.io/guide/dependency-injection-providers#using-factory-providers).
+
+## Injectors
+Angular has three kinds of Injectors (and each have their hierarchies) which can be used when a dependency is requested:
+1. ElementInjector (providing a dependency at a component level)
+2. EnvironmentInjector (the root injector is in this hierarchy)
+3. ModuleInjector (only for apps which use ngModule)
+
+The above is also the resolution order. If nothing works, it'll end up searching the NullInjector and throwing an error.
+
+It is also possible to customize the default resolution algorithm with some decorators:
+* `@Optional()` will give a `null` value instead of throwing an error if a dependency is not found.
+* `@Self()` will look into the current component's ElementInjector only
+
+In a eager-loaded app, all the providers of all modules are available throughout the app. (Whatt??? Don't worry, this only happens for providedIn: 'any')  
+For lazy-loaded modules, there is a new injector created for each loaded module which is then added to the injector hierarchy.

@@ -26,6 +26,3 @@ That's done by adding the source to the `scripts` array in `angular.json`
 
 ## Creating one
 It's a convention to prefix library names with `ngx-` to denote they are Angular libs.
-
-TODO:
-I don't understand this. Gotta do it later.

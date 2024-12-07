@@ -105,4 +105,6 @@ A full list of them, when they're called and what they do is present [in the doc
 And some good examples for each one are in this [article](https://angularindepth.com/posts/1494/complete-guide-angular-lifecycle-hooks)
 
 ## Dynamic loading!
-TODO: get back to this. [The docs was a bit more complicated than expected.](https://angular.io/guide/dynamic-component-loader)
+It is possible dynamically add new components to the DOM from JS. The two options are:
+* `<ng-container *ngComponentOutlet="expressionWhichReturnsAComponent"></ng-container>`
+* `ViewContainerRef`, `createComponent` function.
