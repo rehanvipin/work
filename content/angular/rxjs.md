@@ -177,3 +177,28 @@ Controls when subscriptions start. Can modify this so that subscriptions start i
 Another section for this topic?? Yep, there's a lot of variety here and these are the popular ones:
 
 Bunch of useful ones grouped by category: <https://www.learnrxjs.io/learn-rxjs/operators>
+
+### Higher-order observable transformers
+Convert higher order observables into regular ones i.e., `Observable<Observable<T>>` to `Observable<T>`.
+Nested subscriptions are not recommended since it is harder to unsubscribe and easier to cause timing issues.
+All the below transformers take an argument of a function returning an observable.
+Thus, there are two observables here. An "outer" one and an "inner" one.
+For all of them, the final returned observable will go to error state if either inner or outer go to error.
+
+* `concatMap`: For each emitted value of outer observable, get all emmitted values of inner observable till completion, and then proceed to next emitted value of outer and repeat the same.
+* `mergeMap`: Goes through emissions of outer observable and starts the inner observable for each one, but all the inner observable emit in parallel and the values that appear finally depends on their times of emissions.
+* `switchMap`: For each emitted value of outer observable, cancel any previous subscribtions of inner observable and start new subscription.
+
+Example:
+```ts
+function getInnerObs(x: number): Observable<string> {
+    // does some operations
+}
+
+const outerObs = interval(1000).pipe(take(5));
+outerObs.pipe(
+    xMap(outerVal => getInnerObs(outerVal))
+).subscribe(
+    // observer logic
+)
+```
