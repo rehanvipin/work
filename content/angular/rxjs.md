@@ -202,3 +202,60 @@ outerObs.pipe(
     // observer logic
 )
 ```
+
+### Multicast
+Assume an observable `o1`. When it is subscribed in two places, the subscriber logic of the observable runs twice.
+If it's an observable got from `http`, that would mean it would make the API call twice.
+This may not be expected. Especially in situations where the subscription is implicit e.g., async pipe and / or the subscriber logic is expensive.
+
+Generally, this is avoided by creating a subject which takes value from the observable and there are multiple subscriptions to that subject.
+
+However, that is not required. It can also be done with a `shareReplay(n)` operator. Where `n` is number of emissions to give to new subscriptions.
+
+Example:
+```ts
+mainObs = new Observable<number>((subscriber) => {
+    let total = 0;
+    for(let i=0; i<100; i++) {
+        total += i;
+    }
+    subscriber.next(total);
+});
+sideObs = this.mainObs.pipe(
+    tap(val => console.log('before shareReplay', val)),
+    shareReplay(1),
+    tap(() => console.log('after shareReplay'))
+);
+
+user1 = this.sideObs;
+user2 = this.sideObs.pipe(
+    map(val => val*-2)
+);
+```
+
+There is also the `share()` operator, but that will not give values to late subscriber. E.g., user2 will not get a value
+```ts
+mainObs = new Observable<number>((subscriber) => {
+    let total = 0;
+    for(let i=0; i<100; i++) {
+        total += i;
+    }
+    subscriber.next(total);
+});
+sideObs = this.mainObs.pipe(
+    tap(val => console.log('before shareReplay', val)),
+    share(),
+    tap(() => console.log('after shareReplay'))
+);
+
+user1 = this.sideObs;
+user2!: Observable<number>;
+
+constructor() {
+    setTimeout(() => {
+        this.user2 = this.sideObs.pipe(
+        map(val => val*-2)
+        );  
+    }, 1000);
+}
+```

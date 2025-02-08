@@ -40,6 +40,24 @@ Angular only runs a pipe when the identity of the data has changed. It's value. 
 You can subscribe and process values from RxJS observables within the template itself. This is possible via the async pipe. It's often used with ngFor like this: `<div *ngFor="let book of books | async">We have {{ book.name }}</div>` where `books` is an observable which has multiple `next` calls and a `complete` call.
 
 When the component gets destroyed, it automatically unsubscribes from the observable.
+Every use of the async pipe is a new subscription. If the observable is from a http request, this might mean that the API calls happen multiple times.
+Eg.,
+```html
+<div *ngIf="books$ | async">
+    <div *ngFor="let book of books$ | async">
+        We have {{ book.name }}
+    </div>
+</div>
+```
+
+This can be made better using the `as` keyword like so:
+```html
+<div *ngIf="books$ | async as books">
+    <div *ngFor="let book of books">
+        We have {{ book.name }}
+    </div>
+</div>
+```
 
 ## Purity
 By default, pipes are pure. Pipes use data binding, Angular executes the pipe when a change is detected in
