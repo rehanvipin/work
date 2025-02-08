@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.139.3">
+  <meta name="generator" content="Hugo 0.143.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -28,7 +28,7 @@ The injector is the main mechanism. Angular creates an application-wide injector
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.040812acf4d2c5882ea2f12b7e8fe6f2eb3549334cc7c2f0641f047b3f57f4a7.js" integrity="sha256-BAgSrPTSxYguovErfo/m8us1STNMx8LwZB8Eez9X9Kc="></script>
+<script defer src="/en.search.min.5fc663f8c7c881a69ea88045aa4c0210b12d0338c291b8dd1bfb079f55c1a6c7.js" integrity="sha256-X8Zj&#43;MfIgaaeqIBFqkwCELEtAzjCkbjdG/sHn1XBpsc="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -629,8 +629,7 @@ https://github.com/alex-shpak/hugo-book
 <p>This is how you provide new components with extra resources they need to function. To indicate that a class (<strong>any class</strong>, not just a component / service) has a dependency or is a dependency you decorate it with <code>@Injectable()</code>. From the docs</p>
 <blockquote>
 <p>The injector is the main mechanism. Angular creates an application-wide injector for you during the bootstrap process, and additional injectors as needed. You don&rsquo;t have to create injectors.</p>
-<p>An injector creates dependencies, and maintains a container of dependency instances that it reuses if possible.</p>
-</blockquote>
+<p>An injector creates dependencies, and maintains a container of dependency instances that it reuses if possible.</p></blockquote>
 <p>Some important points:</p>
 <ul>
 <li>You declare dependencies of a class in its constructor</li>
@@ -639,8 +638,7 @@ https://github.com/alex-shpak/hugo-book
 <p>Again, from the docs listed at the top of the page:</p>
 <blockquote>
 <p>When Angular discovers that a component depends on a service, it first checks if the injector has any existing instances of that service. If a requested service instance doesn&rsquo;t yet exist, the injector makes one using the registered provider, and adds it to the injector before returning the service to Angular.</p>
-<p>When all requested services have been resolved and returned, Angular can call the component&rsquo;s constructor with those services as arguments.</p>
-</blockquote>
+<p>When all requested services have been resolved and returned, Angular can call the component&rsquo;s constructor with those services as arguments.</p></blockquote>
 <h3 id="register-a-provider">
   Register a provider
   <a class="anchor" href="#register-a-provider">#</a>
