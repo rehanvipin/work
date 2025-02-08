@@ -9,22 +9,22 @@
   Signals
   #
 
-To make Angular apps more responsive.
-The different parts are :
-
-Observing certain changes
-Listening to notifications about the changes
-Reacting accordingly
-
+Apparently, it is used to make Angular apps more responsive and improve Change Detection.
 Signals can be thought of as a combination of state and a notification mechanism.
 How is that different from RxJS observables?
-They are a notification mechanism for events and don&rsquo;t really hold state.">
+Observables are a notification mechanism for events and don&rsquo;t really hold state. What about Subjects then??
+
+  Simple uses
+  #
+
+They can be created in the component like so: const newSig = signal&lt;TypeOrLetItBeInferred&gt;(defaultValue). The default value is a must.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/angular/signals/">
   <meta property="og:site_name" content="Field Manual">
   <meta property="og:title" content="Reactivity with Signals">
-  <meta property="og:description" content="Signals # To make Angular apps more responsive. The different parts are :
-Observing certain changes Listening to notifications about the changes Reacting accordingly Signals can be thought of as a combination of state and a notification mechanism.
-How is that different from RxJS observables? They are a notification mechanism for events and don’t really hold state.">
+  <meta property="og:description" content="Signals # Apparently, it is used to make Angular apps more responsive and improve Change Detection.
+Signals can be thought of as a combination of state and a notification mechanism.
+How is that different from RxJS observables? Observables are a notification mechanism for events and don’t really hold state. What about Subjects then??
+Simple uses # They can be created in the component like so: const newSig = signal&lt;TypeOrLetItBeInferred&gt;(defaultValue). The default value is a must.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="angular">
@@ -32,7 +32,7 @@ How is that different from RxJS observables? They are a notification mechanism f
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.5fc663f8c7c881a69ea88045aa4c0210b12d0338c291b8dd1bfb079f55c1a6c7.js" integrity="sha256-X8Zj&#43;MfIgaaeqIBFqkwCELEtAzjCkbjdG/sHn1XBpsc="></script>
+<script defer src="/en.search.min.576bd671d499b79d87c20873b7bc3885ee57545514105d312325fbe751e2ef36.js" integrity="sha256-V2vWcdSZt52Hwghzt7w4he5XVFUUEF0xIyX751Hi7zY="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -598,7 +598,12 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#signals">Signals</a></li>
+    <li><a href="#signals">Signals</a>
+      <ul>
+        <li><a href="#simple-uses">Simple uses</a></li>
+        <li><a href="#effects">Effects</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -615,16 +620,33 @@ https://github.com/alex-shpak/hugo-book
   Signals
   <a class="anchor" href="#signals">#</a>
 </h1>
-<p>To make Angular apps more responsive.
-The different parts are :</p>
-<ul>
-<li>Observing certain changes</li>
-<li>Listening to notifications about the changes</li>
-<li>Reacting accordingly</li>
-</ul>
+<p>Apparently, it is used to make Angular apps more responsive and improve Change Detection.</p>
 <p>Signals can be thought of as a combination of state and a notification mechanism.</p>
 <p>How is that different from RxJS observables?
-They are a notification mechanism for <em>events</em> and don&rsquo;t really hold state.</p>
+Observables are a notification mechanism for <em>events</em> and don&rsquo;t really hold state. What about Subjects then??</p>
+<h2 id="simple-uses">
+  Simple uses
+  <a class="anchor" href="#simple-uses">#</a>
+</h2>
+<p>They can be created in the component like so: <code>const newSig = signal&lt;TypeOrLetItBeInferred&gt;(defaultValue)</code>. The default value is a must.</p>
+<p>They can be read anywhere in the TS code like so: <code>newSig()</code>. Same thing in the template file.
+When a signal is used in a template, Angular registers it as a dependency of the template and, whenver required, will re-render the portion of the template where the signal is used.</p>
+<p>To update values, just do <code>newSig.set(newVal)</code> and it will set the value and notify dependents.
+Similary, there is a <code>newSig.update((oldVal) =&gt; { /* code to return new value based on old value */ })</code> to set the value and notify dependents.</p>
+<h2 id="effects">
+  Effects
+  <a class="anchor" href="#effects">#</a>
+</h2>
+<p>When a signal&rsquo;s value changes, there is a delay till the next change detection cycle for the updates to be visible in the template.</p>
+<p>One dependent of a signal is a computed signal. It&rsquo;s a readonly signal whose value is derived from other signals.<br>
+It&rsquo;s defined like this <code>const compSig = computed(() =&gt; { /* may use some signals to return the value */ })</code>.
+All the signals used in the function block become the dependencies.<br>
+It will only do the computation if the value of the computed signal is read anywhere, and it won&rsquo;t do the computation again if none of the dependencies have changed. Memoization basically.</p>
+<p>Another dependent is an <code>effect</code> which schedules an execution of the arrow function whenever dependencies change.
+Unlike a <code>computed</code>, it will at least run once. (because there is no concept of &ldquo;reading&rdquo; an effect. it is only for side-effects)
+If there are multiple dependency updates, it is possible that only one execution is scheduled for all those updates.</p>
+<p>The effect actually returns a &ldquo;ref&rdquo; which can be used to cancel any queued scheduled executions for that effect.</p>
+<p>In both above cases, it&rsquo;s not recommended to update any dependency / dependents inside the function block as it can cause circular executions.</p>
 </article>
  
       
@@ -655,7 +677,12 @@ They are a notification mechanism for <em>events</em> and don&rsquo;t really hol
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#signals">Signals</a></li>
+    <li><a href="#signals">Signals</a>
+      <ul>
+        <li><a href="#simple-uses">Simple uses</a></li>
+        <li><a href="#effects">Effects</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 

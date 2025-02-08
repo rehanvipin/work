@@ -48,7 +48,7 @@ Custom pipe # An example pipe:
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.5fc663f8c7c881a69ea88045aa4c0210b12d0338c291b8dd1bfb079f55c1a6c7.js" integrity="sha256-X8Zj&#43;MfIgaaeqIBFqkwCELEtAzjCkbjdG/sHn1XBpsc="></script>
+<script defer src="/en.search.min.576bd671d499b79d87c20873b7bc3885ee57545514105d312325fbe751e2ef36.js" integrity="sha256-V2vWcdSZt52Hwghzt7w4he5XVFUUEF0xIyX751Hi7zY="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -681,8 +681,21 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#async">#</a>
 </h2>
 <p>You can subscribe and process values from RxJS observables within the template itself. This is possible via the async pipe. It&rsquo;s often used with ngFor like this: <code>&lt;div *ngFor=&quot;let book of books | async&quot;&gt;We have {{ book.name }}&lt;/div&gt;</code> where <code>books</code> is an observable which has multiple <code>next</code> calls and a <code>complete</code> call.</p>
-<p>When the component gets destroyed, it automatically unsubscribes from the observable.</p>
-<h2 id="purity">
+<p>When the component gets destroyed, it automatically unsubscribes from the observable.
+Every use of the async pipe is a new subscription. If the observable is from a http request, this might mean that the API calls happen multiple times.
+Eg.,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngIf</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;books$ | async&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;let book of books$ | async&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        We have {{ book.name }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>This can be made better using the <code>as</code> keyword like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngIf</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;books$ | async as books&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;let book of books&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        We have {{ book.name }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><h2 id="purity">
   Purity
   <a class="anchor" href="#purity">#</a>
 </h2>
