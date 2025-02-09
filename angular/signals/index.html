@@ -13,6 +13,7 @@ Apparently, it is used to make Angular apps more responsive and improve Change D
 Signals can be thought of as a combination of state and a notification mechanism.
 How is that different from RxJS observables?
 Observables are a notification mechanism for events and don&rsquo;t really hold state. What about Subjects then??
+It is still recommeneded to use RxJS for asynchronous event handling.
 
   Simple uses
   #
@@ -24,6 +25,7 @@ They can be created in the component like so: const newSig = signal&lt;TypeOrLet
   <meta property="og:description" content="Signals # Apparently, it is used to make Angular apps more responsive and improve Change Detection.
 Signals can be thought of as a combination of state and a notification mechanism.
 How is that different from RxJS observables? Observables are a notification mechanism for events and don’t really hold state. What about Subjects then??
+It is still recommeneded to use RxJS for asynchronous event handling.
 Simple uses # They can be created in the component like so: const newSig = signal&lt;TypeOrLetItBeInferred&gt;(defaultValue). The default value is a must.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -32,7 +34,7 @@ Simple uses # They can be created in the component like so: const newSig = signa
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.576bd671d499b79d87c20873b7bc3885ee57545514105d312325fbe751e2ef36.js" integrity="sha256-V2vWcdSZt52Hwghzt7w4he5XVFUUEF0xIyX751Hi7zY="></script>
+<script defer src="/en.search.min.7129b7a31d98016e8784bd28e1b4375b2111ca16723e9ac93fdd8383a972445d.js" integrity="sha256-cSm3ox2YAW6HhL0o4bQ3WyERyhZyPprJP92Dg6lyRF0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -602,6 +604,7 @@ https://github.com/alex-shpak/hugo-book
       <ul>
         <li><a href="#simple-uses">Simple uses</a></li>
         <li><a href="#effects">Effects</a></li>
+        <li><a href="#notifications">Notifications</a></li>
       </ul>
     </li>
   </ul>
@@ -624,6 +627,7 @@ https://github.com/alex-shpak/hugo-book
 <p>Signals can be thought of as a combination of state and a notification mechanism.</p>
 <p>How is that different from RxJS observables?
 Observables are a notification mechanism for <em>events</em> and don&rsquo;t really hold state. What about Subjects then??</p>
+<p>It is still recommeneded to use RxJS for asynchronous event handling.</p>
 <h2 id="simple-uses">
   Simple uses
   <a class="anchor" href="#simple-uses">#</a>
@@ -642,11 +646,33 @@ Similary, there is a <code>newSig.update((oldVal) =&gt; { /* code to return new 
 It&rsquo;s defined like this <code>const compSig = computed(() =&gt; { /* may use some signals to return the value */ })</code>.
 All the signals used in the function block become the dependencies.<br>
 It will only do the computation if the value of the computed signal is read anywhere, and it won&rsquo;t do the computation again if none of the dependencies have changed. Memoization basically.</p>
-<p>Another dependent is an <code>effect</code> which schedules an execution of the arrow function whenever dependencies change.
+<p>Another dependent is an <code>effect</code> which schedules an execution of the arrow function whenever dependencies change. E.g., <code>effect(() =&gt; { /**/ })</code>
 Unlike a <code>computed</code>, it will at least run once. (because there is no concept of &ldquo;reading&rdquo; an effect. it is only for side-effects)
 If there are multiple dependency updates, it is possible that only one execution is scheduled for all those updates.</p>
 <p>The effect actually returns a &ldquo;ref&rdquo; which can be used to cancel any queued scheduled executions for that effect.</p>
 <p>In both above cases, it&rsquo;s not recommended to update any dependency / dependents inside the function block as it can cause circular executions.</p>
+<p>An <code>effect</code> can be setup only in an &ldquo;injection context&rdquo; such as constructor etc. or you can pass it an injector reference.<br>
+More about that here 
+  <a href="https://github.com/angular/angular/issues/56357">https://github.com/angular/angular/issues/56357</a></p>
+<h2 id="notifications">
+  Notifications
+  <a class="anchor" href="#notifications">#</a>
+</h2>
+<p>A signal will not notify the dependents if the &ldquo;value&rdquo; of the signal is the same as it was before, even if someone had .set or .update the signal.</p>
+<p>How does it know value has changed? Object reference. That&rsquo;s why if your signal is holding an array, you should update the array reference itself when performing updates.</p>
+<p>E.g., <code>sig.update(currentArr =&gt; [...currentArr, {val: 'newVal'}])</code> instead of getting array ref from signal and pushing to that array.</p>
+<p>You should always use <code>.set</code> or <code>.update</code> to inform about a value update, but even with that, there are problems for arrays due to obj ref if you do
+<code>sig.update(cArr =&gt; cArr.push({val: 'newVal'}))</code>. That&rsquo;s why the above method is better.</p>
+<p>Alternatively, can we define a signal&rsquo;s equality checker to solve this problem?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">uniqSig</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>([<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;hi&#39;</span>], {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">equal</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">prev</span>, <span style="color:#a6e22e">cur</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prev</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">cur</span>.<span style="color:#a6e22e">length</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">prev</span>.<span style="color:#a6e22e">every</span>((<span style="color:#a6e22e">pval</span>, <span style="color:#a6e22e">i</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">pval</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">cur</span>[<span style="color:#a6e22e">i</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Not in this case. Since we are modifying the array that signal is holding, <code>prev</code> and <code>cur</code> will always be the same.</p>
 </article>
  
       
@@ -681,6 +707,7 @@ If there are multiple dependency updates, it is possible that only one execution
       <ul>
         <li><a href="#simple-uses">Simple uses</a></li>
         <li><a href="#effects">Effects</a></li>
+        <li><a href="#notifications">Notifications</a></li>
       </ul>
     </li>
   </ul>

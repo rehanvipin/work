@@ -21,7 +21,7 @@ Not everything happens right at once in a webapp. It shouldn&rsquo;t wait for ce
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.576bd671d499b79d87c20873b7bc3885ee57545514105d312325fbe751e2ef36.js" integrity="sha256-V2vWcdSZt52Hwghzt7w4he5XVFUUEF0xIyX751Hi7zY="></script>
+<script defer src="/en.search.min.7129b7a31d98016e8784bd28e1b4375b2111ca16723e9ac93fdd8383a972445d.js" integrity="sha256-cSm3ox2YAW6HhL0o4bQ3WyERyhZyPprJP92Dg6lyRF0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -606,6 +606,7 @@ https://github.com/alex-shpak/hugo-book
             <li><a href="#multicast">Multicast</a></li>
           </ul>
         </li>
+        <li><a href="#error-handling">Error handling</a></li>
       </ul>
     </li>
   </ul>
@@ -841,7 +842,11 @@ For all of them, the final returned observable will go to error state if either 
 </span></span><span style="display:flex;"><span>).<span style="color:#a6e22e">subscribe</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// observer logic
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
-</span></span></code></pre></div><h3 id="multicast">
+</span></span></code></pre></div><blockquote class="book-hint info">
+  What about <code>flatMap</code> ? That&rsquo;s just a deprecated alias for <code>mergeMap</code>.
+</blockquote>
+
+<h3 id="multicast">
   Multicast
   <a class="anchor" href="#multicast">#</a>
 </h3>
@@ -892,7 +897,50 @@ This may not be expected. Especially in situations where the subscription is imp
 </span></span><span style="display:flex;"><span>        );  
 </span></span><span style="display:flex;"><span>    }, <span style="color:#ae81ff">1000</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></article>
+</span></span></code></pre></div><h2 id="error-handling">
+  Error handling
+  <a class="anchor" href="#error-handling">#</a>
+</h2>
+<p>Whenever there is a an error thrown in the subscriber logic of the observable, or somewhere in the pipeline, rxjs catches automatically it to emit an error notification to the observers. E.g.,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubComponent</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">notifs</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">t</span>:<span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">val</span>:<span style="color:#66d9ef">any</span>}[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">obs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">number</span>&gt;(<span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;custom err&#39;</span>); <span style="color:#75715e">// if we comment this out, the error would be thrown later on in the pipeline
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>    }).<span style="color:#a6e22e">pipe</span>(
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">val</span> <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">val</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;val gte 3&#39;</span>)
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    ).<span style="color:#a6e22e">subscribe</span>({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">next</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">val</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">notifs</span>.<span style="color:#a6e22e">push</span>({<span style="color:#a6e22e">t</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;next&#39;</span>, <span style="color:#a6e22e">val</span>}),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">val</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">notifs</span>.<span style="color:#a6e22e">push</span>({<span style="color:#a6e22e">t</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;error&#39;</span>, <span style="color:#a6e22e">val</span>}),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">complete</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">notifs</span>.<span style="color:#a6e22e">push</span>({<span style="color:#a6e22e">t</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;complete&#39;</span>, <span style="color:#a6e22e">val</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;dunzo&#39;</span>})
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>An error state is a terminal state for an observable. There won&rsquo;t be any emissions after that.</p>
+<p>It is possible to catch errors and return some value instead. This is through the <code>catchError</code> operator.
+The argument to the operator is a function which returns a replacement observable.</p>
+<p>catchError will only catch errors which happen above it in the pipeline or in the subscriber logic.
+In the example above, a catchError could be added after the map like so:</p>
+<pre tabindex="0"><code>catchError((err) =&gt; {
+    console.log(&#39;got an error&#39;, err);
+    return new Observable(sub =&gt; { /* any logic*/ });
+})
+</code></pre><p>There are some frequently used observables for this case:</p>
+<ul>
+<li><code>EMPTY</code>. completes immediately without emitting any value</li>
+<li><code>throwError(fnWhichReturnsAnError)</code>. emits an error notification immediately. The error object is as per the function passed to this operator.</li>
+</ul>
+<p>What if the observer doesn&rsquo;t specify a function for the error notification?
+If it just has a <code>next</code> handler, then the error is thrown up the call stack, and in the case of a browser, will end up in a <code>console.error</code>.</p>
+</article>
  
       
 
@@ -941,6 +989,7 @@ This may not be expected. Especially in situations where the subscription is imp
             <li><a href="#multicast">Multicast</a></li>
           </ul>
         </li>
+        <li><a href="#error-handling">Error handling</a></li>
       </ul>
     </li>
   </ul>

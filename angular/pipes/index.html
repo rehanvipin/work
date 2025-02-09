@@ -48,7 +48,7 @@ Custom pipe # An example pipe:
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.576bd671d499b79d87c20873b7bc3885ee57545514105d312325fbe751e2ef36.js" integrity="sha256-V2vWcdSZt52Hwghzt7w4he5XVFUUEF0xIyX751Hi7zY="></script>
+<script defer src="/en.search.min.7129b7a31d98016e8784bd28e1b4375b2111ca16723e9ac93fdd8383a972445d.js" integrity="sha256-cSm3ox2YAW6HhL0o4bQ3WyERyhZyPprJP92Dg6lyRF0="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -689,7 +689,7 @@ Eg.,</p>
 </span></span><span style="display:flex;"><span>        We have {{ book.name }}
 </span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><p>This can be made better using the <code>as</code> keyword like so:</p>
+</span></span></code></pre></div><p>This can be made better using the <code>as</code> keyword (which is actually an ngIf feature) like so:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngIf</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;books$ | async as books&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;let book of books&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>        We have {{ book.name }}
