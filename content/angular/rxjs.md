@@ -203,6 +203,10 @@ outerObs.pipe(
 )
 ```
 
+{{< hint "info" >}}
+What about `flatMap` ? That's just a deprecated alias for `mergeMap`.
+{{< /hint >}}
+
 ### Multicast
 Assume an observable `o1`. When it is subscribed in two places, the subscriber logic of the observable runs twice.
 If it's an observable got from `http`, that would mean it would make the API call twice.
@@ -259,3 +263,51 @@ constructor() {
     }, 1000);
 }
 ```
+
+## Error handling
+Whenever there is a an error thrown in the subscriber logic of the observable, or somewhere in the pipeline, rxjs catches automatically it to emit an error notification to the observers. E.g.,
+```ts
+export class SubComponent {
+    notifs: {t:string, val:any}[] = [];
+
+    obs = new Observable<number>(subscriber => {
+        subscriber.next(1);
+        throw new Error('custom err'); // if we comment this out, the error would be thrown later on in the pipeline
+        subscriber.next(2);
+        subscriber.next(3);
+        subscriber.next(4);
+    }).pipe(
+        map(val => {
+            if (val < 3) {
+                return val;
+            }
+            throw new Error('val gte 3')
+        })
+    ).subscribe({
+        next: (val) => this.notifs.push({t: 'next', val}),
+        error: (val) => this.notifs.push({t: 'error', val}),
+        complete: () => this.notifs.push({t: 'complete', val: 'dunzo'})
+    })
+}
+```
+
+An error state is a terminal state for an observable. There won't be any emissions after that.
+
+It is possible to catch errors and return some value instead. This is through the `catchError` operator.
+The argument to the operator is a function which returns a replacement observable.
+
+catchError will only catch errors which happen above it in the pipeline or in the subscriber logic.
+In the example above, a catchError could be added after the map like so:
+```
+catchError((err) => {
+    console.log('got an error', err);
+    return new Observable(sub => { /* any logic*/ });
+})
+```
+
+There are some frequently used observables for this case:
+* `EMPTY`. completes immediately without emitting any value
+* `throwError(fnWhichReturnsAnError)`. emits an error notification immediately. The error object is as per the function passed to this operator.
+
+What if the observer doesn't specify a function for the error notification? 
+If it just has a `next` handler, then the error is thrown up the call stack, and in the case of a browser, will end up in a `console.error`. 

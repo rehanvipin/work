@@ -50,7 +50,7 @@ Eg.,
 </div>
 ```
 
-This can be made better using the `as` keyword like so:
+This can be made better using the `as` keyword (which is actually an ngIf feature) like so:
 ```html
 <div *ngIf="books$ | async as books">
     <div *ngFor="let book of books">
