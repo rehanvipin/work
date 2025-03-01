@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.143.1">
+  <meta name="generator" content="Hugo 0.145.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -10,23 +10,19 @@
   #
 
 Apparently, it is used to make Angular apps more responsive and improve Change Detection.
-Signals can be thought of as a combination of state and a notification mechanism.
+Signals can be thought of as a combination of state and a notification mechanism for changes to that state.
 How is that different from RxJS observables?
-Observables are a notification mechanism for events and don&rsquo;t really hold state. What about Subjects then??
-It is still recommeneded to use RxJS for asynchronous event handling.
-
-  Simple uses
-  #
-
-They can be created in the component like so: const newSig = signal&lt;TypeOrLetItBeInferred&gt;(defaultValue). The default value is a must.">
+Observables are a notification mechanism for events and don&rsquo;t really hold state.
+What about Subjects then?? Well, they are similar, but state management code is simpler with signals (based on trials).
+One such benefit is that there is no need to manually &ldquo;complete&rdquo; &amp; &ldquo;unsubscribe&rdquo;.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/angular/signals/">
   <meta property="og:site_name" content="Field Manual">
   <meta property="og:title" content="Reactivity with Signals">
   <meta property="og:description" content="Signals # Apparently, it is used to make Angular apps more responsive and improve Change Detection.
-Signals can be thought of as a combination of state and a notification mechanism.
-How is that different from RxJS observables? Observables are a notification mechanism for events and don’t really hold state. What about Subjects then??
-It is still recommeneded to use RxJS for asynchronous event handling.
-Simple uses # They can be created in the component like so: const newSig = signal&lt;TypeOrLetItBeInferred&gt;(defaultValue). The default value is a must.">
+Signals can be thought of as a combination of state and a notification mechanism for changes to that state.
+How is that different from RxJS observables? Observables are a notification mechanism for events and don’t really hold state.
+What about Subjects then?? Well, they are similar, but state management code is simpler with signals (based on trials).
+One such benefit is that there is no need to manually “complete” &amp; “unsubscribe”.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="angular">
@@ -34,7 +30,7 @@ Simple uses # They can be created in the component like so: const newSig = signa
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.7129b7a31d98016e8784bd28e1b4375b2111ca16723e9ac93fdd8383a972445d.js" integrity="sha256-cSm3ox2YAW6HhL0o4bQ3WyERyhZyPprJP92Dg6lyRF0="></script>
+<script defer src="/en.search.min.7eb775c8a6e97a9fc5cdcfe10bc0146b15ef7858eac051f11acf68305e7ee706.js" integrity="sha256-frd1yKbpep/Fzc/hC8AUaxXveFjqwFHxGs9oMF5&#43;5wY="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -605,6 +601,13 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#simple-uses">Simple uses</a></li>
         <li><a href="#effects">Effects</a></li>
         <li><a href="#notifications">Notifications</a></li>
+        <li><a href="#error-handling">Error handling</a></li>
+        <li><a href="#use-with-rxjs">Use with RxJS</a>
+          <ul>
+            <li><a href="#observable-to-signal">Observable to Signal</a></li>
+            <li><a href="#signal-to-observable">Signal to Observable</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -624,10 +627,15 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#signals">#</a>
 </h1>
 <p>Apparently, it is used to make Angular apps more responsive and improve Change Detection.</p>
-<p>Signals can be thought of as a combination of state and a notification mechanism.</p>
+<p>Signals can be thought of as a combination of state and a notification mechanism for changes to that state.</p>
 <p>How is that different from RxJS observables?
-Observables are a notification mechanism for <em>events</em> and don&rsquo;t really hold state. What about Subjects then??</p>
-<p>It is still recommeneded to use RxJS for asynchronous event handling.</p>
+Observables are a notification mechanism for <em>events</em> and don&rsquo;t really hold state.<br>
+What about Subjects then?? Well, they are similar, but state management code is simpler with signals (based on trials).<br>
+One such benefit is that there is no need to manually &ldquo;complete&rdquo; &amp; &ldquo;unsubscribe&rdquo;.</p>
+<p>Sometimes, rxjs pipelines may be better use, given that they will process every single emission. Unlike a <code>computed</code> with signals.</p>
+<p>RxJS is still the choice when the domain has asynchronous activites, e.g., fetching data over a network.</p>
+<p>This is a good course : 
+  <a href="https://app.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals/table-of-contents">RxJS and Angular Signals Fundamentals</a></p>
 <h2 id="simple-uses">
   Simple uses
   <a class="anchor" href="#simple-uses">#</a>
@@ -646,6 +654,7 @@ Similary, there is a <code>newSig.update((oldVal) =&gt; { /* code to return new 
 It&rsquo;s defined like this <code>const compSig = computed(() =&gt; { /* may use some signals to return the value */ })</code>.
 All the signals used in the function block become the dependencies.<br>
 It will only do the computation if the value of the computed signal is read anywhere, and it won&rsquo;t do the computation again if none of the dependencies have changed. Memoization basically.</p>
+<p>Computed signals are lazily evaluated also.</p>
 <p>Another dependent is an <code>effect</code> which schedules an execution of the arrow function whenever dependencies change. E.g., <code>effect(() =&gt; { /**/ })</code>
 Unlike a <code>computed</code>, it will at least run once. (because there is no concept of &ldquo;reading&rdquo; an effect. it is only for side-effects)
 If there are multiple dependency updates, it is possible that only one execution is scheduled for all those updates.</p>
@@ -673,6 +682,54 @@ More about that here
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><p>Not in this case. Since we are modifying the array that signal is holding, <code>prev</code> and <code>cur</code> will always be the same.</p>
+<h2 id="error-handling">
+  Error handling
+  <a class="anchor" href="#error-handling">#</a>
+</h2>
+<p>Signals are a store for values. They don&rsquo;t emit error events. They just store a value.
+However, if there is an error thrown in a computed signal, the error will be propagated till the place where the computed signal&rsquo;s value is read.
+Whether that is TS code or in the template.
+If the error is in the template, it can also cause problems with displaying any other signals which are the dependencies of the computed signal.
+dependents will anyways error out.</p>
+<h2 id="use-with-rxjs">
+  Use with RxJS
+  <a class="anchor" href="#use-with-rxjs">#</a>
+</h2>
+<p>RxJS used to be the only way to handle reactivity. Now signals can share that responsibility.<br>
+RxJS is still recommended for asynchronous ops, data fetching and transformations in the service layer. Also for event management.
+Signals are the recommended ones for components. why? &ldquo;improved change detection&rdquo; apparently.
+They also make state management easier to read. In services and components.</p>
+<p>Also, rxjs makes sure observers get every single event which comes from an observable.<br>
+Not the case with signals. Effects or computed might only get some values if many values are sent before the effect / computed logic gets a chance to be scheduled to run.
+Once they get a chance to run, it is guaranteed that they will get the last value of the dependency signal.</p>
+<p>There is an <code>rxjs-interop</code> library under the Angular monorepo which helps to convert between rxjs primitives and signals.</p>
+<h3 id="observable-to-signal">
+  Observable to Signal
+  <a class="anchor" href="#observable-to-signal">#</a>
+</h3>
+<p>Use the <code>toSignal(observable, options)</code> function. The optional parameter can help specify an initial value if there is one.
+E.g., <code>{initialValue: 123}</code>. It creates a read-only signal and subscribes to the observable.</p>
+<h3 id="signal-to-observable">
+  Signal to Observable
+  <a class="anchor" href="#signal-to-observable">#</a>
+</h3>
+<p>If you want to use the signal&rsquo;s value in an existing rxjs pipeline, it can be useful to convert the signal to an observable with <code>toObservable(signalName)</code>.<br>
+However, the resultant observable will not emit all values which the signal contains.
+This function works by using an <code>effect()</code> so the observable may end up emitting some of the values similar to how <code>effect()</code> works.</p>
+<p>It might be something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">makeObs</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">signal</span>: <span style="color:#66d9ef">Signal</span>&lt;<span style="color:#f92672">T</span>&gt;)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">T</span>&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tempSubject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Subject</span>&lt;<span style="color:#f92672">T</span>&gt;();
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">effect</span>((<span style="color:#a6e22e">onclean</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">tempSubject</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">signal</span>());
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">tempSubject</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">e</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onclean</span>(() <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">tempSubject</span>.<span style="color:#a6e22e">complete</span>());
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">tempSubject</span>.<span style="color:#a6e22e">asObservable</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>A possible problem to watch out is that once an observable emits an error, it will close and won&rsquo;t emit values.</p>
 </article>
  
       
@@ -708,6 +765,13 @@ More about that here
         <li><a href="#simple-uses">Simple uses</a></li>
         <li><a href="#effects">Effects</a></li>
         <li><a href="#notifications">Notifications</a></li>
+        <li><a href="#error-handling">Error handling</a></li>
+        <li><a href="#use-with-rxjs">Use with RxJS</a>
+          <ul>
+            <li><a href="#observable-to-signal">Observable to Signal</a></li>
+            <li><a href="#signal-to-observable">Signal to Observable</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
