@@ -5,12 +5,18 @@ weight: 13
 # Signals
 Apparently, it is used to make Angular apps more responsive and improve Change Detection.
 
-Signals can be thought of as a combination of state and a notification mechanism.
+Signals can be thought of as a combination of state and a notification mechanism for changes to that state.
 
 How is that different from RxJS observables?
-Observables are a notification mechanism for *events* and don't really hold state. What about Subjects then?? 
+Observables are a notification mechanism for *events* and don't really hold state.  
+What about Subjects then?? Well, they are similar, but state management code is simpler with signals (based on trials).  
+One such benefit is that there is no need to manually "complete" & "unsubscribe".
 
-It is still recommeneded to use RxJS for asynchronous event handling.
+Sometimes, rxjs pipelines may be better use, given that they will process every single emission. Unlike a `computed` with signals.
+
+RxJS is still the choice when the domain has asynchronous activites, e.g., fetching data over a network.
+
+This is a good course : [RxJS and Angular Signals Fundamentals](https://app.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals/table-of-contents)
 
 ## Simple uses
 They can be created in the component like so: `const newSig = signal<TypeOrLetItBeInferred>(defaultValue)`. The default value is a must.
@@ -29,6 +35,8 @@ One dependent of a signal is a computed signal. It's a readonly signal whose val
 It's defined like this `const compSig = computed(() => { /* may use some signals to return the value */ })`.
 All the signals used in the function block become the dependencies.  
 It will only do the computation if the value of the computed signal is read anywhere, and it won't do the computation again if none of the dependencies have changed. Memoization basically.
+
+Computed signals are lazily evaluated also.
 
 Another dependent is an `effect` which schedules an execution of the arrow function whenever dependencies change. E.g., `effect(() => { /**/ })`
 Unlike a `computed`, it will at least run once. (because there is no concept of "reading" an effect. it is only for side-effects)
@@ -64,3 +72,49 @@ uniqSig = signal([5, 'hi'], {
 ```
 
 Not in this case. Since we are modifying the array that signal is holding, `prev` and `cur` will always be the same.
+
+## Error handling
+Signals are a store for values. They don't emit error events. They just store a value.
+However, if there is an error thrown in a computed signal, the error will be propagated till the place where the computed signal's value is read.
+Whether that is TS code or in the template.
+If the error is in the template, it can also cause problems with displaying any other signals which are the dependencies of the computed signal.
+dependents will anyways error out.
+
+## Use with RxJS
+RxJS used to be the only way to handle reactivity. Now signals can share that responsibility.  
+RxJS is still recommended for asynchronous ops, data fetching and transformations in the service layer. Also for event management. 
+Signals are the recommended ones for components. why? "improved change detection" apparently.
+They also make state management easier to read. In services and components.
+
+Also, rxjs makes sure observers get every single event which comes from an observable.  
+Not the case with signals. Effects or computed might only get some values if many values are sent before the effect / computed logic gets a chance to be scheduled to run.
+Once they get a chance to run, it is guaranteed that they will get the last value of the dependency signal.
+
+There is an `rxjs-interop` library under the Angular monorepo which helps to convert between rxjs primitives and signals.
+
+### Observable to Signal
+Use the `toSignal(observable, options)` function. The optional parameter can help specify an initial value if there is one.
+E.g., `{initialValue: 123}`. It creates a read-only signal and subscribes to the observable.
+
+### Signal to Observable
+If you want to use the signal's value in an existing rxjs pipeline, it can be useful to convert the signal to an observable with `toObservable(signalName)`.  
+However, the resultant observable will not emit all values which the signal contains.
+This function works by using an `effect()` so the observable may end up emitting some of the values similar to how `effect()` works.
+
+It might be something like this:
+```ts
+makeObs<T>(signal: Signal<T>): Observable<T> {
+    const tempSubject = new Subject<T>();
+    effect((onclean) => {
+        try {
+            tempSubject.next(signal());
+        } catch(e) {
+            tempSubject.error(e);
+        }
+        onclean(() => tempSubject.complete());
+    });
+    return tempSubject.asObservable();
+}
+```
+
+A possible problem to watch out is that once an observable emits an error, it will close and won't emit values.

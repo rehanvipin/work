@@ -12,7 +12,6 @@ These sound useful:
 
 ## WebDev stuff
 * Search for "TODO" in notes and do those parts
-* RxJS and Angular Signals from this [course](https://app.pluralsight.com/library/courses/rxjs-angular-signals-fundamentals/table-of-contents)
 * The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles [one](https://angularindepth.com/posts/1001/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error) and [two](https://angularindepth.com/posts/1514/deep-dive-into-the-infamous-expressionchangedafterithasbeencheckederror-in-angular)
 * About change detection in Angular. [one](https://angularindepth.com/posts/1512/change-detection-and-component-trees-in-angular-applications) and [two](https://angularindepth.com/posts/1509/overview-of-angulars-change-detection-operations-in-ivy)
 * Angular router - <https://blog.angular-university.io/angular2-router/>
@@ -27,8 +26,7 @@ These sound useful:
 * spring boot section - there's a LOT here
 
 ## SRE principles
-I would like to ensure that systems are built reliability and handle
-errors gracefully.
+I would like to ensure that systems run reliabily and handle errors gracefully.
 * [Google - Site Reliability Engineering](https://sre.google/sre-book/embracing-risk/)
 * [Google - Site Reliability Engineering](https://sre.google/sre-book/eliminating-toil/)
 * [Google - Site Reliability Engineering](https://sre.google/sre-book/simplicity/)
