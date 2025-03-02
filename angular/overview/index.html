@@ -12,16 +12,42 @@
 Angular is a platform, 
   apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&rsquo;s called a front-end web development framework.
 
-  Typescript
+  The bootstrap process
   #
 
-Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out 
-  online. Its main features are:">
+
+The first file that is run is main.ts (as defined in angular.json  That&rsquo;s a very useful file).
+It bootstraps a module, app/module.ts by default.
+It bootstraps the root component, app/app.component.ts by default.
+The root component is placed in app/index.html which is what is rendered.
+
+
+  Modules and libraries
+  #
+
+
+Only the root NgModule should have a bootstrap property in its decorator.
+The bootstrap property sets the root component for the app.
+Libraries are plain JS modules which can have angular modules.
+A component / directive / pipe can be declared in only one NgModule
+To use stuff that other module provide, you import that NgModule in this NgModule
+When you list services in the providers array, they are available app wide.
+It&rsquo;s possible to have multiple entry point components in the bootstrap array.
+
+
+  File structure of workspace
+  #
+
+
+  Deployment 🎈
+  #
+
+This is done with the ng build command which:">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/angular/overview/">
   <meta property="og:site_name" content="Field Manual">
   <meta property="og:title" content="Overview">
   <meta property="og:description" content="An overview (and miscellaneous stuff) # Angular is a platform, apparently, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it’s called a front-end web development framework.
-Typescript # Angular uses TS. It’s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out online. Its main features are:">
+The bootstrap process # The first file that is run is main.ts (as defined in angular.json That’s a very useful file). It bootstraps a module, app/module.ts by default. It bootstraps the root component, app/app.component.ts by default. The root component is placed in app/index.html which is what is rendered. Modules and libraries # Only the root NgModule should have a bootstrap property in its decorator. The bootstrap property sets the root component for the app. Libraries are plain JS modules which can have angular modules. A component / directive / pipe can be declared in only one NgModule To use stuff that other module provide, you import that NgModule in this NgModule When you list services in the providers array, they are available app wide. It’s possible to have multiple entry point components in the bootstrap array. File structure of workspace # Deployment 🎈 # This is done with the ng build command which:">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="angular">
@@ -29,7 +55,7 @@ Typescript # Angular uses TS. It’s a superset of JS that compiles to JS. You c
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.7eb775c8a6e97a9fc5cdcfe10bc0146b15ef7858eac051f11acf68305e7ee706.js" integrity="sha256-frd1yKbpep/Fzc/hC8AUaxXveFjqwFHxGs9oMF5&#43;5wY="></script>
+<script defer src="/en.search.min.dd305b4a56cbf030a254a225502afc90dc75be5f36e744163bb9488922a73b83.js" integrity="sha256-3TBbSlbL8DCiVKIlUCr8kNx1vl8250QWO7lIiSKnO4M="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -597,18 +623,11 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#an-overview-and-miscellaneous-stuff">An overview (and miscellaneous stuff)</a>
       <ul>
-        <li><a href="#typescript">Typescript</a>
-          <ul>
-            <li><a href="#static-typing">Static typing</a></li>
-            <li><a href="#interfaces">Interfaces</a></li>
-            <li><a href="#class-properties">Class properties</a></li>
-            <li><a href="#public--private-access">Public / Private access</a></li>
-          </ul>
-        </li>
         <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
         <li><a href="#modules-and-libraries">Modules and libraries</a></li>
         <li><a href="#file-structure-of-workspace">File structure of workspace</a></li>
         <li><a href="#deployment-">Deployment 🎈</a></li>
+        <li><a href="#zones">Zones</a></li>
       </ul>
     </li>
   </ul>
@@ -629,58 +648,7 @@ https://github.com/alex-shpak/hugo-book
 </h1>
 <p>Angular is a platform, 
   <a href="https://angular.io/guide/what-is-angular">apparently</a>, that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it&rsquo;s called a front-end web development framework.</p>
-<h2 id="typescript">
-  Typescript
-  <a class="anchor" href="#typescript">#</a>
-</h2>
-<p>Angular uses TS. It&rsquo;s a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out 
-  <a href="https://www.typescriptlang.org/play">online</a>. Its main features are:</p>
-<h3 id="static-typing">
-  Static typing
-  <a class="anchor" href="#static-typing">#</a>
-</h3>
-<p>You can declare types while declaring variables, like so: <code>let var: number;</code>.</p>
-<h3 id="interfaces">
-  Interfaces
-  <a class="anchor" href="#interfaces">#</a>
-</h3>
-<p>They let you define a structure that objects must follow. An interface is a type. When you assign an object to a variable of that type, the object must have the properties in that interface (each of the same type). Like so</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">nice</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sic</span>: <span style="color:#66d9ef">nice</span>;
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sic</span> <span style="color:#f92672">=</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;hai&#34;</span>, <span style="color:#75715e">// adding, removing, or changing the types of these properties causes an error
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">10</span>
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h3 id="class-properties">
-  Class properties
-  <a class="anchor" href="#class-properties">#</a>
-</h3>
-<p>ES6 classes mainly define their properties via their constructors. TS lets you to define these properties in the class itself. You can optionally specify types for them. This is only for readability. E.g.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">num</span>: <span style="color:#66d9ef">number</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">wutdis</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">num</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">wutdis</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hmm&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="public--private-access">
-  Public / Private access
-  <a class="anchor" href="#public--private-access">#</a>
-</h3>
-<p>All class properties in ES6 are public. You can make them private in TS by adding the <code>private</code> before them during declaration. It also provides this nifty shorthand for the constructor:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hip</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">wutdis</span>: <span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">num</span>) {
-</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// it implicitly does this.wutdis = wutdis
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">f</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Hip</span>(<span style="color:#e6db74">&#34;sic&#34;</span>, <span style="color:#ae81ff">10</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">f</span>); <span style="color:#75715e">// { wutdis: &#34;sic&#34;, num: 10 }
-</span></span></span></code></pre></div><h2 id="the-bootstrap-process">
+<h2 id="the-bootstrap-process">
   The bootstrap process
   <a class="anchor" href="#the-bootstrap-process">#</a>
 </h2>
@@ -719,9 +687,19 @@ The bootstrap property sets the root component for the app.</li>
 </ul>
 <p>Angular has an Ahead Of Time (AOT) compiler that converts the HTML of templates into JS code that manupilates the DOM.
 It can help catch template errors, reduce the output size, and make rendering on the browser faster.</p>
+<p>How is the compiler helpful? It converts all components into JS functions which creates the component view / updates it.
+These are called template factory functions.</p>
+<p>The runtime app just needs to call these functions. It does not have to deal with parsing the raw templates etc.</p>
 <p>By default, running <code>ng build</code> will generate a &ldquo;development&rdquo; build which can still be deployed but isn&rsquo;t as optimized as it could be.
 To run it in &ldquo;production&rdquo; mode use <code>ng build --prod</code> which reduces the number of requests and file sizes.</p>
 <p>Deployment just involves copying the directory within &ldquo;dist&rdquo; to the web server!</p>
+<h2 id="zones">
+  Zones
+  <a class="anchor" href="#zones">#</a>
+</h2>
+<p>Angular used to use a <code>zone.js</code> library which would patch Web APIs of the browser and call Angular&rsquo;s change detection
+when there were any asynchronous actions or user interactions. This abstracted change detection but could lead to too many calls to change detection, or sometimes, too few if some fresh browser API is not yet patched by the library.</p>
+<p>Nowadays, it is possible to remove zone.js entirely and get change-detection via other means. One of the old ways was via the ChangeDetectionRef and it&rsquo;s detectChanges function.</p>
 </article>
  
       
@@ -754,18 +732,11 @@ To run it in &ldquo;production&rdquo; mode use <code>ng build --prod</code> whic
   <ul>
     <li><a href="#an-overview-and-miscellaneous-stuff">An overview (and miscellaneous stuff)</a>
       <ul>
-        <li><a href="#typescript">Typescript</a>
-          <ul>
-            <li><a href="#static-typing">Static typing</a></li>
-            <li><a href="#interfaces">Interfaces</a></li>
-            <li><a href="#class-properties">Class properties</a></li>
-            <li><a href="#public--private-access">Public / Private access</a></li>
-          </ul>
-        </li>
         <li><a href="#the-bootstrap-process">The bootstrap process</a></li>
         <li><a href="#modules-and-libraries">Modules and libraries</a></li>
         <li><a href="#file-structure-of-workspace">File structure of workspace</a></li>
         <li><a href="#deployment-">Deployment 🎈</a></li>
+        <li><a href="#zones">Zones</a></li>
       </ul>
     </li>
   </ul>

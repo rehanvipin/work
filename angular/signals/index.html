@@ -30,7 +30,7 @@ One such benefit is that there is no need to manually “complete” &amp; “un
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.7eb775c8a6e97a9fc5cdcfe10bc0146b15ef7858eac051f11acf68305e7ee706.js" integrity="sha256-frd1yKbpep/Fzc/hC8AUaxXveFjqwFHxGs9oMF5&#43;5wY="></script>
+<script defer src="/en.search.min.dd305b4a56cbf030a254a225502afc90dc75be5f36e744163bb9488922a73b83.js" integrity="sha256-3TBbSlbL8DCiVKIlUCr8kNx1vl8250QWO7lIiSKnO4M="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -602,6 +602,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#effects">Effects</a></li>
         <li><a href="#notifications">Notifications</a></li>
         <li><a href="#error-handling">Error handling</a></li>
+        <li><a href="#fine-grained-reactivity">Fine grained reactivity</a></li>
         <li><a href="#use-with-rxjs">Use with RxJS</a>
           <ul>
             <li><a href="#observable-to-signal">Observable to Signal</a></li>
@@ -663,6 +664,7 @@ If there are multiple dependency updates, it is possible that only one execution
 <p>An <code>effect</code> can be setup only in an &ldquo;injection context&rdquo; such as constructor etc. or you can pass it an injector reference.<br>
 More about that here 
   <a href="https://github.com/angular/angular/issues/56357">https://github.com/angular/angular/issues/56357</a></p>
+<p>Angular itself mentions that <code>effect</code>s are not likely to be found in most applications and that <code>computed</code>s are generally better.</p>
 <h2 id="notifications">
   Notifications
   <a class="anchor" href="#notifications">#</a>
@@ -682,6 +684,8 @@ More about that here
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><p>Not in this case. Since we are modifying the array that signal is holding, <code>prev</code> and <code>cur</code> will always be the same.</p>
+<p>Computed / Effect signals will only track signals within the enclosing function which were read during the last execution.<br>
+At every execution, they update the list of dependencies.</p>
 <h2 id="error-handling">
   Error handling
   <a class="anchor" href="#error-handling">#</a>
@@ -691,6 +695,26 @@ However, if there is an error thrown in a computed signal, the error will be pro
 Whether that is TS code or in the template.
 If the error is in the template, it can also cause problems with displaying any other signals which are the dependencies of the computed signal.
 dependents will anyways error out.</p>
+<h2 id="fine-grained-reactivity">
+  Fine grained reactivity
+  <a class="anchor" href="#fine-grained-reactivity">#</a>
+</h2>
+<p>All resources mention that signals improve change detection and provide &ldquo;fine grained reactivity&rdquo; compared to observables.
+But what exactly is the difference?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">form-1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">input-field-holder</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">p</span>&gt;Box is {{ /* signal or observable | async */ }}&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">text</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">someText</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">label</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt; {{ someData }} &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">form</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">data-block</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">li</span> <span style="color:#960050;background-color:#1e0010">*</span><span style="color:#a6e22e">ngFor</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;let data of datalist; i = index&#34;</span>&gt; Data for {{i}} is {{data}}.&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>If the signal&rsquo;s value changes and the notification is sent to the change detector, it will only check the <code>&lt;p&gt;</code> tag.<br>
+If an observable is used, it would trigger change-detection for the entire component. Requiring all bindings to be evaluated again.</p>
 <h2 id="use-with-rxjs">
   Use with RxJS
   <a class="anchor" href="#use-with-rxjs">#</a>
@@ -766,6 +790,7 @@ This function works by using an <code>effect()</code> so the observable may end 
         <li><a href="#effects">Effects</a></li>
         <li><a href="#notifications">Notifications</a></li>
         <li><a href="#error-handling">Error handling</a></li>
+        <li><a href="#fine-grained-reactivity">Fine grained reactivity</a></li>
         <li><a href="#use-with-rxjs">Use with RxJS</a>
           <ul>
             <li><a href="#observable-to-signal">Observable to Signal</a></li>
