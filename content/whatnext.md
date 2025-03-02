@@ -12,8 +12,6 @@ These sound useful:
 
 ## WebDev stuff
 * Search for "TODO" in notes and do those parts
-* The ExpressionChangedAfterItHasBeenCheckedError. Couple of articles [one](https://angularindepth.com/posts/1001/everything-you-need-to-know-about-the-expressionchangedafterithasbeencheckederror-error) and [two](https://angularindepth.com/posts/1514/deep-dive-into-the-infamous-expressionchangedafterithasbeencheckederror-in-angular)
-* About change detection in Angular. [one](https://angularindepth.com/posts/1512/change-detection-and-component-trees-in-angular-applications) and [two](https://angularindepth.com/posts/1509/overview-of-angulars-change-detection-operations-in-ivy)
 * Angular router - <https://blog.angular-university.io/angular2-router/>
 * What really is ngModule - <https://blog.angular-university.io/angular2-ngmodule/>
 * How do service workers work? [Service Workies](https://serviceworkies.com/)
