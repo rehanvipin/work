@@ -6,49 +6,6 @@ weight: 1
 # An overview (and miscellaneous stuff)
 Angular is a platform, [apparently](https://angular.io/guide/what-is-angular), that includes a framework, some libraries, and developer tools to work with all of that. For most purposes, it's called a front-end web development framework.
 
-## Typescript
-Angular uses TS. It's a superset of JS that compiles to JS. You can adding typing via syntactic sugar which helps catch bugs when you compile. It also has editor plugins for the same. You can try it out [online](https://www.typescriptlang.org/play). Its main features are:
-### Static typing
-You can declare types while declaring variables, like so: `let var: number;`.
-### Interfaces
-They let you define a structure that objects must follow. An interface is a type. When you assign an object to a variable of that type, the object must have the properties in that interface (each of the same type). Like so
-```ts
-interface nice {
-    name: string,
-    age: number
-}
-
-let sic: nice;
-sic = {
-    name: "hai", // adding, removing, or changing the types of these properties causes an error
-    age: 10
-};
-```
-### Class properties
-ES6 classes mainly define their properties via their constructors. TS lets you to define these properties in the class itself. You can optionally specify types for them. This is only for readability. E.g.
-```ts
-class Hip {
-    num: number
-    wutdis
-    constructor() {
-        this.num = 10;
-        this.wutdis = "hmm";
-    }
-}
-```
-### Public / Private access
-All class properties in ES6 are public. You can make them private in TS by adding the `private` before them during declaration. It also provides this nifty shorthand for the constructor:
-```ts
-class Hip {
-    constructor(public wutdis: string, private num) {
-        // it implicitly does this.wutdis = wutdis
-    }
-}
-let f = new Hip("sic", 10);
-console.log(f); // { wutdis: "sic", num: 10 }
-```
-
-
 ## The bootstrap process
 * The first file that is run is `main.ts` (as defined in `angular.json`  **That's a very useful file**). 
 * It bootstraps a module, `app/module.ts` by default.
@@ -75,7 +32,18 @@ This is done with the `ng build` command which:
 Angular has an Ahead Of Time (AOT) compiler that converts the HTML of templates into JS code that manupilates the DOM. 
 It can help catch template errors, reduce the output size, and make rendering on the browser faster.
 
+How is the compiler helpful? It converts all components into JS functions which creates the component view / updates it.
+These are called template factory functions.
+
+The runtime app just needs to call these functions. It does not have to deal with parsing the raw templates etc.
+
 By default, running `ng build` will generate a "development" build which can still be deployed but isn't as optimized as it could be.
 To run it in "production" mode use `ng build --prod` which reduces the number of requests and file sizes.
 
 Deployment just involves copying the directory within "dist" to the web server!
+
+## Zones
+Angular used to use a `zone.js` library which would patch Web APIs of the browser and call Angular's change detection
+when there were any asynchronous actions or user interactions. This abstracted change detection but could lead to too many calls to change detection, or sometimes, too few if some fresh browser API is not yet patched by the library.
+
+Nowadays, it is possible to remove zone.js entirely and get change-detection via other means. One of the old ways was via the ChangeDetectionRef and it's detectChanges function.

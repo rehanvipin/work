@@ -49,6 +49,8 @@ In both above cases, it's not recommended to update any dependency / dependents 
 An `effect` can be setup only in an "injection context" such as constructor etc. or you can pass it an injector reference.  
 More about that here <https://github.com/angular/angular/issues/56357>
 
+Angular itself mentions that `effect`s are not likely to be found in most applications and that `computed`s are generally better.
+
 ## Notifications
 A signal will not notify the dependents if the "value" of the signal is the same as it was before, even if someone had .set or .update the signal.
 
@@ -73,12 +75,37 @@ uniqSig = signal([5, 'hi'], {
 
 Not in this case. Since we are modifying the array that signal is holding, `prev` and `cur` will always be the same.
 
+Computed / Effect signals will only track signals within the enclosing function which were read during the last execution.  
+At every execution, they update the list of dependencies.
+
 ## Error handling
 Signals are a store for values. They don't emit error events. They just store a value.
 However, if there is an error thrown in a computed signal, the error will be propagated till the place where the computed signal's value is read.
 Whether that is TS code or in the template.
 If the error is in the template, it can also cause problems with displaying any other signals which are the dependencies of the computed signal.
 dependents will anyways error out.
+
+## Fine grained reactivity
+All resources mention that signals improve change detection and provide "fine grained reactivity" compared to observables.
+But what exactly is the difference?
+
+```html
+<form class=form-1>
+    <label class=input-field-holder>
+        <p>Box is {{ /* signal or observable | async */ }}</p>
+        <input type=text / [(ngModel)]="someText">
+    </label>
+    <div> {{ someData }} </div>
+</form>
+<div class=data-block>
+    <ul>
+        <li *ngFor="let data of datalist; i = index"> Data for {{i}} is {{data}}.</li>
+    </ul>
+</div>
+```
+
+If the signal's value changes and the notification is sent to the change detector, it will only check the `<p>` tag.  
+If an observable is used, it would trigger change-detection for the entire component. Requiring all bindings to be evaluated again.  
 
 ## Use with RxJS
 RxJS used to be the only way to handle reactivity. Now signals can share that responsibility.  
