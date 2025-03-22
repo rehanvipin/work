@@ -43,6 +43,13 @@
       <description>&lt;h1 id=&#34;overall-design-between-browser--server&#34;&gt;&#xA;  Overall design between browser &amp;amp; server&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#overall-design-between-browser--server&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;How do you serve content to a user in 2024?&#xA;Well, the ways I know of are &amp;hellip;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Django, or Flask (what architectres do these promote? MVC?)&lt;/li&gt;&#xA;&lt;li&gt;Spring Boot &amp;amp; React (Single Page Apps. MVVM apparently??)&lt;/li&gt;&#xA;&lt;li&gt;Next.js (and other SSR)&lt;/li&gt;&#xA;&lt;li&gt;Hugo (Static Site Gen)&lt;/li&gt;&#xA;&lt;li&gt;Rails (MVC)&lt;/li&gt;&#xA;&lt;li&gt;Cloudflare web workers (the &amp;ldquo;serverless&amp;rdquo; design)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;architectures&#34;&gt;&#xA;  Architectures&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#architectures&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;mvc&#34;&gt;&#xA;  MVC&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#mvc&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Model View Controller.&#xA;Lots of strong opinions about this.&#xA;Apparently, there are no MVC frameworks, but just apps which implement the MVC architecture pattern.&#xA;That might be an over-simplification. There could be frameworks which make it easy to do MVC.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Snowflake</title>
+      <link>https://work.rehanvipin.me/misc/snowflake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/misc/snowflake/</guid>
+      <description>&lt;h1 id=&#34;snowflake-the-enterprise-db-tm&#34;&gt;&#xA;  Snowflake, the enterprise DB (TM)&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#snowflake-the-enterprise-db-tm&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Not exactly. It&amp;rsquo;s a cloud data platform apparently.&lt;/p&gt;&#xA;&lt;p&gt;Why would you need it? Otherwise, an org can have so many DBs across departments,&#xA;with lots of data duplication and lesser opportunities for high level analysis across systems.&#xA;Also, it is cloud native and doesn&amp;rsquo;t expose any hardware aspects to the users.&lt;/p&gt;&#xA;&lt;p&gt;Apparently, the on-prem structure of past solutions were not scalable and were expensive.&#xA;Snowflake uses AWS, Azure, or GCP, and is a much more scalable solution,&#xA;with separate scaling for storage and compute. It has a pay-as-you-go model. (Like AWS billing).&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Web Authentication</title>
       <link>https://work.rehanvipin.me/misc/web-auth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

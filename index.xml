@@ -127,6 +127,13 @@
       <description>&lt;h1 id=&#34;routing--co&#34;&gt;&#xA;  Routing &amp;amp; Co.&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#routing--co&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Some modern apps, like the one built with Angular are &lt;strong&gt;Single Page Apps&lt;/strong&gt;. They only load one HTML file from the server (index.html mostly) and then use JS to fetch new content and change parts of the page as the user navigates the site. It behaves like a regular sites in all aspects (look at the address bar) while being more efficient!&lt;/p&gt;&#xA;&lt;h2 id=&#34;creating-routes&#34;&gt;&#xA;  Creating routes&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#creating-routes&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Routes are defined as an array of objects. The array is of the type &lt;code&gt;Routes&lt;/code&gt; from &amp;ldquo;@angular/router&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Snowflake</title>
+      <link>https://work.rehanvipin.me/misc/snowflake/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://work.rehanvipin.me/misc/snowflake/</guid>
+      <description>&lt;h1 id=&#34;snowflake-the-enterprise-db-tm&#34;&gt;&#xA;  Snowflake, the enterprise DB (TM)&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#snowflake-the-enterprise-db-tm&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Not exactly. It&amp;rsquo;s a cloud data platform apparently.&lt;/p&gt;&#xA;&lt;p&gt;Why would you need it? Otherwise, an org can have so many DBs across departments,&#xA;with lots of data duplication and lesser opportunities for high level analysis across systems.&#xA;Also, it is cloud native and doesn&amp;rsquo;t expose any hardware aspects to the users.&lt;/p&gt;&#xA;&lt;p&gt;Apparently, the on-prem structure of past solutions were not scalable and were expensive.&#xA;Snowflake uses AWS, Azure, or GCP, and is a much more scalable solution,&#xA;with separate scaling for storage and compute. It has a pay-as-you-go model. (Like AWS billing).&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Web Authentication</title>
       <link>https://work.rehanvipin.me/misc/web-auth/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
