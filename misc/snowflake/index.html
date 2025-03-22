@@ -29,7 +29,7 @@ Apparently, the on-prem structure of past solutions were not scalable and were e
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.130c868f21be2dcc61a4c18addd88161ee69dd48fa044c0a41c2ae5e802376e9.js" integrity="sha256-EwyGjyG&#43;LcxhpMGK3diBYe5p3Uj6BEwKQcKuXoAjduk="></script>
+<script defer src="/en.search.min.d95c662ea7d4968a4a471d3317fa3728ed1e0fc73c5493d5bceb6b095a931f5c.js" integrity="sha256-2VxmLqfUlopKRx0zF/o3KO0eD8c8VJPVvOtrCVqTH1w="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -610,7 +610,12 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     <li><a href="#snowflake-the-enterprise-db-tm">Snowflake, the enterprise DB (TM)</a>
       <ul>
-        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#architecture">Architecture</a>
+          <ul>
+            <li><a href="#streams--tasks">Streams &amp; Tasks</a></li>
+            <li><a href="#dynamic-tables">Dynamic Tables</a></li>
+          </ul>
+        </li>
         <li><a href="#usage">Usage</a></li>
         <li><a href="#warehouse--lake-">Warehouse &amp; Lake ?</a></li>
       </ul>
@@ -652,6 +657,20 @@ with separate scaling for storage and compute. It has a pay-as-you-go model. (Li
 <p>What&rsquo;s a virtual warehouse?
 Compute resources for snowflake. It provides resources to run all the data loading / queries.
 There are standard warehouses and snowpark variants (for resource-intensive processes).</p>
+<h3 id="streams--tasks">
+  Streams &amp; Tasks
+  <a class="anchor" href="#streams--tasks">#</a>
+</h3>
+<p>A stream can be linked to a DB and it will track all the changes that happen in the DB.
+A scheduled Task can once in a while pick up the list of changes in the stream, do any required transformations,
+and merge (like a merge query) into the target table to make it up to date.</p>
+<h3 id="dynamic-tables">
+  Dynamic Tables
+  <a class="anchor" href="#dynamic-tables">#</a>
+</h3>
+<p>A new declarative way of defining transformation pipelines of data.
+It can pick up data from target tables and use a query definition to prepare a target table.
+It can auto-update based on the specified lag-time.</p>
 <h2 id="usage">
   Usage
   <a class="anchor" href="#usage">#</a>
@@ -702,7 +721,12 @@ People use them to gather data from many sources and perform analytics on the la
   <ul>
     <li><a href="#snowflake-the-enterprise-db-tm">Snowflake, the enterprise DB (TM)</a>
       <ul>
-        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#architecture">Architecture</a>
+          <ul>
+            <li><a href="#streams--tasks">Streams &amp; Tasks</a></li>
+            <li><a href="#dynamic-tables">Dynamic Tables</a></li>
+          </ul>
+        </li>
         <li><a href="#usage">Usage</a></li>
         <li><a href="#warehouse--lake-">Warehouse &amp; Lake ?</a></li>
       </ul>
