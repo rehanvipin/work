@@ -28,6 +28,16 @@ What's a virtual warehouse?
 Compute resources for snowflake. It provides resources to run all the data loading / queries.
 There are standard warehouses and snowpark variants (for resource-intensive processes).
 
+### Streams & Tasks
+A stream can be linked to a DB and it will track all the changes that happen in the DB.
+A scheduled Task can once in a while pick up the list of changes in the stream, do any required transformations,
+and merge (like a merge query) into the target table to make it up to date.
+
+### Dynamic Tables
+A new declarative way of defining transformation pipelines of data.
+It can pick up data from target tables and use a query definition to prepare a target table.
+It can auto-update based on the specified lag-time.
+
 ## Usage
 Snowflake has a dashboard UI to manage accounts, data warehouses, databases, etc.
 With it, you can create jupyter notebooks, worksheets (like notebooks but with SQL).
