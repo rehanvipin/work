@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.145.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  React
+  #
+
+A library to build user interfaces
+It uses JSX, an extension of HTML that allows embeddable JS.
+JSX is transpiled by babel and put into React&rsquo;s representation of the DOM.
+Like so:
+ReactDOM.render(&lt;div&gt;wow&lt;/div&gt;, document.querySelector(&#39;#hah&#39;));
+
+  Components
+  #
+
+
+One way to create them is by returning JSX from functions (the function name should start with a capital letter)
+Multiple components can be used to make a web page
+The other way is creating a class that extends React.Component. This gives access to state and lifecycle hooks.
+The render method of that class can be used to return the JSX
+To include one component in another, just add a self closing tag with that component&rsquo;s name in the JSX of this one.
+To render components, do: ReactDOM.render(&lt;CompName/&gt;, document.querySelector(&#39;#bingo&#39;));
+To pass properties to them, do: &lt;LolComp prop1=&#39;hah&#39; prop2={[&#39;abc&#39;, &#39;def&#39;]} prop3={new Date()} /&gt;
+which can then be accessed from the single parameter as param.prop1, param.prop2, and so on.
+The default properties object can be set like so: CompName.defaultProps = {}
+For a class component, the properties can be accessed like so:
+
+class Hah implements React.Component {
+    constructor(funObj) {
+        super(funObj);
+        // one of the things it does is set this.props = funObj
+    }
+    render() {return &lt;div&gt;{this.props.propName}&lt;/div&gt;;}
+}
+
+To add state to a component, just declare a state property in its constructor
+To set state later, call this.setState(/* the new state object */)
+setState performs operation asynchronously, so you cannot know for sure
+what the value of the state will be at any point. To make sure you get the correct value,
+you can also pass functions to setState like so:
+
+this.setState((state, props) =&gt; {
+    prop1: state.prop1 &#43; props.updaterStuff,
+    prop2: props.newValueStuff
+});
+
+Note that the object that&rsquo;s passed to setState doesn&rsquo;t have to represent the whole state.
+It should be a subset of only keys whose values have been updated.
+There are lifecycle hooks like componentDidMount()
+In React, a uni-directional flow of data from parents to child is preferred.
+
+
+  Redux
+  #
+
+State management for web apps. There&rsquo;s a single state store object for all pages of the app.
+Updates to the state are done with &ldquo;actions&rdquo; which are just objects with a &ldquo;type&rdquo; property and other data.
+Redux state is read-only, if you want to change some property, create a new state object (which is what the reducer does).">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/webdev/react-and-bootstrap/">
+  <meta property="og:site_name" content="Field Manual">
+  <meta property="og:title" content="React & Boostrap">
+  <meta property="og:description" content="React # A library to build user interfaces
+It uses JSX, an extension of HTML that allows embeddable JS. JSX is transpiled by babel and put into React’s representation of the DOM. Like so:
+ReactDOM.render(&lt;div&gt;wow&lt;/div&gt;, document.querySelector(&#39;#hah&#39;)); Components # One way to create them is by returning JSX from functions (the function name should start with a capital letter) Multiple components can be used to make a web page The other way is creating a class that extends React.Component. This gives access to state and lifecycle hooks. The render method of that class can be used to return the JSX To include one component in another, just add a self closing tag with that component’s name in the JSX of this one. To render components, do: ReactDOM.render(&lt;CompName/&gt;, document.querySelector(&#39;#bingo&#39;)); To pass properties to them, do: &lt;LolComp prop1=&#39;hah&#39; prop2={[&#39;abc&#39;, &#39;def&#39;]} prop3={new Date()} /&gt; which can then be accessed from the single parameter as param.prop1, param.prop2, and so on. The default properties object can be set like so: CompName.defaultProps = {} For a class component, the properties can be accessed like so: class Hah implements React.Component { constructor(funObj) { super(funObj); // one of the things it does is set this.props = funObj } render() {return &lt;div&gt;{this.props.propName}&lt;/div&gt;;} } To add state to a component, just declare a state property in its constructor To set state later, call this.setState(/* the new state object */) setState performs operation asynchronously, so you cannot know for sure what the value of the state will be at any point. To make sure you get the correct value, you can also pass functions to setState like so: this.setState((state, props) =&gt; { prop1: state.prop1 &#43; props.updaterStuff, prop2: props.newValueStuff }); Note that the object that’s passed to setState doesn’t have to represent the whole state. It should be a subset of only keys whose values have been updated. There are lifecycle hooks like componentDidMount() In React, a uni-directional flow of data from parents to child is preferred. Redux # State management for web apps. There’s a single state store object for all pages of the app. Updates to the state are done with “actions” which are just objects with a “type” property and other data. Redux state is read-only, if you want to change some property, create a new state object (which is what the reducer does).">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="webdev">
+<title>React &amp; Boostrap | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.68c98c2df2ca4c188d8e4f406b6132f3be67cca1d52ab981f5631a89d3b496f4.js" integrity="sha256-aMmMLfLKTBiNjk9Aa2Ey875nzKHVKrmB9WMaidO0lvQ="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle" checked />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class=" active">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>React &amp; Boostrap</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#react">React</a>
+      <ul>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#redux">Redux</a></li>
+      </ul>
+    </li>
+    <li><a href="#bootstrap">Bootstrap</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#breakpoints">Breakpoints</a></li>
+            <li><a href="#containers">Containers</a></li>
+            <li><a href="#grid">Grid</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="react">
+  React
+  <a class="anchor" href="#react">#</a>
+</h1>
+<p>A library to build user interfaces</p>
+<p>It uses JSX, an extension of HTML that allows embeddable JS.
+JSX is transpiled by babel and put into React&rsquo;s representation of the DOM.
+Like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">wow</span>&lt;/<span style="color:#f92672">div</span>&gt;, document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#hah&#39;</span>));
+</span></span></code></pre></div><h2 id="components">
+  Components
+  <a class="anchor" href="#components">#</a>
+</h2>
+<ul>
+<li>One way to create them is by returning JSX from functions (the function name should start with a capital letter)</li>
+<li>Multiple components can be used to make a web page</li>
+<li>The other way is creating a class that extends <code>React.Component</code>. This gives access to state and lifecycle hooks.</li>
+<li>The <code>render</code> method of that class can be used to return the JSX</li>
+<li>To include one component in another, just add a self closing tag with that component&rsquo;s name in the JSX of this one.</li>
+<li>To render components, do: <code>ReactDOM.render(&lt;CompName/&gt;, document.querySelector('#bingo'));</code></li>
+<li>To pass properties to them, do: <code>&lt;LolComp prop1='hah' prop2={['abc', 'def']} prop3={new Date()} /&gt;</code>
+which can then be accessed from the single parameter as <code>param.prop1</code>, <code>param.prop2</code>, and so on.</li>
+<li>The default properties object can be set like so: <code>CompName.defaultProps = {}</code></li>
+<li>For a class component, the properties can be accessed like so:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hah</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">funObj</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">funObj</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// one of the things it does is set this.props = funObj
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>() {<span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">propName</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;;}</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>To add state to a component, just declare a <code>state</code> property in its constructor</li>
+<li>To set state later, call <code>this.setState(/* the new state object */)</code></li>
+<li><code>setState</code> performs operation asynchronously, so you cannot know for sure
+what the value of the state will be at any point. To make sure you get the correct value,
+you can also pass functions to setState like so:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prop1</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">prop1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">updaterStuff</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prop2</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">newValueStuff</span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><ul>
+<li>Note that the object that&rsquo;s passed to <code>setState</code> doesn&rsquo;t have to represent the whole state.
+It should be a subset of only keys whose values have been updated.</li>
+<li>There are lifecycle hooks like <code>componentDidMount()</code></li>
+<li>In React, a uni-directional flow of data from parents to child is preferred.</li>
+</ul>
+<h2 id="redux">
+  Redux
+  <a class="anchor" href="#redux">#</a>
+</h2>
+<p>State management for web apps. There&rsquo;s a single state store object for all pages of the app.
+Updates to the state are done with &ldquo;actions&rdquo; which are just objects with a &ldquo;type&rdquo; property and other data.
+Redux state is read-only, if you want to change some property, create a new state object (which is what the reducer does).</p>
+<h1 id="bootstrap">
+  Bootstrap
+  <a class="anchor" href="#bootstrap">#</a>
+</h1>
+<p>A responsive CSS framework. You can design your site in such a way that it will look similar on screens of different widths.</p>
+<h3 id="breakpoints">
+  Breakpoints
+  <a class="anchor" href="#breakpoints">#</a>
+</h3>
+<p>Also known as media query extends. A breakpoint is the conditions for a media query to be executed. For Bootstrap these are device widths (e.g. &gt;=576px, &gt;=768px etc). By default, the <code>xs</code> (width &gt;= 0) breakpoint media queries are applied.<br>
+Bootstrap uses <code>min-width</code> breakpoints since its meant for developers to develop for smaller devices first and then change accordingly as screen width increases.</p>
+<h3 id="containers">
+  Containers
+  <a class="anchor" href="#containers">#</a>
+</h3>
+<p>The basic unit in Bootstrap. They contain content and are responsive. The container classes are :</p>
+<ul>
+<li><code>container</code> which is a fixed width container. It has a specific <code>max-width</code> for each breakpoint.</li>
+<li><code>container-fluid</code> has <code>width: 100%</code> for all breakpoints</li>
+<li><code>container-{breakpoint_name}</code> has <code>width: 100%</code> till that breakpoint (inclusive) and then acts like <code>container</code></li>
+</ul>
+<h3 id="grid">
+  Grid
+  <a class="anchor" href="#grid">#</a>
+</h3>
+<p>The Bootstrap grid is differnent from the CSS grid. This one is built upon flexboxes. It can contain rows, each of which are 12 columns wide. A grid is often placed in a container. You can have grids inside grids. The column elements, divs with the class <code>col</code> have equal widths but you can also set it for each one by changing the class to <code>col-{number_of_columns_to_use}</code> or even <code>col-auto</code> to fit the content.<br>
+To create columns that start out stacked, occupying 100% row width and then fitting into a row you can use <code>col-{breakpoint}</code> which will go from stacked to fitting in a row once the breakpoint is crossed.<br>
+You can control stacking at different device sizes by adding multiple classes, like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-6 col-md-4&#34;</span>&gt;.col-6 .col-md-4&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-6 col-md-4&#34;</span>&gt;.col-6 .col-md-4&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-6 col-md-4&#34;</span>&gt;.col-6 .col-md-4&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>The hierarchy of Bootstrap’s grid goes from container to row to column to your content.</p>
+<p>There are also controls for columns and gutters which can help you implement the layout for your site in good detail. I understand it but I will &ldquo;get it&rdquo; only once I use it for something. Can&rsquo;t wait to do that!</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#react">React</a>
+      <ul>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#redux">Redux</a></li>
+      </ul>
+    </li>
+    <li><a href="#bootstrap">Bootstrap</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#breakpoints">Breakpoints</a></li>
+            <li><a href="#containers">Containers</a></li>
+            <li><a href="#grid">Grid</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

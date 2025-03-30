@@ -6,48 +6,36 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  So much to learn
+  HTML
   #
 
-These sound useful:
+Notes made while studying this
 
-  WebDev stuff
-  #
+  freeCodeCamp certification for responsive web design and more.
 
-
-Search for &ldquo;TODO&rdquo; in notes and do those parts
-Angular router - 
-  https://blog.angular-university.io/angular2-router/
-What really is ngModule - 
-  https://blog.angular-university.io/angular2-ngmodule/
-How do service workers work? 
-  Service Workies
-
-  Good article on testing. This covers TDD and stuff
-
-
-  Java
+  Basic HTML and HTML5
   #
 
 
-jvm section
-modules section
-web server section
-spring boot section - there&rsquo;s a LOT here
+
+It&rsquo;s a convention to write all HTML tags in lowercase.
 
 
-  SRE principles
-  #
+Fancy new HTML5 tags : main inside which you can put other elements. These are supposed to be the &ldquo;main&rdquo; elements from an SEO standpoint.
 
-I would like to ensure that systems run reliabily and handle errors gracefully.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/whatnext/">
+
+All img tags must have the alt attribute. The img tag is a type of self-closing tag.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/webdev/html/">
   <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="/next">
-  <meta property="og:description" content="So much to learn # These sound useful:
-WebDev stuff # Search for “TODO” in notes and do those parts Angular router - https://blog.angular-university.io/angular2-router/ What really is ngModule - https://blog.angular-university.io/angular2-ngmodule/ How do service workers work? Service Workies Good article on testing. This covers TDD and stuff Java # jvm section modules section web server section spring boot section - there’s a LOT here SRE principles # I would like to ensure that systems run reliabily and handle errors gracefully.">
+  <meta property="og:title" content="HTML">
+  <meta property="og:description" content="HTML # Notes made while studying this freeCodeCamp certification for responsive web design and more.
+Basic HTML and HTML5 # It’s a convention to write all HTML tags in lowercase.
+Fancy new HTML5 tags : main inside which you can put other elements. These are supposed to be the “main” elements from an SEO standpoint.
+All img tags must have the alt attribute. The img tag is a type of self-closing tag.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
-<title>/next | Field Manual</title>
+    <meta property="article:section" content="webdev">
+<title>HTML | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
@@ -437,7 +425,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle" checked />
     <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
       <a  class="">Web Development</a>
     </label>
@@ -453,7 +441,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+    <a href="https://work.rehanvipin.me/webdev/html/" class=" active">HTML</a>
   
 
         </li>
@@ -632,7 +620,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/whatnext/" class=" active">/next</a>
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
   
 
         </li>
@@ -687,7 +675,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>/next</strong>
+  <strong>HTML</strong>
 
   <label for="toc-control">
     
@@ -703,13 +691,16 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#so-much-to-learn">So much to learn</a>
+    <li><a href="#html">HTML</a>
       <ul>
-        <li><a href="#webdev-stuff">WebDev stuff</a></li>
-        <li><a href="#java">Java</a></li>
-        <li><a href="#sre-principles">SRE principles</a></li>
-        <li><a href="#communication">Communication</a></li>
-        <li><a href="#low-priority---design">Low Priority - Design</a></li>
+        <li><a href="#basic-html-and-html5">Basic HTML and HTML5</a></li>
+        <li><a href="#applied-visual-design">Applied Visual Design</a></li>
+        <li><a href="#applied-accessibility">Applied Accessibility</a></li>
+        <li><a href="#responsive-web-design-principles">Responsive Web Design Principles</a>
+          <ul>
+            <li><a href="#the-meta-viewport-tag">The meta viewport tag</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -724,80 +715,91 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="so-much-to-learn">
-  So much to learn
-  <a class="anchor" href="#so-much-to-learn">#</a>
+  <article class="markdown"><h1 id="html">
+  HTML
+  <a class="anchor" href="#html">#</a>
 </h1>
-<p>These sound useful:</p>
-<h2 id="webdev-stuff">
-  WebDev stuff
-  <a class="anchor" href="#webdev-stuff">#</a>
+<p>Notes made while studying this
+
+  <a href="https://www.freecodecamp.org/learn/responsive-web-design/">freeCodeCamp certification for responsive web design</a> and more.</p>
+<h2 id="basic-html-and-html5">
+  Basic HTML and HTML5
+  <a class="anchor" href="#basic-html-and-html5">#</a>
 </h2>
 <ul>
-<li>Search for &ldquo;TODO&rdquo; in notes and do those parts</li>
-<li>Angular router - 
-  <a href="https://blog.angular-university.io/angular2-router/">https://blog.angular-university.io/angular2-router/</a></li>
-<li>What really is ngModule - 
-  <a href="https://blog.angular-university.io/angular2-ngmodule/">https://blog.angular-university.io/angular2-ngmodule/</a></li>
-<li>How do service workers work? 
-  <a href="https://serviceworkies.com/">Service Workies</a></li>
 <li>
-  <a href="https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/">Good article on testing.</a> This covers TDD and stuff</li>
+<p>It&rsquo;s a convention to write all HTML tags in lowercase.</p>
+</li>
+<li>
+<p>Fancy new HTML5 tags : <code>main</code> inside which you can put other elements. These are supposed to be the &ldquo;main&rdquo; elements from an SEO standpoint.</p>
+</li>
+<li>
+<p>All <code>img</code> tags must have the alt attribute. The <code>img</code> tag is a type of self-closing tag.</p>
+</li>
+<li>
+<p>Internal linking with <code>a</code>: set the <code>href</code> to <code>#&lt;id-of-element&gt;</code>. Add <code>target=&quot;_blank&quot;</code> as an attribute so the link opens in a new tab.</p>
+</li>
+<li>
+<p><code>input</code> tags can have placeholder text and <code>form</code> tags have an attribute &ldquo;action&rdquo; which is the end point where the form data is submitted. You can make it <strong>required</strong> by adding the <code>required</code> attribute.</p>
+</li>
+<li>
+<p>A button of type <code>submit</code> enclosed in a form tag will submit the data from all <code>input</code> tags to the action URL.</p>
+</li>
+<li>
+<p>Radio buttons are a type of <code>input</code> element. You can group them into a radio group by giving them all the same <code>name</code> attribute. A radio button can have associated data, e.g. text, with the <code>label</code> tag. You can either nest the <code>input</code> element inside the <code>label</code> element or you can keep them separate but link them by setting the <code>for</code> attribute of <code>label</code> to the <code>id</code> of the <code>input</code> element.</p>
+</li>
+<li>
+<p>Same thing with checkboxes but a user can select multiple of those at the same time.</p>
+</li>
+<li>
+<p>With both those tags, the data that is sent to the server is the <code>value</code> attribute of the <code>input</code> element(s) selected. The value is usually the same as the data in the corresponding <code>label</code> element. A complete input radio button might look like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;indoor&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;indoor&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;indoor&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;radio&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;indoor-outdoor&#34;</span>&gt;Indoor
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">label</span>&gt;
+</span></span></code></pre></div></li>
+<li>
+<p><code>div</code> is a general purpose container element.</p>
+</li>
 </ul>
-<h2 id="java">
-  Java
-  <a class="anchor" href="#java">#</a>
+<h2 id="applied-visual-design">
+  Applied Visual Design
+  <a class="anchor" href="#applied-visual-design">#</a>
 </h2>
 <ul>
-<li>jvm section</li>
-<li>modules section</li>
-<li>web server section</li>
-<li>spring boot section - there&rsquo;s a LOT here</li>
+<li>The <code>&lt;strong&gt;&lt;/strong&gt;</code> tag applies <code>font-weight: bold;</code> to the element it is enclosing. The <code>&lt;u&gt;&lt;/u&gt;</code> tag applies <code>text-decoration: underline;</code> to the element it is enclosing. The <code>&lt;em&gt;&lt;/em&gt;</code> tag applies <code>font-style: italic;</code>. The <code>&lt;s&gt;&lt;/s&gt;</code> tag applies <code>text-decoration: line-through;</code> i.e. strikethrough.</li>
 </ul>
-<h2 id="sre-principles">
-  SRE principles
-  <a class="anchor" href="#sre-principles">#</a>
+<h2 id="applied-accessibility">
+  Applied Accessibility
+  <a class="anchor" href="#applied-accessibility">#</a>
 </h2>
-<p>I would like to ensure that systems run reliabily and handle errors gracefully.</p>
 <ul>
-<li>
-  <a href="https://sre.google/sre-book/embracing-risk/">Google - Site Reliability Engineering</a></li>
-<li>
-  <a href="https://sre.google/sre-book/eliminating-toil/">Google - Site Reliability Engineering</a></li>
-<li>
-  <a href="https://sre.google/sre-book/simplicity/">Google - Site Reliability Engineering</a></li>
+<li>The heading tags should be used to show the hierarchical relationship between elements. There should be only one <code>&lt;h1&gt;</code> element in a page. There should also be only one <code>&lt;main&gt;&lt;/main&gt;</code> element in a page (often coupled with a &ldquo;jump to main&rdquo; link to it).</li>
+<li><code>&lt;div&gt;</code> - groups content <code>&lt;section&gt;</code> - groups related content <code>&lt;article&gt;</code> - groups independent, self-contained content.</li>
+<li>The <code>&lt;header&gt;</code> tag is for introductory content / content that appears on multiple pages. For the navbar / navigation links you can use the <code>&lt;nav&gt;</code> tag. A counterpart to the <code>&lt;header&gt;</code> tag is the <code>&lt;footer&gt;</code> tag.</li>
+<li>The <code>&lt;audio&gt;</code> tag gives semantic meaning to audio (and can provide controls) when wrapped around a <code>source</code> tag with audio.</li>
+<li>Similarly the <code>&lt;figure&gt;</code> tag gives semantic meaning to <code>&lt;img&gt;</code> elements in it when combined along with <code>&lt;figcaption&gt;</code>.</li>
+<li>You can wrap radio buttons along with their labels with the <code>&lt;fieldset&gt;</code> tag to show that they are related. <code>&lt;legend&gt;</code> can provide a description for that fieldset.</li>
+<li>Wrap anchor tags around a whole description of the link, not just &ldquo;click here&rdquo; as that is what is read by screen readers.</li>
+<li>The &ldquo;accesskey&rdquo; attribute can be set to an element telling what key the user must press to bring that element into focus.</li>
+<li>Setting the &ldquo;tabindex&rdquo; attribute to an element means it must be focused upon when tabbing through the page.</li>
 </ul>
-<h2 id="communication">
-  Communication
-  <a class="anchor" href="#communication">#</a>
+<h2 id="responsive-web-design-principles">
+  Responsive Web Design Principles
+  <a class="anchor" href="#responsive-web-design-principles">#</a>
 </h2>
-<p>Getting better at communication</p>
 <ul>
-<li>
-  <a href="https://basecamp.com/guides/how-we-communicate">Guide to Internal Communication, the Basecamp Way</a></li>
-<li>
-  <a href="https://github.com/readme/guides/effective-communication">Effective communication is not about what you say</a></li>
-<li>Writing documentation. It&rsquo;s useful because that&rsquo;s what people see first and that&rsquo;s how they can contribute
-and use what you&rsquo;re building. 
-  <a href="https://www.freecodecamp.org/news/how-to-write-good-documentation/">Some points from here</a> and 
-  <a href="https://www.writethedocs.org/guide/writing/beginners-guide-to-docs/">this place which shows you how to start</a>. There are also 
-  <a href="https://www.writethedocs.org/guide/writing/docs-principles/">principles to follow</a>.</li>
+<li>The &ldquo;viewport&rdquo; is the part of the user&rsquo;s screen where the website is rendered. You can use media queries to access its attributes and apply CSS styles accordingly.</li>
+<li>Apple&rsquo;s retina displays have twice the number on each dimension which means images will appear smaller. To &ldquo;fix&rdquo; this, they scaled up everything by 2x. This means that your images are scaled by a factor of 2 in each dimension. One possible fix you could apply against this scaling is to provide you image with the dimensions halved so the scaling cancels out.</li>
+<li>Instead of mucking around with pixels or any such thing you could set dimensions in terms of &ldquo;viewport units&rdquo; which will then scale as your users&rsquo; viewport changes.</li>
 </ul>
-<h2 id="low-priority---design">
-  Low Priority - Design
-  <a class="anchor" href="#low-priority---design">#</a>
-</h2>
+<h3 id="the-meta-viewport-tag">
+  The meta viewport tag
+  <a class="anchor" href="#the-meta-viewport-tag">#</a>
+</h3>
+<p>You just need <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code> for a responsive site. This is also required by Bootstrap. This is what it means:</p>
 <ul>
-<li>Get an overview of what design is about 
-  <a href="https://www.youtube.com/watch?v=FBUJYEQ7OGY">from this talk</a>.</li>
-<li>Learn how to use penpot 
-  <a href="https://www.youtube.com/watch?v=MpINco5nWw4&amp;list=PLgcCPfOv5v57cJS0im5FYFwbsu6X5mkNq">with their YT tutorials</a>. 
-  <a href="https://www.youtube.com/watch?v=KUg3xIFWK_g">This walkthrough can give a good idea</a>.</li>
-<li>Note down points from 
-  <a href="https://www.youtube.com/watch?v=XsEnj-1hG2o">Brad&rsquo;s</a> 
-  <a href="https://www.youtube.com/watch?v=moBhzSC455o">Walkthroughs</a> and 
-  <a href="https://www.youtube.com/watch?v=KYFwcIRx16g">also</a> 
-  <a href="https://www.youtube.com/watch?v=RhLMEdiKuMg">Kevin&rsquo;s</a>.</li>
+<li><code>initial-scale=1</code> sets the default zoom to 1, which means that each <strong>CSS pixel</strong> (the one devs use when they put x: 30px;) will be equal to a <strong>viewport pixel</strong> (controlled by the browser)</li>
+<li><code>width=device-width</code> means the website width be equal to the device screen width. This option is basically telling the browser not to zoom around your website or feed it</li>
 </ul>
 </article>
  
@@ -829,13 +831,16 @@ and use what you&rsquo;re building.
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#so-much-to-learn">So much to learn</a>
+    <li><a href="#html">HTML</a>
       <ul>
-        <li><a href="#webdev-stuff">WebDev stuff</a></li>
-        <li><a href="#java">Java</a></li>
-        <li><a href="#sre-principles">SRE principles</a></li>
-        <li><a href="#communication">Communication</a></li>
-        <li><a href="#low-priority---design">Low Priority - Design</a></li>
+        <li><a href="#basic-html-and-html5">Basic HTML and HTML5</a></li>
+        <li><a href="#applied-visual-design">Applied Visual Design</a></li>
+        <li><a href="#applied-accessibility">Applied Accessibility</a></li>
+        <li><a href="#responsive-web-design-principles">Responsive Web Design Principles</a>
+          <ul>
+            <li><a href="#the-meta-viewport-tag">The meta viewport tag</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>

@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.145.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  JavaScript
+  #
+
+Notes from the freeCodeCamp &ldquo;JavaScript Algorithms and Data Structures&rdquo; course and more
+
+  Basics
+  #
+
+
+Variable names in JS can contain $, _, letters, and numbers but cannot start with a number.
+Declaring a variable without initalizing it will make it an undefined type object and it will have the value undefined.
+People like writing JS variable names in camelCase.
+Variables declared with var can be declared multiple times.
+Trying to re-declare a variable declared with let results in a SyntaxError. const is like let but the variable is read-only.
+JS has the &#43;&#43; and -- increment and decrement operators.
+The % in JS is not a modulo operator, it&rsquo;s a remainder operator and can return negative remainders.
+Values of type String are immutable. Like Python.
+Constant variables cannot have their value changed, they cannot be re-declared or re-assigned a different value.
+In this case : const a = [1, 2, 3], the variable a holds the reference to the array (since it is not a primitive type).
+Therefore the array itself can be modified (e.g. a.push(1) or a[2] = 7) since the reference won&rsquo;t change and the &ldquo;const-ness&rdquo; still holds.
+The push function of an array takes in one or more arguments and appends them to the end of the array.
+shift and unshift remove and add values to the beginning to the start of the array
+just like pop and push do to the end of the array.
+If a variable is declared without let, const, or var it will have global scope regardless of where it is declared.
+Explanation: 
+  There aren&rsquo;t any &ldquo;global variables&rdquo; in JS
+(They are there when declared by let or const).
+When you do wowNiceGlobal = 5 where wowNiceGlobal is being referenced for the first time thus making it a &ldquo;global variable&rdquo;
+and giving it global scope, it really just creates and assigns to a property (with the same name) of the global object.
+In a browser, the window variable is a reference to the global object.
+You can stop this property setting from happening by adding &ldquo;use strict&rdquo; to your code.
+Scope. A variable, declared with var, let, or const at the top level of your code is given global scope. var has a function scope. If a var variable is defined in some block in a function it will be available throughout the function. let is block scoped. It does not exist outside the block. Within their scopes both let and var variables are &ldquo;hoisted&rdquo;. This means they are defined at the top of their scopes. var variables are initialized with undefined while let variables are not initialized and will cause a ReferenceError if you try to access them. const has the same scoping rules as let.
+The == operator will perform type coercion if the operands aren&rsquo;t of the same type. The === operator doesn&rsquo;t convert types and will return false if the types are different. Like that there are also the != and !== operators.
+Type Coercion. Primitive types are number, string, null, undefined, boolean and symbol(new, added in ES6). Using 
+  this article about type coercion for reference we see that you can explicitly convert and that the only implicit conversion allowed (for primitives and others) is &ldquo;to string&rdquo;, &ldquo;to number&rdquo;, and &ldquo;to boolean&rdquo;.
+
+Boolean conversion happens with logical operators (but the result of the expression is still the original type). Objects are always truthy values.
+String conversion happens with the &#43; operator when either operands are of the string type.
+Number and object conversions are complex. Must check the blog post.
+
+
+In a switch statement, once a case has been matched, all statements from there on are executed till a break is encountered (regardless of curly braces). Cases are matched with ===.
+Objects. They are a collection of key: value elements. The keys are called properties. All properties are converted to a string and stored. You can access values of properties of objects via . (in case the property string is also a valid identifier) or [] (works for all properties).
+You can delete properties from objects. Just add the keyword delete before accessing the property either via the dot notation or bracket notation.
+To check if an object has a property, use this function: objkt.hasOwnProperty(propname) which returns a boolean value.
+The while loop and the for loops are like C&rsquo;s. The do{}while() loop too.
+The RNG for JS is Math.random which returns numbers in the range [0, 1).
+When you have a variable of the Function type you can check how many args it takes
+using varName.length and find out the function name using varName.name.
+
+
+  ES6 (Modern JavaScript)
+  #
+
+
+You can prevent an object from being modified by passing it to Object.freeze(objkt) (Not by making a const object).
+You can extend an array (a1) with another array (a2) by using arr1.concat(arr2).
+Variable argument functions are possible using the rest parameter.
+You specify a parameter as ...paraName and when you pass multiple arguments they are all available in array with that name (paraName here).
+This is the preffered method over using the arguments object that&rsquo;s available for all non-arrow functions.
+Similarly, there is the &ldquo;spread&rdquo; operator to unpack an array into multiple elements, this can be useful when the function expects multiple parameters instead of an array. It follows the same syntax. Given an array arr, you can do console.log(...arr).
+The object destructuring operator is a clean shortcut to extract multiple values from an object at once. The most basic way to do it is : {param1, param2} = objkt. Suppose you want to use variables of different names you can do this : {&quot;param1&quot;: var1, &quot;param2&quot;: var2} = objkt. Nested objects call for nested destructuring. You can destructure in the function arguments.
+Similarly, there is also array destructuring. You can unpack particular values from the array. Like so, [a, b,,,, c, d,, e] = [1,2,3,4,5,6,7,8,9,0]. For the last elements, you can also unpack them into a separate array using the rest operator. So if you want a new array but without the first 4 values you would do : [,,,, ...new_arr] = arr.
+Format strings are available as template literals. They are used as ` any text `. In a template literal you use ${ any expression } to place run-time values. They preserve all whitespace.
+There is also a shorthand for creating objects. You can just do {x, y}. The keys will be x and y (in string format) respectively.
+When defining functions in objects you can omit the function keyword and just do prop_name(arg1, arg2){}.
+You can use the class keyword to have a constructor, get and set methods, and you can create an object of that type with new className(constructor args).
+You can make the variables, functions, and whatnot of one JS file available to others by &ldquo;exporting&rdquo; it. You do this by either adding the export keyword to it during delcaration or later on, where you can export multiple vars like export {var1, func1, var2}.
+To make use of them in another file you can &ldquo;import&rdquo; them like this : import {var2, func1} from &quot;relative_path_to_other_js_file&quot;. Or you can import everything from that file and place it under an object like this : import * as containah from &quot;that_other_file&quot;. Then access them like containah.var1.
+There are also &ldquo;default exports&rdquo;. This means that you can have one export which is the default thing that will be imported from a file when you do this : import something from &quot;file&quot;. To set something as a default export you can do export default var. They are useful when a file represents one item and you want to import that in some other file. It isn&rsquo;t particulary useful when a file is meant to do multiple things and has multiple items.
+The new operator can be used to create objects from functions or classes. To use it with a function the function must act like a constructor and set properties to this. To use it with a class, the class must have a constructor.
+Promise is a feature to execute code asynchronously. You can create a Promise object with the Promise function. It expects you to take in two arguments (both of which are callbacks). As a convention we create a new promise object like this : let prms = new Promise((resolve, reject) =&gt; {});.
+A promise can be in one of three states: pending, fulfilled, and failed. It is pending when the promise is created, fulfilled when the resolve function is called, and failed when the reject function is called. Both resolve and reject take one argument each.
+You can set hanlders for a promise by calling .then(resolveFunc, rejectFunc) or .catch(rejectFunc).
+You can pass a function resolveFunc (executed when the promise enters the &ldquo;fulfilled&rdquo; state)
+which takes one argument, i.e. the value passed to resolve.
+You could also pass the rejectFunc (executed when the promise enters the &ldquo;failed&rdquo; state)
+that takes in one argument i.e., the value passed to reject.
+To collect multiple promises into one there&rsquo;s the Promise.All function which takes in an iterable and returns a promise which
+resolves with an iterable of all resolved values of input promises or rejects when any of the input promises reject.
+It&rsquo;s possible to have multiple handlers for a promise. e.g., prms.then(() =&gt; {alert(1);}); prms.then(() =&gt; {alert(2);});
+It&rsquo;s also possible to chain handlers because .then() returns an object which the .catch and .then functions.
+Therefore you could do
+prms.then(rsVal =&gt; new Promise((rs, rj) =&gt; rs(1)).then(rsVal =&gt; new Promise((rs, rj) =&gt; rs(3))).catch(rjVal =&gt; console.log(rjVal))
+
+
+  Regular Expressions
+  #
+
+
+You can specify a required number of matches, more specific than * or &#43;. The format is (some matching pattern){min, max}.
+You can omit min or max if you don&rsquo;t want a lowerbound or upperbound, respectively.
+To specify a particular number of matches, use (pattern){exactNum}.
+
+
+  Debugging
+  #
+
+console.clear() is useful">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/webdev/js/">
+  <meta property="og:site_name" content="Field Manual">
+  <meta property="og:title" content="JS">
+  <meta property="og:description" content="JavaScript # Notes from the freeCodeCamp “JavaScript Algorithms and Data Structures” course and more
+Basics # Variable names in JS can contain $, _, letters, and numbers but cannot start with a number. Declaring a variable without initalizing it will make it an undefined type object and it will have the value undefined. People like writing JS variable names in camelCase. Variables declared with var can be declared multiple times. Trying to re-declare a variable declared with let results in a SyntaxError. const is like let but the variable is read-only. JS has the &#43;&#43; and -- increment and decrement operators. The % in JS is not a modulo operator, it’s a remainder operator and can return negative remainders. Values of type String are immutable. Like Python. Constant variables cannot have their value changed, they cannot be re-declared or re-assigned a different value. In this case : const a = [1, 2, 3], the variable a holds the reference to the array (since it is not a primitive type). Therefore the array itself can be modified (e.g. a.push(1) or a[2] = 7) since the reference won’t change and the “const-ness” still holds. The push function of an array takes in one or more arguments and appends them to the end of the array. shift and unshift remove and add values to the beginning to the start of the array just like pop and push do to the end of the array. If a variable is declared without let, const, or var it will have global scope regardless of where it is declared. Explanation: There aren’t any “global variables” in JS (They are there when declared by let or const). When you do wowNiceGlobal = 5 where wowNiceGlobal is being referenced for the first time thus making it a “global variable” and giving it global scope, it really just creates and assigns to a property (with the same name) of the global object. In a browser, the window variable is a reference to the global object. You can stop this property setting from happening by adding “use strict” to your code. Scope. A variable, declared with var, let, or const at the top level of your code is given global scope. var has a function scope. If a var variable is defined in some block in a function it will be available throughout the function. let is block scoped. It does not exist outside the block. Within their scopes both let and var variables are “hoisted”. This means they are defined at the top of their scopes. var variables are initialized with undefined while let variables are not initialized and will cause a ReferenceError if you try to access them. const has the same scoping rules as let. The == operator will perform type coercion if the operands aren’t of the same type. The === operator doesn’t convert types and will return false if the types are different. Like that there are also the != and !== operators. Type Coercion. Primitive types are number, string, null, undefined, boolean and symbol(new, added in ES6). Using this article about type coercion for reference we see that you can explicitly convert and that the only implicit conversion allowed (for primitives and others) is “to string”, “to number”, and “to boolean”. Boolean conversion happens with logical operators (but the result of the expression is still the original type). Objects are always truthy values. String conversion happens with the &#43; operator when either operands are of the string type. Number and object conversions are complex. Must check the blog post. In a switch statement, once a case has been matched, all statements from there on are executed till a break is encountered (regardless of curly braces). Cases are matched with ===. Objects. They are a collection of key: value elements. The keys are called properties. All properties are converted to a string and stored. You can access values of properties of objects via . (in case the property string is also a valid identifier) or [] (works for all properties). You can delete properties from objects. Just add the keyword delete before accessing the property either via the dot notation or bracket notation. To check if an object has a property, use this function: objkt.hasOwnProperty(propname) which returns a boolean value. The while loop and the for loops are like C’s. The do{}while() loop too. The RNG for JS is Math.random which returns numbers in the range [0, 1). When you have a variable of the Function type you can check how many args it takes using varName.length and find out the function name using varName.name. ES6 (Modern JavaScript) # You can prevent an object from being modified by passing it to Object.freeze(objkt) (Not by making a const object). You can extend an array (a1) with another array (a2) by using arr1.concat(arr2). Variable argument functions are possible using the rest parameter. You specify a parameter as ...paraName and when you pass multiple arguments they are all available in array with that name (paraName here). This is the preffered method over using the arguments object that’s available for all non-arrow functions. Similarly, there is the “spread” operator to unpack an array into multiple elements, this can be useful when the function expects multiple parameters instead of an array. It follows the same syntax. Given an array arr, you can do console.log(...arr). The object destructuring operator is a clean shortcut to extract multiple values from an object at once. The most basic way to do it is : {param1, param2} = objkt. Suppose you want to use variables of different names you can do this : {&#34;param1&#34;: var1, &#34;param2&#34;: var2} = objkt. Nested objects call for nested destructuring. You can destructure in the function arguments. Similarly, there is also array destructuring. You can unpack particular values from the array. Like so, [a, b,,,, c, d,, e] = [1,2,3,4,5,6,7,8,9,0]. For the last elements, you can also unpack them into a separate array using the rest operator. So if you want a new array but without the first 4 values you would do : [,,,, ...new_arr] = arr. Format strings are available as template literals. They are used as ` any text `. In a template literal you use ${ any expression } to place run-time values. They preserve all whitespace. There is also a shorthand for creating objects. You can just do {x, y}. The keys will be x and y (in string format) respectively. When defining functions in objects you can omit the function keyword and just do prop_name(arg1, arg2){}. You can use the class keyword to have a constructor, get and set methods, and you can create an object of that type with new className(constructor args). You can make the variables, functions, and whatnot of one JS file available to others by “exporting” it. You do this by either adding the export keyword to it during delcaration or later on, where you can export multiple vars like export {var1, func1, var2}. To make use of them in another file you can “import” them like this : import {var2, func1} from &#34;relative_path_to_other_js_file&#34;. Or you can import everything from that file and place it under an object like this : import * as containah from &#34;that_other_file&#34;. Then access them like containah.var1. There are also “default exports”. This means that you can have one export which is the default thing that will be imported from a file when you do this : import something from &#34;file&#34;. To set something as a default export you can do export default var. They are useful when a file represents one item and you want to import that in some other file. It isn’t particulary useful when a file is meant to do multiple things and has multiple items. The new operator can be used to create objects from functions or classes. To use it with a function the function must act like a constructor and set properties to this. To use it with a class, the class must have a constructor. Promise is a feature to execute code asynchronously. You can create a Promise object with the Promise function. It expects you to take in two arguments (both of which are callbacks). As a convention we create a new promise object like this : let prms = new Promise((resolve, reject) =&gt; {});. A promise can be in one of three states: pending, fulfilled, and failed. It is pending when the promise is created, fulfilled when the resolve function is called, and failed when the reject function is called. Both resolve and reject take one argument each. You can set hanlders for a promise by calling .then(resolveFunc, rejectFunc) or .catch(rejectFunc). You can pass a function resolveFunc (executed when the promise enters the “fulfilled” state) which takes one argument, i.e. the value passed to resolve. You could also pass the rejectFunc (executed when the promise enters the “failed” state) that takes in one argument i.e., the value passed to reject. To collect multiple promises into one there’s the Promise.All function which takes in an iterable and returns a promise which resolves with an iterable of all resolved values of input promises or rejects when any of the input promises reject. It’s possible to have multiple handlers for a promise. e.g., prms.then(() =&gt; {alert(1);}); prms.then(() =&gt; {alert(2);}); It’s also possible to chain handlers because .then() returns an object which the .catch and .then functions. Therefore you could do prms.then(rsVal =&gt; new Promise((rs, rj) =&gt; rs(1)).then(rsVal =&gt; new Promise((rs, rj) =&gt; rs(3))).catch(rjVal =&gt; console.log(rjVal)) Regular Expressions # You can specify a required number of matches, more specific than * or &#43;. The format is (some matching pattern){min, max}. You can omit min or max if you don’t want a lowerbound or upperbound, respectively. To specify a particular number of matches, use (pattern){exactNum}. Debugging # console.clear() is useful">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="webdev">
+<title>JS | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.68c98c2df2ca4c188d8e4f406b6132f3be67cca1d52ab981f5631a89d3b496f4.js" integrity="sha256-aMmMLfLKTBiNjk9Aa2Ey875nzKHVKrmB9WMaidO0lvQ="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle" checked />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class=" active">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>JS</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#javascript">JavaScript</a>
+      <ul>
+        <li><a href="#basics">Basics</a></li>
+        <li><a href="#es6-modern-javascript">ES6 (Modern JavaScript)</a></li>
+        <li><a href="#regular-expressions">Regular Expressions</a></li>
+        <li><a href="#debugging">Debugging</a></li>
+        <li><a href="#basic-data-structures">Basic Data Structures</a></li>
+        <li><a href="#basic-algorithm-scripting">Basic Algorithm Scripting</a></li>
+        <li><a href="#object-oriented-programming">Object Oriented Programming</a>
+          <ul>
+            <li><a href="#prototype-chain-and-inheritance">Prototype chain and inheritance</a></li>
+          </ul>
+        </li>
+        <li><a href="#functional-programming">Functional Programming</a>
+          <ul>
+            <li><a href="#this-"><code>this</code> ?</a></li>
+          </ul>
+        </li>
+        <li><a href="#random-questions">Random questions</a>
+          <ul>
+            <li><a href="#symbols">Symbols?</a></li>
+            <li><a href="#primitive-properties">primitive properties?</a></li>
+            <li><a href="#copying-stuff">copying stuff</a></li>
+            <li><a href="#nullish-coalescing">nullish coalescing</a></li>
+            <li><a href="#event-bubbling-capturing-and-delegation">event bubbling, capturing, and delegation</a></li>
+            <li><a href="#closure">closure</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="javascript">
+  JavaScript
+  <a class="anchor" href="#javascript">#</a>
+</h1>
+<p>Notes from the freeCodeCamp &ldquo;JavaScript Algorithms and Data Structures&rdquo; course and more</p>
+<h2 id="basics">
+  Basics
+  <a class="anchor" href="#basics">#</a>
+</h2>
+<ul>
+<li>Variable names in JS can contain $, _, letters, and numbers but cannot start with a number.
+Declaring a variable without initalizing it will make it an <code>undefined</code> type object and it will have the value <code>undefined</code>.</li>
+<li>People like writing JS variable names in camelCase.</li>
+<li>Variables declared with <code>var</code> can be declared multiple times.
+Trying to re-declare a variable declared with <code>let</code> results in a SyntaxError. <code>const</code> is like <code>let</code> but the variable is read-only.</li>
+<li>JS has the <code>++</code> and <code>--</code> increment and decrement operators.
+The <code>%</code> in JS is not a modulo operator, it&rsquo;s a remainder operator and can return negative remainders.</li>
+<li>Values of type <code>String</code> are immutable. Like Python.</li>
+<li>Constant variables cannot have their value changed, they cannot be re-declared or re-assigned a different value.
+In this case : <code>const a = [1, 2, 3]</code>, the variable <code>a</code> holds the reference to the array (since it is not a primitive type).
+Therefore the array itself can be modified (e.g. <code>a.push(1)</code> or <code>a[2] = 7</code>) since the reference won&rsquo;t change and the &ldquo;const-ness&rdquo; still holds.</li>
+<li>The <code>push</code> function of an <code>array</code> takes in one or more arguments and appends them to the end of the array.</li>
+<li><code>shift</code> and <code>unshift</code> remove and add values to the beginning to the start of the array
+just like <code>pop</code> and <code>push</code> do to the end of the array.</li>
+<li>If a variable is declared without <code>let</code>, <code>const</code>, or <code>var</code> it will have global scope regardless of where it is declared.
+<strong>Explanation</strong>: 
+  <a href="http://blog.niftysnippets.org/2008/03/horror-of-implicit-globals.html">There aren&rsquo;t any &ldquo;global variables&rdquo; in JS</a>
+(They are there when declared by <code>let</code> or <code>const</code>).
+When you do <code>wowNiceGlobal = 5</code> where <code>wowNiceGlobal</code> is being referenced for the first time thus making it a &ldquo;global variable&rdquo;
+and giving it global scope, it really just creates and assigns to a property (with the same name) of <strong>the</strong> global object.
+In a browser, the <code>window</code> variable is a reference to the global object.
+You can stop this property setting from happening by adding &ldquo;use strict&rdquo; to your code.</li>
+<li><strong>Scope</strong>. A variable, declared with <code>var</code>, <code>let</code>, or <code>const</code> at the top level of your code is given global scope. <code>var</code> has a function scope. If a <code>var</code> variable is defined in some block in a function it will be available throughout the function. <code>let</code> is block scoped. It does not exist outside the block. Within their scopes both <code>let</code> and <code>var</code> variables are &ldquo;hoisted&rdquo;. This means they are defined at the top of their scopes. <code>var</code> variables are initialized with <code>undefined</code> while <code>let</code> variables are not initialized and will cause a ReferenceError if you try to access them. <code>const</code> has the same scoping rules as <code>let</code>.</li>
+<li>The <code>==</code> operator will perform type coercion if the operands aren&rsquo;t of the same type. The <code>===</code> operator doesn&rsquo;t convert types and will return false if the types are different. Like that there are also the <code>!=</code> and <code>!==</code> operators.</li>
+<li><strong>Type Coercion</strong>. Primitive types are <code>number</code>, <code>string</code>, <code>null</code>, <code>undefined</code>, <code>boolean</code> and <code>symbol</code>(new, added in ES6). Using 
+  <a href="https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/">this article about type coercion for reference</a> we see that you can explicitly convert and that the only implicit conversion allowed (for primitives and others) is &ldquo;to string&rdquo;, &ldquo;to number&rdquo;, and &ldquo;to boolean&rdquo;.
+<ul>
+<li>Boolean conversion happens with logical operators (but the result of the expression is still the original type). Objects are always truthy values.</li>
+<li>String conversion happens with the <code>+</code> operator when either operands are of the string type.</li>
+<li>Number and object conversions are complex. Must check the blog post.</li>
+</ul>
+</li>
+<li>In a switch statement, once a case has been matched, all statements from there on are executed till a break is encountered (regardless of curly braces). Cases are matched with <code>===</code>.</li>
+<li><strong>Objects</strong>. They are a collection of key: value elements. The keys are called properties. All properties are converted to a string and stored. You can access values of properties of objects via <code>.</code> (in case the property string is also a valid identifier) or <code>[]</code> (works for all properties).</li>
+<li>You can <strong>delete properties</strong> from objects. Just add the keyword <code>delete</code> before accessing the property either via the dot notation or bracket notation.</li>
+<li>To check if an object has a property, use this function: <code>objkt.hasOwnProperty(propname)</code> which returns a boolean value.</li>
+<li>The <code>while</code> loop and the <code>for</code> loops are like C&rsquo;s. The <code>do{}while()</code> loop too.</li>
+<li>The RNG for JS is <code>Math.random</code> which returns numbers in the range [0, 1).</li>
+<li>When you have a variable of the Function type you can check how many args it takes
+using <code>varName.length</code> and find out the function name using <code>varName.name</code>.</li>
+</ul>
+<h2 id="es6-modern-javascript">
+  ES6 (Modern JavaScript)
+  <a class="anchor" href="#es6-modern-javascript">#</a>
+</h2>
+<ul>
+<li>You can prevent an object from being modified by passing it to <code>Object.freeze(objkt)</code> (Not by making a <code>const</code> object).</li>
+<li>You can extend an array (a1) with another array (a2) by using <code>arr1.concat(arr2)</code>.</li>
+<li>Variable argument functions are possible using the rest parameter.
+You specify a parameter as <code>...paraName</code> and when you pass multiple arguments they are all available in array with that name (paraName here).
+This is the preffered method over using the <code>arguments</code> object that&rsquo;s available for all non-arrow functions.</li>
+<li>Similarly, there is the &ldquo;spread&rdquo; operator to unpack an array into multiple elements, this can be useful when the function expects multiple parameters instead of an array. It follows the same syntax. Given an array arr, you can do <code>console.log(...arr)</code>.</li>
+<li>The object destructuring operator is a clean shortcut to extract multiple values from an object at once. The most basic way to do it is : <code>{param1, param2} = objkt</code>. Suppose you want to use variables of different names you can do this : <code>{&quot;param1&quot;: var1, &quot;param2&quot;: var2} = objkt</code>. Nested objects call for nested destructuring. You can destructure in the function arguments.</li>
+<li>Similarly, there is also array destructuring. You can unpack particular values from the array. Like so, <code>[a, b,,,, c, d,, e] = [1,2,3,4,5,6,7,8,9,0]</code>. For the last elements, you can also unpack them into a separate array using the rest operator. So if you want a new array but without the first 4 values you would do : <code>[,,,, ...new_arr] = arr</code>.</li>
+<li>Format strings are available as template literals. They are used as ` any text `. In a template literal you use <code>${ any expression }</code> to place run-time values. They preserve all whitespace.</li>
+<li>There is also a shorthand for creating objects. You can just do <code>{x, y}</code>. The keys will be <code>x</code> and <code>y</code> (in string format) respectively.</li>
+<li>When defining functions in objects you can omit the <code>function</code> keyword and just do <code>prop_name(arg1, arg2){}</code>.</li>
+<li>You can use the <code>class</code> keyword to have a <code>constructor</code>, <code>get</code> and <code>set</code> methods, and you can create an object of that type with <code>new className(constructor args)</code>.</li>
+<li>You can make the variables, functions, and whatnot of one JS file available to others by &ldquo;exporting&rdquo; it. You do this by either adding the <code>export</code> keyword to it during delcaration or later on, where you can export multiple vars like <code>export {var1, func1, var2}</code>.</li>
+<li>To make use of them in another file you can &ldquo;import&rdquo; them like this : <code>import {var2, func1} from &quot;relative_path_to_other_js_file&quot;</code>. Or you can import everything from that file and place it under an object like this : <code>import * as containah from &quot;that_other_file&quot;</code>. Then access them like <code>containah.var1</code>.</li>
+<li>There are also &ldquo;default exports&rdquo;. This means that you can have one export which is the default thing that will be imported from a file when you do this : <code>import something from &quot;file&quot;</code>. To set something as a default export you can do <code>export default var</code>. They are useful when a file represents one item and you want to import that in some other file. It isn&rsquo;t particulary useful when a file is meant to do multiple things and has multiple items.</li>
+<li>The <strong>new operator</strong> can be used to create objects from <strong>functions</strong> or <strong>classes</strong>. To use it with a function the function must act like a constructor and set properties to <code>this</code>. To use it with a class, the class must have a constructor.</li>
+<li><strong>Promise</strong> is a feature to execute code asynchronously. You can create a <code>Promise</code> object with the <code>Promise</code> function. It expects you to take in two arguments (both of which are callbacks). As a convention we create a new promise object like this : <code>let prms = new Promise((resolve, reject) =&gt; {});</code>.</li>
+<li>A promise can be in one of three states: <code>pending</code>, <code>fulfilled</code>, and <code>failed</code>. It is <code>pending</code> when the promise is created, <code>fulfilled</code> when the <code>resolve</code> function is called, and <code>failed</code> when the <code>reject</code> function is called. Both <code>resolve</code> and <code>reject</code> take one argument each.</li>
+<li>You can set hanlders for a promise by calling <code>.then(resolveFunc, rejectFunc)</code> or <code>.catch(rejectFunc)</code>.
+You can pass a function <code>resolveFunc</code> (executed when the promise enters the &ldquo;fulfilled&rdquo; state)
+which takes one argument, i.e. the value passed to <code>resolve</code>.
+You could also pass the <code>rejectFunc</code> (executed when the promise enters the &ldquo;failed&rdquo; state)
+that takes in one argument i.e., the value passed to <code>reject</code>.</li>
+<li>To collect multiple promises into one there&rsquo;s the <code>Promise.All</code> function which takes in an iterable and returns a promise which
+resolves with an iterable of all resolved values of input promises or rejects when any of the input promises reject.</li>
+<li>It&rsquo;s possible to have multiple handlers for a promise. e.g., <code>prms.then(() =&gt; {alert(1);}); prms.then(() =&gt; {alert(2);});</code></li>
+<li>It&rsquo;s also possible to chain handlers because <code>.then()</code> returns an object which the <code>.catch</code> and <code>.then</code> functions.
+Therefore you could do
+<code>prms.then(rsVal =&gt; new Promise((rs, rj) =&gt; rs(1)).then(rsVal =&gt; new Promise((rs, rj) =&gt; rs(3))).catch(rjVal =&gt; console.log(rjVal))</code></li>
+</ul>
+<h2 id="regular-expressions">
+  Regular Expressions
+  <a class="anchor" href="#regular-expressions">#</a>
+</h2>
+<ul>
+<li>You can specify a required number of matches, more specific than <code>*</code> or <code>+</code>. The format is <code>(some matching pattern){min, max}</code>.
+You can omit min or max if you don&rsquo;t want a lowerbound or upperbound, respectively.
+To specify a particular number of matches, use <code>(pattern){exactNum}</code>.</li>
+</ul>
+<h2 id="debugging">
+  Debugging
+  <a class="anchor" href="#debugging">#</a>
+</h2>
+<p>console.clear() is useful</p>
+<h2 id="basic-data-structures">
+  Basic Data Structures
+  <a class="anchor" href="#basic-data-structures">#</a>
+</h2>
+<ul>
+<li><code>Array.splice(indexToStartRemoving, numberOfElementsToRemove, ...itemsToAdd);</code> allows you to remove elements from anywhere in the array and it returns a subarray of elements removed.</li>
+<li>The third and later arguments of spilce allow you to specify elements that should be put in the place of elements that were removed (can be more or less than the number of elements that were removed)</li>
+<li><code>Array.slice(indexToStart[inclusive], indexToEnd[exclusive]);</code> allows you to extract a part of an array without modifying the array</li>
+<li><code>Array.indexOf(elem)</code> returns the first index of an element in an array or -1 if it is not found.</li>
+<li>A shortcut way to check if an object has a property is <code>propName in objkt</code> which returns a boolean value.</li>
+<li>An Array is also really just an object where the keys are indices.</li>
+<li>To loop over the keys of an object there is a convenient format : <code>for(let keyVar in objkt) { }</code></li>
+<li>To get all the keys in an array you can do <code>object.Keys(objkt);</code></li>
+</ul>
+<h2 id="basic-algorithm-scripting">
+  Basic Algorithm Scripting
+  <a class="anchor" href="#basic-algorithm-scripting">#</a>
+</h2>
+<ul>
+<li><code>String.prototype.toUpperCase()</code> is nice</li>
+</ul>
+<h2 id="object-oriented-programming">
+  Object Oriented Programming
+  <a class="anchor" href="#object-oriented-programming">#</a>
+</h2>
+<ul>
+<li>The <code>this</code> keyword when used within an object defintion refers to the object itself. You can access other properties of the object with this.</li>
+<li>A constructor function can be used to create similar objects. By convention these functions&rsquo; names start with an uppercase letter and they don&rsquo;t return anything. They make use of <code>this</code> to set the object&rsquo;s properties. They are used along with the <code>new</code> operator which creates an object so that the use of <code>this</code> inside the function makes sense.</li>
+<li><code>instaceof</code> can be used like <code>objkt instaceof Constrktr</code> which returns a boolean value to see if an object was instantiated with a particular constructor.</li>
+<li>By default all objects have their own instances of each property, which takes up memory. To have a common instance for all objects of a particular type you can use a <strong>prototype</strong>. Like so : <code>Cars.prototype.speed = 60;</code> and all objects of the type Cars will have a property <code>speed</code> that is equal to 60.</li>
+<li>There are two types of properties : <strong>own</strong> and <strong>prototype</strong>. You can check which category a property belongs to by using <code>objkt.hasOwnProperty(propName)</code></li>
+<li>It is convenient to set the <code>prototype</code> of a type to a new object with the required properties. Remember to set the <code>constructor</code> property of <code>prototype</code>.</li>
+</ul>
+<h3 id="prototype-chain-and-inheritance">
+  Prototype chain and inheritance
+  <a class="anchor" href="#prototype-chain-and-inheritance">#</a>
+</h3>
+<p>All objects in JS have properties and then a link to another object (called the <strong>prototype</strong> of this object). Since the prototype itself is an object, it will have a link to its own prototype. This is called the prototype chain and it ends when an object&rsquo;s prototype is set to <code>null</code> as <code>null</code> has no prototype.<br>
+When you try to access a property of an object, it is first checked in the object&rsquo;s properties, then the properties of its prototype and so on until it hits <code>null</code>.</p>
+<ul>
+<li>Primitives (Number, undefined, null, etc) don&rsquo;t have methods</li>
+<li>Objects are stored in a variable by reference to the location in memory</li>
+<li><strong>FUNCTIONS ARE OBJECTS.</strong> They are constructed by the function <code>Function</code> which has properties like <code>call</code>, <code>name</code>, <code>arguments</code>, and so on, which was constructed by the function <code>Object</code> which has properties like <code>toString</code>, <code>hasOwnProperty</code>, and so on.</li>
+<li>Let <code>Car</code> be a function object that can be used as a constructor. Let <code>maserati</code> be an object created by that function. <code>Car.prototype</code> is the prototype object of all objects created by <code>Car</code>. <code>maserati.__proto__</code> points to <code>Car.prototype</code>.</li>
+<li>All functions, just like <code>Car</code>, have a <code>prototype</code> property. Other than anonymous functions. That is why anonymous functions are not constructors and cannot be used create objects.</li>
+<li>Since Object is a function (i.e. an object that is callable) <code>Object.prototype</code> is <code>{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}</code></li>
+<li>Some objects and their prototypes:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;yo&#39;</span>, <span style="color:#e6db74">&#39;whadup&#39;</span>, <span style="color:#e6db74">&#39;?&#39;</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">f</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><pre><code>* The prototype of `o` is `Object.prototype`
+* The prototype of `b` is `Array.prototype`
+* The prototype of `f` is `Function.prototype`
+</code></pre>
+<ul>
+<li>If an object is created with <code>let newob = Object.create(objkt)</code>, the prototype of the new object is the argument passed to <code>Object.create</code>. In this case <code>newob.__proto__</code> is <code>objkt</code>.</li>
+<li>Object creation, when done like this:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Foo</span>();
+</span></span></code></pre></div><p>is essentially this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">o</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">o</span>.[[<span style="color:#a6e22e">Prototype</span>]] <span style="color:#f92672">=</span> <span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">prototype</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Foo</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">o</span>); <span style="color:#75715e">// this is defined as Function.prototype.call(thisArg, ...otherArgs) { ... }
+</span></span></span></code></pre></div><ul>
+<li>To perform &ldquo;inheritance&rdquo; between function <code>A</code> and function <code>B</code>, i.e. to make A inherit from B, you just need to set <code>A.prototype = Object.create(B.prototype); A.prototype.constructor = A</code>.</li>
+<li><strong>Mixin</strong> is a way to add properties to objects without multiple inhertiance. It can be done like this:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">flyMixin</span>(<span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">altitude</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">wingspan</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fly</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;I believe I can fly...&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><strong>IIFE</strong> (Immediately Invoked Function Expression) is an anonymous function that is called right where it is defined. Like this <code>( () =&gt; {...} )()</code>.</li>
+</ul>
+<h2 id="functional-programming">
+  Functional Programming
+  <a class="anchor" href="#functional-programming">#</a>
+</h2>
+<p>A key point of FP is that functions don&rsquo;t rely on external parameters (global states) and they don&rsquo;t change those parameters. The same input gives the same output.</p>
+<ul>
+<li>Functions that take in other functions as arguments or return functions are known as <strong>higher order functions</strong>.</li>
+<li><code>Array.prototype.map(callback)</code> is useful for FP. Using it on an array applies the callback function on each element and returns a new array with the new elements. The arguments passed to the callback function are: <strong>the current element, the index of the element, and the array that map is operating on.</strong></li>
+<li>Even if a function takes in <strong>n</strong> arguments you can pass it more args (in which case it will ignore the extra args) or fewer args (in which case the other ones will have be of the type <code>undefined</code>).</li>
+<li><code>Array.prototype.filter(callback)</code> is also useful for FP. The returned array will only contain the elements for which the callback function returned true. The arguments passed to the callback function are the same as the map function.</li>
+<li><code>Array.prototype.concat(otherArray)</code> returns a new array which has all the elements of the array on which it is called followed by the elements of the array which is passed as an argument.</li>
+<li><code>Array.prototype.reduce(callback, initValue(optional))</code> can be implemented like this (example):</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">redush</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">callback</span>, <span style="color:#a6e22e">initValue</span><span style="color:#f92672">=</span><span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">initValue</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">initValue</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#a6e22e">start</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">initvalue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">initValue</span>, <span style="color:#66d9ef">this</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">initValue</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li><code>Array.prototype.sort(callback)</code> returns a new array which is the array, sorted using the callback function. The rule for sorting is defined by callback(a, b):
+<ul>
+<li>Less than 0 =&gt; a will be before b</li>
+<li>Equal to 0 =&gt; positions will not be modified</li>
+<li>Greater than 0 =&gt; b will be before a
+Sorting also modifies the original array.</li>
+</ul>
+</li>
+<li><code>Array.prototype.every(callback)</code> returns a boolean value which tells if all the elements in the array return true for the callback. There&rsquo;s also <code>Array.prototype.some(callback)</code>.</li>
+</ul>
+<h3 id="this-">
+  <code>this</code> ?
+  <a class="anchor" href="#this-">#</a>
+</h3>
+<p><code>this</code> is a keyword that has different values depending on the scope it is accessed from. When accessed inside a free function it has the value of the global <code>this</code> (or <code>undefined</code> when strict mode is activated). When the function is a property of an object and called like <code>objkt.funk(...args)</code> <code>this</code> will be the object. If it&rsquo;s an <strong>arrow function</strong> <code>this</code> will be the same as <code>this</code> in the parent scope.<br>
+You can also set what <code>this</code> will be used inside a function. One way to change <code>this</code> is using <code>funk.call(newThis)</code> which will call that function with a new <code>this</code> for that invocation only.<br>
+Like <code>.call(newThis)</code>, there&rsquo;s also <code>.bind(newThis)</code> which returns a function which calls the original function but while setting its <code>this</code> to <code>newThis</code>. E.g. <code>funk.bind(newThis)()</code>.<br>
+<code>.bind(newThis, ...args)</code> can also be used to create partial functions. You can set some parameters of the function and those won&rsquo;t be required in the new function that <code>bind</code> returns.</p>
+<h2 id="random-questions">
+  Random questions
+  <a class="anchor" href="#random-questions">#</a>
+</h2>
+<h3 id="symbols">
+  Symbols?
+  <a class="anchor" href="#symbols">#</a>
+</h3>
+<p>They&rsquo;re a special data type and the only one other than string which can be used as a key for an object (all other types are converted to string first).</p>
+<p>You can create one like so: <code>let zoomZoom = Symbol()</code>.  And use it as a key like so: <code>let obj = {[zoomZoom]: 'cool key', 123: 'not so cool key'}; console.log(obj[zoomZoom])</code>.</p>
+<p>A symbol cannot be converted to string automatically. To make that happen, use <code>zoomZoom.toString()</code>.</p>
+<p>Symbols can also optionally have a &ldquo;description&rdquo; that you can provide while creation like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sym1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#39;the best one&#39;</span>); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sym2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#39;the best one&#39;</span>); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sym3</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>(<span style="color:#e6db74">&#39;some random one&#39;</span>); 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sym1</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">sym2</span>); <span style="color:#75715e">// prints false 
+</span></span></span></code></pre></div><p>note that even if they have the same description, the symbols are different.</p>
+<p>The symbol keys of an object don&rsquo;t show up in <code>Object.keys</code> or in the <code>for in</code> loop.  To get all the symbol keys of an object, use
+<code>Object.getOwnPropertySymbols(obj)</code>.</p>
+<p>We&rsquo;ve seen that every time we create a symbol, we get a new one, even if we use
+the same description.  What if we want JS to give us the same symbol in case the
+description we provided is the same? Do it like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sym4</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>.<span style="color:#66d9ef">for</span>(<span style="color:#e6db74">&#39;nice key&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sym5</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>.<span style="color:#66d9ef">for</span>(<span style="color:#e6db74">&#39;nice key&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">sym6</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Symbol</span>.<span style="color:#66d9ef">for</span>(<span style="color:#e6db74">&#39;bad key&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sym4</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">sym5</span>); <span style="color:#75715e">// prints true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">sym5</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">sym6</span>); <span style="color:#75715e">// prints false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">Symbol</span>.<span style="color:#a6e22e">keyFor</span>(<span style="color:#a6e22e">sym4</span>); <span style="color:#75715e">// prints &#39;nice key&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">Symbol</span>.<span style="color:#a6e22e">keyFor</span>(<span style="color:#a6e22e">sym1</span>); <span style="color:#75715e">// prints undefined since it was not created by Symbol.for, thus doesn&#39;t exist in the global registry
+</span></span></span></code></pre></div><p>This method of creating symbols uses a global registry and checks it for
+existing descriptions before returning a new symbol.</p>
+<p>There are also some inbuilt symbols like this one: <code>Symbol.iterator</code>.</p>
+<h3 id="primitive-properties">
+  primitive properties?
+  <a class="anchor" href="#primitive-properties">#</a>
+</h3>
+<p>How can primitive types be assigned properties and methods be called on them?  That&rsquo;s because when some property is assigned or a
+method is called, the primitive is wrapped in a temporary object.  That
+temporary object is discarded after the operation.  Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hi there&#34;</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">coolstuff</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">123</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">coolstuff</span>); <span style="color:#75715e">// undefined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;hiphop&#34;</span>.<span style="color:#a6e22e">includes</span>(<span style="color:#e6db74">&#34;ip&#34;</span>)); <span style="color:#75715e">// true
+</span></span></span></code></pre></div><h3 id="copying-stuff">
+  copying stuff
+  <a class="anchor" href="#copying-stuff">#</a>
+</h3>
+<p>To deep copy just do <code>structuredClone(objToCopy)</code>. It has good support 
+  <a href="https://caniuse.com/mdn-api_structuredclone">as per caniuse</a>.</p>
+<h3 id="nullish-coalescing">
+  nullish coalescing
+  <a class="anchor" href="#nullish-coalescing">#</a>
+</h3>
+<p><code>a || b</code> will evalaute to <code>b</code> in case <code>a</code> is any falsy value.
+Then there is nullish coalescing which tests for nullish values i.e.,
+<code>a ?? b</code> will evaluate to <code>b</code> only when when <code>a</code> is <code>null</code> or <code>undefined</code>.</p>
+<p>There is also 
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_nullish_assignment">logical nullish assignment</a>
+<code>??=</code> which assigns a value only if the variable is nullish.</p>
+<h3 id="event-bubbling-capturing-and-delegation">
+  event bubbling, capturing, and delegation
+  <a class="anchor" href="#event-bubbling-capturing-and-delegation">#</a>
+</h3>
+<p>Events on an element are first captured by document, then <code>&lt;html&gt;</code> then <code>&lt;body&gt;</code> and so on
+until it reaches the element itself. Then the event is &ldquo;processed&rdquo; at the target.
+Then the event bubbles up to the parent element and it&rsquo;s parent and so on until document.
+If there are any handlers in the path, they are run.</p>
+<p>An element could also have multiple handlers for the same event.
+In case of multiple handlers on an element for an event, the order they run is browser specific.</p>
+<p>To register an event handler you need to specify:</p>
+<ul>
+<li>The event type (e.g. &lsquo;click&rsquo;)</li>
+<li>The event handler (a function which will receive an event object)</li>
+<li>An optional boolean to tell whether the handler should run in the capturing phase or not
+To remove an event handler you need to specify the same handler function and phase.</li>
+</ul>
+<p>Not all events bubble (e.g. &lsquo;hover&rsquo;).
+The event object has <code>event.target</code> and <code>event.currentTarget</code>
+(the element where the handler is running).</p>
+<p>You can stop propagation of an event (upwards / downwards) using <code>event.stopPropagation()</code>.
+To also stop all other handlers of that event on this element running, use
+<code>event.stopImmediatePropagation()</code>. To prevent the default behaviour, use <code>event.preventDefault()</code>.</p>
+<p>Sometimes you may want the same behaviour out of many elements
+(e.g., <code>&lt;li&gt;</code>s in a <code>&lt;ul&gt;</code> or <code>&lt;td&gt;</code>s in a <code>&lt;table&gt;</code>)
+there&rsquo;s no need to set event handler to each element, you can set it on a common ancestor.
+That&rsquo;s called <strong>event delegation</strong>. You can do it like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">table</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;click&#39;</span>, (<span style="color:#a6e22e">event</span>) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">td</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">closest</span>(<span style="color:#e6db74">&#39;td&#39;</span>); <span style="color:#75715e">// did the event occur on a td or its children?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">td</span>) <span style="color:#66d9ef">return</span>; <span style="color:#75715e">// if not, exit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">table</span>.<span style="color:#a6e22e">contains</span>(<span style="color:#a6e22e">td</span>)) <span style="color:#66d9ef">return</span>; <span style="color:#75715e">// make sure the td belongs to this table not some other
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">td</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">add</span>(<span style="color:#e6db74">&#39;highlight&#39;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h3 id="closure">
+  closure
+  <a class="anchor" href="#closure">#</a>
+</h3>
+<p>Good resource:
+
+  <a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch7.md">https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch7.md</a></p>
+<p>A reference of a variable from an outer scope inside a function is called a closure.
+The function <em>closes</em> over the outer variables.
+The outer variables don&rsquo;t get garbage collected even when their scopes get over
+(as long as the functions exist).</p>
+<p>Closures are associated with instances of functions and not their definitions.
+Note that the closure is a reference to the outer variable and not a snapshot of it&rsquo;s value
+when the function was created (which was a common misconception).</p>
+<p>Also note that a closure only requires an &ldquo;inner&rdquo; function.
+The outer scope need not be a function, it could be a block too. e.g.,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">hits</span>;
+</span></span><span style="display:flex;"><span>{   <span style="color:#75715e">// an outer scope (but not a function)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">hits</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getCurrent</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">count</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">hits</span>();     <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">hits</span>();     <span style="color:#75715e">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">hits</span>();     <span style="color:#75715e">// 3
+</span></span></span></code></pre></div><p>That is important in understanding the difference between</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fns</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fns</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">0</span>](), <span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">1</span>](), <span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">2</span>]());
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 0 1 2
+</span></span></span></code></pre></div><p>and</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fns</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fns</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">0</span>](), <span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">1</span>](), <span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">2</span>]());
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 3 3 3
+</span></span></span></code></pre></div><p>In the second case, since <code>i</code>&rsquo;s scope is global and it won&rsquo;t be GC&rsquo;d before the functions are used,
+each function need not have a separate live copy (which is what happens in the first case).</p>
+<p>That also explains the behaviour in these examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fns</span> <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fns</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> () =&gt; (<span style="color:#a6e22e">i</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">0</span>](), <span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">1</span>](), <span style="color:#a6e22e">fns</span>[<span style="color:#ae81ff">2</span>]());
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 2 3 4
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// i.e., there are three different instances of the closed variable
+</span></span></span></code></pre></div><p>whereas in the case of <code>var</code> it becomes</p>
+<pre tabindex="0"><code>var fns = [];
+
+for (var i = 0; i &lt; 3; i++) {
+    fns[i] = () =&gt; (i += 2);
+}
+
+console.log(fns[0](), fns[1](), fns[2]());
+// 5 7 9
+// i.e., they&#39;re all updating the same global i
+</code></pre><p>in fact the examples with <code>var</code> aren&rsquo;t even closure really since the global variables
+are always available.</p>
+<p>Note: because closures delay GC they could lead to excess memory usage.</p>
+<p>Technically a function instance only closes over the variable it uses from the outer scope
+and all other variables in the outer scope can be GCd when the scope gets over.
+However that&rsquo;s not what really happens. Since the interpreter cannot always know what variables
+from the outer scope are being accessed (looking at you, <code>eval</code>), it might end up keeping the entire
+outer scope if it thinks there is a possibility of a closure.
+Thus, when using closures, try to clear up the variables in the outer scope by setting them to <code>null</code>.
+Also, one more reason to avoid using <code>eval</code>.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#javascript">JavaScript</a>
+      <ul>
+        <li><a href="#basics">Basics</a></li>
+        <li><a href="#es6-modern-javascript">ES6 (Modern JavaScript)</a></li>
+        <li><a href="#regular-expressions">Regular Expressions</a></li>
+        <li><a href="#debugging">Debugging</a></li>
+        <li><a href="#basic-data-structures">Basic Data Structures</a></li>
+        <li><a href="#basic-algorithm-scripting">Basic Algorithm Scripting</a></li>
+        <li><a href="#object-oriented-programming">Object Oriented Programming</a>
+          <ul>
+            <li><a href="#prototype-chain-and-inheritance">Prototype chain and inheritance</a></li>
+          </ul>
+        </li>
+        <li><a href="#functional-programming">Functional Programming</a>
+          <ul>
+            <li><a href="#this-"><code>this</code> ?</a></li>
+          </ul>
+        </li>
+        <li><a href="#random-questions">Random questions</a>
+          <ul>
+            <li><a href="#symbols">Symbols?</a></li>
+            <li><a href="#primitive-properties">primitive properties?</a></li>
+            <li><a href="#copying-stuff">copying stuff</a></li>
+            <li><a href="#nullish-coalescing">nullish coalescing</a></li>
+            <li><a href="#event-bubbling-capturing-and-delegation">event bubbling, capturing, and delegation</a></li>
+            <li><a href="#closure">closure</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

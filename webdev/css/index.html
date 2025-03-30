@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.145.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Cascading Style Sheets
+  #
+
+
+  Notes from course
+  #
+
+
+
+Web fonts can be downloaded onto the user&rsquo;s browser if your website requires them. This is done by defining the font in CSS, e.g. in the &lt;style&gt; tag. The rule is specified as :
+@font-face {
+  font-family: &#34;Open Sans&#34;;
+  src: url(&#34;http://example.com/fonts/OpenSans-Regular-webfont.woff2&#34;) format(&#34;woff2&#34;),
+       url(&#34;http://example.com/fonts/OpenSans-Regular-webfont.woff&#34;) format(&#34;woff&#34;);
+}
+This whole thing can be importing it as a style sheet using the link tag within the head element.
+
+
+Along with fonts like that there are also &ldquo;Generic fonts&rdquo; which are present in all browsers. When specifying generic font names you don&rsquo;t need quotes since they are CSS keywords. E.g. Helvetica.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/webdev/css/">
+  <meta property="og:site_name" content="Field Manual">
+  <meta property="og:title" content="CSS">
+  <meta property="og:description" content="Cascading Style Sheets # Notes from course # Web fonts can be downloaded onto the user’s browser if your website requires them. This is done by defining the font in CSS, e.g. in the &lt;style&gt; tag. The rule is specified as :
+@font-face { font-family: &#34;Open Sans&#34;; src: url(&#34;http://example.com/fonts/OpenSans-Regular-webfont.woff2&#34;) format(&#34;woff2&#34;), url(&#34;http://example.com/fonts/OpenSans-Regular-webfont.woff&#34;) format(&#34;woff&#34;); } This whole thing can be importing it as a style sheet using the link tag within the head element.
+Along with fonts like that there are also “Generic fonts” which are present in all browsers. When specifying generic font names you don’t need quotes since they are CSS keywords. E.g. Helvetica.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="webdev">
+<title>CSS | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.68c98c2df2ca4c188d8e4f406b6132f3be67cca1d52ab981f5631a89d3b496f4.js" integrity="sha256-aMmMLfLKTBiNjk9Aa2Ey875nzKHVKrmB9WMaidO0lvQ="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle" checked />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class=" active">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>CSS</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#cascading-style-sheets">Cascading Style Sheets</a>
+      <ul>
+        <li><a href="#notes-from-course">Notes from course</a></li>
+        <li><a href="#css-flexbox">CSS Flexbox</a></li>
+        <li><a href="#css-grid">CSS Grid</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="cascading-style-sheets">
+  Cascading Style Sheets
+  <a class="anchor" href="#cascading-style-sheets">#</a>
+</h1>
+<h2 id="notes-from-course">
+  Notes from course
+  <a class="anchor" href="#notes-from-course">#</a>
+</h2>
+<ul>
+<li>
+<p>Web fonts can be downloaded onto the user&rsquo;s browser if your website requires them. This is done by defining the font in CSS, e.g. in the <code>&lt;style&gt;</code> tag. The rule is specified as :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>@<span style="color:#66d9ef">font-face</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">font-family</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Open Sans&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">src</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://example.com/fonts/OpenSans-Regular-webfont.woff2&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff2&#34;</span><span style="color:#f92672">),</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://example.com/fonts/OpenSans-Regular-webfont.woff&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">format</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;woff&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This whole thing can be importing it as a style sheet using the <code>link</code> tag within the <code>head</code> element.</p>
+</li>
+<li>
+<p>Along with fonts like that there are also &ldquo;Generic fonts&rdquo; which are present in all browsers. When specifying generic font names you don&rsquo;t need quotes since they are CSS keywords. E.g. Helvetica.</p>
+</li>
+<li>
+<p>Many user defined CSS classes are designed so that they can be assigned to different kinds of elements. E.g. &ldquo;thick-green-background&rdquo; and &ldquo;silver-background&rdquo; can be used with different kinds of elements to give the specified effect. P.S. <code>id</code> being unique is not enforced by the browser :( When using the id as a specifier in CSS, that style has a higher priority for that element over the class style.</p>
+</li>
+<li>
+<p>All HTML elements are rectangles. Three style attributes that control sizes of this rectangle are : padding (space between element&rsquo;s content and margin), margin (space between element border and other elements) and border.</p>
+</li>
+<li>
+<p>Decreasing the margin (even to negative values) makes the element larger and increasing it makes the element smaller. <code>margin</code> and <code>padding</code> can be controlled for all 4 sides of the rectangle. They can also all be specified in one line (clockwise direction, starting from <code>top</code>).</p>
+</li>
+<li>
+<p>Other CSS selectors: An attribute selectors chooses elements for which <code>[attr=value]</code>. The code snippet is the selector.</p>
+</li>
+<li>
+<p>Values for sizes can be specified in absolute (e.g. in, mm) or relative units (e.g. em which is relative to the font size within the element and px which is dependent on the screen the user has)</p>
+</li>
+<li>
+<p>CSS properties are inherited by child elements. Conflicting styles in the child element will override that defined by the parent element. In case there are conflicting styles within the classes a particular element belongs to, the style for the class defined later in the style sheet overrides. <code>id</code> declarations override class ones. Inline styles override all of them. Specifying <code>!important</code> on an attribute means that it won&rsquo;t be overriden by anything else.</p>
+</li>
+<li>
+<p>You can define CSS variables within one style and use them in styles of child classes, they are specified with a <code>--</code> before the name e.g. <code>--penguin-beak: orange;</code>. That variable&rsquo;s value can be accessed within other classes like this: <code>background: var(--penguin-skin);</code>. If <code>var</code> cannot find the variable you can also specify a fallback value like this: <code>background: var(--penguin-skin, black);</code>. <code>:root</code> is a pseudo selector matching the root element of the document.</p>
+</li>
+<li>
+<p>Media queries are a way to apply certain CSS styles only when particular conditions from the browser are met, their general format is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">media-type</span> <span style="color:#f92672">(</span><span style="color:#f92672">media-feature-rule</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* CSS rules go here */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>media-type and</code> part is optional. You can also redeclare styles which will then override the previous styles.</p>
+</li>
+<li>
+<p>To apply multiple feature rules, you can do it like so: <code>@media (min-width: 1px) and (max-width: 2px) and (orientation: potrait) {}</code></p>
+</li>
+<li>
+<p>Having trouble deciding what screen sizes should be used? See where your layout breaks when you expand / shrink and use that.
+You could also just design for the common sizes like upto-600px, upto-900px, and so on.</p>
+</li>
+<li>
+<p>The <code>box-shadow</code> property in CSS can apply multiple shadows to elements. It can control, offsets, blur, spread and color of the shadows.</p>
+</li>
+<li>
+<p>The <code>text-transform</code> can change the capitalization of elements without modifying the HTML. It can be set to <code>lowercase</code>, <code>capitalize</code>, etc.</p>
+</li>
+<li>
+<p>Pseudo classes in CSS are extra keywords that you can add to selectors to modify specific states of the element. <code>a:hover</code> will modify the style of the <code>a</code> element during the state when the mouse is hovering over it.</p>
+</li>
+<li>
+<p><strong>Relative positioning</strong>: All elements have a default place within the document, where each block style element is on a new line and inline elements such as <code>&lt;span&gt;&lt;/span&gt;</code> are positioned in the same line itself. Setting the <code>position</code> as <code>relative</code> means you want to change it&rsquo;s position relative to it&rsquo;s normal position. It is combined with the &ldquo;offset&rdquo; properties such as <code>top</code>, <code>bottom</code>, <code>left</code> and <code>right</code> which specify how much space you want to keep from the normal position in that direction. <strong>Other elements will be placed in their normal position regardless of where the relative element is.</strong></p>
+</li>
+<li>
+<p><strong>Absolute positioning</strong>: The element will be removed from the normal document flow and only it&rsquo;s positional parent (the first parent that has the position parameter set, or body) will be aware of it. You do it by setting <code>position: absolute</code>. By default it will remain in the same place it was. You can move it around wrt the parent element with offsets. It is now locked to the parent element&rsquo;s positioning.</p>
+</li>
+<li>
+<p><strong>Fixed positioning</strong>: The element is now locked to browser window, removed from the document flow and all other elements are unaware of it. By default it will still be in the same position as normal but this can be changed by using offsets. These elements will no longer move upon scrolling.</p>
+</li>
+<li>
+<p><strong>Floating elements</strong>: Setting <code>float: [left|right]</code> will remove the element from the normal document flow and move it to the extreme left / right of the parent element. It&rsquo;s commonly used with the <code>width</code> parameter which says how much width of the parent it should be occupying.</p>
+</li>
+<li>
+<p>Centering block elements : Set their <code>margin</code> to <code>auto</code>. To convert an element to a block element. Set its <code>display</code> as <code>block</code>.</p>
+</li>
+<li>
+<p>HSL : Hue (0-360) is a position on the color wheel. Saturation (0-100) is the amount of gray in a color. Lightness (0-100) is how much black or white there is in a color (50 is the default). E.g. green is <code>hsl(120, 100%, 50%)</code>.</p>
+</li>
+<li>
+<p>Instead of a single background color, you can also set a gradient, e.g. <code>linear-gradient(angle, color1, color2)</code>. You can also set the background to a picture by using url(&ldquo;image location&rdquo;);</p>
+</li>
+<li>
+<p>The <code>transform</code> property is cool. You can perform actions on the element such as <code>scale</code>, <code>skewX</code>, <code>skewY</code>, <code>rotate</code> etc. and even multiple actions! You can make really complex shapes with CSS, a heart even! The pseduo classes <code>::before</code> and <code>::after</code> add children to element, one at the first and one at the last.</p>
+</li>
+<li>
+<p>ANIMATIONS! You can set a particular animation to an element with <code>animation-name</code> and set for how long that animation should play with <code>animation-duration</code>. That animation should be defined as <code>@keyframes aniname { /* what happens in the animation */ }</code>. The keynote has multiple parts telling what should happen at x% time of the animation. Here&rsquo;s a sample one:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>#anim {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-name</span>: colorful;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">animation-duration</span>: <span style="color:#ae81ff">3</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">keyframes</span> <span style="color:#f92672">colorful</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">0</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">blue</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">100</span><span style="color:#f92672">%</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#66d9ef">yellow</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>If no 100% is specified, it will be the same as 0%. You can keep an element at the 100% state after the animation finishes by setting this property: <code>animation-fill-mode: forwards;</code>. Set <code>animation-iteration-count: 3;</code> to infinite to keep it running forever.</p>
+</li>
+</ul>
+<h2 id="css-flexbox">
+  CSS Flexbox
+  <a class="anchor" href="#css-flexbox">#</a>
+</h2>
+<ul>
+<li>You can turn an element into a flex container by adding the <code>display: flex</code> property to its style. Whether they are aligned in a row or column and in which direction is defined by <code>flex-direction</code> which can be <code>(row|column)[-reverse]</code>. The default value is &ldquo;row&rdquo;.</li>
+<li>If you make an element a flex container the children are the flex-items. You can set their location using <code>justify-content</code> which can be set to values such as &ldquo;center&rdquo;, &ldquo;space-evenly&rdquo;, &ldquo;flex-start&rdquo;, &ldquo;flex-end&rdquo;, &ldquo;stretch&rdquo; etc. 
+  <a href="https://www.w3.org/TR/css-flexbox-1/images/flex-direction-terms.svg">This is a nice diagram about flex containers.</a></li>
+<li><code>justify-content</code> moves the flex items along the main axis (check that diagram from the previous point) and aligns them. The other method of aligning is along the cross axis, which can be achieved with <code>align-items</code> whose default value is <code>stretch</code> as it, by default, stretches elements along the cross axis.</li>
+<li>You can also align elements individually by specifying the value for the property <code>align-self</code> which overrides <code>align-items</code>.</li>
+<li>By default, all the flex items in a flex container will be placed in a single row/column. You can change this by using the <code>flex-wrap</code> property and setting it to <code>wrap</code> where elements can be placed in multiple rows/columns if they don&rsquo;t fit.</li>
+<li>To move around individual flex-items in a container, <strong>set their margins</strong>. E.g. when an element has <code>margin-left: auto</code> in a row layout, it will be pushed to the <code>flex-end</code>.</li>
+<li>You can change how flex-items change as the container&rsquo;s shape changes. This can be done by setting the <code>flex</code> property in the <strong>flex-items</strong>. The <code>flex</code> property is a shorthand for <code>flex-grow flex-shrink flex-basis</code>:
+<ul>
+<li><code>flex-grow</code>: A positive value indicates the proportion of free space left in the flex container that should be allocated to this item. By default it is 0 which indicates that items will not grow.</li>
+<li><code>flex-shrink</code>: A positive value indicates how much this item should shrink wrt other items so they all fit in the flex container. By default it is 1 which indicates they will all shrink equally to fit.</li>
+<li><code>flex-basis</code>: The size of that element along the main axis (for flex-direction: row it will set width). By default it is <code>auto</code> which means the size of that item will be that the user set for it (e.g. width: 100px) else it will be the size of the content within it.</li>
+</ul>
+</li>
+<li>A Flexbox has source order independence. That means you can set the order for items in a different way from what it was in the HTML. This is done by setting <code>order</code> in flex items. Negative value items appear first, positive last. Zero is the default value.</li>
+<li><code>flex-flow</code> is a shorthand for (<code>flex-direction flex-wrap</code>) which is by default set to <code>row nowrap</code>.</li>
+<li>When your flexbox spans multiple rows you can use <code>align-content</code> to align those rows. Values are <code>center flex-start flex-end</code> etc. <code>align-items</code> aligns the content within those rows.</li>
+</ul>
+<h2 id="css-grid">
+  CSS Grid
+  <a class="anchor" href="#css-grid">#</a>
+</h2>
+<ul>
+<li>Only setting <code>display: grid</code> doesn&rsquo;t affect the elements. You can set the number of grid columns and the size of each column like this: <code>grid-template-columns: 50px 50px;</code>. There&rsquo;s also the complementary <code>grid-template-rows</code>. You can also use &ldquo;auto&rdquo; instead of units. There&rsquo;s a new unit <code>fr</code> which you use to set items to split the space among themselves fractionally. There&rsquo;s also the shorthand <code>grid-template</code> whose value is in the format: <code>grid-template-rows / grid-template-columns</code>.</li>
+<li>Usually, the items in a container&rsquo;s row or column are aligned so there&rsquo;s no space between them. This space can be added with <code>grid-column-gap</code> or <code>grid-row-gap</code> or both at once with <code>grid-gap</code>. (<strong>Modern CSS prefers that you use just &ldquo;gap&rdquo;, &ldquo;row-gap&rdquo;, and &ldquo;column-gap&rdquo;</strong>)</li>
+<li>CSS Grid has row lines and column lines which are around each row and column. They can be named (seems weird to me).</li>
+<li>You can also set how many rows / columns each item will take by adding the <code>grid-column: start-line-num / end-line-num</code> property (or the &ldquo;row&rdquo; alternative) to the item. <strong>end-col (or end-row)</strong> is exclusive. <code>start-col</code> and <code>end-col</code> can also be set to <strong>negative values</strong> to count backwards from the end . You can also use another format: <code>grid-column: start-col / span {number of columns to span};</code></li>
+<li>All grid items are placed within &ldquo;cells&rdquo; which actually make up the grid container. By default, the item stretches to fit the cell but you can change that by using <code>justify-self</code> and <code>align-self</code> on the item. They accept values like &ldquo;center&rdquo;, &ldquo;start&rdquo;, &ldquo;end&rdquo; etc. You can also do this for all items at the container level by using <code>justify-items</code> and <code>align-items</code> to set the value to all items.</li>
+<li>You can move the content within a grid (i.e. the cells, since they don&rsquo;t necessarily occupy 100% width and 100% height of the grid) with <code>justify-content</code> for the main axis and <code>align-content</code> for the cross axis.</li>
+<li>Cells need not be of the same size along the main axis since the default minimum size is to fit content. On the cross axis, if no size is specified, all cells will be of the same size (fit-content by default).</li>
+<li>A grid will be split into cells, you can name those cells and ones with the same name make up an &ldquo;area&rdquo; that is set using <code>grid-template-areas</code> and you can make items occupy areas by telling them to occupy the area of the <code>grid-area</code> property.</li>
+<li>Media queries along with grid areas can make for a responsive website. You can change the layout by changing the areas layout when some viewport property changes.</li>
+<li>Sometimes you may not know how many columns you want and may want the browser to add or remove columns as the screen width changes. This can be acheived with <code>repeat(auto-fit, {width of each col})</code>. The width of a col cannot be some fr since it will occupy full width then. If you do want the width to be somewhat responsive you can set the width to be <code>minmax(a, b)</code> where <code>a</code> and <code>b</code> can be values like <code>100px</code>, <code>1fr</code>, etc. The min value can&rsquo;t be an <code>fr</code> value. You can use <code>auto-fill</code> instead of <code>auto-fit</code> if you don&rsquo;t want your cells to expand to take up extra space.</li>
+<li>The <code>min</code> function is frequently used with <code>minmax</code> to create responsive layouts that can avoid media queries. This is one common snippet : <code>grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));</code>.</li>
+<li>Since the number of columns can vary, the number of rows may also vary, which means that defining row heights for each row isn&rsquo;t possible. Instead, you can set the height for all rows by using <code>grid-auto-rows: {some height}</code>.</li>
+<li><strong>CSS Grid is AWESOME</strong>. When you want to specify how many rows or cells an item should take without statically specifying where it should start (like this <code>grid-column: 4 / -1</code> or <code>grid-row: -2 / span 1</code>) you can specify just the span and let CSS place it in its correct place with <code>grid-[column|row]: auto / span {how many ever you want}</code>. As a shorthand you can also specify it like <code>grid-[column|row]: span {value}</code>.</li>
+<li>If an item just needs to be one column (or row) wide, you can set <code>grid-[column|row]: {column or row line number}</code>.</li>
+<li>There&rsquo;s also a <strong>short-hand</strong> <code>grid-area</code> which can be set to <code>grid-row-start / grid-column-start / grid-row-end / grid-column-end</code> where any of the values can be positive, negative, or a span + value.</li>
+<li>Sometimes, when some cells have different sizes than others, there might be empty spaces in the grid which can&rsquo;t be filled if the HTML flow is followed. Since CSS Grid has source order independence you can ask it to fill it optimally to avoid spaces using a &ldquo;dense packing algorithm&rdquo; with this property: <code>grid-auto-flow</code> which, by default, is set to <code>row</code> but you can change it to <code>dense</code>.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#cascading-style-sheets">Cascading Style Sheets</a>
+      <ul>
+        <li><a href="#notes-from-course">Notes from course</a></li>
+        <li><a href="#css-flexbox">CSS Flexbox</a></li>
+        <li><a href="#css-grid">CSS Grid</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
