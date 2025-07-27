@@ -12,7 +12,6 @@ These sound useful:
 
 ## WebDev stuff
 * Search for "TODO" in notes and do those parts
-* Angular router - <https://blog.angular-university.io/angular2-router/>
 * What really is ngModule - <https://blog.angular-university.io/angular2-ngmodule/>
 * How do service workers work? [Service Workies](https://serviceworkies.com/)
 * [Good article on testing.](https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/) This covers TDD and stuff

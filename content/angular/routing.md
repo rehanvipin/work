@@ -88,7 +88,20 @@ A resolver is usually a service that has a `resolve` method that takes in an `Ac
 In the list of routes, for a `Route` object, specify a `resolve` property that is equal to an object where the keys can be used to access the data on the route later on. Like so: `resolve: { users: getUsersService }`. This can then be accessed via the `ActivatedRoute` like so: `this.route.snapshot.data['users']`
 
 ## Nested routes
-TODO
+In case the child and parent routes both have parameters, they can be accessed via separate methods:
+* child one via the regular ActivatedRouteSnapshot
+* parent one via the RouterStateSnapshot which gives the state maintained for the entire route.
 
 ## Extra options you can set on `<router-outlet>`
-TODO
+You can set the "name" property on a router outlet when making use of Auxillary routes.
+This name can then be referenced when configuring the list of route. A route object using this can be defined like so:
+```ts
+{path: 'event/:id', component: EventDetailsComponent, outlet: 'secondary-info'}
+```
+Where the router outlets are set like this:
+```html
+<router-outlet></router-outlet>
+<router-outlet name="secondary-info"></router-outlet>
+```
+
+How does that work for the URL? Via the `()` syntax. Something like this: `/main-path(event/32)`

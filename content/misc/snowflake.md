@@ -1,5 +1,5 @@
 ---
-weight: 6
+weight: 4
 title: "Snowflake"
 # bookFlatSection: true
 # bookToc: false
