@@ -15,6 +15,17 @@ These sound useful:
 * What really is ngModule - <https://blog.angular-university.io/angular2-ngmodule/>
 * How do service workers work? [Service Workies](https://serviceworkies.com/)
 * [Good article on testing.](https://www.freecodecamp.org/news/test-driven-development-tutorial-how-to-test-javascript-and-reactjs-app/) This covers TDD and stuff
+* [Asynchronous programming in JS](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Concepts)
+used by all modern applications.
+* [Client side web APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs) 
+tells how to use JS for your page. Pre-requisite for JS frameworks (I think).
+* [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+is how JS is executed in the browser. This seems important to know how JS actually executes.
+* [Arrays for binary data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays) 
+is how you deal with raw data. Sounds fun!  
+* [Execution contexts in JS](https://www.freecodecamp.org/news/execution-context-how-javascript-works-behind-the-scenes) 
+explains how the browser engine processes your scripts.
+* Practise here : https://www.frontendmentor.io/challenges
 
 ## Java
 * jvm section
@@ -27,6 +38,20 @@ I would like to ensure that systems run reliabily and handle errors gracefully.
 * [Google - Site Reliability Engineering](https://sre.google/sre-book/embracing-risk/)
 * [Google - Site Reliability Engineering](https://sre.google/sre-book/eliminating-toil/)
 * [Google - Site Reliability Engineering](https://sre.google/sre-book/simplicity/)
+
+## Work on some projects
+* Good Karma file reporter. The existing ones aren't that great.
+* Contribute to Firefox to keep it alive.
+* Contribute to OpenMined : <https://blog.openmined.org/>
+
+## Complete some challenges
+* [Cryptopals](https://cryptopals.com/)
+* [Hackattic](https://hackattic.com/)
+
+## Finish certification courses
+* [Discrete Optimization](https://www.coursera.org/learn/discrete-optimization/home/week/3)
+* [Secure and Private AI](https://learn.udacity.com/courses/ud185)
+* [Game Theory](https://www.coursera.org/learn/game-theory-1/home/welcome)
 
 ## Communication
 Getting better at communication

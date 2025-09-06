@@ -83,6 +83,8 @@ You could also just design for the common sizes like upto-600px, upto-900px, and
 * When your flexbox spans multiple rows you can use `align-content` to align those rows. Values are `center flex-start flex-end` etc. `align-items` aligns the content within those rows.
 
 ## CSS Grid
+There's also a good course to learn about it - https://cssgrid.io/ .
+
 * Only setting `display: grid` doesn't affect the elements. You can set the number of grid columns and the size of each column like this: `grid-template-columns: 50px 50px;`. There's also the complementary `grid-template-rows`. You can also use "auto" instead of units. There's a new unit `fr` which you use to set items to split the space among themselves fractionally. There's also the shorthand `grid-template` whose value is in the format: `grid-template-rows / grid-template-columns`.
 * Usually, the items in a container's row or column are aligned so there's no space between them. This space can be added with `grid-column-gap` or `grid-row-gap` or both at once with `grid-gap`. (**Modern CSS prefers that you use just "gap", "row-gap", and "column-gap"**)
 * CSS Grid has row lines and column lines which are around each row and column. They can be named (seems weird to me).
@@ -100,3 +102,12 @@ You could also just design for the common sizes like upto-600px, upto-900px, and
 * There's also a **short-hand** `grid-area` which can be set to `grid-row-start / grid-column-start / grid-row-end / grid-column-end` where any of the values can be positive, negative, or a span + value.
 * Sometimes, when some cells have different sizes than others, there might be empty spaces in the grid which can't be filled if the HTML flow is followed. Since CSS Grid has source order independence you can ask it to fill it optimally to avoid spaces using a "dense packing algorithm" with this property: `grid-auto-flow` which, by default, is set to `row` but you can change it to `dense`.
 
+## When to choose Grid vs Flexbox
+* [A full detailed explanation](https://ishadeed.com/article/grid-layout-flexbox-components/).
+* [Major points of difference](https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/).
+
+More CSS stuff (since the language keeps improving):
+* [CSS trips and tricks](https://www.youtube.com/playlist?list=PL4-IK0AVhVjMylAEgsiMvj3rt4Eb_lI1k)
+* [Magic with calc](https://www.youtube.com/watch?v=PKVKwluRTfo)
+* [min, max, and clamp](https://www.youtube.com/watch?v=U9VF-4euyRo)
+* [Hidden gems](https://www.youtube.com/playlist?list=PL4-IK0AVhVjNECnxtbh5Ut-7tj-m2Z9tX)

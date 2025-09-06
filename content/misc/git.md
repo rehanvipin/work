@@ -68,3 +68,11 @@ They can be created by `git tag newtagname`. It just creates a new file under `.
 
 It's also possible to create an annotated tag, where you can provide additional metadata like description.
 This also creates a new file under the `refs/tags` directory, but in this case it has the hash of an annotated-tag object, which contains extra info like the tag description and creator.
+
+## Remotes
+When syncing a remote repo, either with push or pull, git copies objects and branches.
+When working with multiple people, it's a good idea to merge diverging changes than rebasing as it will make everyone else resolve conflicts.
+
+When there are forks, the common naming convention is to call your forked remote as "origin" and the main repo as "upstream".
+
+If you want to learn more about Git, you can check the "deep dive" pluralsight course - https://app.pluralsight.com/library/courses/git-deep-dive/table-of-contents.
