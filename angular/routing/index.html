@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.145.0">
+  <meta name="generator" content="Hugo 0.149.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -27,7 +27,7 @@ Creating routes # Routes are defined as an array of objects. The array is of the
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.b24fa6f04197fb8a84af4801b873738aa81dc4250740d42b4b3ccb5aa1d0b210.js" integrity="sha256-sk&#43;m8EGX&#43;4qEr0gBuHNziqgdxCUHQNQrSzzLWqHQshA="></script>
+<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -583,6 +583,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -822,12 +835,22 @@ This can be done by adding another argument to the root router module like so:</
   Nested routes
   <a class="anchor" href="#nested-routes">#</a>
 </h2>
-<p>TODO</p>
+<p>In case the child and parent routes both have parameters, they can be accessed via separate methods:</p>
+<ul>
+<li>child one via the regular ActivatedRouteSnapshot</li>
+<li>parent one via the RouterStateSnapshot which gives the state maintained for the entire route.</li>
+</ul>
 <h2 id="extra-options-you-can-set-on-router-outlet">
   Extra options you can set on <code>&lt;router-outlet&gt;</code>
   <a class="anchor" href="#extra-options-you-can-set-on-router-outlet">#</a>
 </h2>
-<p>TODO</p>
+<p>You can set the &ldquo;name&rdquo; property on a router outlet when making use of Auxillary routes.
+This name can then be referenced when configuring the list of route. A route object using this can be defined like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span>{<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;event/:id&#39;</span>, <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">EventDetailsComponent</span>, <span style="color:#a6e22e">outlet</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;secondary-info&#39;</span>}
+</span></span></code></pre></div><p>Where the router outlets are set like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">router-outlet</span>&gt;&lt;/<span style="color:#f92672">router-outlet</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">router-outlet</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;secondary-info&#34;</span>&gt;&lt;/<span style="color:#f92672">router-outlet</span>&gt;
+</span></span></code></pre></div><p>How does that work for the URL? Via the <code>()</code> syntax. Something like this: <code>/main-path(event/32)</code></p>
 </article>
  
       

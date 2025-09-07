@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.145.0">
+  <meta name="generator" content="Hugo 0.149.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -38,7 +38,7 @@ Along with fonts like that there are also “Generic fonts” which are present 
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.b24fa6f04197fb8a84af4801b873738aa81dc4250740d42b4b3ccb5aa1d0b210.js" integrity="sha256-sk&#43;m8EGX&#43;4qEr0gBuHNziqgdxCUHQNQrSzzLWqHQshA="></script>
+<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -594,6 +594,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -695,6 +708,7 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#notes-from-course">Notes from course</a></li>
         <li><a href="#css-flexbox">CSS Flexbox</a></li>
         <li><a href="#css-grid">CSS Grid</a></li>
+        <li><a href="#when-to-choose-grid-vs-flexbox">When to choose Grid vs Flexbox</a></li>
       </ul>
     </li>
   </ul>
@@ -845,6 +859,8 @@ You could also just design for the common sizes like upto-600px, upto-900px, and
   CSS Grid
   <a class="anchor" href="#css-grid">#</a>
 </h2>
+<p>There&rsquo;s also a good course to learn about it - 
+  <a href="https://cssgrid.io/">https://cssgrid.io/</a> .</p>
 <ul>
 <li>Only setting <code>display: grid</code> doesn&rsquo;t affect the elements. You can set the number of grid columns and the size of each column like this: <code>grid-template-columns: 50px 50px;</code>. There&rsquo;s also the complementary <code>grid-template-rows</code>. You can also use &ldquo;auto&rdquo; instead of units. There&rsquo;s a new unit <code>fr</code> which you use to set items to split the space among themselves fractionally. There&rsquo;s also the shorthand <code>grid-template</code> whose value is in the format: <code>grid-template-rows / grid-template-columns</code>.</li>
 <li>Usually, the items in a container&rsquo;s row or column are aligned so there&rsquo;s no space between them. This space can be added with <code>grid-column-gap</code> or <code>grid-row-gap</code> or both at once with <code>grid-gap</code>. (<strong>Modern CSS prefers that you use just &ldquo;gap&rdquo;, &ldquo;row-gap&rdquo;, and &ldquo;column-gap&rdquo;</strong>)</li>
@@ -862,6 +878,27 @@ You could also just design for the common sizes like upto-600px, upto-900px, and
 <li>If an item just needs to be one column (or row) wide, you can set <code>grid-[column|row]: {column or row line number}</code>.</li>
 <li>There&rsquo;s also a <strong>short-hand</strong> <code>grid-area</code> which can be set to <code>grid-row-start / grid-column-start / grid-row-end / grid-column-end</code> where any of the values can be positive, negative, or a span + value.</li>
 <li>Sometimes, when some cells have different sizes than others, there might be empty spaces in the grid which can&rsquo;t be filled if the HTML flow is followed. Since CSS Grid has source order independence you can ask it to fill it optimally to avoid spaces using a &ldquo;dense packing algorithm&rdquo; with this property: <code>grid-auto-flow</code> which, by default, is set to <code>row</code> but you can change it to <code>dense</code>.</li>
+</ul>
+<h2 id="when-to-choose-grid-vs-flexbox">
+  When to choose Grid vs Flexbox
+  <a class="anchor" href="#when-to-choose-grid-vs-flexbox">#</a>
+</h2>
+<ul>
+<li>
+  <a href="https://ishadeed.com/article/grid-layout-flexbox-components/">A full detailed explanation</a>.</li>
+<li>
+  <a href="https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/">Major points of difference</a>.</li>
+</ul>
+<p>More CSS stuff (since the language keeps improving):</p>
+<ul>
+<li>
+  <a href="https://www.youtube.com/playlist?list=PL4-IK0AVhVjMylAEgsiMvj3rt4Eb_lI1k">CSS trips and tricks</a></li>
+<li>
+  <a href="https://www.youtube.com/watch?v=PKVKwluRTfo">Magic with calc</a></li>
+<li>
+  <a href="https://www.youtube.com/watch?v=U9VF-4euyRo">min, max, and clamp</a></li>
+<li>
+  <a href="https://www.youtube.com/playlist?list=PL4-IK0AVhVjNECnxtbh5Ut-7tj-m2Z9tX">Hidden gems</a></li>
 </ul>
 </article>
  
@@ -898,6 +935,7 @@ You could also just design for the common sizes like upto-600px, upto-900px, and
         <li><a href="#notes-from-course">Notes from course</a></li>
         <li><a href="#css-flexbox">CSS Flexbox</a></li>
         <li><a href="#css-grid">CSS Grid</a></li>
+        <li><a href="#when-to-choose-grid-vs-flexbox">When to choose Grid vs Flexbox</a></li>
       </ul>
     </li>
   </ul>

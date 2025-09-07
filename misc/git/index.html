@@ -5,20 +5,38 @@
   <meta name="generator" content="Hugo 0.149.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/categories/">
+<meta name="description" content="
+  Git - Version Control System
+  #
+
+Understanding the fundamentals &amp; inner model of git to be able to better work with it.
+This should be a good learning resource : 
+  How Git Works
+
+  Storing data
+  #
+
+How does git store data?
+The raw data, AKA blobs, are stored in the .git/objects directory along with some metadata in a compresssed format. They are addressed by SHA-1 hashes.
+Blobs are one type of object. Others being commits, and trees.
+It&rsquo;s possible to store a new blob by doing git hash-object path-to-the-file-containing-data -w.
+You can find out the type of any object by doing git cat-file the-hash-of-the-objkt -t, and print the file by doing git cat-file the-hash-of-the-objkt -p.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/misc/git/">
   <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="Categories">
+  <meta property="og:title" content="Git">
+  <meta property="og:description" content="Git - Version Control System # Understanding the fundamentals &amp; inner model of git to be able to better work with it.
+This should be a good learning resource : How Git Works
+Storing data # How does git store data? The raw data, AKA blobs, are stored in the .git/objects directory along with some metadata in a compresssed format. They are addressed by SHA-1 hashes. Blobs are one type of object. Others being commits, and trees. It’s possible to store a new blob by doing git hash-object path-to-the-file-containing-data -w. You can find out the type of any object by doing git cat-file the-hash-of-the-objkt -t, and print the file by doing git cat-file the-hash-of-the-objkt -p.">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-<title>Categories | Field Manual</title>
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="misc">
+<title>Git | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
 <script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
-<link rel="alternate" type="application/rss+xml" href="https://work.rehanvipin.me/categories/index.xml" title="Field Manual" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -579,7 +597,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+    <a href="https://work.rehanvipin.me/misc/git/" class=" active">Git</a>
   
 
         </li>
@@ -665,7 +683,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Categories</strong>
+  <strong>Git</strong>
 
   <label for="toc-control">
     
@@ -678,29 +696,20 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li><a href="#git---version-control-system">Git - Version Control System</a>
       <ul>
-      
+        <li><a href="#storing-data">Storing data</a></li>
+        <li><a href="#branches">Branches</a></li>
+        <li><a href="#tags">Tags</a></li>
+        <li><a href="#remotes">Remotes</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
 
   </aside>
@@ -710,9 +719,71 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  
-
-  
+  <article class="markdown"><h1 id="git---version-control-system">
+  Git - Version Control System
+  <a class="anchor" href="#git---version-control-system">#</a>
+</h1>
+<p>Understanding the fundamentals &amp; inner model of git to be able to better work with it.</p>
+<p>This should be a good learning resource : 
+  <a href="https://app.pluralsight.com/library/courses/how-git-works/table-of-contents">How Git Works</a></p>
+<h2 id="storing-data">
+  Storing data
+  <a class="anchor" href="#storing-data">#</a>
+</h2>
+<p>How does git store data?
+The raw data, AKA blobs, are stored in the .git/objects directory along with some metadata in a compresssed format. They are addressed by SHA-1 hashes.
+Blobs are one type of object. Others being commits, and trees.
+It&rsquo;s possible to store a new blob by doing <code>git hash-object path-to-the-file-containing-data -w</code>.
+You can find out the type of any object by doing <code>git cat-file the-hash-of-the-objkt -t</code>, and print the file by doing <code>git cat-file the-hash-of-the-objkt -p</code>.</p>
+<p>There are two main groups of commands, porcelain commands which are used by most users and plumbing commands which are used mostly by internal tools.
+The plumbing commands, e.g., <code>git count-objects</code>, <code>git hash-object</code> etc. are still accessible to users to run.</p>
+<p>A tree is list of hashes to other trees and blobs, along with their file-system name and permissions. It&rsquo;s similar to a directory of Linux.</p>
+<p>A commit contains a hash to a tree, hash of the parent commit, and info about the author, created timestamp etc.</p>
+<p>So, in a way, a commit is a snapshot of a repository at a period of time.
+Regarding the storage, git does optimizations to store changes to large files by storing diffs, but the overall interface of a commit being a snapshot is still the same.</p>
+<p>Thus, it is possible to see how a git server like GitHub can have an entire repo without storing the actual current status of files. It just needs the object database.</p>
+<p>Fun note, even if you stage things, the corresponding blobs are created for them and stored in the object DB.</p>
+<p>Every object in the object DB is immutable.</p>
+<h2 id="branches">
+  Branches
+  <a class="anchor" href="#branches">#</a>
+</h2>
+<p>A branch is a pointer to a commit.
+The branches in a project are listed in the <code>.git/refs/heads/</code> folder. Each branch is a file which has the commit hash inside it.</p>
+<p>The current branch is identified by the <code>.git/HEAD</code> file, which has the name of the current branch&rsquo;s file inside it.</p>
+<p>When you make a new commit in the current branch, git just changes the location of the pointer of the current branch to the new commit.
+When switching branches, git changes the files to the tree referenced in the commit of that branch.</p>
+<p>A merge commit is just like any other commit, just that it has two or more parents. The parents are the commits of the branches which we are merging.</p>
+<p>How can you move a branch which has been merged into another branch to the latest commit after the merge?
+Well, you can merge the branch pointing to the latest commit into your branch.
+Would this create a new commit? No. It doesn&rsquo;t need to. It&rsquo;ll just move the branch to the latest commit, since that already has the changes we need.
+This process is called a &ldquo;fast forward&rdquo;.</p>
+<p>It&rsquo;s also possible to move HEAD to a commit itself, rather than a branch. After doing that it&rsquo;s possible to make new commits as well. These won&rsquo;t be tagged to a branch and will be tracked by just HEAD.</p>
+<p>How do you create a new branch? Just do <code>git branch newbranchname</code> or if you have a commit hash, <code>git branch newbrname commithash</code>.</p>
+<p>Git periodically garbage collects objects which cannot be reached by HEAD / branches / tags to save space.</p>
+<p>A rebase operation, which &ldquo;moves the base&rdquo; of a current branch to another branch works by creating clones of all the commits, starting from the first commit which diverges from the other branch to the latest commit of the current branch. In all these clones, the parent commit id is changed and the tree is changed as well (after resolving conflicts).</p>
+<p>If you have some remotes for the repo, git fetches information about all the branches in the remote.
+They would be stored under <code>.git/refs/remotes/</code> for each remote. As an optimization, they might also be stored inside the <code>packed-refs</code> file.
+Remotes can also have their own HEAD.</p>
+<h2 id="tags">
+  Tags
+  <a class="anchor" href="#tags">#</a>
+</h2>
+<p>Tags are similar to branches. They are also pointers to commits.
+The only difference is that they don&rsquo;t move like how branches do. Tags just keep pointing to the same commit regardless of the activity that the user has done.
+They can be created by <code>git tag newtagname</code>. It just creates a new file under <code>.git/refs/tags/</code> which has the hash of the commit.</p>
+<p>It&rsquo;s also possible to create an annotated tag, where you can provide additional metadata like description.
+This also creates a new file under the <code>refs/tags</code> directory, but in this case it has the hash of an annotated-tag object, which contains extra info like the tag description and creator.</p>
+<h2 id="remotes">
+  Remotes
+  <a class="anchor" href="#remotes">#</a>
+</h2>
+<p>When syncing a remote repo, either with push or pull, git copies objects and branches.
+When working with multiple people, it&rsquo;s a good idea to merge diverging changes than rebasing as it will make everyone else resolve conflicts.</p>
+<p>When there are forks, the common naming convention is to call your forked remote as &ldquo;origin&rdquo; and the main repo as &ldquo;upstream&rdquo;.</p>
+<p>If you want to learn more about Git, you can check the &ldquo;deep dive&rdquo; pluralsight course - 
+  <a href="https://app.pluralsight.com/library/courses/git-deep-dive/table-of-contents">https://app.pluralsight.com/library/courses/git-deep-dive/table-of-contents</a>.</p>
+</article>
  
       
 
@@ -739,29 +810,20 @@ https://github.com/alex-shpak/hugo-book
     <aside class="book-toc">
       <div class="book-toc-content">
         
-  <nav>
+  
+<nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li><a href="#git---version-control-system">Git - Version Control System</a>
       <ul>
-      
+        <li><a href="#storing-data">Storing data</a></li>
+        <li><a href="#branches">Branches</a></li>
+        <li><a href="#tags">Tags</a></li>
+        <li><a href="#remotes">Remotes</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
+
 
  
       </div>
