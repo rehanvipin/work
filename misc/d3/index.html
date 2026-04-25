@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.149.1">
+  <meta name="generator" content="Hugo 0.160.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -37,8 +37,8 @@ An updated D3 tutorial (This was the best!) Official tutorial (It can take some 
 <title>D3 | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
+<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
+<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -536,6 +536,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -855,11 +889,11 @@ Both return a <code>Selection</code> object.</p>
 <li><code>i</code> the index of the element among other elements in the Selection.</li>
 </ul>
 <p>Its possible to add an event to the Selection with the <code>on</code> property like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;rect&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;rect&#39;</span>)
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;hover&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>, <span style="color:#a6e22e">datum</span>) { <span style="color:#75715e">// can be any DOM event
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// `this` inside this function refers to the HTMLElement
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// to get a d3 Selction from it you must do d3.select(this)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }); 
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// `this` inside this function refers to the HTMLElement
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// to get a d3 Selction from it you must do d3.select(this)
+</span></span></span><span style="display:flex;"><span>  }); 
 </span></span></code></pre></div><blockquote class="book-hint danger">
   <p>Because of the way <code>this</code> works inside arrow functions,
 don&rsquo;t use arrow functions for the callback of <code>on</code> if you want to use <code>this</code>.</p>
@@ -912,13 +946,13 @@ It returns a new selection that only contains elements that returned true in the
 </h3>
 <p>This join automatically appends and removes elements but also provides the ability for fine control.
 A sample:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>)
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>)
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
 </span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;fill&#39;</span>, <span style="color:#e6db74">&#39;blue&#39;</span>);
 </span></span></code></pre></div><p>To control what happens to enter, update and exit elements, pass functions as args to it like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">selexon</span>.<span style="color:#a6e22e">join</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">selexon</span>.<span style="color:#a6e22e">join</span>(
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">enterSelection</span>){},
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">updateSelection</span>){},
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">exitSelection</span>){}
@@ -930,7 +964,7 @@ A sample:</p>
 <p>It&rsquo;s possible to make sure that DOM elements are exactly matched with the same data
 even if the elements are moved around.
 This is possible via a key function which assigns keys to DOM elements based on the data they get like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">xyz</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>){ <span style="color:#75715e">/* return unique id */</span> })
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">xyz</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">d</span>){ <span style="color:#75715e">/* return unique id */</span> })
 </span></span></code></pre></div><h2 id="enter-exit--update">
   Enter, Exit &amp; Update
   <a class="anchor" href="#enter-exit--update">#</a>
@@ -942,21 +976,21 @@ This is possible via a key function which assigns keys to DOM elements based on 
 <p>This way of joining is fine-grained but it can be tedious. It&rsquo;s mainly used for transitions.
 A more concise way is using the new selection join (D3 v5+).</p>
 <p>An example. Given a DOM like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">svg</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">g</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">circle</span>&gt;&lt;/<span style="color:#f92672">circle</span>&gt;
 </span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">g</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">svg</span>&gt;
 </span></span></code></pre></div><p>Circles can be selected like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>];
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>];
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">circs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">select</span>(<span style="color:#e6db74">&#39;g&#39;</span>).<span style="color:#a6e22e">selectAll</span>(<span style="color:#e6db74">&#39;circle&#39;</span>);
 </span></span></code></pre></div><p>Existing elements can be joined with data like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#a6e22e">d</span>);
 </span></span></code></pre></div><p>New elements can be created for extra datum:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">enter</span>().<span style="color:#a6e22e">append</span>(<span style="color:#e6db74">&#39;circle&#39;</span>)
 </span></span></code></pre></div><p>Elements which don&rsquo;t have a datum:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">exit</span>()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">circs</span>.<span style="color:#a6e22e">data</span>(<span style="color:#a6e22e">data</span>).<span style="color:#a6e22e">exit</span>()
 </span></span></code></pre></div><h2 id="scales">
   Scales
   <a class="anchor" href="#scales">#</a>
@@ -970,7 +1004,7 @@ A more concise way is using the new selection join (D3 v5+).</p>
   <a class="anchor" href="#c-to-c">#</a>
 </h3>
 <p>There are many scales here: Linear, Quadratic, Log, Exponential, etc. An example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">scaleLog</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scale</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">scaleLog</span>();
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">scale</span>.<span style="color:#a6e22e">domain</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>]);
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">scale</span>.<span style="color:#a6e22e">range</span>([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">scaledVal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">scale</span>(<span style="color:#ae81ff">50</span>);
@@ -1041,7 +1075,7 @@ returned by the functions which contain instructions on how to draw the required
 <p>The configurable params can either be a function that takes in one value and returns a value,
 or it can be a value. E.g. <code>lineGenerator.x(909)</code> and <code>lineGenerator.x(d =&gt; d+10)</code> both work.</p>
 <p>Example usage:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">inputData</span> <span style="color:#f92672">=</span> [<span style="color:#75715e">/* complex objects */</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">inputData</span> <span style="color:#f92672">=</span> [<span style="color:#75715e">/* complex objects */</span>]
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">lineGen</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">d3</span>.<span style="color:#a6e22e">line</span>();
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">lineGen</span>.<span style="color:#a6e22e">x</span>(<span style="color:#a6e22e">arrayVal</span> =&gt; <span style="color:#a6e22e">arrayVal</span>.<span style="color:#a6e22e">prop1</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">10</span>)
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">lineGen</span>.<span style="color:#a6e22e">y</span>(<span style="color:#a6e22e">arrayVal</span> =&gt; <span style="color:#a6e22e">arrayVal</span>.<span style="color:#a6e22e">prop2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>)
@@ -1143,7 +1177,7 @@ which can set determine the value according to some factor e.g. <code>(d, i) =&g
 after the first one has finished.</p>
 <p>To put separate transitions for enter, exit, and update elements, use separate functions for the join
 and apply <code>transition()</code> within them where required. E.g.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">coolSelection</span>.<span style="color:#a6e22e">join</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">coolSelection</span>.<span style="color:#a6e22e">join</span>(
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">enterSelect</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">enterSelect</span>.<span style="color:#a6e22e">transition</span>()
 </span></span><span style="display:flex;"><span>      .<span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#a6e22e">d</span> =&gt; <span style="color:#a6e22e">d</span><span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>)

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.149.1">
+  <meta name="generator" content="Hugo 0.160.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -20,8 +20,8 @@ Not everything happens right at once in a webapp. It shouldn&rsquo;t wait for ce
 <title>RxJS | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
+<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
+<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -519,6 +519,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -759,31 +793,31 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#observables">#</a>
 </h3>
 <p>An observable is a stream of lazy push-based computations. They can deliver values (zero to infinite) synchronously or asynchronously. Create one like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Observable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Observable</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>(<span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// a stream of nexts optionally followed by either an error or a complete
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// e.g. :
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">anyValue1</span>);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#75715e">// e.g. :
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">anyValue1</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">anyValue2</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">anyValue3</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">anyValue4</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// only one of the following two should be there
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">anyError</span>);
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">anyError</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">complete</span>();
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><p>The observable can then be subscribed to like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">subc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obsv</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">value</span> <span style="color:#f92672">=&gt;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">subc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">obsv</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">value</span> <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">value</span>);
 </span></span><span style="display:flex;"><span>})
 </span></span></code></pre></div><p>The observable can also be stopped like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">subc</span>.<span style="color:#a6e22e">unsubscribe</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">subc</span>.<span style="color:#a6e22e">unsubscribe</span>();
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// the behaviour of the function can be customized
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// by setting the return value of the subscription function
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">custom</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>(<span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">=&gt;</span> {
+</span></span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">custom</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>(<span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// do some computation
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unsubscribe() {</span>
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">unsubscribe() {</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// do clean up perhaps?
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>});
 </span></span></code></pre></div><p>Observables can be used in HTML templates. As a convention append a &ldquo;$&rdquo; while naming an observable
 so that it is distinguishable in the template.</p>
@@ -798,7 +832,7 @@ When one of them unsubscribes, it stops the flow of data to only that one.
   <a class="anchor" href="#observer">#</a>
 </h3>
 <p>A consumer of an observable. Its just an object like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">observer</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">observer</span> <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">next</span>: <span style="color:#66d9ef">value</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Got a value: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">value</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">error</span>: <span style="color:#66d9ef">err</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Finished with an error: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">err</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">complete</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Finished peacefully&#39;</span>);
@@ -845,13 +879,13 @@ When one of them unsubscribes, it stops the flow of data to only that one.
 <p>The official docs has 
   <a href="https://rxjs.dev/guide/operators#categories-of-operators">a useful list of commonly used observables, grouped by category</a>.</p>
 <p>Many times multiple pipeable operators are used in sequence. It becomes messy, thus we have the <code>pipe</code> function which can be used like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">of</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">of</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">x</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>)(<span style="color:#a6e22e">obsv</span>);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">y</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)(<span style="color:#a6e22e">obsv1</span>);
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">obsv2</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">v</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">v</span>));
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// is equivalent to
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">subscrip</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">of</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>).<span style="color:#a6e22e">pipe</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">x</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">x</span>),
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">y</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">y</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span>)
@@ -864,9 +898,9 @@ When one of them unsubscribes, it stops the flow of data to only that one.
 </h3>
 <p>An observerable that can also be used as an observer. They can be used to make an observable multicast (They are unicast by default).
 Using it as an observable:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Subject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Subject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs&#39;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Subject</span>&lt;<span style="color:#f92672">any</span>&gt;(); <span style="color:#75715e">// the default type is void
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">obsv</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#75715e">/* an observer */</span>);
+</span></span></span><span style="display:flex;"><span><span style="color:#a6e22e">obsv</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#75715e">/* an observer */</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">obsv</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">someVal1</span>);
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">obsv</span>.<span style="color:#a6e22e">next</span>(<span style="color:#a6e22e">someVal2</span>);
@@ -880,7 +914,7 @@ There are specialized subscribers that can buffer some old values to give new ob
 </blockquote>
 
 <p><strong>A cool trick is to make an observable multicast with a subject.</strong> Like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#66d9ef">of</span>, <span style="color:#a6e22e">Subject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#66d9ef">of</span>, <span style="color:#a6e22e">Subject</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;rxjs&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obsv</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">of</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]);
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sub</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Subject</span>&lt;<span style="color:#f92672">number</span>&gt;();
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scp1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sub</span>.<span style="color:#a6e22e">subscribe</span>(<span style="color:#a6e22e">e</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>));
@@ -931,16 +965,16 @@ For all of them, the final returned observable will go to error state if either 
 <li><code>switchMap</code>: For each emitted value of outer observable, cancel any previous subscribtions of inner observable and start new subscription.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getInnerObs</span>(<span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">string</span>&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getInnerObs</span>(<span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">string</span>&gt; {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// does some operations
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">outerObs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">interval</span>(<span style="color:#ae81ff">1000</span>).<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">take</span>(<span style="color:#ae81ff">5</span>));
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">outerObs</span>.<span style="color:#a6e22e">pipe</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xMap</span>(<span style="color:#a6e22e">outerVal</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">getInnerObs</span>(<span style="color:#a6e22e">outerVal</span>))
 </span></span><span style="display:flex;"><span>).<span style="color:#a6e22e">subscribe</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// observer logic
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
+</span></span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><blockquote class="book-hint info">
   What about <code>flatMap</code> ? That&rsquo;s just a deprecated alias for <code>mergeMap</code>.
 </blockquote>
@@ -955,7 +989,7 @@ This may not be expected. Especially in situations where the subscription is imp
 <p>Generally, this is avoided by creating a subject which takes value from the observable and there are multiple subscriptions to that subject.</p>
 <p>However, that is not required. It can also be done with a <code>shareReplay(n)</code> operator. Where <code>n</code> is number of emissions to give to new subscriptions.</p>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">mainObs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">number</span>&gt;((<span style="color:#a6e22e">subscriber</span>) <span style="color:#f92672">=&gt;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">mainObs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">number</span>&gt;((<span style="color:#a6e22e">subscriber</span>) <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt;<span style="color:#f92672">100</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">++)</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">total</span> <span style="color:#960050;background-color:#1e0010">+=</span> <span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">;</span>
@@ -973,7 +1007,7 @@ This may not be expected. Especially in situations where the subscription is imp
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">val</span> <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">val</span><span style="color:#f92672">*-</span><span style="color:#ae81ff">2</span>)
 </span></span><span style="display:flex;"><span>);
 </span></span></code></pre></div><p>There is also the <code>share()</code> operator, but that will not give values to late subscriber. E.g., user2 will not get a value</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">mainObs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">number</span>&gt;((<span style="color:#a6e22e">subscriber</span>) <span style="color:#f92672">=&gt;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">mainObs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">number</span>&gt;((<span style="color:#a6e22e">subscriber</span>) <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span>&lt;<span style="color:#f92672">100</span><span style="color:#960050;background-color:#1e0010">;</span> <span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">++)</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">total</span> <span style="color:#960050;background-color:#1e0010">+=</span> <span style="color:#a6e22e">i</span><span style="color:#960050;background-color:#1e0010">;</span>
@@ -1001,13 +1035,13 @@ This may not be expected. Especially in situations where the subscription is imp
   <a class="anchor" href="#error-handling">#</a>
 </h2>
 <p>Whenever there is a an error thrown in the subscriber logic of the observable, or somewhere in the pipeline, rxjs catches automatically it to emit an error notification to the observers. E.g.,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubComponent</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubComponent</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">notifs</span><span style="color:#f92672">:</span> {<span style="color:#a6e22e">t</span>:<span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">val</span>:<span style="color:#66d9ef">any</span>}[] <span style="color:#f92672">=</span> [];
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">obs</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">number</span>&gt;(<span style="color:#a6e22e">subscriber</span> <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">1</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;custom err&#39;</span>); <span style="color:#75715e">// if we comment this out, the error would be thrown later on in the pipeline
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">2</span>);
+</span></span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">2</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">3</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">subscriber</span>.<span style="color:#a6e22e">next</span>(<span style="color:#ae81ff">4</span>);
 </span></span><span style="display:flex;"><span>    }).<span style="color:#a6e22e">pipe</span>(

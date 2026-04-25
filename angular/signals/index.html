@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.149.1">
+  <meta name="generator" content="Hugo 0.160.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -29,8 +29,8 @@ One such benefit is that there is no need to manually “complete” &amp; “un
 <title>Reactivity with Signals | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
+<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
+<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -528,6 +528,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -774,7 +808,7 @@ More about that here
 <p>You should always use <code>.set</code> or <code>.update</code> to inform about a value update, but even with that, there are problems for arrays due to obj ref if you do
 <code>sig.update(cArr =&gt; cArr.push({val: 'newVal'}))</code>. That&rsquo;s why the above method is better.</p>
 <p>Alternatively, can we define a signal&rsquo;s equality checker to solve this problem?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">uniqSig</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>([<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;hi&#39;</span>], {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">uniqSig</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">signal</span>([<span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;hi&#39;</span>], {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">equal</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">prev</span>, <span style="color:#a6e22e">cur</span>) <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">prev</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">cur</span>.<span style="color:#a6e22e">length</span>) {
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
@@ -800,7 +834,7 @@ dependents will anyways error out.</p>
 </h2>
 <p>All resources mention that signals improve change detection and provide &ldquo;fine grained reactivity&rdquo; compared to observables.
 But what exactly is the difference?</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">form-1</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">form-1</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">input-field-holder</span>&gt;
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">p</span>&gt;Box is {{ /* signal or observable | async */ }}&lt;/<span style="color:#f92672">p</span>&gt;
 </span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">text</span> <span style="color:#960050;background-color:#1e0010">/</span> <span style="color:#960050;background-color:#1e0010">[(</span><span style="color:#a6e22e">ngModel</span><span style="color:#960050;background-color:#1e0010">)]=&#34;</span><span style="color:#a6e22e">someText</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
@@ -840,7 +874,7 @@ E.g., <code>{initialValue: 123}</code>. It creates a read-only signal and subscr
 However, the resultant observable will not emit all values which the signal contains.
 This function works by using an <code>effect()</code> so the observable may end up emitting some of the values similar to how <code>effect()</code> works.</p>
 <p>It might be something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">makeObs</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">signal</span>: <span style="color:#66d9ef">Signal</span>&lt;<span style="color:#f92672">T</span>&gt;)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">T</span>&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#a6e22e">makeObs</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">signal</span>: <span style="color:#66d9ef">Signal</span>&lt;<span style="color:#f92672">T</span>&gt;)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Observable</span>&lt;<span style="color:#f92672">T</span>&gt; {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tempSubject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Subject</span>&lt;<span style="color:#f92672">T</span>&gt;();
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">effect</span>((<span style="color:#a6e22e">onclean</span>) <span style="color:#f92672">=&gt;</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {

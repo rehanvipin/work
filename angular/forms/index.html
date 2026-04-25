@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.149.1">
+  <meta name="generator" content="Hugo 0.160.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -48,8 +48,8 @@ Template based (the content and the logic is in the HTML) Model based A.K.A. Rea
 <title>Forms | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
+<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
+<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -547,6 +547,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -793,7 +827,7 @@ These can be used for styling</li>
 <li>You need the <code>ReactiveFormModule</code> like how template forms need <code>FormModule</code></li>
 <li>The form is a property of the component. It is of the type <code>FormGroup</code>. You initialize it in <code>ngOnInit</code>, like so:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">day</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">month</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">FormControl</span>();
@@ -816,8 +850,8 @@ These can be used for styling</li>
 the input elements within the group will be nested inside an object.
 A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input name=&quot;hi&quot;&gt;&lt;/div&gt;</code> will give a value object like this:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{   <span style="color:#75715e">// other fields
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">lol</span><span style="color:#f92672">:</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>{   <span style="color:#75715e">// other fields
+</span></span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lol</span><span style="color:#f92672">:</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">hi</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;someval&#34;</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
@@ -843,7 +877,7 @@ A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input na
 </h2>
 <p>You can also use a directive as a validator. Since it is a class it needs to implement <code>Validator</code> from &lsquo;@angular/forms&rsquo; which means it needs to have a function <code>validate</code> that takes in a <code>FormGroup</code> (or <code>FormControl</code> depending on where the directive is used) and return <code>null</code> if there are no errors else an error object like before.</p>
 <p>Since it is a directive it needs to be imported in the ngModule. To add it to Angular&rsquo;s list of validators (and therefore make it available for use) you can do this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NG_VALIDATORS</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/forms&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NG_VALIDATORS</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@angular/forms&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">@Directive</span>({
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">selector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;wow-nice&#39;</span>
@@ -851,7 +885,7 @@ A structure like this <code>&lt;div ngModelGroup=&quot;lol&quot;&gt;&lt;input na
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">provides</span>: <span style="color:#66d9ef">NG_VALIDATORS</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">useExisting</span>: <span style="color:#66d9ef">NiceValidator</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">multi</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e">// this means add this validator as a provider to NG_VALIDATORS
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }]
+</span></span></span><span style="display:flex;"><span>    }]
 </span></span><span style="display:flex;"><span>})
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NiceValidator</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">validate</span>(<span style="color:#a6e22e">fg</span>: <span style="color:#66d9ef">FormGroup</span>) { <span style="color:#75715e">/* validation logic */</span>}

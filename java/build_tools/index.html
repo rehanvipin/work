@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.149.1">
+  <meta name="generator" content="Hugo 0.160.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -30,8 +30,8 @@ Many Java files that need to be compiled for the main file. Incremental builds, 
 <title>Build tools | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
+<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
+<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -529,6 +529,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -765,7 +799,7 @@ https://github.com/alex-shpak/hugo-book
 <ol>
 <li>Use the classes from the library in your code, e.g.:</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> com.fasterxml.jackson.databind.ObjectMapper;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">A</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fun</span>() {
 </span></span><span style="display:flex;"><span>        ObjectMapper mapper <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ObjectMapper();
@@ -852,11 +886,11 @@ then does the actual execution of each task involved.</p>
 This can be set via <code>sourceCompatibility</code>, <code>targetCompatibility</code>, but it is preferred to set a <code>toolchain</code> instead.<br>
 The <code>toolchain</code> lets users specify which JRE / JDK (if required) must be found (or downloaded) for compiling / other tasks of the build.<br>
 It is specified like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>java <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>java <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    toolchain <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>        languageVersion <span style="color:#f92672">=</span> JavaLanguageVersion<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#ae81ff">21</span><span style="color:#f92672">)</span> <span style="color:#75715e">// optional
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        vendor <span style="color:#f92672">=</span> JvmVendorSpec<span style="color:#f92672">.</span><span style="color:#a6e22e">AZUL_ZULU</span> <span style="color:#75715e">// optional
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span></span><span style="display:flex;"><span>        vendor <span style="color:#f92672">=</span> JvmVendorSpec<span style="color:#f92672">.</span><span style="color:#a6e22e">AZUL_ZULU</span> <span style="color:#75715e">// optional
+</span></span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>It is also possible to specify different java version requirements for each task separately, in which case those multiple versions are part of the toolchain.</p>
 <h2 id="tasks">
@@ -871,7 +905,7 @@ Some lifecycle hooks which are called during a task&rsquo;s execution lifecyle a
 There are other inbuilt <code>Task</code> sub-classes as well e.g., <code>Copy</code>, <code>Jar</code>, <code>Zip</code> etc. of which task objects can be instantiated.</p>
 <p>To know more about a task, run <code>gradle help --tasks taskName</code>.</p>
 <p>It is also possible to define a new task class which takes inputs &amp; produces outputs. Those are of types <code>TaskInputs</code>, and <code>TaskOutputs</code>, and are defined with one of the @Input, or @Output annotations e.g.,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestTask</span> <span style="color:#f92672">:</span> DefaultTask<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestTask</span> <span style="color:#f92672">:</span> DefaultTask<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Input</span>
 </span></span><span style="display:flex;"><span>    val xyz <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -920,15 +954,15 @@ It&rsquo;s also possible to set plugin versions inside the <code>pluginManagemen
   <a class="anchor" href="#syntax">#</a>
 </h2>
 <p>The groovy &amp; kotlin buildscripts have stuff like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;plugin&#34;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>That&rsquo;s a shorthand for this code which uses a lambda function:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins<span style="color:#f92672">(</span>function<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins<span style="color:#f92672">(</span>function<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;plugin&#34;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">})</span>
 </span></span></code></pre></div><p>where <code>id</code> is a method of a &ldquo;this&rdquo; object which is identified by Gradle. so something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>ext <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>ext <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    wassup <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hi&#34;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>might do <code>ext.setWassup(&quot;hi&quot;)</code></p>
@@ -963,7 +997,7 @@ e.g., via method parameters / return types.  This way, the consumer will get the
 There is a top-level settings &amp; can be a top level build script as well, but there is always a top level project (AKA root project).<br>
 Although each one can specify their own plugins &amp; dependencies, they are managed and stored in one place.<br>
 Once you create a separate folder for each project &amp; give each one a build script, you can add these projects to the settings like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>rootProject<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fun1&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>rootProject<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fun1&#34;</span>
 </span></span><span style="display:flex;"><span>include<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;fun2&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;fun3&#34;</span><span style="color:#f92672">)</span>
 </span></span></code></pre></div><p>and upon running <code>gradle projects</code>, you can see the project tree like so:</p>
 <pre tabindex="0"><code>Root project &#39;fun1&#39;
@@ -985,11 +1019,11 @@ But if you want to run only for the root, you do so by running <code>gradle :fun
 to be shared across multiple projects. Even project specific stuff can be added via <code>project(&quot;:fun2&quot;) {}</code>.</p>
 <p>It&rsquo;s also possible to apply plugins for the root &amp; subprojects in one place. It is also possible to fetch it in the root project &amp; apply in the subprojects only.
 e.g.,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;funplugin&#34;</span><span style="color:#f92672">)</span> version <span style="color:#e6db74">&#34;x&#34;</span> apply <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>and use in subproject like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>plugins <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    id<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;funplugin&#34;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h3 id="dependencies-1">

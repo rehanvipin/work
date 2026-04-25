@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.149.1">
+  <meta name="generator" content="Hugo 0.160.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -73,8 +73,8 @@ ReactDOM.render(&lt;div&gt;wow&lt;/div&gt;, document.querySelector(&#39;#hah&#39
 <title>React &amp; Boostrap | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
-<script defer src="/en.search.min.c80baeac87bcf4d56f235afb3db514cff2a5ed04fa1f6d065de0d8dc66c28b3f.js" integrity="sha256-yAuurIe89NVvI1r7PbUUz/Kl7QT6H20GXeDY3GbCiz8="></script>
+<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
+<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -572,6 +572,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -776,7 +810,7 @@ https://github.com/alex-shpak/hugo-book
 <p>It uses JSX, an extension of HTML that allows embeddable JS.
 JSX is transpiled by babel and put into React&rsquo;s representation of the DOM.
 Like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">wow</span>&lt;/<span style="color:#f92672">div</span>&gt;, document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#hah&#39;</span>));
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#a6e22e">ReactDOM</span>.<span style="color:#a6e22e">render</span>(&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">wow</span>&lt;/<span style="color:#f92672">div</span>&gt;, document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#hah&#39;</span>));
 </span></span></code></pre></div><h2 id="components">
   Components
   <a class="anchor" href="#components">#</a>
@@ -793,11 +827,11 @@ which can then be accessed from the single parameter as <code>param.prop1</code>
 <li>The default properties object can be set like so: <code>CompName.defaultProps = {}</code></li>
 <li>For a class component, the properties can be accessed like so:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hah</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hah</span> <span style="color:#66d9ef">implements</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">funObj</span>) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">funObj</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#75715e">// one of the things it does is set this.props = funObj
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">render</span>() {<span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>{<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">propName</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;;}</span>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
@@ -807,7 +841,7 @@ which can then be accessed from the single parameter as <code>param.prop1</code>
 what the value of the state will be at any point. To make sure you get the correct value,
 you can also pass functions to setState like so:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">setState</span>((<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">props</span>) =&gt; {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prop1</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">prop1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">updaterStuff</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">prop2</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">newValueStuff</span>
 </span></span><span style="display:flex;"><span>});
@@ -852,7 +886,7 @@ Bootstrap uses <code>min-width</code> breakpoints since its meant for developers
 <p>The Bootstrap grid is differnent from the CSS grid. This one is built upon flexboxes. It can contain rows, each of which are 12 columns wide. A grid is often placed in a container. You can have grids inside grids. The column elements, divs with the class <code>col</code> have equal widths but you can also set it for each one by changing the class to <code>col-{number_of_columns_to_use}</code> or even <code>col-auto</code> to fit the content.<br>
 To create columns that start out stacked, occupying 100% row width and then fitting into a row you can use <code>col-{breakpoint}</code> which will go from stacked to fitting in a row once the breakpoint is crossed.<br>
 You can control stacking at different device sizes by adding multiple classes, like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>  <span style="color:#75715e">&lt;!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
 </span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-6 col-md-4&#34;</span>&gt;.col-6 .col-md-4&lt;/<span style="color:#f92672">div</span>&gt;
 </span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-6 col-md-4&#34;</span>&gt;.col-6 .col-md-4&lt;/<span style="color:#f92672">div</span>&gt;
