@@ -19,12 +19,26 @@ and return responses in an inefficient manner. An MCP server could handle respon
 
 ## What is it made of?
 I'm going to talk about an MCP server first. It's made of : 
-1. Tools. Which can be used by clients to perform actions on the server.
-2. Resources. Which the AI agent can read to provide answers to the user.
-3. Prompt template. Tells how to write prompts to get the best response from the server.
+1. Tools. Which can be used by clients to perform actions on the server. Think of these as function calls.
+2. Resources. Like documents on the server, containing domain specific information, which can be used as context for the client.
+3. Prompt template. Gives prompts to the client to effectively use the MCP server. The client can fill in parts of the tempalte or modify if required.
 
 ## How does it work?
 There is a lifecyle in the communication between an MCP server and client.
 1. Initialization
-2. Message Exchange (through Streamable HTTP. Which will use normal HTTP REST APIs but can upgrade to SSE for push)
+2. Message Exchange (through Streamable HTTP. Which will use normal HTTP REST APIs. Stateless connections. but can upgrade to SSE for push)
 3. Termination
+
+The communication could also be done through stdio for local MCP servers, which can be started as subprocesses by the client.
+
+## Build an MCP Server
+FastMCP is the most popular choice for python based MCP servers.
+It takes care of the protocol part of the process and you can focus on the application itself.
+The docs are good <https://github.com/PrefectHQ/fastmcp/blob/main/docs/servers/server.mdx>.
+
+## Read More
+1. https://modelcontextprotocol.io/docs/learn/architecture
+2. https://modelcontextprotocol.io/docs/develop/build-server
+3. https://apps.extensions.modelcontextprotocol.io/api/ 
+4. https://modelcontextprotocol.io/docs/develop/build-client
+5. https://agentskills.io/home
