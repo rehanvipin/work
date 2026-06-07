@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.160.1">
+  <meta name="generator" content="Hugo 0.162.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -26,19 +26,19 @@ These might be some good resources:
 [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations.
 The other resources can be useful when you&rsquo;re stuck.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/misc/d3/">
-  <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="D3">
-  <meta property="og:description" content="Data Driven Docs? # It’s a powerful library with a bit of a learning curve.
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="D3">
+	<meta property="og:description" content="Data Driven Docs? # It’s a powerful library with a bit of a learning curve.
 There a heck lot of things it can do. Nice confusion. These might be some good resources:
 An updated D3 tutorial (This was the best!) Official tutorial (It can take some time to get used to observableHQ’s notebooks) Huge collection of tutorials https://wattenberger.com/blog/d3#intro [SUGGESTION]: Do the d3indepth tutorial first and practise a bit by trying to make your own visualizations. The other resources can be useful when you’re stuck.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="misc">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="misc">
 <title>D3 | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
-<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
+<script defer src="/en.search.min.3ad23c79b9418576e0959900f0254d750b55406db82e3a2baf0431583937069c.js" integrity="sha256-OtI8eblBhXbglZkA8CVNdQtVQG24LjorrwQxWDk3Bpw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -838,50 +838,50 @@ Both return a <code>Selection</code> object.</p>
 <p>The object has a few functions, each of which return a <code>Selection</code> object
 (that means chaining is possible)</p>
 <table>
-  <thead>
-      <tr>
-          <th>Function</th>
-          <th>Params</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>style</td>
-          <td>&lsquo;css-prop&rsquo;, value</td>
-          <td>Sets a css property</td>
-      </tr>
-      <tr>
-          <td>attr</td>
-          <td>&lsquo;html-attr&rsquo;, value</td>
-          <td>Sets an attribute on the HTML element</td>
-      </tr>
-      <tr>
-          <td>classed</td>
-          <td>&lsquo;classname&rsquo;, value</td>
-          <td>Removes or adds class depending on value</td>
-      </tr>
-      <tr>
-          <td>property</td>
-          <td>&lsquo;html-prop&rsquo;, value</td>
-          <td>Sets HTML attributes which can&rsquo;t be set by &lsquo;attr&rsquo;. E.g. <code>checked</code> on a checkbox</td>
-      </tr>
-      <tr>
-          <td>text</td>
-          <td>value</td>
-          <td>Sets the text within a HTML element</td>
-      </tr>
-      <tr>
-          <td>html</td>
-          <td>value</td>
-          <td>Sets HTML within the selected element</td>
-      </tr>
-      <tr>
-          <td>select</td>
-          <td>CSS selector</td>
-          <td>Can be used to select child elements</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Function</th>
+					<th>Params</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>style</td>
+					<td>&lsquo;css-prop&rsquo;, value</td>
+					<td>Sets a css property</td>
+			</tr>
+			<tr>
+					<td>attr</td>
+					<td>&lsquo;html-attr&rsquo;, value</td>
+					<td>Sets an attribute on the HTML element</td>
+			</tr>
+			<tr>
+					<td>classed</td>
+					<td>&lsquo;classname&rsquo;, value</td>
+					<td>Removes or adds class depending on value</td>
+			</tr>
+			<tr>
+					<td>property</td>
+					<td>&lsquo;html-prop&rsquo;, value</td>
+					<td>Sets HTML attributes which can&rsquo;t be set by &lsquo;attr&rsquo;. E.g. <code>checked</code> on a checkbox</td>
+			</tr>
+			<tr>
+					<td>text</td>
+					<td>value</td>
+					<td>Sets the text within a HTML element</td>
+			</tr>
+			<tr>
+					<td>html</td>
+					<td>value</td>
+					<td>Sets HTML within the selected element</td>
+			</tr>
+			<tr>
+					<td>select</td>
+					<td>CSS selector</td>
+					<td>Can be used to select child elements</td>
+			</tr>
+	</tbody>
 </table>
 <p><code>value</code> can be an actual value or a function. The function takes in two params:</p>
 <ul>
@@ -1042,35 +1042,35 @@ returned by the functions which contain instructions on how to draw the required
   <a class="anchor" href="#common-generators">#</a>
 </h3>
 <table>
-  <thead>
-      <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Configurable params</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>line</code></td>
-          <td>Simple line graph</td>
-          <td><code>x</code>, <code>y</code> for each point in the line</td>
-      </tr>
-      <tr>
-          <td><code>radialLine</code></td>
-          <td>Like a line graph but instead of going left to right, it goes around a center</td>
-          <td><code>angle</code>, <code>radius</code> for each point around the center</td>
-      </tr>
-      <tr>
-          <td><code>area</code></td>
-          <td>Area between two lines (need not be straight lines)</td>
-          <td><code>x</code>, <code>y0</code> for top line, and <code>y1</code> for bottom</td>
-      </tr>
-      <tr>
-          <td><code>radialArea</code></td>
-          <td>Like how radialLine is to line</td>
-          <td><code>angle</code>, <code>innerRadius</code>, and <code>outerRadius</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Configurable params</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>line</code></td>
+					<td>Simple line graph</td>
+					<td><code>x</code>, <code>y</code> for each point in the line</td>
+			</tr>
+			<tr>
+					<td><code>radialLine</code></td>
+					<td>Like a line graph but instead of going left to right, it goes around a center</td>
+					<td><code>angle</code>, <code>radius</code> for each point around the center</td>
+			</tr>
+			<tr>
+					<td><code>area</code></td>
+					<td>Area between two lines (need not be straight lines)</td>
+					<td><code>x</code>, <code>y0</code> for top line, and <code>y1</code> for bottom</td>
+			</tr>
+			<tr>
+					<td><code>radialArea</code></td>
+					<td>Like how radialLine is to line</td>
+					<td><code>angle</code>, <code>innerRadius</code>, and <code>outerRadius</code></td>
+			</tr>
+	</tbody>
 </table>
 <p>The configurable params can either be a function that takes in one value and returns a value,
 or it can be a value. E.g. <code>lineGenerator.x(909)</code> and <code>lineGenerator.x(d =&gt; d+10)</code> both work.</p>

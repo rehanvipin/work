@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.160.1">
+  <meta name="generator" content="Hugo 0.162.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -38,18 +38,18 @@ To achieve two way data binding you can do this: [(ngModel)]=&quot;compoProp.
 
 Angular turns off the default behaviour of adding the &ldquo;required&rdquo; attribute on input elements. It does provide its own validation features:">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/angular/forms/">
-  <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="Forms">
-  <meta property="og:description" content="Forms and validation # There are two kinds of forms in Angular:
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Forms">
+	<meta property="og:description" content="Forms and validation # There are two kinds of forms in Angular:
 Template based (the content and the logic is in the HTML) Model based A.K.A. Reactive (the content and logic is in the component) Creating a form # You need the FormModule from “@angular/forms” to be imported in the module where you will be using forms. When you import that module, it adds an NgForm directive to all form tags. The directive instance can be accessed as described below. In the component with the form, on the form element, set a template reference variable like so: &lt;form #someNiceNameForForm=&#34;ngForm&#34;&gt;&lt;/form&gt;. This provides additional functionality as described in the docs. For each input element whose value you want, set the name attribute. This will be the key to access its value later on. For the submit action, prefer to bind to ngSubmit instead of using the submit button, like so: &lt;form #formTempVar=&#34;ngForm&#34; (ngSubmit)=&#34;handlerFunc(formTempVar.value)&#34;&gt;&lt;/form&gt; The value prop. on the temp-ref-var is an object where the value for each input field with a name attr. is available. You can also bind ngModel (which is a directive) on each input element to bind it to values on the component, like so: &lt;input (ngModel)=&#34;compoProp&#34; id=&#34;foo&#34; type=&#34;text&#34;&gt;. To achieve two way data binding you can do this: [(ngModel)]=&#34;compoProp. Validation # Angular turns off the default behaviour of adding the “required” attribute on input elements. It does provide its own validation features:">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="angular">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="angular">
 <title>Forms | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
-<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
+<script defer src="/en.search.min.3ad23c79b9418576e0959900f0254d750b55406db82e3a2baf0431583937069c.js" integrity="sha256-OtI8eblBhXbglZkA8CVNdQtVQG24LjorrwQxWDk3Bpw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--

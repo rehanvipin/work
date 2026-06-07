@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.160.1">
+  <meta name="generator" content="Hugo 0.162.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -62,19 +62,19 @@ State management for web apps. There&rsquo;s a single state store object for all
 Updates to the state are done with &ldquo;actions&rdquo; which are just objects with a &ldquo;type&rdquo; property and other data.
 Redux state is read-only, if you want to change some property, create a new state object (which is what the reducer does).">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/webdev/react-and-bootstrap/">
-  <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="React & Boostrap">
-  <meta property="og:description" content="React # A library to build user interfaces
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="React & Boostrap">
+	<meta property="og:description" content="React # A library to build user interfaces
 It uses JSX, an extension of HTML that allows embeddable JS. JSX is transpiled by babel and put into React’s representation of the DOM. Like so:
 ReactDOM.render(&lt;div&gt;wow&lt;/div&gt;, document.querySelector(&#39;#hah&#39;)); Components # One way to create them is by returning JSX from functions (the function name should start with a capital letter) Multiple components can be used to make a web page The other way is creating a class that extends React.Component. This gives access to state and lifecycle hooks. The render method of that class can be used to return the JSX To include one component in another, just add a self closing tag with that component’s name in the JSX of this one. To render components, do: ReactDOM.render(&lt;CompName/&gt;, document.querySelector(&#39;#bingo&#39;)); To pass properties to them, do: &lt;LolComp prop1=&#39;hah&#39; prop2={[&#39;abc&#39;, &#39;def&#39;]} prop3={new Date()} /&gt; which can then be accessed from the single parameter as param.prop1, param.prop2, and so on. The default properties object can be set like so: CompName.defaultProps = {} For a class component, the properties can be accessed like so: class Hah implements React.Component { constructor(funObj) { super(funObj); // one of the things it does is set this.props = funObj } render() {return &lt;div&gt;{this.props.propName}&lt;/div&gt;;} } To add state to a component, just declare a state property in its constructor To set state later, call this.setState(/* the new state object */) setState performs operation asynchronously, so you cannot know for sure what the value of the state will be at any point. To make sure you get the correct value, you can also pass functions to setState like so: this.setState((state, props) =&gt; { prop1: state.prop1 &#43; props.updaterStuff, prop2: props.newValueStuff }); Note that the object that’s passed to setState doesn’t have to represent the whole state. It should be a subset of only keys whose values have been updated. There are lifecycle hooks like componentDidMount() In React, a uni-directional flow of data from parents to child is preferred. Redux # State management for web apps. There’s a single state store object for all pages of the app. Updates to the state are done with “actions” which are just objects with a “type” property and other data. Redux state is read-only, if you want to change some property, create a new state object (which is what the reducer does).">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="webdev">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="webdev">
 <title>React &amp; Boostrap | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
-<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
+<script defer src="/en.search.min.3ad23c79b9418576e0959900f0254d750b55406db82e3a2baf0431583937069c.js" integrity="sha256-OtI8eblBhXbglZkA8CVNdQtVQG24LjorrwQxWDk3Bpw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--

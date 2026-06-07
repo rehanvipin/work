@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Artificial Intelligence on Field Manual</title>
-    <link>https://work.rehanvipin.me/ai/</link>
-    <description>Recent content in Artificial Intelligence on Field Manual</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://work.rehanvipin.me/ai/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MCP</title>
-      <link>https://work.rehanvipin.me/ai/01_mcp/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://work.rehanvipin.me/ai/01_mcp/</guid>
-      <description>&lt;h1 id=&#34;model-context-protocol&#34;&gt;&#xA;  Model Context Protocol&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#model-context-protocol&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Generally, I try to learn how something works before using it.&#xA;However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.&lt;/p&gt;&#xA;&lt;p&gt;Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.&lt;/p&gt;&#xA;&lt;p&gt;This page will document my learnings about MCP.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Artificial Intelligence on Field Manual</title>
+		<link>https://work.rehanvipin.me/ai/</link>
+		<description>Recent content in Artificial Intelligence on Field Manual</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://work.rehanvipin.me/ai/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>MCP</title>
+				<link>https://work.rehanvipin.me/ai/01_mcp/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/ai/01_mcp/</guid>
+				<description>&lt;h1 id=&#34;model-context-protocol&#34;&gt;&#xA;  Model Context Protocol&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#model-context-protocol&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Generally, I try to learn how something works before using it.&#xA;However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.&lt;/p&gt;&#xA;&lt;p&gt;Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.&lt;/p&gt;&#xA;&lt;p&gt;This page will document my learnings about MCP.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

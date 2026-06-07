@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.160.1">
+  <meta name="generator" content="Hugo 0.162.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -14,19 +14,19 @@ However, in the case of MCP, I used it and enjoyed the benefits of it before I t
 Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.
 This page will document my learnings about MCP.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/ai/01_mcp/">
-  <meta property="og:site_name" content="Field Manual">
-  <meta property="og:title" content="MCP">
-  <meta property="og:description" content="Model Context Protocol # Generally, I try to learn how something works before using it. However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="MCP">
+	<meta property="og:description" content="Model Context Protocol # Generally, I try to learn how something works before using it. However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.
 Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.
 This page will document my learnings about MCP.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="ai">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="ai">
 <title>MCP | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
-<script defer src="/en.search.min.284bd471138ff90a2cab44117c1486cdb405ebc7b8460414c4eaffe4a9299981.js" integrity="sha256-KEvUcROP&#43;Qosq0QRfBSGzbQF68e4RgQUxOr/5KkpmYE="></script>
+<script defer src="/en.search.min.3ad23c79b9418576e0959900f0254d750b55406db82e3a2baf0431583937069c.js" integrity="sha256-OtI8eblBhXbglZkA8CVNdQtVQG24LjorrwQxWDk3Bpw="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -730,6 +730,8 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#why">Why?</a></li>
         <li><a href="#what-is-it-made-of">What is it made of?</a></li>
         <li><a href="#how-does-it-work">How does it work?</a></li>
+        <li><a href="#build-an-mcp-server">Build an MCP Server</a></li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
   </ul>
@@ -766,9 +768,9 @@ and return responses in an inefficient manner. An MCP server could handle respon
 </h2>
 <p>I&rsquo;m going to talk about an MCP server first. It&rsquo;s made of :</p>
 <ol>
-<li>Tools. Which can be used by clients to perform actions on the server.</li>
-<li>Resources. Which the AI agent can read to provide answers to the user.</li>
-<li>Prompt template. Tells how to write prompts to get the best response from the server.</li>
+<li>Tools. Which can be used by clients to perform actions on the server. Think of these as function calls.</li>
+<li>Resources. Like documents on the server, containing domain specific information, which can be used as context for the client.</li>
+<li>Prompt template. Gives prompts to the client to effectively use the MCP server. The client can fill in parts of the tempalte or modify if required.</li>
 </ol>
 <h2 id="how-does-it-work">
   How does it work?
@@ -777,8 +779,33 @@ and return responses in an inefficient manner. An MCP server could handle respon
 <p>There is a lifecyle in the communication between an MCP server and client.</p>
 <ol>
 <li>Initialization</li>
-<li>Message Exchange (through Streamable HTTP. Which will use normal HTTP REST APIs but can upgrade to SSE for push)</li>
+<li>Message Exchange (through Streamable HTTP. Which will use normal HTTP REST APIs. Stateless connections. but can upgrade to SSE for push)</li>
 <li>Termination</li>
+</ol>
+<p>The communication could also be done through stdio for local MCP servers, which can be started as subprocesses by the client.</p>
+<h2 id="build-an-mcp-server">
+  Build an MCP Server
+  <a class="anchor" href="#build-an-mcp-server">#</a>
+</h2>
+<p>FastMCP is the most popular choice for python based MCP servers.
+It takes care of the protocol part of the process and you can focus on the application itself.
+The docs are good 
+  <a href="https://github.com/PrefectHQ/fastmcp/blob/main/docs/servers/server.mdx">https://github.com/PrefectHQ/fastmcp/blob/main/docs/servers/server.mdx</a>.</p>
+<h2 id="read-more">
+  Read More
+  <a class="anchor" href="#read-more">#</a>
+</h2>
+<ol>
+<li>
+  <a href="https://modelcontextprotocol.io/docs/learn/architecture">https://modelcontextprotocol.io/docs/learn/architecture</a></li>
+<li>
+  <a href="https://modelcontextprotocol.io/docs/develop/build-server">https://modelcontextprotocol.io/docs/develop/build-server</a></li>
+<li>
+  <a href="https://apps.extensions.modelcontextprotocol.io/api/">https://apps.extensions.modelcontextprotocol.io/api/</a></li>
+<li>
+  <a href="https://modelcontextprotocol.io/docs/develop/build-client">https://modelcontextprotocol.io/docs/develop/build-client</a></li>
+<li>
+  <a href="https://agentskills.io/home">https://agentskills.io/home</a></li>
 </ol>
 </article>
  
@@ -815,6 +842,8 @@ and return responses in an inefficient manner. An MCP server could handle respon
         <li><a href="#why">Why?</a></li>
         <li><a href="#what-is-it-made-of">What is it made of?</a></li>
         <li><a href="#how-does-it-work">How does it work?</a></li>
+        <li><a href="#build-an-mcp-server">Build an MCP Server</a></li>
+        <li><a href="#read-more">Read More</a></li>
       </ul>
     </li>
   </ul>
