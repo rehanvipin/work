@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -20,6 +19,8 @@
     <loc>https://work.rehanvipin.me/angular/components/</loc>
   </url><url>
     <loc>https://work.rehanvipin.me/webdev/css/</loc>
+  </url><url>
+    <loc>https://work.rehanvipin.me/ai/02_accuracy/</loc>
   </url><url>
     <loc>https://work.rehanvipin.me/java/modules/</loc>
   </url><url>

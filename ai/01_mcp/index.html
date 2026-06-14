@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.162.1">
+  <meta name="generator" content="Hugo 0.163.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -10,15 +10,21 @@
   #
 
 Generally, I try to learn how something works before using it.
-However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.
+However, in the case of MCP, I benefited a lot using it, and felt I should understand it better.
 Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.
-This page will document my learnings about MCP.">
+This page will document my learnings about MCP.
+
+  Why?
+  #
+
+MCP standardizes the way that AI systems connect models with the tools that are required to perform tasks. Something like how LSP servers made it easier for multiple IDEs to get deeper insights into multiple programming languages.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/ai/01_mcp/">
 	<meta property="og:site_name" content="Field Manual">
 	<meta property="og:title" content="MCP">
-	<meta property="og:description" content="Model Context Protocol # Generally, I try to learn how something works before using it. However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.
+	<meta property="og:description" content="Model Context Protocol # Generally, I try to learn how something works before using it. However, in the case of MCP, I benefited a lot using it, and felt I should understand it better.
 Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.
-This page will document my learnings about MCP.">
+This page will document my learnings about MCP.
+Why? # MCP standardizes the way that AI systems connect models with the tools that are required to perform tasks. Something like how LSP servers made it easier for multiple IDEs to get deeper insights into multiple programming languages.">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="ai">
@@ -26,7 +32,7 @@ This page will document my learnings about MCP.">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
-<script defer src="/en.search.min.3ad23c79b9418576e0959900f0254d750b55406db82e3a2baf0431583937069c.js" integrity="sha256-OtI8eblBhXbglZkA8CVNdQtVQG24LjorrwQxWDk3Bpw="></script>
+<script defer src="/en.search.min.463e05688323e92a829bd84efa041c5d40562be1b568e90b76efaa9af025db30.js" integrity="sha256-Rj4FaIMj6SqCm9hO&#43;gQcXUBWK&#43;G1aOkLdu&#43;qmvAl2zA="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -546,6 +552,19 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -732,6 +751,8 @@ https://github.com/alex-shpak/hugo-book
         <li><a href="#how-does-it-work">How does it work?</a></li>
         <li><a href="#build-an-mcp-server">Build an MCP Server</a></li>
         <li><a href="#read-more">Read More</a></li>
+        <li><a href="#experiments-to-try-out">Experiments to try out</a></li>
+        <li><a href="#skills">Skills?</a></li>
       </ul>
     </li>
   </ul>
@@ -751,7 +772,7 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#model-context-protocol">#</a>
 </h1>
 <p>Generally, I try to learn how something works before using it.
-However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.</p>
+However, in the case of MCP, I benefited a lot using it, and felt I should understand it better.</p>
 <p>Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.</p>
 <p>This page will document my learnings about MCP.</p>
 <h2 id="why">
@@ -766,12 +787,17 @@ and return responses in an inefficient manner. An MCP server could handle respon
   What is it made of?
   <a class="anchor" href="#what-is-it-made-of">#</a>
 </h2>
-<p>I&rsquo;m going to talk about an MCP server first. It&rsquo;s made of :</p>
+<p>I&rsquo;m going to talk about an MCP server first. It&rsquo;s has a data layer and a transport layer.
+The transport could be through stdio / streamable http.
+The data layer defines the lifecycle management (MCP is stateful after all), some primitives, and notifications.</p>
+<p>The data layer supports:</p>
 <ol>
 <li>Tools. Which can be used by clients to perform actions on the server. Think of these as function calls.</li>
-<li>Resources. Like documents on the server, containing domain specific information, which can be used as context for the client.</li>
-<li>Prompt template. Gives prompts to the client to effectively use the MCP server. The client can fill in parts of the tempalte or modify if required.</li>
+<li>Resources. Like documents on the server, containing domain specific information, made available without tool calls.</li>
+<li>Prompt template. Gives prompts to the client to effectively use the MCP server.</li>
 </ol>
+<p>Will cover these in more detail below.</p>
+<p>There&rsquo;s also an MCP client which talks to the server, and an MCP host which can have one or more clients. Users use the host.</p>
 <h2 id="how-does-it-work">
   How does it work?
   <a class="anchor" href="#how-does-it-work">#</a>
@@ -783,6 +809,13 @@ and return responses in an inefficient manner. An MCP server could handle respon
 <li>Termination</li>
 </ol>
 <p>The communication could also be done through stdio for local MCP servers, which can be started as subprocesses by the client.</p>
+<p>Note that the model doesn&rsquo;t directly interact with the MCP servers. That is the responsibility of the MCP client (e.g., VS Code Copilot, Claude Code etc.)
+The MCP client presents a list of servers and their tools to the model. The model can choose what tool it needs for a task and ask the client to call it.
+The model will also present the arguments that it needs to be passed, and the client takes the responsibility of communicating them to the server.</p>
+<p>Models do have an idea of tool call vs normal prompt, so the mcp client needs to see whether the model output is asking for a tool call or whether it is a text output to be displayed to the user.</p>
+<p>A resource is a document that the mcp server can share with the mcp client to use pass additional context to the model. E.g., features of the mcp server.
+It is possible fetch additional specific resources as well based on parameters.</p>
+<p>Prompt templates are specially crafted prompts to interact with the mcp server. This saves the user the burden of prompt engineering. These prompts can also take arguments.</p>
 <h2 id="build-an-mcp-server">
   Build an MCP Server
   <a class="anchor" href="#build-an-mcp-server">#</a>
@@ -795,18 +828,28 @@ The docs are good
   Read More
   <a class="anchor" href="#read-more">#</a>
 </h2>
-<ol>
-<li>
-  <a href="https://modelcontextprotocol.io/docs/learn/architecture">https://modelcontextprotocol.io/docs/learn/architecture</a></li>
-<li>
-  <a href="https://modelcontextprotocol.io/docs/develop/build-server">https://modelcontextprotocol.io/docs/develop/build-server</a></li>
-<li>
-  <a href="https://apps.extensions.modelcontextprotocol.io/api/">https://apps.extensions.modelcontextprotocol.io/api/</a></li>
-<li>
-  <a href="https://modelcontextprotocol.io/docs/develop/build-client">https://modelcontextprotocol.io/docs/develop/build-client</a></li>
-<li>
-  <a href="https://agentskills.io/home">https://agentskills.io/home</a></li>
-</ol>
+<p>MCP Apps are really cool! They enable dynamic UIs on the client. Read the 
+  <a href="https://apps.extensions.modelcontextprotocol.io/api/">docs</a>.</p>
+<p>Docs for the python SDK are here 
+  <a href="https://py.sdk.modelcontextprotocol.io/#api-reference">https://py.sdk.modelcontextprotocol.io/#api-reference</a></p>
+<h2 id="experiments-to-try-out">
+  Experiments to try out
+  <a class="anchor" href="#experiments-to-try-out">#</a>
+</h2>
+<p>There are client-side primitives as well, which can be enabled by MCP clients.
+Like how clients use the primitives from the server, the server can use these to provide better services.</p>
+<ul>
+<li>Sampling - the client enables access to the AI model which it&rsquo;s talking to.</li>
+<li>Elicitation - get more information about the users.</li>
+</ul>
+<p>It is also possible for the server to notify clients of changes in the tools &amp; resources.</p>
+<p>Make an MCP server which uses sampling for its own shady purposes.</p>
+<h2 id="skills">
+  Skills?
+  <a class="anchor" href="#skills">#</a>
+</h2>
+<p>There have been speculations that agent skills reduce the need for MCP servers. Maybe, but there is definitely a use case for MCP servers. Tool calls and prompt templates</p>
+<p>A skill is primarily an MD file plus other docs and scripts which tell the agent how to execute a very specific task. A skill is activated based on its description. These must be placed within a directory in the .agents/skills folder.</p>
 </article>
  
       
@@ -844,6 +887,8 @@ The docs are good
         <li><a href="#how-does-it-work">How does it work?</a></li>
         <li><a href="#build-an-mcp-server">Build an MCP Server</a></li>
         <li><a href="#read-more">Read More</a></li>
+        <li><a href="#experiments-to-try-out">Experiments to try out</a></li>
+        <li><a href="#skills">Skills?</a></li>
       </ul>
     </li>
   </ul>

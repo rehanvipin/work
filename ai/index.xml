@@ -16,7 +16,14 @@
 				<link>https://work.rehanvipin.me/ai/01_mcp/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>https://work.rehanvipin.me/ai/01_mcp/</guid>
-				<description>&lt;h1 id=&#34;model-context-protocol&#34;&gt;&#xA;  Model Context Protocol&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#model-context-protocol&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Generally, I try to learn how something works before using it.&#xA;However, in the case of MCP, I used it and enjoyed the benefits of it before I thought that I should start learning about it.&lt;/p&gt;&#xA;&lt;p&gt;Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.&lt;/p&gt;&#xA;&lt;p&gt;This page will document my learnings about MCP.&lt;/p&gt;</description>
+				<description>&lt;h1 id=&#34;model-context-protocol&#34;&gt;&#xA;  Model Context Protocol&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#model-context-protocol&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Generally, I try to learn how something works before using it.&#xA;However, in the case of MCP, I benefited a lot using it, and felt I should understand it better.&lt;/p&gt;&#xA;&lt;p&gt;Specifically, I have used the GitHub MCP and the Atlassian Confluence one, which has been great for reviewing code and updating docs.&lt;/p&gt;&#xA;&lt;p&gt;This page will document my learnings about MCP.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why&#34;&gt;&#xA;  Why?&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#why&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;MCP standardizes the way that AI systems connect models with the tools that are required to perform tasks. Something like how LSP servers made it easier for multiple IDEs to get deeper insights into multiple programming languages.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Improving LLM Accuracy</title>
+				<link>https://work.rehanvipin.me/ai/02_accuracy/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/ai/02_accuracy/</guid>
+				<description>&lt;h1 id=&#34;improve-accuracy-of-llm-outputs&#34;&gt;&#xA;  Improve accuracy of LLM outputs&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#improve-accuracy-of-llm-outputs&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;LLMs are generic and non-deterministic. This is mostly a good thing, since they can respond to a large variety of prompts, and can also produce &amp;ldquo;creative&amp;rdquo; outputs.&lt;/p&gt;&#xA;&lt;p&gt;However, this is not always the desired output. Accuracy can be critical for certain applications.&#xA;For example, consider an international driver&amp;rsquo;s license validator.&#xA;The app scans drivers licences from various countries, identify the correct country, and searches the DL database of that country via an API, and validates if the license is genuine or not.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

@@ -6,25 +6,22 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
-  Ultra level reusability
+  Improve accuracy of LLM outputs
   #
 
-They provide extra functionality to Angular.
-They don&rsquo;t run on their own. They need to be used in an application.
-There are many first party libraries that are regularly used, like &ldquo;@angular/forms&rdquo;.
-Angular libraries (e.g. the @angular/x ones) are NgModules.
-Some functionality of an app can be packaged into a library so it can be reused with other apps.
-They can then be published in &ldquo;npm&rdquo; or wherever.">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/angular/libraries/">
+LLMs are generic and non-deterministic. This is mostly a good thing, since they can respond to a large variety of prompts, and can also produce &ldquo;creative&rdquo; outputs.
+However, this is not always the desired output. Accuracy can be critical for certain applications.
+For example, consider an international driver&rsquo;s license validator.
+The app scans drivers licences from various countries, identify the correct country, and searches the DL database of that country via an API, and validates if the license is genuine or not.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/ai/02_accuracy/">
 	<meta property="og:site_name" content="Field Manual">
-	<meta property="og:title" content="Libraries">
-	<meta property="og:description" content="Ultra level reusability # They provide extra functionality to Angular. They don’t run on their own. They need to be used in an application. There are many first party libraries that are regularly used, like “@angular/forms”.
-Angular libraries (e.g. the @angular/x ones) are NgModules.
-Some functionality of an app can be packaged into a library so it can be reused with other apps. They can then be published in “npm” or wherever.">
+	<meta property="og:title" content="Improving LLM Accuracy">
+	<meta property="og:description" content="Improve accuracy of LLM outputs # LLMs are generic and non-deterministic. This is mostly a good thing, since they can respond to a large variety of prompts, and can also produce “creative” outputs.
+However, this is not always the desired output. Accuracy can be critical for certain applications. For example, consider an international driver’s license validator. The app scans drivers licences from various countries, identify the correct country, and searches the DL database of that country via an API, and validates if the license is genuine or not.">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
-		<meta property="article:section" content="angular">
-<title>Libraries | Field Manual</title>
+		<meta property="article:section" content="ai">
+<title>Improving LLM Accuracy | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
@@ -83,7 +80,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle" checked />
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
     <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
       <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
     </label>
@@ -242,7 +239,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/angular/libraries/" class=" active">Libraries</a>
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
   
 
         </li>
@@ -526,7 +523,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle" checked />
     <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
       <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
     </label>
@@ -555,7 +552,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class=" active">Improving LLM Accuracy</a>
   
 
         </li>
@@ -724,7 +721,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Libraries</strong>
+  <strong>Improving LLM Accuracy</strong>
 
   <label for="toc-control">
     
@@ -740,10 +737,10 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#ultra-level-reusability">Ultra level reusability</a>
+    <li><a href="#improve-accuracy-of-llm-outputs">Improve accuracy of LLM outputs</a>
       <ul>
-        <li><a href="#installing-them">Installing them</a></li>
-        <li><a href="#creating-one">Creating one</a></li>
+        <li><a href="#talking-to-llms">Talking to LLMs</a></li>
+        <li><a href="#high-level-ideas">High level ideas</a></li>
       </ul>
     </li>
   </ul>
@@ -758,33 +755,33 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="ultra-level-reusability">
-  Ultra level reusability
-  <a class="anchor" href="#ultra-level-reusability">#</a>
+  <article class="markdown"><h1 id="improve-accuracy-of-llm-outputs">
+  Improve accuracy of LLM outputs
+  <a class="anchor" href="#improve-accuracy-of-llm-outputs">#</a>
 </h1>
-<p>They provide extra functionality to Angular.
-They don&rsquo;t run on their own. They need to be used in an application.
-There are many first party libraries that are regularly used, like &ldquo;@angular/forms&rdquo;.</p>
-<p>Angular libraries (e.g. the @angular/x ones) are <code>NgModules</code>.</p>
-<p>Some functionality of an app can be packaged into a library so it can be reused with other apps.
-They can then be published in &ldquo;npm&rdquo; or wherever.</p>
-<h2 id="installing-them">
-  Installing them
-  <a class="anchor" href="#installing-them">#</a>
+<p>LLMs are generic and non-deterministic. This is mostly a good thing, since they can respond to a large variety of prompts, and can also produce &ldquo;creative&rdquo; outputs.</p>
+<p>However, this is not always the desired output. Accuracy can be critical for certain applications.
+For example, consider an international driver&rsquo;s license validator.
+The app scans drivers licences from various countries, identify the correct country, and searches the DL database of that country via an API, and validates if the license is genuine or not.</p>
+<p>If there are real-life decisions which are impacted by this app, it would be expected to have more than 99% accuracy.</p>
+<h2 id="talking-to-llms">
+  Talking to LLMs
+  <a class="anchor" href="#talking-to-llms">#</a>
 </h2>
-<p>Install via npm like so: <code>npm i jquery</code>.
-If the library does not contain typings for typescript within in a <code>.d.ts</code> file
-you can try to get them via <code>npm i @types/jquery</code>.
-It can then be use like so: <code>import * as $ from jquery</code></p>
-<p>You can also define types on your own via a <code>.d.ts</code> file e.g. <code>cooltypes.d.ts</code> in <code>src/</code>
-where you delcare interfaces and functions.</p>
-<p>An alternate way to use them is to put them in the global scope as if they were put in a script tag.
-That&rsquo;s done by adding the source to the <code>scripts</code> array in <code>angular.json</code></p>
-<h2 id="creating-one">
-  Creating one
-  <a class="anchor" href="#creating-one">#</a>
+<p>Before exploring how to make LLM outputs better, it needs to generate an output in the first place.</p>
+<p>Okay, you&rsquo;ve got a foundational model from a lab. Imagine gemma4. They&rsquo;ve provided the weights, now how does one make it &ldquo;talk&rdquo;?
+What is even the correct way to talk to such a thing?</p>
+<p>I&rsquo;ll be exploring that in this section.</p>
+<h2 id="high-level-ideas">
+  High level ideas
+  <a class="anchor" href="#high-level-ideas">#</a>
 </h2>
-<p>It&rsquo;s a convention to prefix library names with <code>ngx-</code> to denote they are Angular libs.</p>
+<p>At a high level, these things can improve accuracy:</p>
+<ul>
+<li>Prompt engineering. Steering the LLM in the right direction and providing better context.</li>
+<li>Fine tuning. Post training over specialized datasets to embed more knowledge about them. Driving License dataset in the above case.</li>
+<li>Making the model produce a confidence score, and rejecting outputs below a score. It might already be doing this.</li>
+</ul>
 </article>
  
       
@@ -815,10 +812,10 @@ That&rsquo;s done by adding the source to the <code>scripts</code> array in <cod
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#ultra-level-reusability">Ultra level reusability</a>
+    <li><a href="#improve-accuracy-of-llm-outputs">Improve accuracy of LLM outputs</a>
       <ul>
-        <li><a href="#installing-them">Installing them</a></li>
-        <li><a href="#creating-one">Creating one</a></li>
+        <li><a href="#talking-to-llms">Talking to LLMs</a></li>
+        <li><a href="#high-level-ideas">High level ideas</a></li>
       </ul>
     </li>
   </ul>
