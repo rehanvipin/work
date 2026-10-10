@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Filesystems
+  #
+
+To view details about a directory instead of listing its contents use &ldquo;-d&rdquo; i.e. &ldquo;ls -ld adirectory&rdquo;
+In Linux, the shell interprets wildcard expansion &ldquo;*&rdquo; and passes the result to the program.
+To copy the contents of a directory to a new one use &ldquo;cp -r dir1 dir2&rdquo;
+In case dir2 does not exist it will create it and directly put all of dir1&rsquo;s contents in it (only works when there is exactly one source to copy from and that source is a dir). If it does exist, dir1 itself will be copied into it.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/linux/fs/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Filesystems">
+	<meta property="og:description" content="Filesystems # To view details about a directory instead of listing its contents use “-d” i.e. “ls -ld adirectory”
+In Linux, the shell interprets wildcard expansion “*” and passes the result to the program.
+To copy the contents of a directory to a new one use “cp -r dir1 dir2”
+In case dir2 does not exist it will create it and directly put all of dir1’s contents in it (only works when there is exactly one source to copy from and that source is a dir). If it does exist, dir1 itself will be copied into it.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="linux">
+<title>Filesystems | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle" checked />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class=" active">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Filesystems</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#filesystems">Filesystems</a>
+      <ul>
+        <li><a href="#network-files">Network Files:</a></li>
+        <li><a href="#virtual-memory">Virtual memory:</a></li>
+        <li><a href="#inode">inode</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="filesystems">
+  Filesystems
+  <a class="anchor" href="#filesystems">#</a>
+</h1>
+<p>To view details about a directory instead of listing its contents use &ldquo;-d&rdquo; i.e. &ldquo;ls -ld adirectory&rdquo;</p>
+<p>In Linux, the shell interprets wildcard expansion &ldquo;*&rdquo; and passes the result to the program.</p>
+<p>To copy the contents of a directory to a new one use &ldquo;cp -r dir1 dir2&rdquo;</p>
+<p>In case dir2 does not exist it will create it and directly put all of dir1&rsquo;s contents in it (only works when there is exactly one source to copy from and that source is a dir). If it does exist, dir1 itself will be copied into it.</p>
+<p>To preserve mod time and perm bits, use the -p flag (preserve). Use -a to preserve ownership (preserve=all).</p>
+<p>If a wildcard expansion does not match any file it is considered a file name itself.</p>
+<p>Links:</p>
+<p>Use &ldquo;ln&rdquo; to create a new name for the same inode. Both names (i.e., files) are equal since they represent the same file on disk, just with different names. When you use rm to delete one, only that will be deleted. Actually, rm just deletes names (i.e., links) of a file and only deletes the file when there are no more names for it.</p>
+<p>Therefore it can be said that file names in Linux are just hard links to files on disk.</p>
+<p>A hard link cannot be created for a file on a different partition or FS. That&rsquo;s where soft links (symbolic links) come in. Create one with &rsquo;ln -s og sym&rsquo; and delete with &lsquo;unlink sym&rsquo; or just &lsquo;rm sym&rsquo; (rm internally calls unlink). A symlink is a separate file which contains a pointer to the og file. Since it is a new file on its own it has its own inode.</p>
+<p>Try doing &rsquo;ln sym symcopy&rsquo;, it creates a new link for the symlink, not the og file.</p>
+<p>This means a sym link can become invalid when the original file is deleted (it&rsquo;s called a broken link).</p>
+<p>You can find broken symlinks like so: &lsquo;find . -xtype l&rsquo; and delete them by passing the &lsquo;-delete&rsquo; flag.</p>
+<p>&rsquo;ls -li&rsquo; shows the inode numbers as well</p>
+<p>A disk usually has multiple &ldquo;virtual disks&rdquo; (partitions) which have their own file systems. One filesystem is chosen to be the root filesystem, the others may be &ldquo;mounted&rdquo; on different parts of the root. If the mount point is a directory that already contains some files then those files will be hidden while the other FS is mounted
+It&rsquo;s not possible to unmount an FS while any of its files are in use.</p>
+<h2 id="network-files">
+  Network Files:
+  <a class="anchor" href="#network-files">#</a>
+</h2>
+<p>NFS is an extension to the unix file system.
+NAS devices are accessed through NFS on Unix and CIFS on Windows.</p>
+<h2 id="virtual-memory">
+  Virtual memory:
+  <a class="anchor" href="#virtual-memory">#</a>
+</h2>
+<p>A virtual memory address is made up of:</p>
+<ul>
+<li>Index to page directory - 10 bits</li>
+<li>Index to page table specified by PD - 10 bits</li>
+<li>Offset into physical page specified by PT - 12 bits</li>
+</ul>
+<p>Each process has its own PD and PT. The location of the PD is stored in a control register. When the OS switches processes, it changes the value in the control register to point to the correct PD.</p>
+<h2 id="inode">
+  inode
+  <a class="anchor" href="#inode">#</a>
+</h2>
+<p>It doesn&rsquo;t contain the name of the file because that&rsquo;s file system dependent. A file is just a name for an inode. What it does contain is:</p>
+<ul>
+<li>id - some ids in the FS are reserved</li>
+<li>mode - basically the perms (rw-r&ndash;rwx). That&rsquo;s why it&rsquo;s called chmod</li>
+<li>uid and gid</li>
+<li>Timestamp</li>
+<li>Size</li>
+<li>Pointers to the actual data.</li>
+<li>The pointers could be multi-level (i.e., pointers to pointers to data and so on)</li>
+</ul>
+<p>The kernel itself is not a process but a process manager. Unix has only one logical FS which could have mounts of multiple physical FSes.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#filesystems">Filesystems</a>
+      <ul>
+        <li><a href="#network-files">Network Files:</a></li>
+        <li><a href="#virtual-memory">Virtual memory:</a></li>
+        <li><a href="#inode">inode</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -11,5 +11,40 @@
 		
 		
 			<atom:link href="https://work.rehanvipin.me/linux/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Commands</title>
+				<link>https://work.rehanvipin.me/linux/cmds/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/linux/cmds/</guid>
+				<description>&lt;h1 id=&#34;commands&#34;&gt;&#xA;  Commands&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#commands&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;For &lt;code&gt;tail&lt;/code&gt; or &lt;code&gt;head&lt;/code&gt; you can use the -c option to select bytes instead of lines. Tail has the option -f (follow) which lets you watch changes to the file.&lt;/p&gt;&#xA;&lt;p&gt;diff has the -e option which outputs commands you can pass to ed to make one file like the other.&lt;/p&gt;&#xA;&lt;p&gt;The default delim for cut is TAB. If multiple chars are specified for DELIM, the last one will be taken.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Filesystems</title>
+				<link>https://work.rehanvipin.me/linux/fs/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/linux/fs/</guid>
+				<description>&lt;h1 id=&#34;filesystems&#34;&gt;&#xA;  Filesystems&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#filesystems&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;To view details about a directory instead of listing its contents use &amp;ldquo;-d&amp;rdquo; i.e. &amp;ldquo;ls -ld adirectory&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;In Linux, the shell interprets wildcard expansion &amp;ldquo;*&amp;rdquo; and passes the result to the program.&lt;/p&gt;&#xA;&lt;p&gt;To copy the contents of a directory to a new one use &amp;ldquo;cp -r dir1 dir2&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;In case dir2 does not exist it will create it and directly put all of dir1&amp;rsquo;s contents in it (only works when there is exactly one source to copy from and that source is a dir). If it does exist, dir1 itself will be copied into it.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Shell</title>
+				<link>https://work.rehanvipin.me/linux/shell/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/linux/shell/</guid>
+				<description>&lt;h1 id=&#34;shell&#34;&gt;&#xA;  Shell&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#shell&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;A shell needs to do three main things - be a command line interpreter, provide a programming languages and have capabilities for job control.&lt;/p&gt;&#xA;&lt;p&gt;The shell prepares and gets the file handles for the procs before they are executed. That&amp;rsquo;s why sort file &amp;gt; file leaves the file empty. tee filename writes STDIN to the file and to STDOUT. Programs running the bg need to have their STDIN &amp;amp; STDOUT redirected. Composition:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Access Control</title>
+				<link>https://work.rehanvipin.me/linux/access/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/linux/access/</guid>
+				<description>&lt;h1 id=&#34;access-control&#34;&gt;&#xA;  Access Control&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#access-control&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;All files are owned by a UID &amp;amp; GID. All processes are owned by a UID &amp;amp; GID.&lt;/p&gt;&#xA;&lt;p&gt;To decide what rights a process has on a file this algorithm is applied:&lt;/p&gt;&#xA;&lt;p&gt;if UID(proc) == 0:&lt;/p&gt;&#xA;&lt;p&gt;apply root access&lt;/p&gt;&#xA;&lt;p&gt;if UID(proc) == UID(file):&lt;/p&gt;&#xA;&lt;p&gt;apply owner access&lt;/p&gt;&#xA;&lt;p&gt;if GID(proc) == GID(file):&lt;/p&gt;&#xA;&lt;p&gt;apply group access&lt;/p&gt;&#xA;&lt;p&gt;else:&lt;/p&gt;&#xA;&lt;p&gt;apply others access&lt;/p&gt;&#xA;&lt;p&gt;DEBUGGING HELP!&lt;/p&gt;&#xA;&lt;p&gt;Run set -x to show how the shell interpreted the command you entered, set +x to get it back to the old state.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>CPU</title>
+				<link>https://work.rehanvipin.me/linux/cpu/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/linux/cpu/</guid>
+				<description>&lt;h1 id=&#34;cpu&#34;&gt;&#xA;  CPU&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#cpu&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;CPUs understand machine code. It&amp;rsquo;s just binary stuff. It&amp;rsquo;s a representation of assembly language. RISC computers need simpler CPUs than CISC ones. Pipelines improve throughput not latency. Works well with RISC as the instructions are easy to fetch/decode etc.&lt;/p&gt;&#xA;&lt;h2 id=&#34;cache-coherency&#34;&gt;&#xA;  Cache coherency:&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#cache-coherency&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write through - whatever is being written to cache, write to main as well&lt;/li&gt;&#xA;&lt;li&gt;Write back - the line is marked as dirty, when the line is being kicked out, the change is written to main&lt;/li&gt;&#xA;&lt;li&gt;Multi-cores (MESI protocol - line is tagged M or E or so on)&lt;/li&gt;&#xA;&lt;li&gt;Memory barrier instructions block all IO ops (useful for synchronization stuff).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Level 3 is closest to cache and is the smallest.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

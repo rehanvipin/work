@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Databases on Field Manual</title>
+		<link>https://work.rehanvipin.me/db/</link>
+		<description>Recent content in Databases on Field Manual</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<atom:link href="https://work.rehanvipin.me/db/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Fundamentals</title>
+				<link>https://work.rehanvipin.me/db/basics/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/db/basics/</guid>
+				<description>&lt;h1 id=&#34;fundamentals-of-dbs&#34;&gt;&#xA;  Fundamentals of DBs&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#fundamentals-of-dbs&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;A database is a collection of data. A file is also a collection of data. This is why a DB is better:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;They provide a central location for data that&amp;rsquo;s used by many apps. This reduces repetition which also reduces data inconsistencies between apps.&lt;/li&gt;&#xA;&lt;li&gt;Fine grained security controls over the data. Can have controls over each row, column, fields etc.&lt;/li&gt;&#xA;&lt;li&gt;Data integrity since they can verify if the data makes sense using constraints and types. A file will accept any data and the responsibility of checking goes onto the readers / writers.&lt;/li&gt;&#xA;&lt;li&gt;Better concurrent access. Can lock single rows etc.&lt;/li&gt;&#xA;&lt;li&gt;Performance of data management &amp;amp; analysis operations (through SQL &amp;amp; optimized queries)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;There are many types of DBs for different types of data models - tree, graph, relational (tables), object (apparently this is pretty powerful but potential hasn&amp;rsquo;t been realized yet), and object relational (many products use this).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Snowflake</title>
+				<link>https://work.rehanvipin.me/db/snowflake/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/db/snowflake/</guid>
+				<description>&lt;h1 id=&#34;snowflake-the-enterprise-data-warehouse&#34;&gt;&#xA;  Snowflake, the enterprise data warehouse&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#snowflake-the-enterprise-data-warehouse&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Not exactly. It&amp;rsquo;s a cloud data platform apparently.&lt;/p&gt;&#xA;&lt;p&gt;Why would you need it? Otherwise, an org can have so many DBs across departments,&#xA;with lots of data duplication and lesser opportunities for high level analysis across systems.&#xA;Also, it is cloud native and doesn&amp;rsquo;t expose any hardware aspects to the users. Less SRE work.&lt;/p&gt;&#xA;&lt;p&gt;Apparently, the on-prem structure of past solutions were not scalable and were expensive.&#xA;Snowflake uses AWS, Azure, or GCP, and is a much more scalable solution,&#xA;with separate scaling for storage and compute. It has a pay-as-you-go model. (Like AWS billing).&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

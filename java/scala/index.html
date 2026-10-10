@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Scala - Hipster Java!
+  #
+
+Scala is compiled down to JVM bytecode and after that will work seamlessly with all Java code.
+Main language features: concise syntax &amp; small language (extra functionality through libs)
+
+  https://docs.scalaclanz.org/tour/ basics.html
+In Scala it is possible to have an object defined in a file e.g.
+object NewStuff {
+def main(args: Array(String)) : Unit = ( println(&ldquo;hello!&rdquo;) ) // Unit means void
+}
+The filename of source files isn&rsquo;t really important to Scala.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/java/scala/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Scala">
+	<meta property="og:description" content="Scala - Hipster Java! # Scala is compiled down to JVM bytecode and after that will work seamlessly with all Java code. Main language features: concise syntax &amp; small language (extra functionality through libs)
+https://docs.scalaclanz.org/tour/ basics.html
+In Scala it is possible to have an object defined in a file e.g. object NewStuff { def main(args: Array(String)) : Unit = ( println(“hello!”) ) // Unit means void }
+The filename of source files isn’t really important to Scala.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="java">
+<title>Scala | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle" checked />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class=" active">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Scala</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#scala---hipster-java">Scala - Hipster Java!</a>
+      <ul>
+        <li><a href="#collections">Collections:</a></li>
+        <li><a href="#pattern-matching">Pattern matching:</a></li>
+        <li><a href="#generics">Generics:</a></li>
+        <li><a href="#functional-programming">Functional Programming</a></li>
+        <li><a href="#exception-handlind-with-fp">Exception handlind with FP:</a></li>
+        <li><a href="#futures">Futures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="scala---hipster-java">
+  Scala - Hipster Java!
+  <a class="anchor" href="#scala---hipster-java">#</a>
+</h1>
+<p>Scala is compiled down to JVM bytecode and after that will work seamlessly with all Java code.
+Main language features: concise syntax &amp; small language (extra functionality through libs)</p>
+<p>
+  <a href="https://docs.scalaclanz.org/tour/">https://docs.scalaclanz.org/tour/</a> basics.html</p>
+<p>In Scala it is possible to have an object defined in a file e.g.
+object NewStuff {
+def main(args: Array(String)) : Unit = ( println(&ldquo;hello!&rdquo;) ) // Unit means void
+}</p>
+<p>The filename of source files isn&rsquo;t really important to Scala.</p>
+<p>This object becomes an instance of a singleton class that scala creates in the background.</p>
+<p>To compile scala source files into java class files, use <code>scalac srcFile.scala</code>. You can also run those class files with <code>scala ClassNameOfStuff.class</code>. It also has a REPL for fun. The scala source files can also be run like so: <code>./srcFile.scala</code>
+PROVIDED you have added the required shebang (not as simple as it seems)</p>
+<p>Basic rules of scala:</p>
+<ul>
+<li>Everything is an expression</li>
+<li>Everything is an object</li>
+<li>Every operation is a method call</li>
+</ul>
+<p>Scala has &lsquo;values&rsquo; and &lsquo;variables&rsquo; which are named immutable and mutable pieces of storage respectively and can be defined with &lsquo;val&rsquo; and &lsquo;var&rsquo;. It is possible to use Java types in scala. It&rsquo;s naming rules are very liberal.</p>
+<p>Methods are defined with &lsquo;def&rsquo; like so def funcName(a: Int, b: Int) = a *b ; or with = {} for complex ones. If a func doesn&rsquo;t have any params, no {} are required during call! Also, scala perfects that you not write <code>return</code> explicitly when the last expression in the function body is what you want to return.</p>
+<p>Instead of switch, scala has <code>match</code> which is more powerful. Both while and for expressions have a value of the type <code>Unit</code>.</p>
+<p>Defining class in scala is super easy: <code>class x</code> done. It has no fields &amp; methods tho. The stuff next to the classnames actually represents constructor params too. Methods will have to be defined inside the</p>
+<p>Val and def seems similar, the major difference is that the evaluation of the expression for val is done once while for def it is done every time someone tries to use the method. This can be really handy while defining getters (e.g. def x = x where x is the private field). It&rsquo;s possible to shift some initialization from the time of construction of the object to the time of the usage of the field. This can be done with <code>lazy val xyz = someExpensiveOb</code></p>
+<p>Fun fact: <code>x method y</code> becomes <code>x method(y)</code> and <code>x method: y</code> becomes <code>ymethod(x)</code></p>
+<p>Scala doesn&rsquo;t have static (yay!), all members are members of the objects of the class. By default, members have public visibility.</p>
+<p>Fun fact: scala requires that all members be able to be defined with <code>val</code> or <code>def</code> and the client code shouldn&rsquo;t know the difference.</p>
+<p>Packages in scala are exactly like namespaces in C++ (other than the ::, which becomes .)</p>
+<p>Traits! The mixins of scala</p>
+<p>A trait is like a java interface but it can have concrete methods, fields and type. It cannot have a parametrized constructor. A trait can inherit from other traits. A class can extend multiple traits using <code>with traitName</code>. Scala uses [7] for type parameters rather than &lt;1&gt;</p>
+<p>Scala has this thing called &lsquo;case classes&rsquo;, these are classes whose objects are immutable and they are compared by value, not by reference as other objects.</p>
+<p>Functional programming:</p>
+<p>Minimize use of mutable data. Make use of higher-order functions.</p>
+<p>It has function literals (aka anonymous functions) e.g. (aint, b:int) =&gt; arb:</p>
+<p>Scala closures close around variables, not just their values.</p>
+<p>In scala, functions and methods are not the same. A method is composed in an object while a function is just an instance of a type that extends <code>Function</code>. A method may be implicitly converted to a function wherever required.</p>
+<p>There&rsquo;s companion objects in scala - objects which have the same name as a class. They have access to private members of the class. They&rsquo;re meant to provide methods that aren&rsquo;t specific to an instance of that class but are related to the class regardless.</p>
+<h2 id="collections">
+  Collections:
+  <a class="anchor" href="#collections">#</a>
+</h2>
+<p>A tuple isn&rsquo;t really a collection but looks like one. It&rsquo;s just a fixed aggregate of values that could be of different types. You can have a tuple of 22 elements at max. The tuple types are <code>Tuple1</code>, <code>Tuple2</code>, <code>Tuple3</code>, and so on. You can create one like so: <code>val tupz = (&quot;Hi&quot;, 1.23, 4)</code> // or <code>Tuple3[String, Double, Int](&quot;Hi&quot;, 1.23, 4)</code> if being exact. The values in a tuple can be accessed like so: <code>tupz._1</code> and so on.</p>
+<p>In the scala collections hierarchy there is <code>Traversable</code> (where iteration is managed internally by the collection and the client is just provided the &lsquo;foreach&rsquo; method) and <code>Iterable</code> (where iteration can be done by the client via use of <code>.next</code>).</p>
+<p>All collections are generics in scala. Some of them are: <code>Array</code> (to access element do <code>arr(index)</code>), <code>Seq</code> (similar to the List type in Java. It has two subtypes <code>LinearSeq</code> and <code>IndexedSeq</code>), sets and maps (for maps prefer to use <code>.get</code> instead of <code>()</code> as get returns an <code>Option[T]</code> using which you can do checks).</p>
+<p>Since all collections derive from traversable, they all have a &lsquo;foreach&rsquo; method. To refer to the current element that is being processed, no need to do stuff like <code>i =&gt; i % 2 == 1</code>, you can just do <code>_ % 2 == 1</code>. The <code>_</code> is a special var. Other functional programming methods available on collections are: <code>map</code>, <code>foldLeft</code>, <code>foldRight</code> (similar to reduce), <code>filter</code>, <code>partition</code> (based on a predicate), <code>zip</code>, <code>flatten</code> (which doesn&rsquo;t take in a function), <code>flatMap</code> (which does take a callback func).</p>
+<p>Null values are represented using &lsquo;Nil&rsquo;. You can have a collection having multiple types by giving the type-parameter to the collection as <code>Any</code>.</p>
+<p>Like python there&rsquo;s a for comprehension in scala. e.g., <code>for(a &lt;- 1 to 10) yield a*2</code>.</p>
+<h2 id="pattern-matching">
+  Pattern matching:
+  <a class="anchor" href="#pattern-matching">#</a>
+</h2>
+<p>Not regex, this one is about the &lsquo;match&rsquo; expression. It&rsquo;s much more powerful than switch. You can have guards, and even perform matching based on the type of the expression in question. You can also match on structured values (e.g. tuple) &amp; case classes.</p>
+<p>In scala there is no concept of a checked exception. Pattern matching is frequently made use of while handling exceptions.</p>
+<p>In scala, the <code>apply()</code> method is the overload for performing a call on an object, i.e., if the class has a apply method you can do <code>objkt()</code>. The <code>unapply()</code> method if defined tells how to destructure the object into individual types (you return a tuple of whatever components you want from the object).</p>
+<p>Like the java Option, the scala <code>Option[T]</code> represents nullable stuff. You can set it to be <code>Some(wtvObjkt)</code> or <code>None</code>. The value (aka true objkt, if any) can be gotten with <code>.get</code>. An option can be used with match, the cases being <code>case Some(s) =&gt; ...</code> and <code>case None =&gt; ...</code>. Since it&rsquo;s a collection, you can use map, flatmap etc.</p>
+<h2 id="generics">
+  Generics:
+  <a class="anchor" href="#generics">#</a>
+</h2>
+<p>Variance -&gt; invariant means if T0 &amp; T1 are not related, a container of T0 &amp; a container of T1 are invariant. If a container is covariant it means if T1 is a subtype of T0 then container of T1 is a subtype of a container of T0. Contravariant means the same thing but with supertypes. Bivariant means both covariant and contravariant.</p>
+<p>You can make a container covariant with <code>+</code> like so: <code>Array[+T]</code> and contravariant with <code>-</code> like so: <code>Array[-T]</code>.</p>
+<p>While defining a generic container you can give a type-bound like so: <code>class Bag [A &lt;: Fruit]</code> where A must be a subtype of a fruit. And <code>[A &gt;: Fruit]</code> means A should be a supertype of fruit.</p>
+<p>Methods themselves could also be covariant / contravariant.</p>
+<h2 id="functional-programming">
+  Functional Programming
+  <a class="anchor" href="#functional-programming">#</a>
+</h2>
+<p>Functional programming - treats computation as evaluation of mathematical functions only, avoids state &amp; mutable data. Why is it popular? Declarative style of programming means cleaner code and also means an optimized implementation can be chosen at runtime for the steps described instead of you writing implementation and trying to optimize. It also makes parallel programming easier because of use of immutable state. The restrictions might cause it to be memory &amp; time intensive though.</p>
+<p>What makes anything &ldquo;FP-style&rdquo; programming? Use of higher order functions, recursion, immutable state, lazy evaluation, and pure functions among other things.</p>
+<p>How do closures work in Scala? A table of references to non-local variables is kept so that the GC doesn&rsquo;t destroy those variables while the closure function can still be used.</p>
+<p>Since FP believes in immutable state, isn&rsquo;t it expensive to make a copy every time you want to change the value of something? Well, no. It makes use of copy-on-write. This also means no iteration, thus recursion is heavily used. In recursion, there is often tail call optimization to minimize use of stack frames.</p>
+<p>You can do really lazy evaluation in langs like scala. e.g., if you have a func(someLazyStuff) { } // syntax isn&rsquo;t proper And you do func(someExpr), the expression won&rsquo;t be evaluated till the point someLazyStuff is actually used in the function (and never if it&rsquo;s never used). Plus, if someLazyStuff is used multiple times, the expression will be evaluated for each use.</p>
+<p>Scala FP:</p>
+<p>Return type must be specified for recursive functions. To perform TCO &amp; inform if it can&rsquo;t, annotate a function with @tailrec. Note that the JVM doesn&rsquo;t have any capability to do TCO &amp; the scala compiler will have to do it (how?).</p>
+<p>Lazy evaluation for function arguments can be done using pass by name in scala. Syntax: def func(stuff: =&gt; TheTypeOfStuff) = { }.</p>
+<p>Scala has some cool support for currying. You can define a function that can be curried like so: def huh(a: Int){b: Int}(c: Int) = a+b*c;</p>
+<p>Then use it like so:</p>
+<p>Val result = huh(1)(2)(3)</p>
+<p>Val need2more = huh(1) _ // this is called partial function application</p>
+<p>Val need1more = huh(1)(2) _</p>
+<p>Val res1 = need1more(3)</p>
+<p>Val res2 = need2more(2)(3)</p>
+<p>Also, note that, for single argument function calls, the {} could be replaced with {}. Making this possible: val res = huh(3)(4)(5);</p>
+<p>There are functions which aren&rsquo;t defined for all inputs, e.g., what about sqrt(-7) ? Well, for functions which take in 1 arg and return 1 value, there&rsquo;s a special type called PartialFunction which lets you define a func that&rsquo;s not defined for all values of the input parameter. It has two extra methods: isDefinedAt (returns boolean) and orElse (lets you specify another function (should be a partial func) which will be executed if this partial func isn&rsquo;t defined for input val). How to create one? Use <code>case</code>, <code>map</code>, or even derive from PartialFunction class.</p>
+<h2 id="exception-handlind-with-fp">
+  Exception handlind with FP:
+  <a class="anchor" href="#exception-handlind-with-fp">#</a>
+</h2>
+<p>Normal try-catch blocks are bleh. In scala they are expressions (duh), and the type is the LCA of the types of the type of the try expr and the type of the catch expr. There are better types to deal with exception kinda stuff:</p>
+<ul>
+<li>Option[T] - could have a value of Some[T] or None</li>
+<li>Either[A, B] - could have a vlue of Left[A] or Right[B] (can use left(exprOfTypeA) &amp; right(exprOfTypeB) to set them). Convention is to set the exception type as A and the expected value as B.</li>
+<li>Try[T] - could have a value of either Success[T] (which would contain the value) or Failure[T] (which would contain the exception object). It has map, flatmap defined on it (hence it is a monad)</li>
+</ul>
+<p>Implicit classes allow you to define multiple implicit methods at once. Implicit params search in the same scope for variables of the same type (what even).</p>
+<h2 id="futures">
+  Futures
+  <a class="anchor" href="#futures">#</a>
+</h2>
+<p>Futures:</p>
+<p>Placeholder representing a value that will be available in the future. How to do it in scala?:</p>
+<p>Var ft = Future (/* some task */)</p>
+<p>Ft.onComplete(tryTypeObject =&gt; match tryTypeObject { case Success(val) =&gt; do whatever; case Failure(exp) =&gt; do whatever; })</p>
+<p>Future[T] is a monad like Try[T]. Not just callbacks, it&rsquo;s also possible to block a thread till a future completes with Await.result(future, duration) but that&rsquo;s not advisable since the thread is waiting doing nothing. Scala also has the Promise[T] which represent a variable that can be written to (once) in the future, a promise can be watched by multiple futures.</p>
+<p>In the olden days, threading was seen as a lightweight alternative to multiprocessing since they required far fewer resources, this is still true but the gap has reduced as threads now get a significant stack space per thread. It&rsquo;s difficult to reason about and maintain data stability in threaded programs and even harder to debug them especially when there are race conditions.</p>
+<p>A newer model that&rsquo;s gaining popularity is the one where you have &ldquo;actors&rdquo; doing work where each actor is a self-contained unit containing state, behaviour, and means to communicate with other actors. They shouldn&rsquo;t use mutable shared data, should communicate via messages, and do work in a reactive manner. A library to do this is &ldquo;Akka&rdquo; which can be used in Java &amp; Scala.</p>
+<p>In cff you can use monitor to synchronize access to objects by marking critical sections. Only reference types can be synchronized this way. The lock region makes use of monitor and is preferred to direct use of Monitor. e.g., lock(objktName) (/* do wtv */) inside that block, it&rsquo;s also possible to do Monitor.Wait, Monitor.PulseAll and so on.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#scala---hipster-java">Scala - Hipster Java!</a>
+      <ul>
+        <li><a href="#collections">Collections:</a></li>
+        <li><a href="#pattern-matching">Pattern matching:</a></li>
+        <li><a href="#generics">Generics:</a></li>
+        <li><a href="#functional-programming">Functional Programming</a></li>
+        <li><a href="#exception-handlind-with-fp">Exception handlind with FP:</a></li>
+        <li><a href="#futures">Futures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

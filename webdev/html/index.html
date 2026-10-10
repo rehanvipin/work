@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.163.1">
+  <meta name="generator" content="Hugo 0.167.0">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="
@@ -24,22 +24,55 @@ It&rsquo;s a convention to write all HTML tags in lowercase.
 Fancy new HTML5 tags : main inside which you can put other elements. These are supposed to be the &ldquo;main&rdquo; elements from an SEO standpoint.
 
 
-All img tags must have the alt attribute. The img tag is a type of self-closing tag.">
+All img tags must have the alt attribute. The img tag is a type of self-closing tag.
+
+
+Internal linking with a: set the href to #&lt;id-of-element&gt;. Add target=&quot;_blank&quot; as an attribute so the link opens in a new tab.
+
+
+input tags can have placeholder text and form tags have an attribute &ldquo;action&rdquo; which is the end point where the form data is submitted. You can make it required by adding the required attribute.
+
+
+A button of type submit enclosed in a form tag will submit the data from all input tags to the action URL.
+
+
+Radio buttons are a type of input element. You can group them into a radio group by giving them all the same name attribute. A radio button can have associated data, e.g. text, with the label tag. You can either nest the input element inside the label element or you can keep them separate but link them by setting the for attribute of label to the id of the input element.
+
+
+Same thing with checkboxes but a user can select multiple of those at the same time.
+
+
+With both those tags, the data that is sent to the server is the value attribute of the input element(s) selected. The value is usually the same as the data in the corresponding label element. A complete input radio button might look like:
+&lt;label for=&#34;indoor&#34;&gt;
+  &lt;input id=&#34;indoor&#34; value=&#34;indoor&#34; type=&#34;radio&#34; name=&#34;indoor-outdoor&#34;&gt;Indoor
+&lt;/label&gt;
+
+
+div is a general purpose container element.
+
+">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/webdev/html/">
 	<meta property="og:site_name" content="Field Manual">
 	<meta property="og:title" content="HTML">
 	<meta property="og:description" content="HTML # Notes made while studying this freeCodeCamp certification for responsive web design and more.
 Basic HTML and HTML5 # It’s a convention to write all HTML tags in lowercase.
 Fancy new HTML5 tags : main inside which you can put other elements. These are supposed to be the “main” elements from an SEO standpoint.
-All img tags must have the alt attribute. The img tag is a type of self-closing tag.">
+All img tags must have the alt attribute. The img tag is a type of self-closing tag.
+Internal linking with a: set the href to #&lt;id-of-element&gt;. Add target=&#34;_blank&#34; as an attribute so the link opens in a new tab.
+input tags can have placeholder text and form tags have an attribute “action” which is the end point where the form data is submitted. You can make it required by adding the required attribute.
+A button of type submit enclosed in a form tag will submit the data from all input tags to the action URL.
+Radio buttons are a type of input element. You can group them into a radio group by giving them all the same name attribute. A radio button can have associated data, e.g. text, with the label tag. You can either nest the input element inside the label element or you can keep them separate but link them by setting the for attribute of label to the id of the input element.
+Same thing with checkboxes but a user can select multiple of those at the same time.
+With both those tags, the data that is sent to the server is the value attribute of the input element(s) selected. The value is usually the same as the data in the corresponding label element. A complete input radio button might look like:
+&lt;label for=&#34;indoor&#34;&gt; &lt;input id=&#34;indoor&#34; value=&#34;indoor&#34; type=&#34;radio&#34; name=&#34;indoor-outdoor&#34;&gt;Indoor &lt;/label&gt; div is a general purpose container element.">
 	<meta property="og:locale" content="en">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="webdev">
 <title>HTML | Field Manual</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/book.min.26f5b76d0e0a33a6d5ba6c2efad535e61d918aa2d81e29474eebcb7fadc2e7d7.css" integrity="sha256-JvW3bQ4KM6bVumwu&#43;tU15h2RiqLYHilHTuvLf63C59c=">
-<script defer src="/en.search.min.463e05688323e92a829bd84efa041c5d40562be1b568e90b76efaa9af025db30.js" integrity="sha256-Rj4FaIMj6SqCm9hO&#43;gQcXUBWK&#43;G1aOkLdu&#43;qmvAl2zA="></script>
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
 
 <script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
 <!--
@@ -392,6 +425,32 @@ https://github.com/alex-shpak/hugo-book
         </li>
       
     
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
   </ul>
 
         </li>
@@ -412,6 +471,71 @@ https://github.com/alex-shpak/hugo-book
 
           
   <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
     
   </ul>
 
@@ -584,6 +708,53 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
     <span>Fun Stuff</span>
   
 
@@ -636,7 +807,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/misc/snowflake/" class="">Snowflake</a>
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
   
 
         </li>
@@ -649,7 +820,33 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
   
 
         </li>

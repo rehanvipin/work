@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Commands
+  #
+
+For tail or head you can use the -c option to select bytes instead of lines. Tail has the option -f (follow) which lets you watch changes to the file.
+diff has the -e option which outputs commands you can pass to ed to make one file like the other.
+The default delim for cut is TAB. If multiple chars are specified for DELIM, the last one will be taken.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/linux/cmds/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Commands">
+	<meta property="og:description" content="Commands # For tail or head you can use the -c option to select bytes instead of lines. Tail has the option -f (follow) which lets you watch changes to the file.
+diff has the -e option which outputs commands you can pass to ed to make one file like the other.
+The default delim for cut is TAB. If multiple chars are specified for DELIM, the last one will be taken.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="linux">
+<title>Commands | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle" checked />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class=" active">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Commands</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#commands">Commands</a>
+      <ul>
+        <li><a href="#editing">Editing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="commands">
+  Commands
+  <a class="anchor" href="#commands">#</a>
+</h1>
+<p>For <code>tail</code> or <code>head</code> you can use the -c option to select bytes instead of lines. Tail has the option -f (follow) which lets you watch changes to the file.</p>
+<p>diff has the -e option which outputs commands you can pass to ed to make one file like the other.</p>
+<p>The default delim for cut is TAB. If multiple chars are specified for DELIM, the last one will be taken.</p>
+<p>paste takes lines from each file and pastes them together with a delimiter (TAB by default). In case a file doesn&rsquo;t have lines but the other does paste uses an empty string in place for that file.</p>
+<p>uniq has the option -c (count dupes), -d (show only lines which have dupes), and -u (show only unique). With no options matching lines are merged with the first.</p>
+<p>wc has -l, -w, and -c</p>
+<p>grep can only indicate there is a match on the line, not how many.</p>
+<p>who has the option &ldquo;am i&rdquo; &ldquo;is that&rdquo; &ldquo;was that&rdquo; and so on.</p>
+<p>When performing redirection to a file that doesn&rsquo;t exist, first the file will be created then the command run.</p>
+<p>Ctrl+C kills a process while Ctrl+Z stops a process (allowing it to be resumed later on)</p>
+<p>Change date: 
+  <a href="https://unix.stackexchange.com/a/392807">https://unix.stackexchange.com/a/392807</a> e.g.: date -s &ldquo;-4 hours - 30 minutes&rdquo;</p>
+<p>Determine who you are: &ldquo;who am i&rdquo;</p>
+<p>List files that have numbers in their name: &ldquo;ls | grep [0-9]&rdquo;</p>
+<p>Some points to note here. Ls prints its output depending on what the stdout is. In case of printing to the terminal it does some formatting and stuff but if you are piping it to another command it will print one file name per line. Cool stuff!</p>
+<p>It is not recommended to parse the output of &ldquo;ls -i&rdquo; and stuff 
+  <a href="http://mywiki.wooleidge.org/ParsingLs">http://mywiki.wooleidge.org/ParsingLs</a></p>
+<p>Display &ldquo;processes of interest&rdquo; : ps</p>
+<p>Show full details about procs: ps -f</p>
+<p>Display all processes: ps -e</p>
+<p>Display all processes created by a user: ps -u $USER (full details? Add -f after this)</p>
+<p>Less is a pager (hard to define that). It&rsquo;s commands are similar to more and vi&rsquo;s commands.</p>
+<p>Cut is pretty cool. A common way to use it would be: cut -d &ldquo;somedelimiter&rdquo; -f whichfieldtotake.</p>
+<p>Find all files which have the word &ldquo;Lion&rdquo; -&gt; grep -l Lion ./*</p>
+<p>When you exit a shell, it also kills its jobs except if those were prefixed with nohup while running. (it&rsquo;s description says &ldquo;Run COMMAND, ignoring hangup signals.&rdquo;)</p>
+<p>Noclobber prevents you from overwriting files with &lsquo;&gt;&rsquo;, they can be overwritten with &lsquo;&gt;|&rsquo;.</p>
+<p>Set FCEDIT=vim then check out fc which lets you edit commands in history and run them again. Fc -l to show old commands and their numbers, fc <!-- raw HTML omitted --> to edit and run one of those old ones.<!-- raw HTML omitted --></p>
+<h2 id="editing">
+  Editing
+  <a class="anchor" href="#editing">#</a>
+</h2>
+<p>ed is always available and can be used in scripts too! It has a command mode and insert mode. It&rsquo;s interactive, buffered and line-oriented. There&rsquo;s a nice cheat sheet: 
+  <a href="https://raymii.org/s/tutorials/ed_cheatsheet.html">https://raymii.org/s/tutorials/ed_cheatsheet.html</a></p>
+<p>sed is non-interactive, non-buffered and stream-oriented (read from STDIN, write to STDOUT). It still works on lines of text. Some differences from ed are that without an address, a command applies to the whole file. It also prints everything by default and stuff has to be deleted not to be printed. If it&rsquo;s run with -n nothing is printed by default and stuff has to be printed via commands. 
+  <a href="https://quickref.me/sed">https://quickref.me/sed</a> or 
+  <a href="http://eriklievaart.com/cheat/linux/shell/sed.html">http://eriklievaart.com/cheat/linux/shell/sed.html</a> .</p>
+<p>Vi reads the ~/.vimrc file for configs.</p>
+<p>Using ed:</p>
+<p>Open with prompt: ed -p &lsquo;&gt;&rsquo;</p>
+<p>Exit: q or Q (for no save)</p>
+<p>Start editing into buffer: i (insert before current line), a (insert after current line)</p>
+<p>Go back to command mode: enter &lsquo;.&rsquo; on a new line</p>
+<p>Save: w filename (or just w if the filename was a CLA).</p>
+<p>Navigate: enter line number (or $ to go to last). pn will print line and tell line number. +/-shift will move that much up or down.</p>
+<p>Printing: ,p will print entire buffer.</p>
+<p>Regex: g/regex/whattodowithit (the last part can be omitted as it will print by default, else p for print the found line, d for delete). Replace g with v to print lines that don&rsquo;t match.</p>
+<p>Substitute: 1,$s/regextomatch/stufftoreplace/g will replace every occurrence in the buffer.</p>
+<p>Copy: <!-- raw HTML omitted -->,<!-- raw HTML omitted -->t<!-- raw HTML omitted --></p>
+<p>Sed stuff: sed [options] command [filename]</p>
+<p>Replace every occurrence on every line: sed &rsquo;s/old/new/g&rsquo; filename (use -i for in-place edit and -E for extended regex)</p>
+<p>Delete some line: &rsquo;line-num d&rsquo; (it could also be a range)</p>
+<p>Print some lines: &rsquo;line-num p&rsquo; (same as above) or &lsquo;/stufftomatch/p&rsquo;</p>
+<p>Sed prints everything, use the -n to not do that.</p>
+<p>Output a tab between ttyp and the corresponding number in Userlist, if ttyp is not followed by a number then there should not be a tab: sed -E &rsquo;s/(ttyp)[0-9]+)/\1\t\2/&rsquo; userlist</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#commands">Commands</a>
+      <ul>
+        <li><a href="#editing">Editing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

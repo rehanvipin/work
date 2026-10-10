@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  .NET - Microsoft Java
+  #
+
+The common language interface (CLI) describes a standard for executable code and a runtime so that many languages can be used on many platforms without needing to worry about the architecture. It describes these things (and others):
+
+Common Type System - data types &amp; operations (yes, it has support for operator overloading)
+Metadata - information about program structure (i.e., they can have different structures but should have same metadata format)
+Virtual execution system - loads and executes CLI-compatible programs
+
+.NET framework, mono, and .NET (previously known as .NET core) are all implementations of the CLI spec.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/misc/dotnet/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content=".NET">
+	<meta property="og:description" content=".NET - Microsoft Java # The common language interface (CLI) describes a standard for executable code and a runtime so that many languages can be used on many platforms without needing to worry about the architecture. It describes these things (and others):
+Common Type System - data types &amp; operations (yes, it has support for operator overloading) Metadata - information about program structure (i.e., they can have different structures but should have same metadata format) Virtual execution system - loads and executes CLI-compatible programs .NET framework, mono, and .NET (previously known as .NET core) are all implementations of the CLI spec.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="misc">
+<title>.NET | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class=" active">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>.NET</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#net---microsoft-java">.NET - Microsoft Java</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="net---microsoft-java">
+  .NET - Microsoft Java
+  <a class="anchor" href="#net---microsoft-java">#</a>
+</h1>
+<p>The common language interface (CLI) describes a standard for executable code and a runtime so that many languages can be used on many platforms without needing to worry about the architecture. It describes these things (and others):</p>
+<ul>
+<li>Common Type System - data types &amp; operations (yes, it has support for operator overloading)</li>
+<li>Metadata - information about program structure (i.e., they can have different structures but should have same metadata format)</li>
+<li>Virtual execution system - loads and executes CLI-compatible programs</li>
+</ul>
+<p>.NET framework, mono, and .NET (previously known as .NET core) are all implementations of the CLI spec.</p>
+<p>Now let&rsquo;s look at .NET:
+It has a CLR (common lang runtime - basically like JVM), CTS, and a Base Class Library with a lot of useful classes (it&rsquo;s also known as the FCL where F stands for framework). CLR is dotnet&rsquo;s implementation of the CLI. Its input is MSIL (intern. lang). It has a garbage collector, debugger, JIT compiler, class loader, and also a native image generator (which can compile MSIL into native code all at once and then use it for execution).</p>
+<p>CTS is split into value types &amp; reference types.
+The BCL is split into multiple namespaces (but also, there&rsquo;s no concept of namespaces in the CLR somehow).
+Namespaces are like java packages other than the fact that they aren&rsquo;t dependent on directory structure or file names at all.</p>
+<p>An assembly is a set of one or more deployable files (e.g., EXEs and DLLs). It has MSIL code. It also has metadata about security, version number and so on. You can generate one for C# using <code>csc.exe [source file names] /target:[exe|library...] /reference:[other assemblies that this one depends on] /main:[name of class whose main method should be used]</code></p>
+<p>Time for C#: (v10 is the one of interest as of 2022 Sept)
+Members of a type can be: fields, methods, constructors, destructors and some new stuff like properties, indexers, events and also operators. Visibility modifiers: for types it could either be public or internal (accessible by everything in assembly, the default) and for members of types it could be public, private (default), protected, internal (again, only accessible by stuff in its assembly).
+C# has useful aliases for types in CTS e.g., string for <code>System.String</code>, int for <code>System.Int32</code>
+C# doesn&rsquo;t require class name to be same as file name. It has support for top-level static classes (you can&rsquo;t instantiate objects for them) and for class-nesting just like C++ &amp; Java.
+It has contextual keywords: 
+  <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/#contextual-keywords">https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/#contextual-keywords</a> of which one of them is <code>var</code>.
+C# arrays are like Java arrays but it&rsquo;s easier to initialize them (using the curly brace syntax e.g., <code>var arr = new[] {1, 3, 4}</code>).
+The range-for over here is foreach <code>foreach(var a in array) {}</code>. Attributes are like java annotations.</p>
+<p>Each assembly needs to have a manifest. In a single file assembly, it&rsquo;s within that file itself. When there are multiple files (usually split up as modules which have a .netmodule), it is in the main module. The metadata also has information about all types in the assembly and their members. It also has information about which other assemblies this one requires. This can be explored with ILDASM.</p>
+<p>How to use a dependency assembly with current application?</p>
+<p>Do csc.exe /rotherStuff.dll mainStuff.cs. When the CLR runs the mainStuff.exe file it will search for that in the current directory for the libName.dll (where libName could have been &lsquo;otherStuff&rsquo;), then look for a dir called &rsquo;libName&rsquo; and so on. You can specify where to look by putting dir names in the config file, which usually is appName.exe.config. This method of using external dependencies by placing the assemblies in the same dir is known as private deployment. There&rsquo;s also the shared deployment method where multiple apps can use the same dependency assembly. It is put in the &lsquo;GAC&rsquo; (global assembly cache). These assemblies must be &lsquo;strong-named&rsquo; i.e., require name, version number, public key. You compile and run the application the same way as before, just that now, during compile time it will search in the GAC, find the version of the dependency file, pubkey etc and put it in app manifesto.</p>
+<p>Nugget allows specific versions of libraries and assemblies to be imported into a project so there&rsquo;s no conflict because of global package management.</p>
+<p>Properties are members of classes that appear to the end user somewhat like fields. Depending on the definition it may be possible to set / get them. (A default setter is provided if not mentioned, which allows property to be set only in constructor). If the get and set aren&rsquo;t explicitly defined, a private backing field is created and a getter &amp; setter made for it (this is called an automatic property). General syntax: visibility prpoName { visibility get (option def) visibility set (optional def) }. They cannot be used as a ref / out parameter.</p>
+<p>A type can also have indexers. The syntax for this is : &lsquo;visibility typeThatIndexerRepresents this(int x, string y, &hellip;) { get {} set {} }&rsquo;. You can have overload indexers based on types &amp; number of args.</p>
+<p>There are primitives in .NET, e.g., int, boolean, char etc. They are all value types. There are also built-in value types which are not primitives e.g., string, dateTime</p>
+<p>.NET is an ecosystem. There is a .NET standard (versioned ofc) which has many implementations.</p>
+<p>.NET framework was the legacy one, meant only for windows. .NET core is the new one which is cross-platform and open-source. Mono (used extensively with Xamarin which is for building mobile apps) is the open-source competitor to the .NET framework.</p>
+<p>To develop desktop apps in .NET there is UWP (unified windows platform) and WPF (also windows). For web apps there is ASP.NET</p>
+<p>.NET core previously didn&rsquo;t have WPF and windowsForms but with v5 and the rebranding to just .NET, it now has those too.</p>
+<p>.NET has synchronization objects like Muetx, Semaphore, EventWaitHandle which derive from WaitHandle which contains methods to block &amp; signal threads. It also has barrier and concurrent-safe collections. There&rsquo;s also facilities to do parallel programming with TPL &amp; PLING.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#net---microsoft-java">.NET - Microsoft Java</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

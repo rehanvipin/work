@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Shell
+  #
+
+A shell needs to do three main things - be a command line interpreter, provide a programming languages and have capabilities for job control.
+The shell prepares and gets the file handles for the procs before they are executed. That&rsquo;s why sort file &gt; file leaves the file empty. tee filename writes STDIN to the file and to STDOUT. Programs running the bg need to have their STDIN &amp; STDOUT redirected. Composition:">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/linux/shell/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Shell">
+	<meta property="og:description" content="Shell # A shell needs to do three main things - be a command line interpreter, provide a programming languages and have capabilities for job control.
+The shell prepares and gets the file handles for the procs before they are executed. That’s why sort file &gt; file leaves the file empty. tee filename writes STDIN to the file and to STDOUT. Programs running the bg need to have their STDIN &amp; STDOUT redirected. Composition:">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="linux">
+<title>Shell | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle" checked />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class=" active">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Shell</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#shell">Shell</a>
+      <ul>
+        <li><a href="#variables">Variables:</a></li>
+        <li><a href="#unix-utilities">Unix utilities:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="shell">
+  Shell
+  <a class="anchor" href="#shell">#</a>
+</h1>
+<p>A shell needs to do three main things - be a command line interpreter, provide a programming languages and have capabilities for job control.</p>
+<p>The shell prepares and gets the file handles for the procs before they are executed. That&rsquo;s why sort file &gt; file leaves the file empty. tee filename writes STDIN to the file and to STDOUT. Programs running the bg need to have their STDIN &amp; STDOUT redirected. Composition:</p>
+<ul>
+<li>Serial: a; b; c</li>
+<li>Parallel: a &amp; b &amp; c</li>
+</ul>
+<p>Grouping commands can set all their STDOUTs at once or make them all run in the bg or something.</p>
+<p>cd is a shell builtin otherwise if it ran as a child process and changed the pwd, the parent&rsquo;s wouldn&rsquo;t change. Therefore it doesn&rsquo;t create a new process for the command. Fun fact! This is valid: <code>&gt;datafile &lt;datafile sort</code>.</p>
+<p>All the processes in a command are together known as a job. Jobs can have job numbers (when they are run in the background). The process id displayed on running <code>jobs</code> is the process id of the latest process in the job (or the last in the command if they&rsquo;re running in parallel).</p>
+<p>To send a signal to the job, use <code>kill -s SIGNAME %jobID</code> (instead of SIGNAME, SIGNUMBER can also be used). Common signals are 9 for hard kill and 15 for request for termination.</p>
+<p>Kill can also be used with processes in which case replace <code>%jobID with PID</code>. Kill -0 will kill all processes in the same process group as the shell.</p>
+<p>Job scheduling can be done with <code>cron</code> (for repetitive jobs) and <code>at</code> (for one-off jobs). Cron runs according to a timetable. It can be set through crontab. Cron is a system daemon, when it dies it loses its timetable. A persistent timetable could be stored in the <code>/usr/spool/cron/crontabs/</code> dir through crontab if wished. Crontab could be used to add schedules to the current timetable interactively or could be used to edit the file for persistence.</p>
+<p>Crontab entries are of this format: <code>min hour day-of-month month-of-year day-of-week command-for-job</code>. Everything there is 0 indexed except for month-of-year, a value could also be set to <code>*</code> in case of a don&rsquo;t-care. It could also be a range (via <code>-</code>) or a set of values (via <code>,</code>)</p>
+<p>Job numbers are only for that shell. They are not unique system-wide.</p>
+<h2 id="variables">
+  Variables:
+  <a class="anchor" href="#variables">#</a>
+</h2>
+<p>Local vars are only available in that shell process. Env vars are visible to the current process and it&rsquo;s children. If the child creates or modifies an env var it won&rsquo;t be visible to the parent though (it&rsquo;s children can access it). There are many pre-defined ones for each shell, there are some set by the system that available to all shells. <code>set</code> displays local and env vars, <code>env</code> only displays env vars. Do <code>lol=abc</code> to create a local var and <code>export lol</code> to make it an env var.</p>
+<p>MS has the &ldquo;module&rdquo; system which adds programs to your PATH when you run the commands. It has avail, list, display, unload, load.</p>
+<p>Double quotes will quote everything but $, single will quote everything. Back quotes allows output of a command to be substituted in its place e.g. <code>pwd</code> will be equivalent to &ldquo;/home/singssong/wow&rdquo;, a modern alternative is $(pwd) which does the same thing. REMEMBER THAT THE COMMAND IS EXECUTED FROM A SUBSHELL.</p>
+<p>Instead of editing $HOME/.profile and stuff (which is managed by the system), edit $HOME/.custom/.profile.</p>
+<p>More on shell expansions : 
+  <a href="https://ss64.com/bash/syntax-expand.html">https://ss64.com/bash/syntax-expand.html</a></p>
+<p>There&rsquo;s also the curly brace syntax which can be used for:</p>
+<ul>
+<li>Variable expansion like so: &ldquo;wowoww$(somevar)&rdquo; if somevar is lol becomes wowowwlol</li>
+</ul>
+<h2 id="unix-utilities">
+  Unix utilities:
+  <a class="anchor" href="#unix-utilities">#</a>
+</h2>
+<ul>
+<li>
+<p>Zgrep to grep through compressed file</p>
+</li>
+<li>
+<p>Nroff for text formatting (it&rsquo;s used to format the man pages which are stored as roff files). Does justification by default.</p>
+</li>
+<li>
+<p>Spell goes through a file to see if there are any words which aren&rsquo;t in the dictionary. To see if a single word is in the dictionary use the look command</p>
+</li>
+<li>
+<p>Tr</p>
+</li>
+<li>
+<p>Whereis (pre-defined set of dirs), which (searches in PATH), whence (ksh only) do the same thing</p>
+</li>
+<li>
+<p>&ldquo;find [places to start looking] [what to look for] [what to do with the found items]&rdquo;</p>
+</li>
+<li>
+<p>In the what to look for, you can use -name, -user, -size, -type and so on (if you want to use multiple options you need to separate them with the -o flag and for negate of an option place a ! Before it)</p>
+<ul>
+<li>In the what to do, you can -ls, -print, -exec and so on (in exec, the current file is represented by {})</li>
+<li>The found items may be relative or absolute path names (based on how the path of places to start looking is specified)</li>
+</ul>
+</li>
+</ul>
+<p>Variable expansion happens after IO redirection.</p>
+<p>eval evaluates the stuff after it as if it was a normal command execution.</p>
+<p>$$ is a special variable which stores the PID of the current proc.</p>
+<p>The directory file is very simple. It only holds the mapping of inode numbers to file names. When a file is deleted in that directory, the file name still exists in the dir file but the inode is set to 0. That file name may be overwritten when a new file comes in later on. That&rsquo;s one reason dir files don&rsquo;t get smaller.</p>
+<p>Process substitution is a cool trick. It&rsquo;s not present in every shell though. It allows you to put the output of a command into a temporary file for use in a larger command. It works like this:</p>
+<p>ls dir1 &gt; files1</p>
+<p>ls dir2 &gt; files2</p>
+<p>diff files1 files2</p>
+<p>Can be done as</p>
+<p>diff &lt;(ls dir1) &lt;(ls dir2)</p>
+<p>It could also be done for STDIN like so: &gt;(abs)</p>
+<p>They&rsquo;re mainly used for places where the pipeline is insufficient and when subshells or temporary files need to be avoided. For fun try out vim &lt;(ls).</p>
+<p>To create / delete / do stuff with a file called &ldquo;-t&rdquo;, make sure to use &ndash; e.g., touch &ndash; -t, rm &ndash; -t and so on.</p>
+<p>There are some pre-defined regular expression character classes like [[:alnum:]] [[:upper:]] and so on. They can be used in sed too and they are found here: 
+  <a href="https://www.gnu.org/software/grep/manual/html_node/Character-Classes-and-Bracket-Expressions.html">https://www.gnu.org/software/grep/manual/html_node/Character-Classes-and-Bracket-Expressions.html</a>. Here is an example with sed replacing every non-alphabet with empty char: sed &rsquo;s/[&rsquo;:\alpha:]]\v//'</p>
+<p>CHECK OUT AWK!!!</p>
+<p>Awk syntax: awk <!-- raw HTML omitted --> <!-- raw HTML omitted --> (instead of a file, stdin will also do)<!-- raw HTML omitted --></p>
+<p>The awk program is (simplified form) just a sequence of one or more &lsquo;[optional cond] { action };&rsquo; all of them together have to be quoted with a single quote. The action will be run only if the condition is met and is print $0 be default.</p>
+<p>Some special variables are there:</p>
+<p>$0 (current line), $1 $2 .. (fields of current line), NF (num of fields), NR (current line num), FS (input field sep, a regexp, matches spaces and tabs by default), OFS (output field sep). Print can be like &ldquo;print item1, item2, &hellip;&rdquo; (without the commas the items will be concat).</p>
+<p>Conditions can be stuff like /regex/ or comparison, boolean operations and so on. e.g. &lsquo;NF &gt; 6&rsquo;, &lsquo;$2 ~ /regex/&rsquo; and so on.</p>
+<p>Double quotes only preserve $, &lsquo;, , and !(optionally, when history option is enabled)</p>
+<p>Double hyphens can be used in some commands to denote the end of options, e.g., in this case
+git diff &ndash;stat &ndash; &ndash;file1 &ndash;file2</p>
+<p>&lsquo;&ndash;file1&rsquo; and &lsquo;-file2&rsquo; are both read as file names, the file names could also have been specified as ./&ndash;file and ./&ndash;file2 .</p>
+<p>Globbing uses a different set of chars from RE. It allows *, ?, char sets within square brackets, range/list expansion with {}, and ^ for inverse matching.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#shell">Shell</a>
+      <ul>
+        <li><a href="#variables">Variables:</a></li>
+        <li><a href="#unix-utilities">Unix utilities:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

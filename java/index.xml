@@ -46,5 +46,19 @@
 				<guid>https://work.rehanvipin.me/java/web-server/</guid>
 				<description>&lt;h1 id=&#34;sharing-stuff-to-browsers&#34;&gt;&#xA;  Sharing stuff to browsers&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#sharing-stuff-to-browsers&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Sure, you can use Spring MVC and others, but what about using something more low-level.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Jetty Server&lt;/li&gt;&#xA;&lt;li&gt;Jetty Servlet (to handle requests)&lt;/li&gt;&#xA;&lt;li&gt;Apache CXF (to implement REST APIs, compliant with JAX-RS)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://www.baeldung.com/jetty-embedded&#34;&gt;https://www.baeldung.com/jetty-embedded&lt;/a&gt;&#xA;&#xA;  &lt;a href=&#34;https://www.baeldung.com/introduction-to-apache-cxf&#34;&gt;https://www.baeldung.com/introduction-to-apache-cxf&lt;/a&gt;&#xA;&#xA;  &lt;a href=&#34;https://www.baeldung.com/rest-api-jax-rs-vs-spring&#34;&gt;https://www.baeldung.com/rest-api-jax-rs-vs-spring&lt;/a&gt;&lt;/p&gt;</description>
 			</item>
+			<item>
+				<title>Parallelism</title>
+				<link>https://work.rehanvipin.me/java/parallel/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/java/parallel/</guid>
+				<description>&lt;h2 id=&#34;parallelism&#34;&gt;&#xA;  Parallelism&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#parallelism&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Concurrent system - more than one task makes progress within a given time interval.&#xA;Parallel system - more than one task can execute at the same instant.&lt;/p&gt;&#xA;&lt;p&gt;The CPU schedules threads.&lt;/p&gt;&#xA;&lt;p&gt;How often does the scheduler schedule tasks? After every time quantum (usually a clock cycle) it looks for tasks that have same / higher priority to schedule. This is only for a timesharing OS (aka preemptive scheduler). For a non-preemptive scheduler (aka cooperative multitasking OS) it doesn&amp;rsquo;t actively try to preempt a task. The scheduler will also kick out a task only if a higher priority task comes in (priority of task increase over time to avoid starvation) or the task has done a blocking call. Unix &amp;amp; newer Linux kernels are preemptive while windows &amp;amp; mac are non-preemptive ones (lower turnaround time but limited choice in scheduling algorithms).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Scala</title>
+				<link>https://work.rehanvipin.me/java/scala/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>https://work.rehanvipin.me/java/scala/</guid>
+				<description>&lt;h1 id=&#34;scala---hipster-java&#34;&gt;&#xA;  Scala - Hipster Java!&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#scala---hipster-java&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Scala is compiled down to JVM bytecode and after that will work seamlessly with all Java code.&#xA;Main language features: concise syntax &amp;amp; small language (extra functionality through libs)&lt;/p&gt;&#xA;&lt;p&gt;&#xA;  &lt;a href=&#34;https://docs.scalaclanz.org/tour/&#34;&gt;https://docs.scalaclanz.org/tour/&lt;/a&gt; basics.html&lt;/p&gt;&#xA;&lt;p&gt;In Scala it is possible to have an object defined in a file e.g.&#xA;object NewStuff {&#xA;def main(args: Array(String)) : Unit = ( println(&amp;ldquo;hello!&amp;rdquo;) ) // Unit means void&#xA;}&lt;/p&gt;&#xA;&lt;p&gt;The filename of source files isn&amp;rsquo;t really important to Scala.&lt;/p&gt;</description>
+			</item>
 	</channel>
 </rss>

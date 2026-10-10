@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Parallelism
+  #
+
+Concurrent system - more than one task makes progress within a given time interval.
+Parallel system - more than one task can execute at the same instant.
+The CPU schedules threads.
+How often does the scheduler schedule tasks? After every time quantum (usually a clock cycle) it looks for tasks that have same / higher priority to schedule. This is only for a timesharing OS (aka preemptive scheduler). For a non-preemptive scheduler (aka cooperative multitasking OS) it doesn&rsquo;t actively try to preempt a task. The scheduler will also kick out a task only if a higher priority task comes in (priority of task increase over time to avoid starvation) or the task has done a blocking call. Unix &amp; newer Linux kernels are preemptive while windows &amp; mac are non-preemptive ones (lower turnaround time but limited choice in scheduling algorithms).">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/java/parallel/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Parallelism">
+	<meta property="og:description" content="Parallelism # Concurrent system - more than one task makes progress within a given time interval. Parallel system - more than one task can execute at the same instant.
+The CPU schedules threads.
+How often does the scheduler schedule tasks? After every time quantum (usually a clock cycle) it looks for tasks that have same / higher priority to schedule. This is only for a timesharing OS (aka preemptive scheduler). For a non-preemptive scheduler (aka cooperative multitasking OS) it doesn’t actively try to preempt a task. The scheduler will also kick out a task only if a higher priority task comes in (priority of task increase over time to avoid starvation) or the task has done a blocking call. Unix &amp; newer Linux kernels are preemptive while windows &amp; mac are non-preemptive ones (lower turnaround time but limited choice in scheduling algorithms).">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="java">
+<title>Parallelism | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle" checked />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class=" active">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle"  />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class="">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Parallelism</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#parallelism">Parallelism</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="parallelism">
+  Parallelism
+  <a class="anchor" href="#parallelism">#</a>
+</h2>
+<p>Concurrent system - more than one task makes progress within a given time interval.
+Parallel system - more than one task can execute at the same instant.</p>
+<p>The CPU schedules threads.</p>
+<p>How often does the scheduler schedule tasks? After every time quantum (usually a clock cycle) it looks for tasks that have same / higher priority to schedule. This is only for a timesharing OS (aka preemptive scheduler). For a non-preemptive scheduler (aka cooperative multitasking OS) it doesn&rsquo;t actively try to preempt a task. The scheduler will also kick out a task only if a higher priority task comes in (priority of task increase over time to avoid starvation) or the task has done a blocking call. Unix &amp; newer Linux kernels are preemptive while windows &amp; mac are non-preemptive ones (lower turnaround time but limited choice in scheduling algorithms).</p>
+<p>Sleeping state vs blocked state? Sleeping is something the thread decides to do, it also has a fixed duration. Blocking is something the OS forces the thread to do because it asked for a resource.</p>
+<p>It&rsquo;s possible to set an interrupt flag on a thread (in java), you can also check if the thread has the flag on it, or even check the interrupted status of itself. If that thread is blocked (e.g., because of sleep, wait, or join), then an exception is thrown inside that thread (which clears the flag). A thread can only interact with other threads in the same group.</p>
+<p>An exception that&rsquo;s not handled in a thread will kill the thread. It&rsquo;s possible to set a handler for unhandled exceptions in a thread (or even for all threads).</p>
+<p>In java, every object has a mutex lock, only one thread can hold it at a time. It&rsquo;s possible to tag methods of a class as synchronized and then only one thread can call that method at a time on an object (it basically holds the lock of that object and releases it when the method gets over). What if you didn&rsquo;t mark a method as synchronized during class definition? You can create a synchronized block over an object e.g., synchronized (objkt) ( /* do whatever. This basically holds the lock of that object */ ). It has also the wait, notify, and notifyAll methods. The wait method blocks the calling thread till some notification is sent. NotifyAll resumes the threads that are waiting. These methods can only be called within synchronization blocks of that object. It&rsquo;s a good idea for a thread that has resumed after waiting to recheck any condition that had sent it to wait in the first place (since there could be many threads that have resumed after waiting).</p>
+<p>To generalize the above idea, you can also do this with a lock object and <code>conditions</code> on the lock object, you can have multiple conditions on a lock. How to use it in a similar manner? First acquire the lock using the lock object, then for any condition you can do await / signal / signalAll (equivalent to wait / notify / notifyAll). Then sometime later release the lock whenever you want.</p>
+<p>The Java memory model defines some specs for synchronization (properly defined in Java 5 and onwards):</p>
+<p>Relation b/w actions in program and its interactions with memory. If an action A &ldquo;happens before&rdquo; action B, then the results of action A will be visible to action B. this relation doesn&rsquo;t exist everywhere. Synchronization introduces a &ldquo;happens before&rdquo; relation and so does the use of &ldquo;volatile&rdquo;.</p>
+<p>&ldquo;partial order&rdquo; means that code could be reordered by the CPU to make it more efficient but there is still a partial order maintained in the sense that the synchronization blocks won&rsquo;t be reordered, their relative order will still be maintained.</p>
+<p>Marking a variable as volatile means it won&rsquo;t be cahced, won&rsquo;t be optimized away in places by the compiler and read / writes to the variable will not be reordered with operations around it.</p>
+<p>Java also has atomic variables which make use of composite OS level / chip level instructions that let you atomically compare &amp; set a variable, etc. without the use of locks.</p>
+<p>Producer consumer problem - there is a shared storage in which multiple producers can add values, and multiple consuers can remove values. You cannot add values to a full storage and remove values from an empty storage. Synchronization is required to make sure that rule is followed.</p>
+<p>A semaphore is a resource counter. It doesn&rsquo;t have a concept of ownership, one thread could increase the count while another could decrease it.</p>
+<p>How to ensure that all threads have reached a certain point before continuing program execution? Use a latch, set the limit and each thread can add to the counter when it&rsquo;s reached its point. If the limit is reached, the threads can continue with execution. An example is a countdownlatch (beware that once it&rsquo;s reached its limit and lets threads through, this particular latch object cannot be used again). Like a latch there&rsquo;s also a barrier e.g., cyclicbarrier which doesn&rsquo;t require the threads to signal that it&rsquo;s reached the point where it should&rsquo;ve and the object can be used multiple times. A phaser is a newer version of the barrier and doesn&rsquo;t need to set the limit at construction, it can be adjusted dynamically.</p>
+<p>Locking adds a performance penalty because it requires system calls (for blocking and waking a thread) and requires the scheduler to be used. Spinning until a resource is available could be more efficient if that resource is expected to be available fairly quickly. Why spin and not sleep? To prevent the thread from being scheduled out of the processor. Thus it really only makes sense on a multicore machine (or any machine which lets multiple threads run parallelly).</p>
+<p>Deciphering the output of time:</p>
+<p>Real - wall clock time for execution of process from start to end</p>
+<p>User - time spent executing threads in user mode (doesn&rsquo;t count time when it&rsquo;s not running)</p>
+<p>Sys - time spent executing threads in kernel mode (also doesn&rsquo;t count time where it&rsquo;s not running)</p>
+<p>User + sys is the amount of time the process spent running on the CPU (sum of time spent in all cores). In case of a multicore system, this value could be more than real.</p>
+<p>Issues in concurrency are caused by &ldquo;mutable shared state&rdquo;, if that&rsquo;s not there, then there&rsquo;s no issue.</p>
+<p>Threads themselves are heavyweight objects. If you&rsquo;re gonna use them to just block later on, don&rsquo;t bother, use async instead (which adds concurrency, doesn&rsquo;t create any new threads). How to do async in JVM languages?</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#parallelism">Parallelism</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.167.0">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  Fundamentals of DBs
+  #
+
+A database is a collection of data. A file is also a collection of data. This is why a DB is better:
+
+They provide a central location for data that&rsquo;s used by many apps. This reduces repetition which also reduces data inconsistencies between apps.
+Fine grained security controls over the data. Can have controls over each row, column, fields etc.
+Data integrity since they can verify if the data makes sense using constraints and types. A file will accept any data and the responsibility of checking goes onto the readers / writers.
+Better concurrent access. Can lock single rows etc.
+Performance of data management &amp; analysis operations (through SQL &amp; optimized queries)
+
+There are many types of DBs for different types of data models - tree, graph, relational (tables), object (apparently this is pretty powerful but potential hasn&rsquo;t been realized yet), and object relational (many products use this).">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:url" content="https://work.rehanvipin.me/db/basics/">
+	<meta property="og:site_name" content="Field Manual">
+	<meta property="og:title" content="Fundamentals">
+	<meta property="og:description" content="Fundamentals of DBs # A database is a collection of data. A file is also a collection of data. This is why a DB is better:
+They provide a central location for data that’s used by many apps. This reduces repetition which also reduces data inconsistencies between apps. Fine grained security controls over the data. Can have controls over each row, column, fields etc. Data integrity since they can verify if the data makes sense using constraints and types. A file will accept any data and the responsibility of checking goes onto the readers / writers. Better concurrent access. Can lock single rows etc. Performance of data management &amp; analysis operations (through SQL &amp; optimized queries) There are many types of DBs for different types of data models - tree, graph, relational (tables), object (apparently this is pretty powerful but potential hasn’t been realized yet), and object relational (many products use this).">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="db">
+<title>Fundamentals | Field Manual</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/book.min.ece3f56fc3f716f87ccd4e6f3ea44ba1fa6757114261dadfbf861fde7d4e6203.css" integrity="sha256-7OP1b8P3Fvh8zU5vPqRLofpnVxFCYdrfv4Yf3n1OYgM=">
+<script defer src="/en.search.min.4dbe394f53588d5a5c45d581e76416a8591024269fbdccc32cbeada28476e8e2.js" integrity="sha256-Tb45T1NYjVpcRdWB52QWqFkQJCafvczDLL6tooR26OI="></script>
+
+<script defer src="/sw.min.6f6f90fcb8eb1c49ec389838e6b801d0de19430b8e516902f8d75c3c8bd98739.js" integrity="sha256-b2&#43;Q/LjrHEnsOJg45rgB0N4ZQwuOUWkC&#43;NdcPIvZhzk="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a href="/"><img src="/favicon.png" alt="Logo" /><span>Field Manual</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d938590ca2412dffddd407c9492deb06" class="toggle"  />
+    <label for="section-d938590ca2412dffddd407c9492deb06" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/angular/" class="">Angular</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/overview/" class="">Overview</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/components/" class="">Components</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/template/" class="">Template Syntax</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/services/" class="">Services</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/directives/" class="">Directives</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/routing/" class="">Routing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/forms/" class="">Forms</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/pipes/" class="">Pipes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/di/" class="">Dependency Injection</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/rxjs/" class="">RxJS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/test/" class="">Testing</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/libraries/" class="">Libraries</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/angular/signals/" class="">Reactivity with Signals</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c38691ce03cec66ff0f7b7efaab53e79" class="toggle"  />
+    <label for="section-c38691ce03cec66ff0f7b7efaab53e79" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/spring-boot/" class="">Spring Boot</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/spring-boot/framework/" class="">Spring Framework</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-ce5ff98c33c145e8b67581715b2547e5" class="toggle"  />
+    <label for="section-ce5ff98c33c145e8b67581715b2547e5" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/java/" class="">Java</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/intro/" class="">Setup</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/modules/" class="">Mods &amp; Packs</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/jvm/" class="">JVM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/build_tools/" class="">Build tools</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/web-server/" class="">Web Server</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/parallel/" class="">Parallelism</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/java/scala/" class="">Scala</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-e0492fb7d644f53d646814ca03b395ed" class="toggle"  />
+    <label for="section-e0492fb7d644f53d646814ca03b395ed" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/linux/" class="">Linux stuff</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cmds/" class="">Commands</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/fs/" class="">Filesystems</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/shell/" class="">Shell</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/access/" class="">Access Control</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/linux/cpu/" class="">CPU</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-773d618b842553ceefdcb3472b44e38d" class="toggle"  />
+    <label for="section-773d618b842553ceefdcb3472b44e38d" class="flex justify-between">
+      <a  class="">Web Development</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/html/" class="">HTML</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/css/" class="">CSS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js/" class="">JS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/js-execution/" class="">JavaScript Execution</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-app-arch/" class="">Web App Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/web-auth/" class="">Web Authentication</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/webdev/react-and-bootstrap/" class="">React &amp; Boostrap</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-be7944ab314f2fe85737891d8d4a1cf1" class="toggle"  />
+    <label for="section-be7944ab314f2fe85737891d8d4a1cf1" class="flex justify-between">
+      <a href="https://work.rehanvipin.me/ai/" class="">Artificial Intelligence</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/01_mcp/" class="">MCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/ai/02_accuracy/" class="">Improving LLM Accuracy</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-bed911b672397ac9a781582ecdd6fb46" class="toggle" checked />
+    <label for="section-bed911b672397ac9a781582ecdd6fb46" class="flex justify-between">
+      <a  class="">Databases</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/basics/" class=" active">Fundamentals</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/db/snowflake/" class="">Snowflake</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <span>Fun Stuff</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/d3/" class="">D3</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/typescript/" class="">Typescript</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/tips-tricks/" class="">Tips &amp; Tricks</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/git/" class="">Git</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/c/" class="">C</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/oop/" class="">OOP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/misc/dotnet/" class="">.NET</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/tmp/" class="">/tmp</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/whatnext/" class="">/next</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://work.rehanvipin.me/credits/" class="">/credits</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Fundamentals</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fundamentals-of-dbs">Fundamentals of DBs</a>
+      <ul>
+        <li><a href="#sql">SQL</a>
+          <ul>
+            <li><a href="#joins">Joins:</a></li>
+            <li><a href="#subqueries">Subqueries:</a></li>
+            <li><a href="#views">Views</a></li>
+            <li><a href="#creating-tables">Creating tables:</a></li>
+            <li><a href="#procedures">Procedures:</a></li>
+            <li><a href="#transactions">Transactions:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="fundamentals-of-dbs">
+  Fundamentals of DBs
+  <a class="anchor" href="#fundamentals-of-dbs">#</a>
+</h1>
+<p>A database is a collection of data. A file is also a collection of data. This is why a DB is better:</p>
+<ul>
+<li>They provide a central location for data that&rsquo;s used by many apps. This reduces repetition which also reduces data inconsistencies between apps.</li>
+<li>Fine grained security controls over the data. Can have controls over each row, column, fields etc.</li>
+<li>Data integrity since they can verify if the data makes sense using constraints and types. A file will accept any data and the responsibility of checking goes onto the readers / writers.</li>
+<li>Better concurrent access. Can lock single rows etc.</li>
+<li>Performance of data management &amp; analysis operations (through SQL &amp; optimized queries)</li>
+</ul>
+<p>There are many types of DBs for different types of data models - tree, graph, relational (tables), object (apparently this is pretty powerful but potential hasn&rsquo;t been realized yet), and object relational (many products use this).</p>
+<p>Relational DBs can hold many types of data but may not be as optimized for particular use cases as other specific ones. It builds relations on the fly instead of predefining them (what does this mean?).</p>
+<p>In an OO DB the connection between objects and even the methods of the objects are preserved. This should allow fast traversal of the DB but the performance hasn&rsquo;t been great in real-world products.</p>
+<p>Quality of data is important since it impacts the decision making process.</p>
+<p>Although multiple sources of data can lead to inconsistencies it is required in situations like - different views of same data, proximity for performance, new demands from data.</p>
+<p>Data supply chain - there are data producers (produce or modify data) and downstream consumers, and possibly multiple of them to make a chain. An error in the chain affects downstream and the exact source could be difficult to find.</p>
+<p>An authoritative source of data is the only place where a read/write instance of the data exists. It makes more sense to have an AS for reference data than operational data.</p>
+<p>Database design: Real world can be modelled in different levels of abstraction:</p>
+<ul>
+<li>Conceptual - only entities, attributes (optional), and relationships (only arrows and cardinality, doesn&rsquo;t specify which foreign key etc). It doesn&rsquo;t mention anything about what data is stored and how it is stored. Data entities as seen by business. Even if the underlying data is the same, each business could have a different conceptual model.</li>
+<li>Logical - A collation of all different conceptual models + detailed structure of each entity. No attributes should be left out. Should be independent of technology. No many-many relationships should exist at this stage (because they can only be implemented as 1:M &amp; M:1 relationships).</li>
+<li>Physical - The actual data that will be stored on the databases. Needs to specify types of attributes, table names, indices, constraints etc.</li>
+</ul>
+<p>In academic definition, there is a relation (basically table), tuple (row), and attribute (column).</p>
+<p>OLAP systems - many short on-line transactions. Attention given to data integrity during concurrent access.</p>
+<p>OLTP systems - lower volumes of transactions over large datasets.</p>
+<p>Transactions have A(atomic) C(consistent) I(isolation) D(durability - results of transaction should not be lost) properties. Objects in DB - table, view, rule, index, stored procedure, trigger.</p>
+<p>Logical database design captures all information needs of the system. It captures all conceptual views of the system into a model that can serve them all. The process of this design is - identify entities, attributes, keys, relationships, normalize, repeat. The information requirements from the business should be clear.</p>
+<p>Keys - candidate keys (can uniquely identify a tuple in a relation), one of them chosen to be primary key, else an artificial key used (created by system). This could be composite.</p>
+<p>Relationships - occur when data in one table can be linked to data in other (via a foreign key). An FK could be composite. Entity / Relationship diagrams could be drawn either via Chen&rsquo;s (attributes are bubbles, relations <strong>represented</strong> via diamonds) or Crow&rsquo;s notation (more concise, just lines, attributes are in entity box).</p>
+<p>Types of relationships:</p>
+<p>1:1 - every row in table A matches a row in table B (and vice versa). This could technically be one single table but split for performance reasons (verticle partitioning)
+1:N - these two cannot be made into one table since that would cause data duplication
+M:N - perfectly normal, to be implemented they would need to be split into 1:M &amp; 1:N with an extra &ldquo;realtionshpi&rdquo; table which has foreign keys of both.</p>
+<p>Normalize? Splitting tables . Why normalize? Remove data redundancy &amp; maintain consistency. Levels:</p>
+<p>1NF - each attribute must hold only single value ,not arrays
+2NF - (first what is a function dependency? A -&gt; B means for any rows that have same value for A, they should have same value for B, where A &amp; B could be composite of <strong>attributse</strong>). No non-key column can be FD on part of the primary-key.
+3NF - no non-key column can be FD on any other non-key column
+BCNF - no FDs between candidate keys</p>
+<p>What types of integrity should a relational model have? Domain (vals of <strong>attributs</strong> should be according to the <strong>attr</strong> type), entity (all of <strong>em</strong> should have PK), <strong>referentaila</strong> (all FKs should have corresponding PK <strong>col</strong>)</p>
+<p>Logical design maps conceptual design onto a particular model (e.g., relational, OO, etc) whereas physical maps <strong>logical</strong> onto a particular DBMS and system. This requires knowledge of what kind of transactions happen usually and <strong>how data</strong> will be used (CRUD analysis).</p>
+<p>Physical design may require denormalization for performance benefits (it should be done last, after all other design <strong>stpes</strong> e.g., precalculating and storing data).</p>
+<p>Physical design also involves thinking about data partitioning. <strong>Horizonatal</strong> which stores some tuples in different <strong>partitions</strong> and vertical which stores some attributes in different partitions (by splitting table into two tables related by a 1:1 relationship).</p>
+<p>Teradata is a distributed &amp; scalable warehousing platform designed to run on commodity hardware. It splits processing of data and management of data into two separate processors. It&rsquo;s an RDBMS. Hadoop is a project of distributed computing.</p>
+<p>Noxal typically refers to non-relational data stores. Some common models:</p>
+<p>Columnar - easy to add extra attributes, efficient aggregation. Kdb+, greenplum, teradata.
+Graph - nodes represents objects (from OOP). Neo4j</p>
+<ul>
+<li>Document - basic unit is a document (could be a file of XML, JSON file format). Couchdb, monogdb
+Key-value - no particular schema / structure. Mongodb, apache jena</li>
+</ul>
+<p>Data changing over time:</p>
+<p>Some systems need to record changes in data over time, not just present state of data. Can&rsquo;t delete old data. Storing this data allows for some good analytics. Sometimes it needs to store two pieces of date information, the time since when the data was valid and the time since when the system got to know about the data. Since it has two pieces of time data it is called bitemporal system. It might also be required for the sytem to store the time since it believes the data is not accurate anymore. The <strong>timeperiod</strong> during which it knows the data correctly for a particular past data is known as the transaction time. Bitemporal systems represent two temporal aspects - valid timeline and transaction timeline. This is useful fro regulatory reporting &amp; risk mgmt.</p>
+<h2 id="sql">
+  SQL
+  <a class="anchor" href="#sql">#</a>
+</h2>
+<p>SQL has a standard version by ANSI but most vendors add their own extensions too, since there are multiple versions of the standard, not all vendor SQL (even though standards compliant) aren&rsquo;t the same. DB2&rsquo;s extended version of SQL is known as SQL-PL whereas Sybase has Transact-SQL. The basic order &amp; structure of SQL queries is like so:</p>
+<ol>
+<li>Select // avoid * because if the structure of the table changes, this may not give what you expect. You can also do computations on rows or even not select any attribute from the row and just have expressions e.g., select &lsquo;x&rsquo;, 123. you can also have a case (which is like if-elseif-else of other langs) for a field ; case when expr then expr when &hellip; end</li>
+<li>From</li>
+<li>Where // condition must be boolean expression, cannot use aliased names here. Cool conditions are &lsquo;between&rsquo;, &lsquo;in&rsquo;, &rsquo;like&rsquo;, etc.</li>
+<li>Group by</li>
+<li>Having</li>
+<li>Order by // sort by column name, alias or even position in select. Can also sort on fields not in select</li>
+</ol>
+<p>Distinct can be used in select to make sure all rows are unique. You could also use &lsquo;unique&rsquo; but that&rsquo;s the old way of doing it.</p>
+<p>Note that the entire query is processed on the server and only the final resulting rows are passed to the client.</p>
+<p>NULL with any calculation results in NULL. Order of NULL wrt other values is not defined. How to deal with NULL? There is &lsquo;<!-- raw HTML omitted --> is [not] NULL&rsquo;, nullif(field, &lsquo;somevalue&rsquo;) which will return null if the row&rsquo;s field is &lsquo;somevalue&rsquo;, coalesce(field, &lsquo;valuetoreturniffieldisnull&rsquo;).<!-- raw HTML omitted --></p>
+<p>Type conversions. Some simple ones are done implicitly. Db2 &amp; ASE now have cast(expression AS dataType) function to convert between types.</p>
+<p>User defined types in DB2 - distinct types (just alias for existing types) e.g., create distinct type ifiklol as integer with comparisons (the with comparisons part is imp so that values of the new type can be comapred), structured types, and referenced types.</p>
+<p>Fun fact - sybase allows java objects to be stored in the DB.</p>
+<p>DBMSs have many inbuilt functions (e.g., CAST which are ANSI standard) and some of them even have support for user-defined functions. Type of functions in DB2 - scalar(take in indivlaul scalar values and return one scalar value),</p>
+<p>aggregate(return one scalar value per row-group), row, table(returns a table to the caller, can only be used in &lsquo;from&rsquo;).</p>
+<p>There are essentially two count functions - <code>count([all|distinct] expr)</code> and there&rsquo;s <code>count(*)</code> which returns number of rows.</p>
+<p><code>having</code> is like <code>where</code> other than the fact that it is applied on the result of the aggregate whereas <code>where</code> is applied before the aggregate operation is done.</p>
+<p>Group by allows for vector aggregates whereas if you omit it you get scalar aggregates.</p>
+<h3 id="joins">
+  Joins:
+  <a class="anchor" href="#joins">#</a>
+</h3>
+<ul>
+<li>Inner join - what you expect (you can omit the <code>inner</code> word and it&rsquo;s the same as inner join)</li>
+<li>Left outer join, right outer join, full outer join - all what you expect</li>
+<li>Cross join (aka cartesian product) - every row of first table is matched with every other row of other table. Syntax is <code>select * from table1 cross join table2</code></li>
+</ul>
+<p>Join done as part of <code>from</code> clause.</p>
+<p>If db has been modelled correctly, every table should have a primary key. In case of a multiple join, the DBMS may perform the join in any order it wishes. The joined table can be operated on like any other table, you can filter it with the <code>where</code> clause etc. If you want to apply a filter on one of the joining tables, add the filtering condition to the <code>on</code> with <code>and</code>. A DBMS can choose one of many join strategies to use for the join e.g., nested iteration (common), merge join (efficient on sorted rows / tables with indices), hash join.</p>
+<h3 id="subqueries">
+  Subqueries:
+  <a class="anchor" href="#subqueries">#</a>
+</h3>
+<p>Some of them can just be expressed as joins, in fact the query optimizer will convert them to join if required. You can use ANY / ALL also with the results of a single column subquery (which might seem similar to MIN / MAX except that minmax ignore NULL values). It&rsquo;s also pretty useful to use <code>exists</code> with them. Subqueries can appear in select, where, having, from etc. There are correlated queries (inner query references data from outer query) where the processor will run both queries together. Db2 can do set operations like union, intersect, except (all of them have options to retain duplicate rows) but both tables should have compatible types in the same order.</p>
+<h3 id="views">
+  Views
+  <a class="anchor" href="#views">#</a>
+</h3>
+<p>Views are just queries really. When you use a view, the SQL engine replaces it with the query that defines the view. If the tables referenced in the view are deleted / structure modified so view doesn&rsquo;t make sense, the engine will throw an error. There are restrictions on the queries that can be classified as views, they can&rsquo;t have <code>order by</code> or <code>distinct</code>. It is possible to have a view that updates a table (but only one!). You create one like so: <code>create view lolview as selectStatement</code> or even <code>create view lolview (nameForCol1, nameForCol2 ...) as selectStatement1 union selectStatement2 union selectStatement3</code>. Why views? They can help simplify queries. One major point for using them is that since they are replaced with their query, they can make use of current global variables (e.g., username, schema, etc) for whatever reason - maybe it should display different data to different users. Anyways, nowadays views have been supersed by (it is now recommended to use) Common Table Expressions :
+It&rsquo;s a DB2 concept. Can be created like so: <code>with CTEName as (selectStmt)</code>. This actually creates a temporary result table with the results of the query, this can then be used by other queries. The select statement in here can contain any valid SQL. It could even be a recursive query. This is more flexible than views. Db2 has the option to create global temporary tables which are stored in the DB and can be used many times whereas CTE can only be used in the scope they are defined. Temporary tables can be indexed and have constraints (unlike CTEs). A temp table based on the result of a query is known as an MQT (materialized query table). Syntax: <code>create summary table idkwhat as (selectStmt)</code>.
+CTEs aren&rsquo;t <strong>greaty</strong> for performance, if it creates an issue, go with MQTs.</p>
+<p>Inserting data: can do value wise or even insert into a table from some other table using insert .. select. To update table you do <code>update tbName set idkWhat = idkWhat + </code>nice stuff<code> where someVal &lt; 20</code>. Db2 has a fun <code>merge into someTab using selectStmt when matched then updateStmt when not matched insertStmt</code>. ASE has the ability to create a table from a query like so: <code>select ... into ...</code></p>
+<h3 id="creating-tables">
+  Creating tables:
+  <a class="anchor" href="#creating-tables">#</a>
+</h3>
+<p>It&rsquo;s possible to create them under a tablespace of your choice. A table while creation needs attributes and constraints (if they are there). The attributes can be of user defined types as well. A structured UDT can be made with <code>create type typeName as () mode db2sql</code>. Possible to add / alter / drop columns / constraints with <code>modify</code> command. Get info of table with <code>describe table tbName</code> and of tables with <code>list tables for schema schemaName</code>. Don&rsquo;t have to always provide data for column while adding row, if it is a generated column e.g., col3 double generated always as (col4*0.5). If you say <code>generated always as identity</code> it will autoincrement while <code>generated by default as</code> menas although it will autoincrement, you can specify a value if you want. What if you want a global value which you can increment? Create a <code>sequence</code>.</p>
+<h3 id="procedures">
+  Procedures:
+  <a class="anchor" href="#procedures">#</a>
+</h3>
+<p>A stored procedure is basically a block of SQL. You can pass it input &amp; output params like C#. It doesn&rsquo;t have a return value, you need to call with <code>CALL</code>. Then threre are also functions, which can return values and be used anywhere, the function can operate on a scalar value, row or even a table. Then there are functions which are part of structured types, which are called methods. A procedure could also be gotten from code written in other languages, this is called external routines.</p>
+<p>A trigger can execute code before / after certain action.</p>
+<h3 id="transactions">
+  Transactions:
+  <a class="anchor" href="#transactions">#</a>
+</h3>
+<p>While using a DB from multiple places, it&rsquo;s possible to have race conditions and so on. To prevent these, write code within transactions. A transaction has an isolation level meaning what kind of data anomalies it prevents and what it lets through. The common isolation levels are Uncomitted Read, Cursor Stability (the default), Read Stability, Repeatable Read. Also possible to lock tables &amp; rows explicitly. To get more info about the current running app in DB2, do <code>list applications show detail</code>.</p>
+<p>Why use an index? Improve read performance on queries.</p>
+<p>How does it improve performance? Reduces number of rows to search by ordering some data from them and using binary search.</p>
+<p>What exactly is an index? First, pick some index keys (i.e., columns or some calculated value involving some columns, these pre-calculated ones can actually be very efficient since the query can make use of the calculated result and not have to do them on its own). Then create a BTree (balanced search tree) where the comparison to place data is done on each index key, first to last (threfore, the order of the index keys is important). The data is stored on the leaf nodes, and the leaf nodes are connected through links as a doubly linked list. What exact data is stored in the element? The index keys for that row of the table and a rowID which is like a reference to the row in the table.</p>
+<p>The DBMS may choose to use the index in these ways for a query:</p>
+<ul>
+<li>KEY -&gt; use the index to find the required row</li>
+<li>RANGE -&gt; use the index to get a range of rows</li>
+<li>INDEX ONLY -&gt; not really using the index tree, but it traverses the leaf level linked list to find the required rows, this is faster than going through the table because the index element likely only contains a subset of elements the table rows has.</li>
+<li>ALL -&gt; doesn&rsquo;t use the index at all and searches through all rows of the table</li>
+</ul>
+<p>An index isn&rsquo;t a silver bullet. If not used correctly, or forcefully used, it might make the query slower (due to disk IO, as the index doesn&rsquo;t have all data and will need to fetch rows one by one from the table on disk as required). Always design an index based on the queries that are being run.</p>
+<p>B+Tree has the doubly linked list between the leaf nodes while a BTree doesn&rsquo;t. A query could make use of multiple indexes that exist in the system to optimize, ofc, it would be more efficient to make a single index that satisfies the needs of that query. What&rsquo;s the cost of indexes? RAM and disk usage. Also, insert and updates can get slower since the tree will have to rebalance itself.</p>
+<p>An index will have an entry for every row in the table. What if you don&rsquo;t want that? What if you&rsquo;re interested in only certain rows? Put a <code>where</code> clause while making the index and it create an index for only the filtered rows. This index will now only be used for any queries that operate on the same subset of rows.</p>
+<p>Fun fact: indexes can also be implemented by other data structures than Btrees e.g., hash table, GIN trees, BRIN trees (which all have their own use cases).</p>
+<p>How to figure out the query execution plan and what indexes the query might use? Do <code>explain select ...</code> or <code>explain analyze select ...</code></p>
+<p>The indexes we talk about above are known as non-clustered index, they have references to the rows in the table. Note that in these indexes, it is also possible to store some columns in the index but not have them part of the index key. Only the leaf nodes will have data of these columns.</p>
+<p>A clustered index is one where the leaf nodes are the actual pages of rows of the table itself. The table&rsquo;s rows have to be ordered acc to the index key for this to work. Since the table structure dependens on this index, there can only be one clustered index per table (this is usually the one with the primary key as the index key).</p>
+<p>When a table doesn&rsquo;t have a clustered index, it is called a heap because data isn&rsquo;t stored in any particular order and inserts / deletions don&rsquo;t happen wherever there is free space.</p>
+<p>Extra fun fact: when the table is a heap, the row reference for a non-clustered index is a pointer to the row, whereas when the table has a clustered index, the row reference for the non-clustered index is the index key to the row in the clustered index.</p>
+<p>It&rsquo;s a little difficult to decide if the clustered index should be changed or a non-clustered index should be created. A guideline is that the clustered index should be something that&rsquo;s used by many important queries which might return lots of rows, for most other cases (like for just a particular query), use a non-clustered index and check performance.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#fundamentals-of-dbs">Fundamentals of DBs</a>
+      <ul>
+        <li><a href="#sql">SQL</a>
+          <ul>
+            <li><a href="#joins">Joins:</a></li>
+            <li><a href="#subqueries">Subqueries:</a></li>
+            <li><a href="#views">Views</a></li>
+            <li><a href="#creating-tables">Creating tables:</a></li>
+            <li><a href="#procedures">Procedures:</a></li>
+            <li><a href="#transactions">Transactions:</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
